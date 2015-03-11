@@ -1,0 +1,254 @@
+<?php get_header(); ?>
+
+<?php
+	/* category variable */
+	$featured = 16;
+	$news = 4;
+	$arts = 15;
+	$opinions = 20;
+	$sports = 14;
+	$multimedia = 163;
+	$breaking = 13592;
+?>
+
+<header class="row">
+	<img src="<?php bloginfo( 'template_url' ); ?>/images/logo.png" class="logo" alt="The Statesman" width="700" />
+	<div class="currentissue large-text">
+		This Week&apos;s Issue<br />
+		<span class="coloredtext">
+		<?php 
+			$issuu = new Issuu_Latest_Issue();
+			if ($issuu->fetch()) {
+		  		echo $issuu->outputLink();
+			}
+		?>
+		</span>
+	</div>
+</header>
+<main>
+	<div class="hline hline-strong"></div>
+	<?php $args = array( 'posts_per_page' => 4, 'category__in' => array($breaking, $featured), 'category__not_in' => array($opinions, $multimedia) ); ?>
+	<?php $myposts = get_posts( $args ); ?>
+	<section class="row">
+		<div class="main vline-medium">
+			<?php if (!empty($myposts[0])) : ?>
+			<?php $post = $myposts[0]; ?>
+			<?php setup_postdata( $post ); ?>
+			<article class="hmedia">
+				<figure class="thumbnail thumbnail-lede">
+					<?php if ( has_post_thumbnail()) {the_post_thumbnail('medium');} ?>
+				</figure>
+				<div class="block">
+					<p class="articletype small-text"><?php the_excluded_category(array(16,883)); ?></p>
+					<h1 id="post-<?php the_ID(); ?>">
+						<a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
+					</h1>
+					<p class="metatext metatext-byline small-text">By <?php the_author_posts_link(); ?> / <a href="<?php the_archive_date(); ?>"><?php the_time('F j, Y'); ?></a></p>
+					<p class="excerpt"><?php get_excerpt(); ?></p>
+				</div>
+			</article>
+			<div class="hline hline-medium"></div>
+			<?php endif; ?>
+			<?php if (!empty($myposts[2])) : ?>
+			<?php $post = $myposts[2]; ?>
+			<?php setup_postdata( $post ); ?>
+			<article class="main-half vline-medium">
+				<p class="articletype small-text"><?php the_excluded_category(array(16,883)); ?></p>
+				<h3 id="post-<?php the_ID(); ?>">
+					<a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
+				</h3>
+				<p class="metatext metatext-byline small-text">By <?php the_author_posts_link(); ?> / <a href="<?php the_archive_date(); ?>"><?php the_time('F j, Y'); ?></a></p>
+				<p class="excerpt"><?php get_excerpt(); ?></p>
+			</article>
+			<?php endif; ?>
+			<?php if (!empty($myposts[3])) : ?>
+			<?php $post = $myposts[3]; ?>
+			<?php setup_postdata( $post ); ?>
+			<article class="main-half">
+				<p class="articletype small-text"><?php the_excluded_category(array(16,883)); ?></p>
+				<h3 id="post-<?php the_ID(); ?>">
+					<a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
+				</h3>
+				<p class="metatext metatext-byline small-text">By <?php the_author_posts_link(); ?> / <a href="<?php the_archive_date(); ?>"><?php the_time('F j, Y'); ?></a></p>
+				<p class="excerpt"><?php get_excerpt(); ?></p>
+			</article>
+		<?php endif; ?>
+		</div>
+		<?php if (!empty($myposts[1])) : ?>
+		<?php $post = $myposts[1]; ?>
+		<?php setup_postdata( $post ); ?>
+		<article class="sidebar vmedia">
+			<figure class="thumbnail thumbnail-sidebar">
+				<?php if ( has_post_thumbnail()) {the_post_thumbnail('medium');} ?>
+			</figure>
+			<div class="block">
+				<p class="articletype small-text"><?php the_excluded_category(array(16,883)); ?></p>
+				<h1 id="post-<?php the_ID(); ?>">
+					<a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
+				</h1>
+				<p class="metatext metatext-byline small-text">By <?php the_author_posts_link(); ?> / <a href="<?php the_archive_date(); ?>"><?php the_time('F j, Y'); ?></a></p>
+				<p class="excerpt"><?php get_excerpt(); ?></p>
+			</div>
+		</article>
+		<?php endif; ?>
+	</section>
+	<div class="hline hline-strong"></div>
+	<section class="row">
+		<?php $args = array( 'posts_per_page' => 8, 'category__not_in' => array($opinions, $multimedia, $featured) ); ?>
+		<?php $myposts = new WP_Query( $args ); ?>
+		<main class="main vline-medium">
+			<?php if ( $myposts->have_posts() ) : ?>
+			<?php while ( $myposts->have_posts() ) : ?>
+			<?php $myposts->the_post(); ?>
+			<article class="hmedia hmedia-list">
+				<figure class="thumbnail thumbnail-large">
+					<?php if ( has_post_thumbnail()) {the_post_thumbnail('medium');} ?>
+				</figure>
+				<div class="block">
+					<p class="articletype small-text"><?php the_excluded_category(array(16,883)); ?></p>
+					<h2 id="post-<?php the_ID(); ?>">
+						<a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
+					</h2>
+					<p class="metatext metatext-byline small-text">By <?php the_author_posts_link(); ?> / <a href="<?php the_archive_date(); ?>"><?php the_time('F j, Y'); ?></a></p>
+					<p class="excerpt"><?php get_excerpt(); ?></p>
+				</div>
+			</article>
+			<?php endwhile; ?>
+			<?php endif; ?>
+		</main>
+		<sidebar class="sidebar">
+			<?php $args = array( 'posts_per_page' => 1, 'cat' => $multimedia); ?>
+			<?php $myposts = new WP_Query( $args ); ?>
+			<?php if ( $myposts->have_posts() ) : ?>
+			<?php $myposts->the_post(); ?>
+			<h6><a href="<?php echo esc_url(get_category_link($multimedia)); ?>">Multimedia</a></h6>
+			<article class="vmedia">
+				<figure class="thumbnail thumbnail-sidebar">
+					<?php if ( has_post_thumbnail()) {the_post_thumbnail('medium');} ?>
+				</figure>
+				<div class="block">
+					<h2 id="post-<?php the_ID(); ?>">
+						<a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
+					</h2>
+					<p class="excerpt"><?php get_excerpt(); ?></p>
+				</div>
+			</article>
+			<div class="hline hline-medium"></div>
+			<?php endif; ?>
+			<?php $args = array( 'posts_per_page' => 1, 'cat' => $opinions ); ?>
+			<?php $myposts = new WP_Query( $args ); ?>
+			<?php if ( $myposts->have_posts() ) : ?>
+			<?php $myposts->the_post(); ?>
+			<h6><a href="<?php echo esc_url(get_category_link($opinions)); ?>">Opinions</a></h6>
+			<article class="vmedia">
+				<figure class="thumbnail thumbnail-sidebar">
+					<?php if ( has_post_thumbnail()) {the_post_thumbnail('medium');} ?>
+				</figure>
+				<div class="block">
+					<h2 id="post-<?php the_ID(); ?>">
+						<a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
+					</h2>
+					<p class="excerpt"><?php get_excerpt(); ?></p>
+				</div>
+			</article>
+			<?php endif; ?>
+		</sidebar>
+	</section>
+	<div class="hline hline-medium"></div>
+	<section class="row">
+		<div class="fourcolumn vspace vmedia">
+			<?php $args = array( 'posts_per_page' => 3, 'cat' => $news); ?>
+			<?php $myposts = new WP_Query( $args ); ?>
+			<h6><a href="<?php echo esc_url(get_category_link($news)); ?>">News</a></h6>
+			<?php if ( $myposts->have_posts() ) : ?>
+			<?php $myposts->the_post(); ?>
+			<figure class="thumbnail thumbnail-medium">
+				<?php if ( has_post_thumbnail()) {the_post_thumbnail('medium');} ?>
+			</figure>
+			<div class="block">
+				<p id="post-<?php the_ID(); ?>" class="metatext metatext-dark"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></p>
+				<?php while ( $myposts->have_posts() ) : ?>
+				<?php $myposts->the_post(); ?>
+				<p id="post-<?php the_ID(); ?>" class="metatext metatext-dark"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></p>
+				<?php endwhile; ?>
+				<?php endif; ?>
+			</div>
+		</div>
+		<div class="fourcolumn vspace vmedia">
+			<?php $args = array( 'posts_per_page' => 3, 'cat' => $arts ); ?>
+			<?php $myposts = new WP_Query( $args ); ?>
+			<h6><a href="<?php echo esc_url(get_category_link($arts)); ?>">Arts</a></h6>
+			<?php if ( $myposts->have_posts() ) : ?>
+			<?php $myposts->the_post(); ?>
+			<figure class="thumbnail thumbnail-medium">
+				<?php if ( has_post_thumbnail()) {the_post_thumbnail('medium');} ?>
+			</figure>
+			<div class="block">
+				<p id="post-<?php the_ID(); ?>" class="metatext metatext-dark"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></p>
+				<?php while ( $myposts->have_posts() ) : ?>
+				<?php $myposts->the_post(); ?>
+				<p id="post-<?php the_ID(); ?>" class="metatext metatext-dark"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></p>
+				<?php endwhile; ?>
+				<?php endif; ?>
+			</div>
+		</div>
+		<div class="fourcolumn vspace vmedia">
+			<?php $args = array( 'posts_per_page' => 3, 'cat' => $opinions ); ?>
+			<?php $myposts = new WP_Query( $args ); ?>
+			<h6><a href="<?php echo esc_url(get_category_link($opinions)); ?>">Opinions</a></h6>
+			<?php if ( $myposts->have_posts() ) : ?>
+			<?php $myposts->the_post(); ?>
+			<figure class="thumbnail thumbnail-medium">
+				<?php if ( has_post_thumbnail()) {the_post_thumbnail('medium');} ?>
+			</figure>
+			<div class="block">
+				<p id="post-<?php the_ID(); ?>" class="metatext metatext-dark"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></p>
+				<?php while ( $myposts->have_posts() ) : ?>
+				<?php $myposts->the_post(); ?>
+				<p id="post-<?php the_ID(); ?>" class="metatext metatext-dark"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></p>
+				<?php endwhile; ?>
+				<?php endif; ?>
+			</div>
+		</div>
+		<div class="fourcolumn vmedia">
+			<?php $args = array( 'posts_per_page' => 3, 'cat' => $sports ); ?>
+			<?php $myposts = new WP_Query( $args ); ?>
+			<h6><a href="<?php echo esc_url(get_category_link($sports)); ?>">Sports</a></h6>
+			<?php if ( $myposts->have_posts() ) : ?>
+			<?php $myposts->the_post(); ?>
+			<figure class="thumbnail thumbnail-medium">
+				<?php if ( has_post_thumbnail()) {the_post_thumbnail('medium');} ?>
+			</figure>
+			<div class="block">
+				<p id="post-<?php the_ID(); ?>" class="metatext metatext-dark"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></p>
+				<?php while ( $myposts->have_posts() ) : ?>
+				<?php $myposts->the_post(); ?>
+				<p id="post-<?php the_ID(); ?>" class="metatext metatext-dark"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></p>
+				<?php endwhile; ?>
+				<?php endif; ?>
+			</div>
+		</div>
+	</section>
+	<div class="hline hline-medium"></div>
+	<section class="row">
+		<div class="threecolumn vline-medium">
+			<h6>Issue Archive</h6>
+			<a href="http://issuu.com/sbstatesman"><img src="<?php bloginfo( 'template_url' ); ?>/images/footer-logo.png" alt="The Statesman" width="268" /></a>
+		</div>
+		<div class="threecolumn vline-medium">
+			<h6>Podcast</h6>
+			<a href="<?php echo get_tag_link(8469); ?>"><img src="<?php bloginfo( 'template_url' ); ?>/images/deadline.png" alt="Deadline" width="268" /></a>
+		</div>
+		<div class="threecolumn">
+			<h6>Social Media</h6>
+			<div class="iconbar iconbar-social">
+				<a href="http://facebook.com/sbstatesman"><img src="<?php bloginfo( 'template_url' ); ?>/images/facebook.png" alt="Facebook" /></a>
+				<a href="http://twitter.com/sbstatesman"><img src="<?php bloginfo( 'template_url' ); ?>/images/twitter.png" alt="Twitter" /></a>
+				<a href="http://instagram.com/sbstatesman"><img src="<?php bloginfo( 'template_url' ); ?>/images/instagram.png" alt="Instagram" /></a>
+				<a href="http://vimeo.com/sbstatesman"><img src="<?php bloginfo( 'template_url' ); ?>/images/vimeo.png" alt="Vimeo" /></a>
+			</div>
+		</div>
+	</section>
+	<div class="hline hline-medium"></div>
+</main>
+<?php get_footer(); ?>

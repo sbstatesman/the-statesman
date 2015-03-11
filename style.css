@@ -1,0 +1,401 @@
+/*
+Theme Name: The Statesman
+Description: A Wordpress theme for The Statesman — Stony Brook University's oldest student newspaper.
+Version: 1.0
+Author: Will Welch
+Author URI: http://sbstatesman.com/staff/
+*/
+
+body {
+	padding: 40px 0 10px 0; /* push for fixednav */
+	-webkit-font-smoothing: subpixel-antialiased; /* fix webkit font rendering */
+	font-family: Georgia, serif;
+	font-size: 14px;
+}
+
+/* reset */
+body, figure {
+	margin: 0;
+}
+a:link, a:visited {
+	text-decoration: none;
+	color: inherit;
+}
+a:hover, a:active {
+	text-decoration: underline;
+	color: inherit;
+}
+/* typography and branding */
+
+h1 {
+	font-size: 24px;
+	font-family: 'Droid Sans', sans-serif;
+	font-weight: 700;
+	margin: 0;
+	line-height: 1.25em;
+}
+h2 {
+	font-size: 20px;
+	font-family: 'Droid Sans', sans-serif;
+	font-weight: 700;
+	margin: 0;
+	line-height: 1.25em;
+}
+h3 {
+	font-size: 18px;
+	font-family: 'Droid Sans', sans-serif;
+	font-weight: 700;
+	margin: 0;
+	line-height: 1.25em;
+}
+h4 {
+	font-size: 16px;
+	font-family: 'Droid Sans', sans-serif;
+	font-weight: 700;
+	margin: 0;
+	line-height: 1.25em;
+}
+h5 {
+	font-size: 14px;
+	font-family: 'Droid Sans', sans-serif;
+	font-weight: 700;
+	margin: 0 0 10px 0;
+	line-height: 1.25em;
+}
+h6 {
+	font-size: 16px;
+	color: #005a9c;
+	text-transform: uppercase;
+	margin: 0 0 15px 0;
+}
+.large-text {
+	font-size: 16px;
+	margin: 5px;
+}
+.small-text {
+	font-size: 12px;
+}
+.coloredtext {
+	color: #005a9c;
+}
+.articletype {
+	text-transform: uppercase;
+	color: #005a9c;
+	font-family: 'Droid Sans', sans-serif;
+	font-weight: 700;
+	margin: 0 0 4px 0;
+}
+.excerpt {
+	font-size: 13px;
+	color:#4b4b4b;
+	line-height: 1.6em;
+	margin: 5px 0;
+}
+.headline {
+	font-size: 34px;
+	font-family: 'Droid Sans', sans-serif;
+	font-weight: 700;
+	margin: 0;
+	line-height: 1.2em;
+}
+.articletext {
+	line-height: 1.6em;
+}
+.articletext p {
+	margin-bottom: 1.3em;
+	margin-top: 0;
+	min-width: 100px;
+}
+.articletext p:before { /* to prevent text wrap for narrow column */
+  content: "";
+  width: 10em;
+  display: block;
+  overflow: hidden;
+}
+.metatext {
+	font-family: 'Droid Sans', sans-serif;
+	font-weight: 400;
+	line-height: 1.3em;
+	margin-bottom: 2px;
+	color: #4b4b4b;
+}
+.metatext-dark {
+	color: #000;
+}
+.metatext-colored {
+	color: #005a9c;
+}
+.metatext-byline {
+	margin: 8px 0;
+	text-transform: uppercase;
+}
+.left {
+	float: left;
+}
+.right {
+	float: right;
+}
+
+/* navigation */
+
+.fixednav {
+	width: 100%;
+	padding: 10px 0;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 5;
+}
+.fixednav-main {
+	text-transform: uppercase;
+	font-weight: 400;
+	font-family: 'Droid Sans', sans-serif;
+	background-color: #005a9c;
+}
+.horizontallist {
+	margin: 0;
+	padding: 0;
+	float: left;
+}
+.horizontallist li {
+	display: inline-block;
+	margin: 4px 0 0 26px;
+}
+.horizontallist li a {
+	text-decoration: none;
+	color: #fff;
+}
+.logo {
+	float: left;
+}
+.search {
+	width: 117px;
+	height: 20px;
+	margin: 0 10px;
+	float: right;
+	border: none;
+	outline: none;
+}
+.currentissue {
+	width: 200px;
+	margin: 45px 0 0 40px;
+	padding: 3px 0 3px 10px;
+	float: left;
+	border-left: 3px solid #005a9c;
+	line-height: 1.3em;
+}
+.sectionhead {
+	text-align: center;
+	position: relative;
+}
+.sectionhead-text {
+	font-size: 36px;
+	font-family: 'Droid Sans', sans-serif;
+	font-weight: 700;
+	text-transform: uppercase;
+}
+.sectionhead-text-centered {
+	padding: 0 20px;
+	background-color: #fff;
+}
+
+/* grid and lines */
+
+.container {
+	width: 960px;
+	margin: 0 auto;
+	padding: 0 10px;
+	position: relative;
+	overflow: auto;
+}
+.row {
+	overflow: auto;
+	margin: 10px 0;
+}
+.main {
+	width: 640px;
+	float: left;
+}
+.main-half {
+	width: 311px;
+	float: left;
+}
+.main-threeeigth {
+	width: 231px;
+	float: left;
+}
+.main-fiveeigth {
+	width: 391px;
+	float: left;
+}
+.sidebar {
+	width: 300px;
+	float: right;
+}
+.threecolumn {
+	width: 308px;
+	float: left;
+}
+.fourcolumn {
+	width: 227px;
+	float: left;
+}
+.twocolumn {
+	width: 48%;
+	padding: 0 1%;
+	float: left;
+}
+.vline-medium {
+	border-right: 1px solid #c8c8c8;
+	padding-right: 8px;
+	margin-right: 8px;
+}
+.vspace {
+	padding-right: 9px;
+	margin-right: 8px;
+}
+.hline {
+	margin: 15px 0;
+	clear: both;
+	width: 100%;
+}
+.hline-background {
+	position: absolute;
+	top: 6px;
+	z-index: -1;
+	border-top: 1px solid #c8c8c8;
+}
+.hline-strong {
+	border-top: 1px solid #000;
+}
+.hline-medium {
+	border-top: 1px solid #c8c8c8;
+}
+
+/* media objects */
+
+.hmedia, .hmedia .block, .vmedia, .vmedia .block {
+	overflow: auto;
+}
+.vmedia {
+	margin-bottom: 10px;
+}
+.hmedia-list {
+	margin-bottom: 25px;
+}
+.hmedia .thumbnail {
+	float: left;
+	margin-right: 15px;
+	overflow: hidden;
+}
+.vmedia .thumbnail {
+	margin-bottom: 10px;
+	overflow: hidden;
+}
+.thumbnail img {
+	width: 100%;
+	height: auto;
+}
+.thumbnail-lede {
+	width: 390px;
+	height: calc(390px * 2/3);
+}
+.thumbnail-sidebar {
+	width: 300px;
+	height: calc(300px * 2/3);
+}
+.thumbnail-large { /* news featured, main latest */
+	width: 230px;
+	height: calc(230px * 2/3);
+}
+.thumbnail-medium { /* main sections */
+	width: 214px;
+	height: calc(214px * 2/3);
+}
+.thumbnail-small {
+	width: 195px;
+	height: calc(195px * 2/3);
+}
+.thumbnail-xsmall {
+	width: 90px;
+	height: calc(90px * 2/3);
+}
+
+/* icon objects */
+
+.iconbar {
+	display: inline-block;
+	vertical-align: middle;
+}
+.iconbar img {
+	margin-right: 10px;
+}
+.iconbar-social img {
+	width: 60px;
+	height: 60px;
+}
+.iconbar-tool {
+	margin-left: 16px;
+}
+.iconbar-tool img {
+	width: 16px;
+	height: 16px;
+}
+.iconbar-search {
+	width: 20px;
+	height: 20px;
+	float: right;
+}
+
+/* image styles */
+.photo {
+	margin-bottom: 5px;
+}
+.photo img {
+	width: 100%;
+}
+.photo-feature {
+	width: 550px;
+}
+.photo-half {
+	width: 240px;
+}
+
+/* Wordpress styles */
+
+body.customize-support .fixednav { /* admin bar fix */
+    width: 100%;
+	padding: 10px 0;
+	position: fixed;
+	top: 28px;
+	left: 0;
+	z-index: 5;
+}
+.alignright { float: right; margin: 0 0 1em 1em;}
+.alignleft { float: left; margin: 0 1em 1em 0;}
+.aligncenter { display: block; margin-left: auto; margin-right: auto; }
+
+.wp-caption{
+	font-family: 'Droid Sans', sans-serif;
+	font-weight: 400;
+	line-height: 1.4em;
+	margin-bottom: 16px;
+	color: #4b4b4b;
+	font-size: 12px;
+	max-width: 100%;
+}
+.content-width img {
+	max-width: 100%;
+	height: auto;
+	margin-bottom: 5px;
+}
+.content-width iframe {
+	max-width: 100%;
+}
+.content-width {
+	width: 600px;
+}
+.wp-content a {
+	text-decoration: underline;
+	color: #005a9c;
+}

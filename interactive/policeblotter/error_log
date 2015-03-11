@@ -1,0 +1,2 @@
+[29-Jan-2015 17:51:52 America/Chicago] PHP Fatal error:  Call to undefined function get_header() in /home4/stateman/public_html/interactive/policeblotter/police-blotter.php on line 1
+[29-Jan-2015 23:01:29 America/Chicago] PHP Fatal error:  Call to undefined function get_header() in /home4/stateman/public_html/wp-content/themes/thestatesman/interactive/policeblotter/index.php on line 1

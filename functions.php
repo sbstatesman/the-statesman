@@ -103,7 +103,7 @@ function headline_count(){
     '<script>
 	    jQuery(document).ready(function(){
 	    	var limit = 70;
-			jQuery("#titlediv #title").before("<div style=\"float:right;margin-bottom:2px;\"><small>Characters left: </small><input type=\"text\" value=\"" + limit + "\" maxlength=\"3\" size=\"3\" id=\"headline_counter\" readonly=\"\" style=\"background:#fff;\"></div>");
+			jQuery("#titlediv #title-prompt-text").before("<div style=\"width:100%;text-align:right;margin-bottom:2px;\"><small>Characters left: </small><input type=\"text\" value=\"" + limit + "\" maxlength=\"3\" size=\"3\" id=\"headline_counter\" readonly=\"\" style=\"background:#fff;\"></div>");
 	    	jQuery("#headline_counter").val(limit-jQuery("#title").val().length);
 	    	if (jQuery("#title").val().length > limit) {
     			jQuery("#headline_counter").css("color", "#f00");

@@ -78,10 +78,8 @@ function excerpt_count_js(){
 	    	jQuery("#excerpt_counter").val(limit-jQuery("#excerpt").val().length);
 	    	if (jQuery("#excerpt").val().length > limit) {
     			jQuery("#excerpt_counter").css("color", "#f00");
-    			jQuery("#publish").attr("type","hidden");
     		} else {
     			jQuery("#excerpt_counter").css("color", "#666");
-    			jQuery("#publish").attr("type","submit");
     		}
 	    	jQuery("#excerpt").keyup( function() {
 	    		jQuery("#excerpt_counter").val(limit-jQuery("#excerpt").val().length);
@@ -107,10 +105,8 @@ function headline_count(){
 	    	jQuery("#headline_counter").val(limit-jQuery("#title").val().length);
 	    	if (jQuery("#title").val().length > limit) {
     			jQuery("#headline_counter").css("color", "#f00");
-    			jQuery("#publish").attr("type","hidden");
     		} else {
     			jQuery("#headline_counter").css("color", "#666");
-    			jQuery("#publish").attr("type","submit");
     		}
 	    	jQuery("#title").keyup( function() {
 	    		jQuery("#headline_counter").val(limit-jQuery("#title").val().length);

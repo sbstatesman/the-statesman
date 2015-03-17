@@ -73,10 +73,23 @@ function excerpt_count_js(){
     echo
     '<script>
 	    jQuery(document).ready(function(){
-			jQuery("#postexcerpt .handlediv").after("<div style=\"position:absolute;top:3px;right:30px;color:#666;\"><small>Characters left: </small><input type=\"text\" value=\"175\" maxlength=\"3\" size=\"3\" id=\"excerpt_counter\" readonly=\"\" style=\"background:#fff;\"></div>");
-	    	jQuery("#excerpt_counter").val(175-jQuery("#excerpt").val().length);
+	    	var limit = 175;
+			jQuery("#postexcerpt .handlediv").after("<div style=\"position:absolute;top:3px;right:30px;color:#666;\"><small>Characters left: </small><input type=\"text\" value=\"" + limit + "\" maxlength=\"3\" size=\"3\" id=\"excerpt_counter\" readonly=\"\" style=\"background:#fff;\"></div>");
+	    	jQuery("#excerpt_counter").val(limit-jQuery("#excerpt").val().length);
+	    	if (jQuery("#excerpt").val().length > limit) {
+    			jQuery("#excerpt_counter").css("color", "#f00");
+    			jQuery("#publish").attr("type","hidden");
+    		} else {
+    			jQuery("#excerpt_counter").css("color", "#666");
+    			jQuery("#publish").attr("type","submit");
+    		}
 	    	jQuery("#excerpt").keyup( function() {
-	    		jQuery("#excerpt_counter").val(175-jQuery("#excerpt").val().length);
+	    		jQuery("#excerpt_counter").val(limit-jQuery("#excerpt").val().length);
+	    		if (jQuery("#excerpt").val().length > limit) {
+	    			jQuery("#excerpt_counter").css("color", "#f00");
+	    		} else {
+	    			jQuery("#excerpt_counter").css("color", "#666");
+	    		}
 	    	});
 		});
 	</script>';
@@ -84,6 +97,34 @@ function excerpt_count_js(){
 add_action( 'admin_head-post.php', 'excerpt_count_js');
 add_action( 'admin_head-post-new.php', 'excerpt_count_js');
 
+/* adds headline character counter into the new post page */
+function headline_count(){
+    echo
+    '<script>
+	    jQuery(document).ready(function(){
+	    	var limit = 70;
+			jQuery("#titlediv #title").before("<div style=\"float:right;margin-bottom:2px;\"><small>Characters left: </small><input type=\"text\" value=\"" + limit + "\" maxlength=\"3\" size=\"3\" id=\"headline_counter\" readonly=\"\" style=\"background:#fff;\"></div>");
+	    	jQuery("#headline_counter").val(limit-jQuery("#title").val().length);
+	    	if (jQuery("#title").val().length > limit) {
+    			jQuery("#headline_counter").css("color", "#f00");
+    			jQuery("#publish").attr("type","hidden");
+    		} else {
+    			jQuery("#headline_counter").css("color", "#666");
+    			jQuery("#publish").attr("type","submit");
+    		}
+	    	jQuery("#title").keyup( function() {
+	    		jQuery("#headline_counter").val(limit-jQuery("#title").val().length);
+	    		if (jQuery("#title").val().length > limit) {
+	    			jQuery("#headline_counter").css("color", "#f00");
+	    		} else {
+	    			jQuery("#headline_counter").css("color", "#666");
+	    		}
+	    	});
+		});
+	</script>';
+}
+add_action( 'admin_head-post.php', 'headline_count');
+add_action( 'admin_head-post-new.php', 'headline_count');
 
 add_image_size( 'half-width', 300 );
 add_image_size( 'full-width', 600 );

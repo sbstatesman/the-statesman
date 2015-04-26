@@ -209,7 +209,7 @@ h6 {
 	overflow: auto;
 }
 .row {
-	overflow: auto;
+	overflow: hidden;
 	margin: 10px 0;
 }
 .main {

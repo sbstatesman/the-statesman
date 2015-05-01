@@ -1,16 +1,5 @@
 <?php get_header(); ?>
 
-<?php
-	/* category variable */
-	$featured = 16;
-	$news = 4;
-	$arts = 15;
-	$opinions = 20;
-	$sports = 14;
-	$multimedia = 163;
-	$breaking = 13592;
-?>
-
 <header class="row">
 	<img src="<?php bloginfo( 'template_url' ); ?>/images/logo.png" class="logo" alt="The Statesman" width="700" />
 	<div class="currentissue large-text">
@@ -39,7 +28,7 @@
 					<?php if ( has_post_thumbnail()) {the_post_thumbnail('medium');} ?>
 				</figure>
 				<div class="block">
-					<p class="articletype small-text"><?php the_excluded_category(array(16,883)); ?></p>
+					<p class="articletype small-text"><?php the_excluded_category(array($featured, $top_story)); ?></p>
 					<h1 id="post-<?php the_ID(); ?>">
 						<a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
 					</h1>
@@ -53,7 +42,7 @@
 			<?php $post = $myposts[2]; ?>
 			<?php setup_postdata( $post ); ?>
 			<article class="main-half vline-medium">
-				<p class="articletype small-text"><?php the_excluded_category(array(16,883)); ?></p>
+				<p class="articletype small-text"><?php the_excluded_category(array($featured, $top_story)); ?></p>
 				<h3 id="post-<?php the_ID(); ?>">
 					<a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
 				</h3>
@@ -65,7 +54,7 @@
 			<?php $post = $myposts[3]; ?>
 			<?php setup_postdata( $post ); ?>
 			<article class="main-half">
-				<p class="articletype small-text"><?php the_excluded_category(array(16,883)); ?></p>
+				<p class="articletype small-text"><?php the_excluded_category(array($featured, $top_story)); ?></p>
 				<h3 id="post-<?php the_ID(); ?>">
 					<a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
 				</h3>
@@ -82,7 +71,7 @@
 				<?php if ( has_post_thumbnail()) {the_post_thumbnail('medium');} ?>
 			</figure>
 			<div class="block">
-				<p class="articletype small-text"><?php the_excluded_category(array(16,883)); ?></p>
+				<p class="articletype small-text"><?php the_excluded_category(array($featured, $top_story)); ?></p>
 				<h1 id="post-<?php the_ID(); ?>">
 					<a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
 				</h1>
@@ -105,7 +94,7 @@
 					<?php if ( has_post_thumbnail()) {the_post_thumbnail('medium');} ?>
 				</figure>
 				<div class="block">
-					<p class="articletype small-text"><?php the_excluded_category(array(16,883)); ?></p>
+					<p class="articletype small-text"><?php the_excluded_category(array($featured, $top_story)); ?></p>
 					<h2 id="post-<?php the_ID(); ?>">
 						<a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
 					</h2>
@@ -175,9 +164,9 @@
 			</div>
 		</div>
 		<div class="fourcolumn vspace vmedia">
-			<?php $args = array( 'posts_per_page' => 3, 'cat' => $arts ); ?>
+			<?php $args = array( 'posts_per_page' => 3, 'cat' => $arts_and_entertainment ); ?>
 			<?php $myposts = new WP_Query( $args ); ?>
-			<h6><a href="<?php echo esc_url(get_category_link($arts)); ?>">Arts</a></h6>
+			<h6><a href="<?php echo esc_url(get_category_link($arts_and_entertainment)); ?>">Arts</a></h6>
 			<?php if ( $myposts->have_posts() ) : ?>
 			<?php $myposts->the_post(); ?>
 			<figure class="thumbnail thumbnail-medium">

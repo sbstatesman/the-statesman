@@ -28,7 +28,7 @@
 			</article>
 			<div class="hline hline-medium"></div>
 			<?php endif; ?>
-			<h6><a href="<?php echo get_category_link(14); ?>">Sports</a></h6>
+			<h6><a href="<?php echo get_category_link($sports); ?>">Sports</a></h6>
 			<div class="twocolumn">
 				<h5><a href="<?php echo get_tag_link(1252); ?>">Men's Basketball</a></h5>
 				<h5><a href="<?php echo get_tag_link(17); ?>">Women's Basketball</a></h5>
@@ -47,7 +47,7 @@
 		</sidebar>
 		<main class="main vline-medium">
 			<div class="main-threeeigth vline-medium">
-				<?php $args = array( 'posts_per_page' => 3, 'offset' => 1, 'category__and' => array(883, 14), 'tag__not_in' => array(13105)); ?>
+				<?php $args = array( 'posts_per_page' => 3, 'offset' => 1, 'category__and' => array($top_story, $sports), 'tag__not_in' => array(13105)); ?>
 				<?php $myposts = new WP_Query( $args ); ?>
 				<?php if ( $myposts->have_posts() ) : ?>
 				<?php while ( $myposts->have_posts() ) : ?>
@@ -68,7 +68,7 @@
 				<?php endif; ?>
 			</div>
 			<div class="main-fiveeigth">
-				<?php $args = array( 'posts_per_page' => 1, 'category__and' => array(883, 14), 'tag__not_in' => array(13105)); ?>
+				<?php $args = array( 'posts_per_page' => 1, 'category__and' => array($top_story, $sports), 'tag__not_in' => array(13105)); ?>
 				<?php $myposts = new WP_Query( $args ); ?>
 				<?php if ( $myposts->have_posts() ) : ?>
 				<?php $myposts->the_post(); ?>
@@ -86,7 +86,7 @@
 				</article>
 				<div class="hline hline-medium"></div>
 				<?php endif; ?>
-				<?php $args = array( 'posts_per_page' => 5, 'cat' => 14, 'category__not_in' => 883, 'tag__not_in' => array(13105));?>
+				<?php $args = array( 'posts_per_page' => 5, 'cat' => $sports, 'category__not_in' => $top_story, 'tag__not_in' => array(13105));?>
 				<?php $myposts = new WP_Query( $args ); ?>
 				<?php if ( $myposts->have_posts() ) : ?>
 				<?php while ( $myposts->have_posts() ) : ?>

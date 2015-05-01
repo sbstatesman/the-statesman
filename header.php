@@ -4,6 +4,18 @@
 Join The Statesman Web & Graphics Section: https://www.facebook.com/groups/1481474198792246/
 -->
 
+<?php
+	/* pull in category variables from functions.php */
+	global $featured;
+	global $top_story;
+	global $news;
+	global $arts_and_entertainment;
+	global $opinions;
+	global $sports;
+	global $multimedia;
+	global $breaking;
+?>
+
 <html <?php language_attributes(); ?>>
 	<head>
 		<link rel="shortcut icon" href="<?php bloginfo( 'template_url' ); ?>/favicon.ico" />
@@ -68,11 +80,11 @@ Join The Statesman Web & Graphics Section: https://www.facebook.com/groups/14814
 			<div class="container">
 				<a href="<?php echo site_url(); ?>"><img src="<?php bloginfo( 'template_url' ); ?>/images/nav-logo.png" class="logo" alt="The Statesman" width="162" height="20" /></a>
 				<ul class="horizontallist">
-					<li><a href="<?php echo get_category_link(4); ?>">News</a></li>
-					<li><a href="<?php echo get_category_link(15); ?>">Arts &amp; Entertainment</a></li>
-					<li><a href="<?php echo get_category_link(20); ?>">Opinions</a></li>
-					<li><a href="<?php echo get_category_link(14); ?>">Sports</a></li>
-					<li><a href="<?php echo get_category_link(163); ?>">Multimedia</a></li>
+					<li><a href="<?php echo get_category_link( $news ); ?>">News</a></li>
+					<li><a href="<?php echo get_category_link( $arts_and_entertainment ); ?>">Arts &amp; Entertainment</a></li>
+					<li><a href="<?php echo get_category_link( $opinions ); ?>">Opinions</a></li>
+					<li><a href="<?php echo get_category_link( $sport ); ?>">Sports</a></li>
+					<li><a href="<?php echo get_category_link( $multimedia ); ?>">Multimedia</a></li>
 					<li><a href="<?php echo get_page_link(18318); ?>">About</a></li>
 				</ul>
 				<?php get_search_form(); ?>

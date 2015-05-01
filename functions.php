@@ -39,6 +39,17 @@ if ( ! isset( $content_width ) ) {
 	$content_width = 600;
 }
 
+/* gobal variables for running queries */
+
+$featured = get_category_by_slug('featured')->term_id;
+$top_story = get_category_by_slug('top-story')->term_id;
+$news = get_category_by_slug('news')->term_id;
+$arts_and_entertainment = get_category_by_slug('arts-and-entertainment')->term_id;
+$opinions = get_category_by_slug('opinions')->term_id;
+$sports = get_category_by_slug('sports')->term_id;
+$multimedia = get_category_by_slug('multimedia')->term_id;
+$breaking = get_category_by_slug('breaking')->term_id;
+
 /* Pulls the post feature image for social media meta tags */
 function get_ogimg() {
 	/* try get a post thumbnail first */
@@ -161,7 +172,7 @@ function the_excluded_category($excludedcats = array()){
 	$categories = get_the_category();
 	foreach($categories as $category) {
 		$count++;
-		if ($category->cat_ID == 13592) {
+		if ($category->cat_ID == $breaking) {
 			$displayed_categories = '<a href="' . get_category_link( $category->term_id ) . '" style="color: red;"' . ' title="' . $category->name . '" ' . '>' . $category->name.'</a>';
 			break;
 		}

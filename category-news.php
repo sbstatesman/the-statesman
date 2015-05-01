@@ -56,7 +56,7 @@
 		</sidebar>
 		<main class="main vline-medium">
 			<div class="main-threeeigth vline-medium">
-				<?php $args = array( 'posts_per_page' => 3, 'offset' => 1, 'category__and' => array(883, 4), 'tag__not_in' => array(4018, 4026)); ?>
+				<?php $args = array( 'posts_per_page' => 3, 'offset' => 1, 'category__and' => array($top_story, $news), 'tag__not_in' => array(4018, 4026)); ?>
 				<?php $myposts = new WP_Query( $args ); ?>
 				<?php if ( $myposts->have_posts() ) : ?>
 				<?php while ( $myposts->have_posts() ) : ?>
@@ -77,7 +77,7 @@
 				<?php endif; ?>
 			</div>
 			<div class="main-fiveeigth">
-				<?php $args = array( 'posts_per_page' => 3, 'category__and' => array(883, 4), 'tag__not_in' => array(4018, 4026)); ?>
+				<?php $args = array( 'posts_per_page' => 3, 'category__and' => array($top_story, $news), 'tag__not_in' => array(4018, 4026)); ?>
 				<?php $myposts = new WP_Query( $args ); ?>
 				<?php if ( $myposts->have_posts() ) : ?>
 				<?php $myposts->the_post(); ?>
@@ -95,7 +95,7 @@
 				</article>
 				<div class="hline hline-medium"></div>
 				<?php endif; ?>
-				<?php $args = array( 'posts_per_page' => 5, 'cat' => 4, 'category__not_in' => 883, 'tag__not_in' => array(4018, 4026));?>
+				<?php $args = array( 'posts_per_page' => 5, 'cat' => $news, 'category__not_in' => $top_story, 'tag__not_in' => array(4018, 4026));?>
 				<?php $myposts = new WP_Query( $args ); ?>
 				<?php if ( $myposts->have_posts() ) : ?>
 				<?php while ( $myposts->have_posts() ) : ?>

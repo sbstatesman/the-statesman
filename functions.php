@@ -172,7 +172,7 @@ function the_excluded_category($excludedcats = array()){
 	$categories = get_the_category();
 	foreach($categories as $category) {
 		$count++;
-		if ($category->cat_ID == global $breaking) {
+		if ($category->cat_ID == $breaking) {
 			$displayed_categories = '<a href="' . get_category_link( $category->term_id ) . '" style="color: red;"' . ' title="' . $category->name . '" ' . '>' . $category->name.'</a>';
 			break;
 		}

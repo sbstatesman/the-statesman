@@ -117,6 +117,8 @@
 			<?php endif; ?>
 		</main>
 		<sidebar class="sidebar">
+			<a href="http://sbstatesman.com/wp-content/themes/the-statesman/interactive/elections2015/"><img src="<?php bloginfo( 'template_url' ); ?>/images/2015-elections-banner.png" alt="2015 USG Elections Guide" width="300" /></a>
+			<div class="hline hline-medium"></div>
 			<?php $args = array( 'posts_per_page' => 1, 'cat' => $multimedia); ?>
 			<?php $myposts = new WP_Query( $args ); ?>
 			<?php if ( $myposts->have_posts() ) : ?>

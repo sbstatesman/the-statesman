@@ -69,16 +69,24 @@
 	margin-top: 1em;
 	cursor: pointer;
 }
-.candidate-selection:hover {
-	background-color: #199c00;
-}
 
 .bgcolor-blue {
 	background-color: #005a9c;
 }
+.bgcolor-blue:hover {
+	background-color: #199c00;
+}
 .bgcolor-green {
 	background-color: #199c00;
 }
+.bgcolor-gray {
+	background-color: #aaa;
+}
+.bgcolor-red {
+	background-color: #990000;
+}
+
+
 
 .candidate-details {
 	margin-bottom: 1em;

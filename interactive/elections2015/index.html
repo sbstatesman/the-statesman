@@ -79,18 +79,10 @@ Join The Statesman Web & Graphics Section: https://www.facebook.com/groups/14814
 	</body>
 
 	<script type="text/template" id="candidateTemplate">
-		<div class="candidate-selection bgcolor-blue <%= makeClassName(name) %> <%= makeClassName(position) %>"
-			<% if (position == 'CAS Senator') { %>
-				onclick="selectSenCandidate('.<%= makeClassName(name) %>', '.<%= makeClassName(position) %>', 12)">
-			<% } else if (position == 'CEAS Senator') { %>
-				onclick="selectSenCandidate('.<%= makeClassName(name) %>', '.<%= makeClassName(position) %>', 3)">
-			<% } else if (position == 'HSC Senator') { %>
-				onclick="selectSenCandidate('.<%= makeClassName(name) %>', '.<%= makeClassName(position) %>', 1)">
-			<% } else if (position == 'Senior Class Senator' || position == 'Junior Class Senator' || position == 'Sophomore Class Senator') { %>
-				onclick="selectClassCandidate('.<%= makeClassName(name) %>')">
-			<% } else { %>
-				onclick="selectECCandidate('.<%= makeClassName(name) %>', '.<%= makeClassName(position) %>')">
-			<% } %>
+		<div class="candidate-selection <%= makeClassName(name) %> <%= makeClassName(position) %> <% if (won == 'runoff') { %>bgcolor-blue<% } else if (won == 'TRUE') { %>bgcolor-red<% } else { %>bgcolor-gray<% } %>"
+			<% if (won == 'runoff') { %>
+				onclick="selectECCandidate('.<%= makeClassName(name) %>', '.<%= makeClassName(position) %>')
+			<% } %>">
 		</div>
     	<div class="candidate hmedia" onclick="showDetails('.<%= makeClassName(name) %>')">
 			
@@ -284,7 +276,7 @@ Join The Statesman Web & Graphics Section: https://www.facebook.com/groups/14814
 		}
 
 		function updateBallot(){
-			var ballot = '<div class="container-mobile"><div class="left">Executive Council: ' + eCPositionCount + '-7</div> ' + '<div class="right">Senators: ' + (classSenatorCount+CASSenatorCount+CEASSenatorCount+HSCSenatorCount) + '-17</div></div>';
+			var ballot = '<div class="container-mobile"><div class="center">Runoff candidates: ' + eCPositionCount + '-6</div></div>';
 			$( '#ballot' ).html(ballot);
 		}
 		updateBallot();

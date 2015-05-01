@@ -167,6 +167,7 @@ add_filter( 'post_thumbnail_html', 'my_post_image_html', 10, 3 );
 
 /* displays categories with specified exclusions, i.e. featured and top story - displays breaking stories in red */
 function the_excluded_category($excludedcats = array()){
+	global $breaking;
 	$count = 0;
 	$displayed_categories = '';
 	$categories = get_the_category();

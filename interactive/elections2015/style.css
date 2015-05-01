@@ -1,0 +1,117 @@
+.container-mobile {
+	width: 96%;
+	padding: 0 2%;
+	position: relative;
+	overflow: auto;
+}
+@media (min-width: 680px) {
+	.container-mobile-text {
+		width: 680px;
+		margin: 0 auto;
+	}
+}
+.third {
+	width: 33%;
+	padding: 15px;
+	box-sizing: border-box;
+	display: inline-block;
+	vertical-align: top;
+}
+@media (max-width: 1200px) {
+	.third {
+		width: 48%;
+	}
+}
+@media (max-width: 800px) {
+	.third {
+		width: 100%;
+	}
+}
+.center {
+	text-align: center;
+}
+.xlarge-text {
+	font-size: 20px;
+}
+
+
+.candidate {
+	padding: 6% 3% 3% 3%;
+	margin-bottom: 1em;
+	overflow: auto;
+	background-color: #eee;
+	font-family: arial, sans-serif;
+	position: relative;
+}
+.candidate-description.block {
+	overflow: hidden;
+}
+.candidate:hover {
+	background-color: #ddd;
+}
+
+.candidate-photo {
+	width: 8em;
+}
+.candidate-description {
+	margin-right: 2em;
+}
+.candidate-description ul {
+	padding: 0;
+	list-style: none;
+}
+.candidate-description li {
+	margin-bottom: .6em;
+}
+
+.candidate-selection {
+	height: 1em;
+	margin-top: 1em;
+	cursor: pointer;
+}
+.candidate-selection:hover {
+	background-color: #199c00;
+}
+
+.bgcolor-blue {
+	background-color: #005a9c;
+}
+.bgcolor-green {
+	background-color: #199c00;
+}
+
+.candidate-details {
+	margin-bottom: 1em;
+	padding: 3%;
+	border: 1px solid #005a9c;
+	font-family: arial, sans-serif;
+	display: none;
+}
+
+.ballot-status {
+	width: 100%;
+	background-color: #eee;
+	overflow: hidden;
+	border: 1px solid #ccc;
+	border-left: 0;
+	border-right: 0;
+	font-family: 'Droid Sans', sans-serif;
+	font-weight: 700;
+	font-size: 1.25em;
+	position: fixed;
+	top: 40;
+	left: 0;
+	z-index: 5;
+}
+.position-head {
+	width: 100%;
+	margin: 1.5em 0;
+	background-color: #eee;
+	padding: .25em;
+	border: 1px solid #ccc;
+	border-left: 0;
+	border-right: 0;
+	text-align: center;
+	color: #000;
+	font-size: 1.75em;
+}

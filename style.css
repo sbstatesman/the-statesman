@@ -8,72 +8,189 @@ Author URI: http://sbstatesman.com/
 
 /* Added by Garret */
 
-.noscroll {
-  overflow: hidden !important;
+.gallery-container {
+  height: calc(640px * 2 / 3 * 1/.9);
+  width: 640px;
+  position: relative;
 }
 
+.slickmebaby {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.slick-list, .slick-track {
+  height: 100%;
+}
+
+.slick-item {
+  height: 100%;
+}
+
+.imagearea {
+  height: 90%;
+}
+
+.textarea {
+  height: 10%;
+}
+
+.slick-item img {
+  max-height: 100%;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  margin: auto;
+}
+
+.arrows-container {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  top: calc(50% - 35px);
+}
+
+.arrow-left, .arrow-right {
+  z-index: 1;
+  transition: opacity 0.15s cubic-bezier(0.33, 0.66, 0.66, 1) 0s;
+  position: absolute;
+  background-color: #ffffff;
+  opacity: 0.5;
+  padding: 2em 1em;
+}
+
+.arrow-left img, .arrow-right img {
+  vertical-align: middle;
+}
+
+.arrow-left:hover, .arrow-right:hover {
+  cursor: pointer;
+  opacity: 1;
+}
+
+.arrow-left {
+  left: 0;
+}
+
+.arrow-right {
+  right: 0;
+}
+
+
+.slick-dots {
+  bottom: -45px;
+  display: block;
+  list-style: none outside none;
+  padding: 0;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+}
+
+.slick-dots li {
+    cursor: pointer;
+    display: inline-block;
+    height: 20px;
+    margin: 0 5px;
+    padding: 0;
+    position: relative;
+    width: 20px;
+}
+
+.slick-dots li.slick-active button:before {
+    color: #000000;
+    opacity: 0.75;
+}
+
+.slick-dots li button:before {
+    background-color: #808080;
+    color: #000000;
+    content: ".";
+    font-size: 6px;
+    height: 20px;
+    left: 0;
+    line-height: 20px;
+    opacity: 0.25;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    width: 20px;
+}
+.slick-dots li button {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border: 0 none;
+    color: rgba(0, 0, 0, 0);
+    cursor: pointer;
+    display: block;
+    font-size: 0;
+    height: 20px;
+    line-height: 0;
+    outline: medium none;
+    padding: 5px;
+    width: 20px;
+}
+
+
+
+
+
+
+/* these need to go */
 .multicontent {
-  height: 375px;
+  min-height: 450px;
+}
+
+.multicontent iframe {
+  width: 640px;
+  height: 450px;
 }
 
 .multislug {
   margin-top: 10px;
-  height: 70px;
+  
 }
 
-.newcontainer {
-  width: calc(227*4 + 30);
-  height: 195px;
+/* Code specific for images in a sliding list. They need to be the same size.
+ * I think this is important for any horizontal list of images, for aesthetics.
+ */
+/* possible bugfix for thumbnail, if the image is smaller than height, the 
+   figure will be larger than the image */
+.thumbnail-min img {
+  width: 100%;
+  height: 100%;
 }
-
-.newlist-container {
+.hmedia .thumbnail-min {
+  float: left;
+  margin-right: 15px;
   overflow: hidden;
-  width: calc(227*4);
-  float: left;
-  height: 195px;
 }
-
-.newlist {
-  min-width: 1400px;
-  float: left;
-}
-
-.newitem {
-  width: 227px;
-  float: left;
-  position: relative;
-}
-
-.newprev {
-  height: 195px;
-  line-height: 195px;
-  width: 15px;
-  float: left;
-}
-
-.newnext {
-  height: 195px;
-  line-height: 195px;
-  width: 15px;
-  float: right;
-}
-
-.newprev img, .newnext img {
-  vertical-align: middle;
-  max-height: 87px;
-  max-width: 15px;
+.vmedia .thumbnail-min {
+  margin-bottom: 10px;
+  overflow: hidden;
 }
 
 
+.slideTitle {
+  margin-top: 8px;
+}
+
+/* I think the previous two classes should be spun off into generic styling 
+ * rules for horizontal lists. I do not want to encourage any coupling between
+ * the rules for styling a sliding list and a normal list.
+ */
 
 .slidecontainer {
   width: 100%;
 }
 
+/* generic to horizontal lists */
 .slidelist {
   list-style: none;
   margin: 0;
-  padding: 0px 18px 0px;
+  padding: 0;
 }
 
 .slideprev {
@@ -97,13 +214,28 @@ Author URI: http://sbstatesman.com/
   max-width: 15px;
 }
 
+/* generic to horizontal lists */
 .slideitem {
-  width: 227px;
+  width: 214px;
+  margin-right:13px;
   float: left;
 }
 
+.slideitem-small {
+  width: 195px;
+  margin-right: 13px;
+  float: left;
+}
 
+.paddedslideitem {
+  padding: 0px 45px;
+}
 
+.leftme {
+  float: right;
+}
+
+/* Style text to hover over an image and fade in on mouse-over */
 .hovertext-container {
   position: relative;
   width: 100%;
@@ -114,8 +246,8 @@ Author URI: http://sbstatesman.com/
   left: 0;
   bottom: 0;
   text-align: left;
-  margin: 0 0 4px 0;
-  padding: 5px 5px;
+  margin: 0 0 0 0;
+  padding: 5px;
   background: rgba(0,0,0,0.8);
   color: #fff;
   opacity: 0;
@@ -125,12 +257,20 @@ Author URI: http://sbstatesman.com/
   -ms-transition: 0.5s;
 }
 
+.hovertext-small {
+  width: 185px;
+}
+
 .hovertext-medium {
   width: 204px;
 }
 
 .hovertext-large {
   width: 220px;
+}
+
+.hovertext-sidebar {
+  width: 300px;
 }
 
 .hovertext > img {
@@ -216,6 +356,9 @@ h6 {
 }
 .coloredtext {
 	color: #005a9c;
+}
+.uppercasetext {
+text-transform: uppercase;
 }
 .articletype {
 	text-transform: uppercase;

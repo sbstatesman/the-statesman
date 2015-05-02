@@ -63,7 +63,6 @@ $.fn.slidelist = function(options) {
   
   /*  */
   var updateArrow = function(arrow, hideArrow, callback) {
-    //var arrow = $('[data-slidelist-'+settings.id+'-'+arrowName+']');
     //Check if arrow image is displayed or not
     if(hideArrow) {
       arrow.unbind('click');
@@ -85,35 +84,17 @@ $.fn.slidelist = function(options) {
     var nextArrow = $('[data-slidelist-'+settings.id+'-next]')
     if(curSlideState[0]<=0) {
       updateArrow(prevArrow, true, null);
-      //$('[data-slidelist-'+settings.id+'-prev]').unbind('click');
-      //$('[data-slidelist-'+settings.id+'-prev]>img').hide();
-      //$('[data-slidelist-'+settings.id+'-prev]>img').css('cursor', 'default');
     } else {
       updateArrow(prevArrow, false, function() {
         moveSlide(curSlideState[0]-4)
       });
-      //$('[data-slidelist-'+settings.id+'-prev]').unbind('click');
-      //$('[data-slidelist-'+settings.id+'-prev]').bind('click', function() {
-      //  moveSlide(curSlideState[0]-4)
-      //});
-      //$('[data-slidelist-'+settings.id+'-prev]>img').show();
-      //$('[data-slidelist-'+settings.id+'-prev]>img').css('cursor', 'pointer');
     }
     if(curSlideState[1]>=totalPosts-1) {
       updateArrow(nextArrow, true, null);
-      //$('[data-slidelist-'+settings.id+'-next]').unbind('click');
-      //$('[data-slidelist-'+settings.id+'-next]>img').hide();
-      //$('[data-slidelist-'+settings.id+'-next]>img').css('cursor', 'default');
     } else {
       updateArrow(nextArrow, false, function() {
         moveSlide(curSlideState[1]+1)
       });
-      //$('[data-slidelist-'+settings.id+'-next]').unbind('click');
-      //$('[data-slidelist-'+settings.id+'-next]').bind('click', function() {
-      //  moveSlide(curSlideState[1]+1)
-      //});
-      //$('[data-slidelist-'+settings.id+'-next]>img').show();
-      //$('[data-slidelist-'+settings.id+'-next]>img').css('cursor', 'pointer');
     }
   }
 
@@ -143,74 +124,10 @@ $.fn.slidelist = function(options) {
   return this;
 };
 
-$(document).ready(function() {
-  /* Initiate three sliders.
-   * TODO: should only be called on the multimedia page. */
-  $('[data-slidelist-0]').slidelist({id: 0});
-  $('[data-slidelist-1]').slidelist({id: 1});
-  $('[data-slidelist-2]').slidelist({id: 2});
-  
-  /* test code for animation, currently inactive. */
-  var $item = $('div.newitem'), //Cache your DOM selector
-    visible = 4, //Set the number of items that will be visible
-    index = 0, //Starting index
-    endIndex = ( $item.length / visible ) - 1; //End index
-  
-  $('div#newprev').click(function(){
-    if(index < endIndex ){
-      index++;
-      $item.animate({'left':'-=300px'});
-    }
-  });
-  
-  $('div#newnext').click(function(){
-    if(index > 0){
-      index--;            
-      $item.animate({'left':'+=300px'});
-    }
+$(document).ready(function(){
+  $('.slickmebaby').slick({
+    prevArrow: '#prev',
+    nextArrow: '#next',
+    dots: true
   });
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

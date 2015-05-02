@@ -13,7 +13,7 @@
 			<?php $myposts = new WP_Query( $args ); ?>
 			<?php if ( $myposts->have_posts() ) : ?>
 			<?php $myposts->the_post(); ?>
-			<h6><a href="<?php echo esc_url(get_term_link('campus-briefing','post_tag')); ?>">Campus Briefing</a></h6>
+			<h6><a href="<?php echo get_tag_link(get_tag_id('campus-briefing')); ?>">Campus Briefing</a></h6>
 			<article class="vmedia">
 				<figure class="thumbnail thumbnail-sidebar">
 					<?php if ( has_post_thumbnail()) {the_post_thumbnail('medium');} ?>
@@ -32,7 +32,7 @@
 			<?php $myposts = new WP_Query( $args ); ?>
 			<?php if ( $myposts->have_posts() ) : ?>
 			<?php $myposts->the_post(); ?>
-			<h6><a href="<?php echo esc_url(get_term_link('under-the-microscope','post_tag')); ?>">Under the Microscope</a></h6>
+			<h6><a href="<?php echo get_tag_link(get_tag_id('under-the-microscope')); ?>">Under the Microscope</a></h6>
 			<article class="vmedia">
 				<figure class="thumbnail thumbnail-sidebar">
 					<?php if ( has_post_thumbnail()) {the_post_thumbnail('medium');} ?>
@@ -50,7 +50,7 @@
 			<h6><a href="<?php echo get_permalink(get_page_by_title('Police Blotter')); ?>">Police Blotter</a></h6>
 			<article class="vmedia">
 				<figure class="thumbnail thumbnail-sidebar">
-					<?php echo get_the_post_thumbnail(get_page_id('Police Blotter'), 'medium'); ?>
+					<?php echo get_the_post_thumbnail(get_page_by_title( 'Police Blotter' )->ID, 'medium'); ?>
 				</figure>
 			</article>
 		</sidebar>

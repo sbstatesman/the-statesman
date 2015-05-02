@@ -13,7 +13,7 @@
 			<?php $myposts = new WP_Query( $args ); ?>
 			<?php if ( $myposts->have_posts() ) : ?>
 			<?php $myposts->the_post(); ?>
-			<h6><a href="<?php echo esc_url(get_term_link('campus-spotlight','post_tag')); ?>">Campus Spotlight</a></h6>
+			<h6><a href="<?php echo get_tag_link(get_tag_id('campus-spotlight')); ?>">Campus Spotlight</a></h6>
 			<article class="vmedia">
 				<figure class="thumbnail thumbnail-sidebar">
 					<?php if ( has_post_thumbnail()) {the_post_thumbnail('medium');} ?>
@@ -32,7 +32,7 @@
 			<?php $myposts = new WP_Query( $args ); ?>
 			<?php if ( $myposts->have_posts() ) : ?>
 			<?php $myposts->the_post(); ?>
-			<h6><a href="<?php echo esc_url(get_term_link('college-gal-cooking', 'post_tag')); ?>">College Gal Cooking</a></h6>
+			<h6><a href="<?php echo get_tag_link(get_tag_id('college-gal-cooking')); ?>">College Gal Cooking</a></h6>
 			<article class="vmedia">
 				<figure class="thumbnail thumbnail-sidebar">
 					<?php if ( has_post_thumbnail()) {the_post_thumbnail('medium');} ?>

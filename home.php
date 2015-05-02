@@ -147,11 +147,11 @@
 	</section>
 	<div class="hline hline-medium"></div>
 	<section class="row">
+		<?php $args = array( 'posts_per_page' => 3, 'cat' => $news); ?>
+		<?php $myposts = new WP_Query( $args ); ?>
+		<?php if ( $myposts->have_posts() ) : ?>
 		<div class="fourcolumn vspace vmedia">
-			<?php $args = array( 'posts_per_page' => 3, 'cat' => $news); ?>
-			<?php $myposts = new WP_Query( $args ); ?>
 			<h6><a href="<?php echo esc_url(get_category_link($news)); ?>">News</a></h6>
-			<?php if ( $myposts->have_posts() ) : ?>
 			<?php $myposts->the_post(); ?>
 			<figure class="thumbnail thumbnail-medium">
 				<?php if ( has_post_thumbnail()) {the_post_thumbnail('medium');} ?>
@@ -162,14 +162,14 @@
 				<?php $myposts->the_post(); ?>
 				<p id="post-<?php the_ID(); ?>" class="metatext metatext-dark"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></p>
 				<?php endwhile; ?>
-				<?php endif; ?>
 			</div>
 		</div>
+		<?php endif; ?>
+		<?php $args = array( 'posts_per_page' => 3, 'cat' => $arts_and_entertainment ); ?>
+		<?php $myposts = new WP_Query( $args ); ?>
+		<?php if ( $myposts->have_posts() ) : ?>
 		<div class="fourcolumn vspace vmedia">
-			<?php $args = array( 'posts_per_page' => 3, 'cat' => $arts_and_entertainment ); ?>
-			<?php $myposts = new WP_Query( $args ); ?>
 			<h6><a href="<?php echo esc_url(get_category_link($arts_and_entertainment)); ?>">Arts</a></h6>
-			<?php if ( $myposts->have_posts() ) : ?>
 			<?php $myposts->the_post(); ?>
 			<figure class="thumbnail thumbnail-medium">
 				<?php if ( has_post_thumbnail()) {the_post_thumbnail('medium');} ?>
@@ -180,14 +180,14 @@
 				<?php $myposts->the_post(); ?>
 				<p id="post-<?php the_ID(); ?>" class="metatext metatext-dark"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></p>
 				<?php endwhile; ?>
-				<?php endif; ?>
 			</div>
 		</div>
+		<?php endif; ?>
+		<?php $args = array( 'posts_per_page' => 3, 'cat' => $opinions ); ?>
+		<?php $myposts = new WP_Query( $args ); ?>
+		<?php if ( $myposts->have_posts() ) : ?>
 		<div class="fourcolumn vspace vmedia">
-			<?php $args = array( 'posts_per_page' => 3, 'cat' => $opinions ); ?>
-			<?php $myposts = new WP_Query( $args ); ?>
 			<h6><a href="<?php echo esc_url(get_category_link($opinions)); ?>">Opinions</a></h6>
-			<?php if ( $myposts->have_posts() ) : ?>
 			<?php $myposts->the_post(); ?>
 			<figure class="thumbnail thumbnail-medium">
 				<?php if ( has_post_thumbnail()) {the_post_thumbnail('medium');} ?>
@@ -198,14 +198,14 @@
 				<?php $myposts->the_post(); ?>
 				<p id="post-<?php the_ID(); ?>" class="metatext metatext-dark"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></p>
 				<?php endwhile; ?>
-				<?php endif; ?>
 			</div>
 		</div>
+		<?php endif; ?>
+		<?php $args = array( 'posts_per_page' => 3, 'cat' => $sports ); ?>
+		<?php $myposts = new WP_Query( $args ); ?>
+		<?php if ( $myposts->have_posts() ) : ?>
 		<div class="fourcolumn vmedia">
-			<?php $args = array( 'posts_per_page' => 3, 'cat' => $sports ); ?>
-			<?php $myposts = new WP_Query( $args ); ?>
 			<h6><a href="<?php echo esc_url(get_category_link($sports)); ?>">Sports</a></h6>
-			<?php if ( $myposts->have_posts() ) : ?>
 			<?php $myposts->the_post(); ?>
 			<figure class="thumbnail thumbnail-medium">
 				<?php if ( has_post_thumbnail()) {the_post_thumbnail('medium');} ?>
@@ -216,9 +216,9 @@
 				<?php $myposts->the_post(); ?>
 				<p id="post-<?php the_ID(); ?>" class="metatext metatext-dark"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></p>
 				<?php endwhile; ?>
-				<?php endif; ?>
 			</div>
 		</div>
+		<?php endif; ?>
 	</section>
 	<div class="hline hline-medium"></div>
 	<section class="row">
@@ -228,7 +228,7 @@
 		</div>
 		<div class="threecolumn vline-medium">
 			<h6>Podcast</h6>
-			<a href="<?php echo esc_url(get_term_link('deadline','post_tag')); ?>"><img src="<?php bloginfo( 'template_url' ); ?>/images/deadline.png" alt="Deadline" width="268" /></a>
+			<a href="<?php echo get_tag_link(get_tag_id('deadline')); ?>"><img src="<?php bloginfo( 'template_url' ); ?>/images/deadline.png" alt="Deadline" width="268" /></a>
 		</div>
 		<div class="threecolumn">
 			<h6>Social Media</h6>

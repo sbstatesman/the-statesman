@@ -13,7 +13,7 @@
 			<?php $myposts = new WP_Query( $args ); ?>
 			<?php if ( $myposts->have_posts() ) : ?>
 			<?php $myposts->the_post(); ?>
-			<h6><a href="<?php echo esc_url(get_term_link('points-in-the-paint','post_tag')); ?>">Points in the Paint</a></h6>
+			<h6><a href="<?php echo get_tag_link(get_tag_id('points-in-the-paint')); ?>">Points in the Paint</a></h6>
 			<article class="vmedia">
 				<figure class="thumbnail thumbnail-sidebar">
 					<?php if ( has_post_thumbnail()) {the_post_thumbnail('medium');} ?>
@@ -30,19 +30,19 @@
 			<?php endif; ?>
 			<h6><a href="<?php echo get_category_link($sports); ?>">Sports</a></h6>
 			<div class="twocolumn">
-				<h5><a href="<?php echo esc_url(get_term_link('mens-basketball','post_tag')); ?>">Men's Basketball</a></h5>
-				<h5><a href="<?php echo esc_url(get_term_link('womens-basketball','post_tag')); ?>">Women's Basketball</a></h5>
-				<h5><a href="<?php echo esc_url(get_term_link('baseball','post_tag')); ?>">Baseball</a></h5>
-				<h5><a href="<?php echo esc_url(get_term_link('softball','post_tag')); ?>">Softball</a></h5>
-				<h5><a href="<?php echo esc_url(get_term_link('mens-lacrosse','post_tag')); ?>">Men's Lacrosse</a></h5>
-				<h5><a href="<?php echo esc_url(get_term_link('womens-lacrosse','post_tag')); ?>">Women's Lacrosse</a></h5>
+				<h5><a href="<?php echo get_tag_link(get_tag_id('mens-basketball')); ?>">Men's Basketball</a></h5>
+				<h5><a href="<?php echo get_tag_link(get_tag_id('womens-basketball')); ?>">Women's Basketball</a></h5>
+				<h5><a href="<?php echo get_tag_link(get_tag_id('baseball')); ?>">Baseball</a></h5>
+				<h5><a href="<?php echo get_tag_link(get_tag_id('softball')); ?>">Softball</a></h5>
+				<h5><a href="<?php echo get_tag_link(get_tag_id('mens-lacrosse')); ?>">Men's Lacrosse</a></h5>
+				<h5><a href="<?php echo get_tag_link(get_tag_id('womens-lacrosse')); ?>">Women's Lacrosse</a></h5>
 			</div>
 			<div class="twocolumn">
-				<h5><a href="<?php echo esc_url(get_term_link('mens-soccer','post_tag')); ?>">Men's Soccer</a></h5>
-				<h5><a href="<?php echo esc_url(get_term_link('womens-soccer','post_tag')); ?>">Women's Soccer</a></h5>
+				<h5><a href="<?php echo get_tag_link(get_tag_id('mens-soccer')); ?>">Men's Soccer</a></h5>
+				<h5><a href="<?php echo get_tag_link(get_tag_id('womens-soccer')); ?>">Women's Soccer</a></h5>
 				<h5><a href="<?php echo site_url('/tag/cross-country,track-and-field/'); ?>">XC / Track</a></h5>
-				<h5><a href="<?php echo esc_url(get_term_link('football','post_tag')); ?>">Football</a></h5>
-				<h5><a href="<?php echo esc_url(get_term_link('club-sports','post_tag')); ?>">Club Sports</a></h5>
+				<h5><a href="<?php echo get_tag_link(get_tag_id('football')); ?>">Football</a></h5>
+				<h5><a href="<?php echo get_tag_link(get_tag_id('club-sports')); ?>">Club Sports</a></h5>
 			</div>
 		</sidebar>
 		<main class="main vline-medium">

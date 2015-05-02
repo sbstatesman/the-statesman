@@ -32,6 +32,7 @@ function thestatesman_setup() {
 
 	add_theme_support( 'html5' );
 
+	add_theme_support('post-formats', array('gallery','video','image','audio'));
 }
 endif;
 
@@ -71,6 +72,49 @@ function get_ogimg() {
 	}
      return $ogimage;
 }
+
+/* GARRET ADDED THIS --------------------------------------------------------*/
+/**
+ * 
+ */
+function get_thumb_src($size) {
+	echo wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), $size, '' )[0];
+	
+}
+
+/**
+ * Returns a boolean value, indicating whether a post has multimedia content.
+ */
+function has_multimedia($id) {
+	$hasmm = false;
+	//$type = get_post_meta($id, 'multimedia_type', true);
+	//$source = get_post_meta($id, 'multimedia_source', true);
+	$content = get_post_meta($id, 'multimedia_content', true);
+	//$hasmm = ($type != '') && ($content != '');
+	return $content != '';
+}
+
+/**
+ * Returns a string for embedding youtube/soundcloud/vimeo content
+ */
+function embed_mm_content($url, $src) {
+	return '<iframe width="100%" height="100%" src="'.$url.'" frameborder="0" allowfullscreen></iframe>';
+}
+
+/**
+ * Filters post display, a post in a category is displayed with the template:
+ * single-{category-name}.php
+ 
+ */
+add_filter('single_template', create_function(
+	'$the_template',
+	'foreach( (array) get_the_category() as $cat ) {
+		if ( file_exists(TEMPLATEPATH . "/single-{$cat->slug}.php") )
+		return TEMPLATEPATH . "/single-{$cat->slug}.php"; }
+	return $the_template;' )
+);
+
+/* AND ONLY THIS ------------------------------------------------------------*/
 
 /* Adds Facebook XML namespaces to header */
 function add_og_xml_ns($content) {

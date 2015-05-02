@@ -6,6 +6,145 @@ Author: The Statesman
 Author URI: http://sbstatesman.com/
 */
 
+/* Added by Garret */
+
+.noscroll {
+  overflow: hidden !important;
+}
+
+.multicontent {
+  height: 375px;
+}
+
+.multislug {
+  margin-top: 10px;
+  height: 70px;
+}
+
+.newcontainer {
+  width: calc(227*4 + 30);
+  height: 195px;
+}
+
+.newlist-container {
+  overflow: hidden;
+  width: calc(227*4);
+  float: left;
+  height: 195px;
+}
+
+.newlist {
+  min-width: 1400px;
+  float: left;
+}
+
+.newitem {
+  width: 227px;
+  float: left;
+  position: relative;
+}
+
+.newprev {
+  height: 195px;
+  line-height: 195px;
+  width: 15px;
+  float: left;
+}
+
+.newnext {
+  height: 195px;
+  line-height: 195px;
+  width: 15px;
+  float: right;
+}
+
+.newprev img, .newnext img {
+  vertical-align: middle;
+  max-height: 87px;
+  max-width: 15px;
+}
+
+
+
+.slidecontainer {
+  width: 100%;
+}
+
+.slidelist {
+  list-style: none;
+  margin: 0;
+  padding: 0px 18px 0px;
+}
+
+.slideprev {
+  margin-right: 13px;
+}
+
+.slidenext {
+  margin-left: 9px;
+}
+
+.slideprev, .slidenext {
+  height: 195px;
+  line-height: 195px;
+  width: 15px;
+  float: left;
+}
+
+.slideprev img, .slidenext img {
+  vertical-align: middle;
+  max-height: 87px;
+  max-width: 15px;
+}
+
+.slideitem {
+  width: 227px;
+  float: left;
+}
+
+
+
+.hovertext-container {
+  position: relative;
+  width: 100%;
+}
+
+.hovertext {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  text-align: left;
+  margin: 0 0 4px 0;
+  padding: 5px 5px;
+  background: rgba(0,0,0,0.8);
+  color: #fff;
+  opacity: 0;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -o-transition: 0.5s;
+  -ms-transition: 0.5s;
+}
+
+.hovertext-medium {
+  width: 204px;
+}
+
+.hovertext-large {
+  width: 220px;
+}
+
+.hovertext > img {
+  width: auto !important;
+  height: auto !important;
+}
+
+.hovertext-container:hover > .hovertext {
+  opacity: 0.9;
+}
+
+/* end of additions */
+
+
 body {
 	padding: 40px 0 10px 0; /* push for fixednav */
 	-webkit-font-smoothing: subpixel-antialiased; /* fix webkit font rendering */

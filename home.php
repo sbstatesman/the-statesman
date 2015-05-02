@@ -1,16 +1,5 @@
 <?php get_header(); ?>
 
-<?php
-	/* category variable */
-	$featured = 16;
-	$news = 4;
-	$arts = 15;
-	$opinions = 20;
-	$sports = 14;
-	$multimedia = 163;
-	$breaking = 13592;
-?>
-
 <header class="row">
 	<img src="<?php bloginfo( 'template_url' ); ?>/images/logo.png" class="logo" alt="The Statesman" width="700" />
 	<div class="currentissue large-text">
@@ -39,7 +28,7 @@
 					<?php if ( has_post_thumbnail()) {the_post_thumbnail('medium');} ?>
 				</figure>
 				<div class="block">
-					<p class="articletype small-text"><?php the_excluded_category(array(16,883)); ?></p>
+					<p class="articletype small-text"><?php the_excluded_category(array($featured, $top_story)); ?></p>
 					<h1 id="post-<?php the_ID(); ?>">
 						<a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
 					</h1>
@@ -53,7 +42,7 @@
 			<?php $post = $myposts[2]; ?>
 			<?php setup_postdata( $post ); ?>
 			<article class="main-half vline-medium">
-				<p class="articletype small-text"><?php the_excluded_category(array(16,883)); ?></p>
+				<p class="articletype small-text"><?php the_excluded_category(array($featured, $top_story)); ?></p>
 				<h3 id="post-<?php the_ID(); ?>">
 					<a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
 				</h3>
@@ -65,7 +54,7 @@
 			<?php $post = $myposts[3]; ?>
 			<?php setup_postdata( $post ); ?>
 			<article class="main-half">
-				<p class="articletype small-text"><?php the_excluded_category(array(16,883)); ?></p>
+				<p class="articletype small-text"><?php the_excluded_category(array($featured, $top_story)); ?></p>
 				<h3 id="post-<?php the_ID(); ?>">
 					<a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
 				</h3>
@@ -82,7 +71,7 @@
 				<?php if ( has_post_thumbnail()) {the_post_thumbnail('medium');} ?>
 			</figure>
 			<div class="block">
-				<p class="articletype small-text"><?php the_excluded_category(array(16,883)); ?></p>
+				<p class="articletype small-text"><?php the_excluded_category(array($featured, $top_story)); ?></p>
 				<h1 id="post-<?php the_ID(); ?>">
 					<a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
 				</h1>
@@ -105,7 +94,7 @@
 					<?php if ( has_post_thumbnail()) {the_post_thumbnail('medium');} ?>
 				</figure>
 				<div class="block">
-					<p class="articletype small-text"><?php the_excluded_category(array(16,883)); ?></p>
+					<p class="articletype small-text"><?php the_excluded_category(array($featured, $top_story)); ?></p>
 					<h2 id="post-<?php the_ID(); ?>">
 						<a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
 					</h2>
@@ -117,6 +106,8 @@
 			<?php endif; ?>
 		</main>
 		<sidebar class="sidebar">
+			<a href="http://sbstatesman.com/wp-content/themes/the-statesman/interactive/elections2015/"><img src="<?php bloginfo( 'template_url' ); ?>/images/2015-elections-banner.png" alt="2015 USG Elections Guide" width="300" /></a>
+			<div class="hline hline-medium"></div>
 			<?php $args = array( 'posts_per_page' => 1, 'cat' => $multimedia); ?>
 			<?php $myposts = new WP_Query( $args ); ?>
 			<?php if ( $myposts->have_posts() ) : ?>
@@ -156,11 +147,11 @@
 	</section>
 	<div class="hline hline-medium"></div>
 	<section class="row">
+		<?php $args = array( 'posts_per_page' => 3, 'cat' => $news); ?>
+		<?php $myposts = new WP_Query( $args ); ?>
+		<?php if ( $myposts->have_posts() ) : ?>
 		<div class="fourcolumn vspace vmedia">
-			<?php $args = array( 'posts_per_page' => 3, 'cat' => $news); ?>
-			<?php $myposts = new WP_Query( $args ); ?>
 			<h6><a href="<?php echo esc_url(get_category_link($news)); ?>">News</a></h6>
-			<?php if ( $myposts->have_posts() ) : ?>
 			<?php $myposts->the_post(); ?>
 			<figure class="thumbnail thumbnail-medium">
 				<?php if ( has_post_thumbnail()) {the_post_thumbnail('medium');} ?>
@@ -171,14 +162,14 @@
 				<?php $myposts->the_post(); ?>
 				<p id="post-<?php the_ID(); ?>" class="metatext metatext-dark"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></p>
 				<?php endwhile; ?>
-				<?php endif; ?>
 			</div>
 		</div>
+		<?php endif; ?>
+		<?php $args = array( 'posts_per_page' => 3, 'cat' => $arts_and_entertainment ); ?>
+		<?php $myposts = new WP_Query( $args ); ?>
+		<?php if ( $myposts->have_posts() ) : ?>
 		<div class="fourcolumn vspace vmedia">
-			<?php $args = array( 'posts_per_page' => 3, 'cat' => $arts ); ?>
-			<?php $myposts = new WP_Query( $args ); ?>
-			<h6><a href="<?php echo esc_url(get_category_link($arts)); ?>">Arts</a></h6>
-			<?php if ( $myposts->have_posts() ) : ?>
+			<h6><a href="<?php echo esc_url(get_category_link($arts_and_entertainment)); ?>">Arts</a></h6>
 			<?php $myposts->the_post(); ?>
 			<figure class="thumbnail thumbnail-medium">
 				<?php if ( has_post_thumbnail()) {the_post_thumbnail('medium');} ?>
@@ -189,14 +180,14 @@
 				<?php $myposts->the_post(); ?>
 				<p id="post-<?php the_ID(); ?>" class="metatext metatext-dark"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></p>
 				<?php endwhile; ?>
-				<?php endif; ?>
 			</div>
 		</div>
+		<?php endif; ?>
+		<?php $args = array( 'posts_per_page' => 3, 'cat' => $opinions ); ?>
+		<?php $myposts = new WP_Query( $args ); ?>
+		<?php if ( $myposts->have_posts() ) : ?>
 		<div class="fourcolumn vspace vmedia">
-			<?php $args = array( 'posts_per_page' => 3, 'cat' => $opinions ); ?>
-			<?php $myposts = new WP_Query( $args ); ?>
 			<h6><a href="<?php echo esc_url(get_category_link($opinions)); ?>">Opinions</a></h6>
-			<?php if ( $myposts->have_posts() ) : ?>
 			<?php $myposts->the_post(); ?>
 			<figure class="thumbnail thumbnail-medium">
 				<?php if ( has_post_thumbnail()) {the_post_thumbnail('medium');} ?>
@@ -207,14 +198,14 @@
 				<?php $myposts->the_post(); ?>
 				<p id="post-<?php the_ID(); ?>" class="metatext metatext-dark"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></p>
 				<?php endwhile; ?>
-				<?php endif; ?>
 			</div>
 		</div>
+		<?php endif; ?>
+		<?php $args = array( 'posts_per_page' => 3, 'cat' => $sports ); ?>
+		<?php $myposts = new WP_Query( $args ); ?>
+		<?php if ( $myposts->have_posts() ) : ?>
 		<div class="fourcolumn vmedia">
-			<?php $args = array( 'posts_per_page' => 3, 'cat' => $sports ); ?>
-			<?php $myposts = new WP_Query( $args ); ?>
 			<h6><a href="<?php echo esc_url(get_category_link($sports)); ?>">Sports</a></h6>
-			<?php if ( $myposts->have_posts() ) : ?>
 			<?php $myposts->the_post(); ?>
 			<figure class="thumbnail thumbnail-medium">
 				<?php if ( has_post_thumbnail()) {the_post_thumbnail('medium');} ?>
@@ -225,9 +216,9 @@
 				<?php $myposts->the_post(); ?>
 				<p id="post-<?php the_ID(); ?>" class="metatext metatext-dark"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></p>
 				<?php endwhile; ?>
-				<?php endif; ?>
 			</div>
 		</div>
+		<?php endif; ?>
 	</section>
 	<div class="hline hline-medium"></div>
 	<section class="row">
@@ -237,7 +228,7 @@
 		</div>
 		<div class="threecolumn vline-medium">
 			<h6>Podcast</h6>
-			<a href="<?php echo get_tag_link(8469); ?>"><img src="<?php bloginfo( 'template_url' ); ?>/images/deadline.png" alt="Deadline" width="268" /></a>
+			<a href="<?php echo get_tag_link(get_tag_id('deadline')); ?>"><img src="<?php bloginfo( 'template_url' ); ?>/images/deadline.png" alt="Deadline" width="268" /></a>
 		</div>
 		<div class="threecolumn">
 			<h6>Social Media</h6>

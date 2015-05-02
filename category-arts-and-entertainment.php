@@ -9,11 +9,11 @@
 	<div class="hline hline-strong"></div>
 	<section class="row">
 		<sidebar class="sidebar">
-			<?php $args = array( 'posts_per_page' => 1, 'tag_id' => 3355 ); ?>
+			<?php $args = array( 'posts_per_page' => 1, 'tag' => 'campus-spotlight' ); ?>
 			<?php $myposts = new WP_Query( $args ); ?>
 			<?php if ( $myposts->have_posts() ) : ?>
 			<?php $myposts->the_post(); ?>
-			<h6><a href="<?php echo get_tag_link(3355); ?>">Campus Spotlight</a></h6>
+			<h6><a href="<?php echo get_tag_link(get_tag_id('campus-spotlight')); ?>">Campus Spotlight</a></h6>
 			<article class="vmedia">
 				<figure class="thumbnail thumbnail-sidebar">
 					<?php if ( has_post_thumbnail()) {the_post_thumbnail('medium');} ?>
@@ -28,11 +28,11 @@
 			</article>
 			<div class="hline hline-medium"></div>
 			<?php endif; ?>
-			<?php $args = array( 'posts_per_page' => 1, 'tag_id' => 4952 ); ?>
+			<?php $args = array( 'posts_per_page' => 1, 'tag' => 'college-gal-cooking' ); ?>
 			<?php $myposts = new WP_Query( $args ); ?>
 			<?php if ( $myposts->have_posts() ) : ?>
 			<?php $myposts->the_post(); ?>
-			<h6><a href="<?php echo get_tag_link(4952); ?>">College Gal Cooking</a></h6>
+			<h6><a href="<?php echo get_tag_link(get_tag_id('college-gal-cooking')); ?>">College Gal Cooking</a></h6>
 			<article class="vmedia">
 				<figure class="thumbnail thumbnail-sidebar">
 					<?php if ( has_post_thumbnail()) {the_post_thumbnail('medium');} ?>
@@ -49,7 +49,7 @@
 		</sidebar>
 		<main class="main vline-medium">
 			<div class="main-threeeigth vline-medium">
-				<?php $args = array( 'posts_per_page' => 3, 'offset' => 1, 'category__and' => array(883, 15), 'tag__not_in' => array(4952, 3355)); ?>
+				<?php $args = array( 'posts_per_page' => 3, 'offset' => 1, 'category__and' => array($top_story, $arts_and_entertainment), 'tag__not_in' => array(get_tag_id('campus-spotlight'), get_tag_id('college-gal-cooking'))); ?>
 				<?php $myposts = new WP_Query( $args ); ?>
 				<?php if ( $myposts->have_posts() ) : ?>
 				<?php while ( $myposts->have_posts() ) : ?>
@@ -70,7 +70,7 @@
 				<?php endif; ?>
 			</div>
 			<div class="main-fiveeigth">
-				<?php $args = array( 'posts_per_page' => 3, 'category__and' => array(883, 15), 'tag__not_in' => array(4952, 3355)); ?>
+				<?php $args = array( 'posts_per_page' => 1, 'category__and' => array($top_story, $arts_and_entertainment), 'tag__not_in' => array(get_tag_id('campus-spotlight'), get_tag_id('college-gal-cooking'))); ?>
 				<?php $myposts = new WP_Query( $args ); ?>
 				<?php if ( $myposts->have_posts() ) : ?>
 				<?php $myposts->the_post(); ?>
@@ -88,7 +88,7 @@
 				</article>
 				<div class="hline hline-medium"></div>
 				<?php endif; ?>
-				<?php $args = array( 'posts_per_page' => 5, 'cat' => 15, 'category__not_in' => 883, 'tag__not_in' => array(4952, 3355));?>
+				<?php $args = array( 'posts_per_page' => 5, 'cat' => $arts_and_entertainment, 'category__not_in' => $top_story, 'tag__not_in' => array(get_tag_id('campus-spotlight'), get_tag_id('college-gal-cooking')));?>
 				<?php $myposts = new WP_Query( $args ); ?>
 				<?php if ( $myposts->have_posts() ) : ?>
 				<?php while ( $myposts->have_posts() ) : ?>

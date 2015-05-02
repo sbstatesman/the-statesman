@@ -1,4 +1,6 @@
 <sidebar class="sidebar">
+	<a href="http://sbstatesman.com/wp-content/themes/the-statesman/interactive/elections2015/"><img src="<?php bloginfo( 'template_url' ); ?>/images/2015-elections-banner.png" alt="2015 USG Elections Guide" width="300" /></a>
+			<div class="hline hline-medium"></div>
 	<?php $args = array( 'posts_per_page' => 6 ) ?>
 	<?php $myposts = new WP_Query( $args ); ?>
 	<h6>Latest Stories</h6>

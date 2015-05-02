@@ -9,11 +9,11 @@
 	<div class="hline hline-strong"></div>
 	<section class="row">
 		<sidebar class="sidebar">
-			<?php $args = array( 'posts_per_page' => 1, 'tag_id' => 13105 ); ?>
+			<?php $args = array( 'posts_per_page' => 1, 'tag' => 'points-in-the-paint' ); ?>
 			<?php $myposts = new WP_Query( $args ); ?>
 			<?php if ( $myposts->have_posts() ) : ?>
 			<?php $myposts->the_post(); ?>
-			<h6><a href="<?php echo get_tag_link(18); ?>">Points in the Paint</a></h6>
+			<h6><a href="<?php echo get_tag_link(get_tag_id('points-in-the-paint')); ?>">Points in the Paint</a></h6>
 			<article class="vmedia">
 				<figure class="thumbnail thumbnail-sidebar">
 					<?php if ( has_post_thumbnail()) {the_post_thumbnail('medium');} ?>
@@ -28,26 +28,26 @@
 			</article>
 			<div class="hline hline-medium"></div>
 			<?php endif; ?>
-			<h6><a href="<?php echo get_category_link(14); ?>">Sports</a></h6>
+			<h6><a href="<?php echo get_category_link($sports); ?>">Sports</a></h6>
 			<div class="twocolumn">
-				<h5><a href="<?php echo get_tag_link(1252); ?>">Men's Basketball</a></h5>
-				<h5><a href="<?php echo get_tag_link(17); ?>">Women's Basketball</a></h5>
-				<h5><a href="<?php echo get_tag_link(739); ?>">Baseball</a></h5>
-				<h5><a href="<?php echo get_tag_link(98); ?>">Softball</a></h5>
-				<h5><a href="<?php echo get_tag_link(1621); ?>">Men's Lacrosse</a></h5>
-				<h5><a href="<?php echo get_tag_link(2413); ?>">Women's Lacrosse</a></h5>
+				<h5><a href="<?php echo get_tag_link(get_tag_id('mens-basketball')); ?>">Men's Basketball</a></h5>
+				<h5><a href="<?php echo get_tag_link(get_tag_id('womens-basketball')); ?>">Women's Basketball</a></h5>
+				<h5><a href="<?php echo get_tag_link(get_tag_id('baseball')); ?>">Baseball</a></h5>
+				<h5><a href="<?php echo get_tag_link(get_tag_id('softball')); ?>">Softball</a></h5>
+				<h5><a href="<?php echo get_tag_link(get_tag_id('mens-lacrosse')); ?>">Men's Lacrosse</a></h5>
+				<h5><a href="<?php echo get_tag_link(get_tag_id('womens-lacrosse')); ?>">Women's Lacrosse</a></h5>
 			</div>
 			<div class="twocolumn">
-				<h5><a href="<?php echo get_tag_link(1385); ?>">Men's Soccer</a></h5>
-				<h5><a href="<?php echo get_tag_link(1376); ?>">Women's Soccer</a></h5>
+				<h5><a href="<?php echo get_tag_link(get_tag_id('mens-soccer')); ?>">Men's Soccer</a></h5>
+				<h5><a href="<?php echo get_tag_link(get_tag_id('womens-soccer')); ?>">Women's Soccer</a></h5>
 				<h5><a href="<?php echo site_url('/tag/cross-country,track-and-field/'); ?>">XC / Track</a></h5>
-				<h5><a href="<?php echo get_tag_link(212); ?>">Football</a></h5>
-				<h5><a href="<?php echo get_tag_link(8976); ?>">Club Sports</a></h5>
+				<h5><a href="<?php echo get_tag_link(get_tag_id('football')); ?>">Football</a></h5>
+				<h5><a href="<?php echo get_tag_link(get_tag_id('club-sports')); ?>">Club Sports</a></h5>
 			</div>
 		</sidebar>
 		<main class="main vline-medium">
 			<div class="main-threeeigth vline-medium">
-				<?php $args = array( 'posts_per_page' => 3, 'offset' => 1, 'category__and' => array(883, 14), 'tag__not_in' => array(13105)); ?>
+				<?php $args = array( 'posts_per_page' => 3, 'offset' => 1, 'category__and' => array($top_story, $sports), 'tag__not_in' => array(get_tag_id('points-in-the-paint'))); ?>
 				<?php $myposts = new WP_Query( $args ); ?>
 				<?php if ( $myposts->have_posts() ) : ?>
 				<?php while ( $myposts->have_posts() ) : ?>
@@ -68,7 +68,7 @@
 				<?php endif; ?>
 			</div>
 			<div class="main-fiveeigth">
-				<?php $args = array( 'posts_per_page' => 1, 'category__and' => array(883, 14), 'tag__not_in' => array(13105)); ?>
+				<?php $args = array( 'posts_per_page' => 1, 'category__and' => array($top_story, $sports), 'tag__not_in' => array(get_tag_id('points-in-the-paint'))); ?>
 				<?php $myposts = new WP_Query( $args ); ?>
 				<?php if ( $myposts->have_posts() ) : ?>
 				<?php $myposts->the_post(); ?>
@@ -86,7 +86,7 @@
 				</article>
 				<div class="hline hline-medium"></div>
 				<?php endif; ?>
-				<?php $args = array( 'posts_per_page' => 5, 'cat' => 14, 'category__not_in' => 883, 'tag__not_in' => array(13105));?>
+				<?php $args = array( 'posts_per_page' => 5, 'cat' => $sports, 'category__not_in' => $top_story, 'tag__not_in' => array(get_tag_id('points-in-the-paint')));?>
 				<?php $myposts = new WP_Query( $args ); ?>
 				<?php if ( $myposts->have_posts() ) : ?>
 				<?php while ( $myposts->have_posts() ) : ?>

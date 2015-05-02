@@ -228,7 +228,7 @@
 		</div>
 		<div class="threecolumn vline-medium">
 			<h6>Podcast</h6>
-			<a href="<?php echo get_tag_link(8469); ?>"><img src="<?php bloginfo( 'template_url' ); ?>/images/deadline.png" alt="Deadline" width="268" /></a>
+			<a href="<?php echo esc_url(get_term_link('deadline','post_tag')); ?>"><img src="<?php bloginfo( 'template_url' ); ?>/images/deadline.png" alt="Deadline" width="268" /></a>
 		</div>
 		<div class="threecolumn">
 			<h6>Social Media</h6>

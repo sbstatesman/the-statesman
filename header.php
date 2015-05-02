@@ -83,13 +83,11 @@ Join The Statesman Web & Graphics Section: https://www.facebook.com/groups/14814
 					<li><a href="<?php echo get_category_link( $news ); ?>">News</a></li>
 					<li><a href="<?php echo get_category_link( $arts_and_entertainment ); ?>">Arts &amp; Entertainment</a></li>
 					<li><a href="<?php echo get_category_link( $opinions ); ?>">Opinions</a></li>
-					<li><a href="<?php echo get_category_link( $sport ); ?>">Sports</a></li>
+					<li><a href="<?php echo get_category_link( $sports ); ?>">Sports</a></li>
 					<li><a href="<?php echo get_category_link( $multimedia ); ?>">Multimedia</a></li>
-					<li><a href="<?php echo get_page_link(18318); ?>">About</a></li>
+					<li><a href="<?php echo get_permalink( get_page_by_title( 'About' ) ); ?>">About</a></li>
 				</ul>
 				<?php get_search_form(); ?>
-				<!--<span class="iconbar iconbar-search"></span>
-				<input type="text" class="search" placeholder="search" />-->
 			</div>
 		</nav>
 		<div class="container">

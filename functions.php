@@ -50,6 +50,13 @@ $sports = get_category_by_slug('sports')->term_id;
 $multimedia = get_category_by_slug('multimedia')->term_id;
 $breaking = get_category_by_slug('breaking')->term_id;
 
+function get_tag_id( $slug ) {
+	return get_term_by('slug', $slug, 'post_tag')->term_id;
+}
+function get_page_id ( $page_name ) {
+	return get_page_by_title( $page_name )->ID;
+}
+
 /* Pulls the post feature image for social media meta tags */
 function get_ogimg() {
 	/* try get a post thumbnail first */

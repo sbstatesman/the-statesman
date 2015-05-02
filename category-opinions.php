@@ -9,11 +9,11 @@
 	<div class="hline hline-strong"></div>
 	<section class="row">
 		<sidebar class="sidebar">
-			<?php $args = array( 'posts_per_page' => 1, 'tag_id' => 4004 ); ?>
+			<?php $args = array( 'posts_per_page' => 1, 'tag' => 'letter-to-the-editor'); ?>
 			<?php $myposts = new WP_Query( $args ); ?>
 			<?php if ( $myposts->have_posts() ) : ?>
 			<?php $myposts->the_post(); ?>
-			<h6><a href="<?php echo get_tag_link(4004); ?>">Editorial</a></h6>
+			<h6><a href="<?php echo esc_url(get_term_link('letter-to-the-editor','post_tag')); ?>">Letter to the Editor</a></h6>
 			<article class="vmedia">
 				<figure class="thumbnail thumbnail-sidebar">
 					<?php if ( has_post_thumbnail()) {the_post_thumbnail('medium');} ?>
@@ -28,15 +28,15 @@
 			</article>
 			<div class="hline hline-medium"></div>
 			<?php endif; ?>
-			<h6><a href="<?php echo get_tag_link(13701); ?>">Columns</a></h6>
-			<a href="<?php echo get_tag_link(13682); ?>"><img src="<?php bloginfo( 'template_url' ); ?>/images/know-banner.png" alt="The Know" width="300" /></a>
-			<a href="<?php echo get_tag_link(13700); ?>"><img src="<?php bloginfo( 'template_url' ); ?>/images/sexwolf-banner.png" alt="The Sexwolf" width="300" /></a>
-			<a href="<?php echo get_tag_link(13775); ?>"><img src="<?php bloginfo( 'template_url' ); ?>/images/konig-kolumn-banner.png" alt="The Konig Kolumn" width="300" /></a>
-			<a href="<?php echo get_tag_link(13796); ?>"><img src="<?php bloginfo( 'template_url' ); ?>/images/unpopular-banner.png" alt="An Unpopular Opinion" width="300" /></a>
+			<h6><a href="<?php echo esc_url(get_term_link('column','post_tag')); ?>">Columns</a></h6>
+			<a href="<?php echo esc_url(get_term_link('the-know','post_tag')); ?>"><img src="<?php bloginfo( 'template_url' ); ?>/images/know-banner.png" alt="The Know" width="300" /></a>
+			<a href="<?php echo esc_url(get_term_link('the-sexwolf','post_tag')); ?>"><img src="<?php bloginfo( 'template_url' ); ?>/images/sexwolf-banner.png" alt="The Sexwolf" width="300" /></a>
+			<a href="<?php echo esc_url(get_term_link('the-konig-kolumn','post_tag')); ?>"><img src="<?php bloginfo( 'template_url' ); ?>/images/konig-kolumn-banner.png" alt="The Konig Kolumn" width="300" /></a>
+			<a href="<?php echo esc_url(get_term_link('an-unpopular-opinion','post_tag')); ?>"><img src="<?php bloginfo( 'template_url' ); ?>/images/unpopular-banner.png" alt="An Unpopular Opinion" width="300" /></a>
 		</sidebar>
 		<main class="main vline-medium">
 			<div class="main-threeeigth vline-medium">
-				<?php $args = array( 'posts_per_page' => 3, 'offset' => 1, 'category__and' => array($top_story, $opinions), 'tag__not_in' => array(4004)); ?>
+				<?php $args = array( 'posts_per_page' => 3, 'offset' => 1, 'category__and' => array($top_story, $opinions), 'tag__not_in' => array(get_tag_id('column'), get_tag_id('letter-to-the-editor'))); ?>
 				<?php $myposts = new WP_Query( $args ); ?>
 				<?php if ( $myposts->have_posts() ) : ?>
 				<?php while ( $myposts->have_posts() ) : ?>
@@ -57,7 +57,7 @@
 				<?php endif; ?>
 			</div>
 			<div class="main-fiveeigth">
-				<?php $args = array( 'posts_per_page' => 1, 'category__and' => array($top_story, $opinions), 'tag__not_in' => array(4004)); ?>
+				<?php $args = array( 'posts_per_page' => 1, 'category__and' => array($top_story, $opinions), 'tag__not_in' => array(get_tag_id('column'), get_tag_id('letter-to-the-editor'))); ?>
 				<?php $myposts = new WP_Query( $args ); ?>
 				<?php if ( $myposts->have_posts() ) : ?>
 				<?php $myposts->the_post(); ?>
@@ -75,7 +75,7 @@
 				</article>
 				<div class="hline hline-medium"></div>
 				<?php endif; ?>
-				<?php $args = array( 'posts_per_page' => 5, 'cat' => $opinions, 'category__not_in' => $top_story, 'tag__not_in' => array(4004));?>
+				<?php $args = array( 'posts_per_page' => 5, 'cat' => $opinions, 'category__not_in' => $top_story, 'tag__not_in' => array(get_tag_id('column'), get_tag_id('letter-to-the-editor')));?>
 				<?php $myposts = new WP_Query( $args ); ?>
 				<?php if ( $myposts->have_posts() ) : ?>
 				<?php while ( $myposts->have_posts() ) : ?>

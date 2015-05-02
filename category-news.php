@@ -9,11 +9,11 @@
 	<div class="hline hline-strong"></div>
 	<section class="row">
 		<sidebar class="sidebar">
-			<?php $args = array( 'posts_per_page' => 1, 'tag_id' => 4026 ); ?>
+			<?php $args = array( 'posts_per_page' => 1, 'tag' => 'campus-briefing'); ?>
 			<?php $myposts = new WP_Query( $args ); ?>
 			<?php if ( $myposts->have_posts() ) : ?>
 			<?php $myposts->the_post(); ?>
-			<h6><a href="<?php echo get_tag_link(4026); ?>">Campus Briefing</a></h6>
+			<h6><a href="<?php echo esc_url(get_term_link('campus-briefing','post_tag')); ?>">Campus Briefing</a></h6>
 			<article class="vmedia">
 				<figure class="thumbnail thumbnail-sidebar">
 					<?php if ( has_post_thumbnail()) {the_post_thumbnail('medium');} ?>
@@ -28,11 +28,11 @@
 			</article>
 			<div class="hline hline-medium"></div>
 			<?php endif; ?>
-			<?php $args = array( 'posts_per_page' => 1, 'tag_id' => 4018 ); ?>
+			<?php $args = array( 'posts_per_page' => 1, 'tag' => 'under-the-microscope' ); ?>
 			<?php $myposts = new WP_Query( $args ); ?>
 			<?php if ( $myposts->have_posts() ) : ?>
 			<?php $myposts->the_post(); ?>
-			<h6><a href="<?php echo get_tag_link(4018); ?>">Under the Microscope</a></h6>
+			<h6><a href="<?php echo esc_url(get_term_link('under-the-microscope','post_tag')); ?>">Under the Microscope</a></h6>
 			<article class="vmedia">
 				<figure class="thumbnail thumbnail-sidebar">
 					<?php if ( has_post_thumbnail()) {the_post_thumbnail('medium');} ?>
@@ -47,16 +47,16 @@
 			</article>
 			<div class="hline hline-medium"></div>
 			<?php endif; ?>
-			<h6><a href="<?php echo get_page_link(34462); ?>">Police Blotter</a></h6>
+			<h6><a href="<?php echo get_permalink(get_page_by_title('Police Blotter')); ?>">Police Blotter</a></h6>
 			<article class="vmedia">
 				<figure class="thumbnail thumbnail-sidebar">
-					<?php echo get_the_post_thumbnail(34462, 'medium'); ?>
+					<?php echo get_the_post_thumbnail(get_page_id('Police Blotter'), 'medium'); ?>
 				</figure>
 			</article>
 		</sidebar>
 		<main class="main vline-medium">
 			<div class="main-threeeigth vline-medium">
-				<?php $args = array( 'posts_per_page' => 3, 'offset' => 1, 'category__and' => array($top_story, $news), 'tag__not_in' => array(4018, 4026)); ?>
+				<?php $args = array( 'posts_per_page' => 3, 'offset' => 1, 'category__and' => array($top_story, $news), 'tag__not_in' => array(get_tag_id('campus-briefing'), get_tag_id('under-the-microscope'))); ?>
 				<?php $myposts = new WP_Query( $args ); ?>
 				<?php if ( $myposts->have_posts() ) : ?>
 				<?php while ( $myposts->have_posts() ) : ?>
@@ -77,7 +77,7 @@
 				<?php endif; ?>
 			</div>
 			<div class="main-fiveeigth">
-				<?php $args = array( 'posts_per_page' => 3, 'category__and' => array($top_story, $news), 'tag__not_in' => array(4018, 4026)); ?>
+				<?php $args = array( 'posts_per_page' => 3, 'category__and' => array($top_story, $news), 'tag__not_in' => array(get_tag_id('campus-briefing'), get_tag_id('under-the-microscope'))); ?>
 				<?php $myposts = new WP_Query( $args ); ?>
 				<?php if ( $myposts->have_posts() ) : ?>
 				<?php $myposts->the_post(); ?>
@@ -95,7 +95,7 @@
 				</article>
 				<div class="hline hline-medium"></div>
 				<?php endif; ?>
-				<?php $args = array( 'posts_per_page' => 5, 'cat' => $news, 'category__not_in' => $top_story, 'tag__not_in' => array(4018, 4026));?>
+				<?php $args = array( 'posts_per_page' => 5, 'cat' => $news, 'category__not_in' => $top_story, 'tag__not_in' => array(get_tag_id('campus-briefing'), get_tag_id('under-the-microscope')));?>
 				<?php $myposts = new WP_Query( $args ); ?>
 				<?php if ( $myposts->have_posts() ) : ?>
 				<?php while ( $myposts->have_posts() ) : ?>

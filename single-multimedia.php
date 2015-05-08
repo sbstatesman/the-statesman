@@ -14,7 +14,7 @@
 		<p class="metatext metatext-byline">
 			By <?php the_author_posts_link(); ?> / <a href="<?php the_archive_date(); ?>"><?php the_time('F j, Y'); ?></a>
 		</p>
-		<p class="excerpt"><?php get_excerpt(); ?></p>
+		<p class="excerpt"><?php get_excerpt(500); ?></p>
 		<div class="hline hline-medium"></div>
 	</sidebar>
 </main>
@@ -26,7 +26,7 @@
 		
 		<?php $postsPerRow = 3?>
 		<?php $rows = 4?>
-		<?php $displays   = array('video' => 'video','image' => 'photo','audio' => 'audio');?>
+		<?php $displays   = array('video' => 'video','gallery' => 'photo','audio' => 'audio');?>
 		<?php $format  = get_post_format(get_the_ID());?>
 		<?php $args = array( 'posts_per_page' => $postsPerRow*$rows, 'cat' => 163, 'tax_query' => array(array(
 				'taxonomy' => 'post_format',
@@ -96,4 +96,15 @@
 	</section>
 </section>
 <div class="hline hline-medium"></div>
+
+<script>
+	$(document).ready(function() {
+		$('.slicktarget').slick({
+			prevArrow: '#prev',
+			nextArrow: '#next',
+			dots: true
+		});
+	});
+</script>
+
 <?php get_footer(); ?>

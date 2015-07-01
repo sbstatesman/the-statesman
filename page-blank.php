@@ -15,9 +15,7 @@ Template Name: blank
 </main>
 <div class="hline hline-medium"></div>
 <section class="row">
-  <section class="main">
     <?php comments_template(); ?>
-  </section>
 </section>
 <div class="hline hline-medium"></div>
 <?php get_footer(); ?>

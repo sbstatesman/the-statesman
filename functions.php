@@ -140,6 +140,19 @@ add_action( 'admin_head-post-new.php', 'headline_count');
 add_image_size( 'half-width', 300 );
 add_image_size( 'full-width', 600 );
 
+function statesman_sidebars() {
+  register_sidebar(array(
+    'id' => 'article-sidebar',
+    'name' => __('Article Sidebar'),
+    'description' => __('Displayed next to articles.'),
+    'before_widget' => '<div id="%1$s" class="%2$s">',
+    'after_widget' => '</div><div class="hline hline-medium"></div>',
+    'before_title' => '<h6>',
+    'after_title' => '</h6>',
+  ));
+}
+add_action( 'widgets_init', 'statesman_sidebars' );
+
 function my_custom_sizes( $sizes ) {
     return array_merge( $sizes, array(
         'half-width' => __( 'Half Width' ),

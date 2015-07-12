@@ -1,4 +1,15 @@
 <sidebar class="sidebar">
+	<!-- Sidebar -->
+	<ins class="adsbygoogle"
+     		style="display:inline-block;width:300px;height:250px"
+     		data-ad-client="ca-pub-8107316404981446"
+     		data-ad-slot="1828551619">
+     	</ins>
+     	<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+	<div class="hline hline-medium"></div>
+	<h6>Featured</h6>
+	<a href="http://sbstatesman.com/title-ix-at-stony-brook-university/"><img src="http://sbstatesman.com/wp-content/themes/the-statesman/images/title-ix-banner.jpg" width="300" alt="Title IX at Stony Brook" /></a>
+	<div class="hline hline-medium"></div>
 	<?php $args = array( 'posts_per_page' => 6 ) ?>
 	<?php $myposts = new WP_Query( $args ); ?>
 	<h6>Latest Stories</h6>
@@ -17,6 +28,14 @@
 	</article>
 	<?php endwhile; endif; ?>
 	<?php wp_reset_postdata(); ?>
+	<div class="hline hline-medium"></div>
+	<!-- Sidebar - tall -->
+	<ins class="adsbygoogle"
+     		style="display:inline-block;width:300px;height:600px"
+     		data-ad-client="ca-pub-8107316404981446"
+    		data-ad-slot="7064173217">
+    	</ins>
+    	<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 	<div class="hline hline-medium"></div>
 	<h6>Follow</h6>
 	<div class="iconbar iconbar-social">

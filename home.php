@@ -106,6 +106,9 @@
 			<?php endif; ?>
 		</main>
 		<sidebar class="sidebar">
+			<h6>Featured</h6>
+			<a href="http://sbstatesman.com/title-ix-at-stony-brook-university/"><img src="http://sbstatesman.com/wp-content/themes/the-statesman/images/title-ix-banner.jpg" width="300" alt="Title IX at Stony Brook" /></a>
+			<div class="hline hline-medium"></div>
 			<?php $args = array( 'posts_per_page' => 1, 'cat' => $multimedia); ?>
 			<?php $myposts = new WP_Query( $args ); ?>
 			<?php if ( $myposts->have_posts() ) : ?>
@@ -124,6 +127,14 @@
 			</article>
 			<div class="hline hline-medium"></div>
 			<?php endif; ?>
+			<!-- Sidebar -->
+			<ins class="adsbygoogle"
+     				style="display:inline-block;width:300px;height:250px"
+     				data-ad-client="ca-pub-8107316404981446"
+     				data-ad-slot="1828551619">
+     			</ins>
+     			<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+     			<div class="hline hline-medium"></div>
 			<?php $args = array( 'posts_per_page' => 1, 'cat' => $opinions ); ?>
 			<?php $myposts = new WP_Query( $args ); ?>
 			<?php if ( $myposts->have_posts() ) : ?>

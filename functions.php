@@ -1,8 +1,8 @@
 <?php
 
-add_action( 'after_setup_theme', 'thestatesman_setup' );
+add_action( 'after_setup_theme', 'statesman_setup' );
 
-if ( ! function_exists( 'thestatesman_setup' ) ):
+if ( ! function_exists( 'statesman_setup' ) ):
 /**
  * Sets up theme defaults and registers support for various WordPress features.
  *
@@ -16,7 +16,7 @@ if ( ! function_exists( 'thestatesman_setup' ) ):
  *
  * @since The Statesman 1.0
  */
-function thestatesman_setup() {
+function statesman_setup() {
 
 	// Add default posts and comments RSS feed links to <head>.
 	add_theme_support( 'automatic-feed-links' );
@@ -150,6 +150,15 @@ function statesman_sidebars() {
     'before_title' => '<h6>',
     'after_title' => '</h6>',
   ));
+  register_sidebar(array(
+    'id' => 'home-sidebar',
+    'name' => __('Home Sidebar'),
+    'description' => __('Displayed on the home page.'),
+    'before_widget' => '<div id="%1$s" class="%2$s">',
+    'after_widget' => '</div><div class="hline hline-medium"></div>',
+    'before_title' => '<h6>',
+    'after_title' => '</h6>',
+  ));
 }
 add_action( 'widgets_init', 'statesman_sidebars' );
 
@@ -240,6 +249,189 @@ function my_add_excerpts_to_pages() {
 	add_post_type_support( 'page', 'excerpt' );
 }
 add_action( 'init', 'my_add_excerpts_to_pages' );
+
+/* WIDGETS */
+
+class statesman_latest_post extends WP_Widget {
+   
+  function __construct() {
+    parent::__construct(
+      // Base ID of your widget
+      'statesman_latest_post',
+      // Widget name will appear in UI
+      __('Latest Post'),
+      // Widget description
+      array( 'description' => __('Displays one post from a given category.'), )
+    );
+  }
+   
+  // Creating widget front-end
+  // This is where the action happens
+  public function widget( $args, $instance ) {
+    $title = apply_filters( 'widget_title', $instance['title'] );
+    $cat_slug = apply_filters( 'widget_cat_slug', $instance['cat_slug'] );
+    $cat_id = get_category_by_slug($cat_slug)->term_id;
+    // before and after widget arguments are defined by themes
+    echo $args['before_widget'];
+    if ( ! empty( $title ) )
+      echo $args['before_title'] . '<a href="' . esc_url(get_category_link($cat_id)) . '">' . $title . '</a>' . $args['after_title'];
+
+    $myposts = new WP_Query( array( 'posts_per_page' => 1, 'cat' => $cat_id) );
+    if ( $myposts->have_posts() ) {
+      $myposts->the_post();
+      echo '<article class="vmedia">';
+      echo '<figure class="thumbnail thumbnail-sidebar">';
+      if ( has_post_thumbnail()) {
+        the_post_thumbnail('medium');
+      }
+      echo '</figure>';
+      echo '<div class="block">';
+      echo '<h2 id="post-';
+        the_ID();
+      echo '">';
+      echo '<a href="';
+        the_permalink();
+      echo '">';
+        the_title();
+      echo '</a>';
+      echo '</h2>';
+      echo '<p class="excerpt">';
+        get_excerpt();
+      echo '</p>';
+      echo '</div>';
+      echo '</article>';
+    }
+
+    echo $args['after_widget'];
+  }
+           
+  // Widget Backend
+  public function form( $instance ) {
+    if ( isset( $instance[ 'title' ] ) ) {
+      $title = $instance[ 'title' ];
+    }
+    else {
+      $title = __('New title');
+    }
+    if ( isset( $instance[ 'cat_slug' ] ) ) {
+      $cat_slug = $instance[ 'cat_slug' ];
+    }
+    else {
+      $cat_slug = __('');
+    }
+    // Widget admin form
+    ?>
+      <p>
+        <label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:' ); ?></label>
+        <input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" />
+      </p>
+      <p>
+        <label for="<?php echo $this->get_field_id( 'cat_slug' ); ?>"><?php _e( 'Category slug:' ); ?></label>
+        <input class="widefat" id="<?php echo $this->get_field_id( 'cat_slug' ); ?>" name="<?php echo $this->get_field_name( 'cat_slug' ); ?>" type="text" value="<?php echo esc_attr( $cat_slug ); ?>" />
+      </p>
+    <?php
+  }
+       
+  // Updating widget replacing old instances with new
+  public function update( $new_instance, $old_instance ) {
+    $instance = array();
+    $instance['title'] = ( ! empty( $new_instance['title'] ) ) ? strip_tags( $new_instance['title'] ) : '';
+    $instance['cat_slug'] = ( ! empty( $new_instance['cat_slug'] ) ) ? strip_tags( $new_instance['cat_slug'] ) : '';
+    return $instance;
+  }
+} // Class wpb_widget ends here
+
+class statesman_latest_stories extends WP_Widget {
+   
+  function __construct() {
+    parent::__construct(
+      // Base ID of your widget
+      'statesman_latest_stories',
+      // Widget name will appear in UI
+      __('Latest Stories'),
+      // Widget description
+      array( 'description' => __('Lists the most recent posts.'), )
+    );
+  }
+   
+  // Creating widget front-end
+  // This is where the action happens
+  public function widget( $args, $instance ) {
+    $title = apply_filters( 'widget_title', $instance['title'] );
+    $num_stories = apply_filters( 'widget_num_stories', $instance['num_stories'] );
+    // before and after widget arguments are defined by themes
+    echo $args['before_widget'];
+    if ( ! empty( $title ) )
+      echo $args['before_title'] . $title . $args['after_title'];
+
+    $myposts = new WP_Query( array( 'posts_per_page' => (int)$num_stories ) );
+    if ( $myposts->have_posts() ) {
+      while ( $myposts->have_posts() ) {
+        $myposts->the_post();
+        echo '<article class="hmedia hmedia-list">';
+        echo '<figure class="thumbnail thumbnail-xsmall">';
+        if ( has_post_thumbnail()) {the_post_thumbnail('thumbnail');}
+        echo '</figure>';
+        echo '<div class="block">';
+        echo '<h5 id="post-';
+          the_ID();
+        echo '">';
+        echo '<a href="';
+          the_permalink() ?>"><?php the_title();
+        echo '</a>';
+        echo '</h5>';
+        echo '</div>';
+        echo '</article>';
+      }
+    }
+    wp_reset_postdata();
+
+    echo $args['after_widget'];
+  }
+           
+  // Widget Backend
+  public function form( $instance ) {
+    if ( isset( $instance[ 'title' ] ) ) {
+      $title = $instance[ 'title' ];
+    }
+    else {
+      $title = __('New title');
+    }
+    if ( isset( $instance[ 'num_stories' ] ) ) {
+      $num_stories = $instance[ 'num_stories' ];
+    }
+    else {
+      $num_stories = __('6');
+    }
+    // Widget admin form
+    ?>
+      <p>
+        <label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:' ); ?></label>
+        <input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" />
+      </p>
+      <p>
+        <label for="<?php echo $this->get_field_id( 'num_stories' ); ?>"><?php _e( 'Number to list:' ); ?></label>
+        <input class="widefat" id="<?php echo $this->get_field_id( 'num_stories' ); ?>" name="<?php echo $this->get_field_name( 'num_stories' ); ?>" type="text" value="<?php echo esc_attr( $num_stories ); ?>" />
+      </p>
+    <?php
+  }
+       
+  // Updating widget replacing old instances with new
+  public function update( $new_instance, $old_instance ) {
+    $instance = array();
+    $instance['title'] = ( ! empty( $new_instance['title'] ) ) ? strip_tags( $new_instance['title'] ) : '';
+    $instance['num_stories'] = ( ! empty( $new_instance['num_stories'] ) ) ? strip_tags( $new_instance['num_stories'] ) : '';
+    return $instance;
+  }
+} // Class wpb_widget ends here
+
+// Register and load the widget
+function statesman_load_widget() {
+  register_widget( 'statesman_latest_stories' );
+  register_widget( 'statesman_latest_post' );
+}
+add_action( 'widgets_init', 'statesman_load_widget' );
+
 
 require( get_template_directory() . '/inc/staff-shortcode.php' );
 require( get_template_directory() . '/inc/issuu.php' );

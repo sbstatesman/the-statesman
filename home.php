@@ -106,52 +106,9 @@
 			<?php endif; ?>
 		</main>
 		<sidebar class="sidebar">
-			<h6>Featured</h6>
-			<a href="http://sbstatesman.com/title-ix-at-stony-brook-university/"><img src="http://sbstatesman.com/wp-content/themes/the-statesman/images/title-ix-banner.jpg" width="300" alt="Title IX at Stony Brook" /></a>
-			<div class="hline hline-medium"></div>
-			<?php $args = array( 'posts_per_page' => 1, 'cat' => $multimedia); ?>
-			<?php $myposts = new WP_Query( $args ); ?>
-			<?php if ( $myposts->have_posts() ) : ?>
-			<?php $myposts->the_post(); ?>
-			<h6><a href="<?php echo esc_url(get_category_link($multimedia)); ?>">Multimedia</a></h6>
-			<article class="vmedia">
-				<figure class="thumbnail thumbnail-sidebar">
-					<?php if ( has_post_thumbnail()) {the_post_thumbnail('medium');} ?>
-				</figure>
-				<div class="block">
-					<h2 id="post-<?php the_ID(); ?>">
-						<a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
-					</h2>
-					<p class="excerpt"><?php get_excerpt(); ?></p>
-				</div>
-			</article>
-			<div class="hline hline-medium"></div>
-			<?php endif; ?>
-			<!-- Sidebar -->
-			<ins class="adsbygoogle"
-     				style="display:inline-block;width:300px;height:250px"
-     				data-ad-client="ca-pub-8107316404981446"
-     				data-ad-slot="1828551619">
-     			</ins>
-     			<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-     			<div class="hline hline-medium"></div>
-			<?php $args = array( 'posts_per_page' => 1, 'cat' => $opinions ); ?>
-			<?php $myposts = new WP_Query( $args ); ?>
-			<?php if ( $myposts->have_posts() ) : ?>
-			<?php $myposts->the_post(); ?>
-			<h6><a href="<?php echo esc_url(get_category_link($opinions)); ?>">Opinions</a></h6>
-			<article class="vmedia">
-				<figure class="thumbnail thumbnail-sidebar">
-					<?php if ( has_post_thumbnail()) {the_post_thumbnail('medium');} ?>
-				</figure>
-				<div class="block">
-					<h2 id="post-<?php the_ID(); ?>">
-						<a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
-					</h2>
-					<p class="excerpt"><?php get_excerpt(); ?></p>
-				</div>
-			</article>
-			<?php endif; ?>
+			<?php if ( is_active_sidebar( 'home-sidebar' ) ) : ?>
+      	<?php dynamic_sidebar( 'home-sidebar' ); ?>
+  		<?php endif; ?>
 		</sidebar>
 	</section>
 	<div class="hline hline-medium"></div>

@@ -336,6 +336,9 @@ h6 {
 	width: 100%;
 	padding: 1em 0;
 }
+.sidebar .hline:last-child {
+	display: none;
+} 
 
 /* icon objects */
 

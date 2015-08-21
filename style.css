@@ -275,6 +275,29 @@ text-transform: uppercase;
 	border-top: 1px solid #c8c8c8;
 }
 
+[class*='col-'] {
+  float: left;
+  box-sizing: border-box;
+  padding: 8px;
+}
+.col-1 {
+  width: 100%;
+}
+.col-1-2 {
+  width: 50%;
+}
+.col-1-3 {
+  width: 33.33%;
+}
+.col-2-3 {
+  width: 66.66%;
+}
+.col-1-4 {
+  width: 25%;
+}
+.col-3-4 {
+  width: 75%;
+}
 /* media objects */
 
 .hmedia, .hmedia .block, .vmedia, .vmedia .block {
@@ -282,6 +305,7 @@ text-transform: uppercase;
 }
 .vmedia {
 	margin-bottom: 10px;
+  display: inline-block;
 }
 .hmedia-list {
 	margin-bottom: 25px;
@@ -295,7 +319,7 @@ text-transform: uppercase;
 	margin-bottom: 10px;
 	overflow: hidden;
 }
-.thumbnail img {
+.thumbnail > img {
 	width: 100%;
 	height: auto;
 }
@@ -364,10 +388,24 @@ text-transform: uppercase;
 	width: 240px;
 }
 
+.videowrapper {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 */
+  height: 0;
+}
+.videowrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+
 /* Wordpress styles */
 
 body.customize-support .fixednav { /* admin bar fix */
-    width: 100%;
+  width: 100%;
 	padding: 10px 0;
 	position: fixed;
 	top: 28px;
@@ -378,7 +416,7 @@ body.customize-support .fixednav { /* admin bar fix */
 .alignleft { float: left; margin: 0 1em 1em 0;}
 .aligncenter { display: block; margin-left: auto; margin-right: auto; }
 
-.wp-caption{
+.wp-caption {
 	font-family: 'Droid Sans', sans-serif;
 	font-weight: 400;
 	line-height: 1.4em;
@@ -405,24 +443,26 @@ body.customize-support .fixednav { /* admin bar fix */
 
 /* Gallery-specific slick carousel styles */
 .gallery-container {
-  height: calc(600px * 2 / 3 * 1/.9);
-  width: 600px;
+  width: 100%;
   position: relative;
 }
 .slicktarget {
   height: 100%;
 }
 .imagearea {
-  height: 90%;
+  height: 400px;
+  width: 100%;
+  background-color: #000;
 }
 .textarea {
-  height: 10%;
+  margin-top: 5px;
+  width: 100%;
 }
 .slick-item img {
   max-height: 100%;
   max-width: 100%;
   width: auto;
-  height: auto;
+  height: 100%;
   margin: auto;
 }
 
@@ -432,7 +472,7 @@ body.customize-support .fixednav { /* admin bar fix */
   position: absolute;
   top: 0;
   left: 0;
-  top: calc(50% - 35px);
+  top: calc(45% - 35px);
 }
 .arrow-left, .arrow-right {
   z-index: 1;
@@ -471,13 +511,13 @@ body.customize-support .fixednav { /* admin bar fix */
   width: 100%;
 }
 .slick-dots li {
-    cursor: pointer;
-    display: inline-block;
-    height: 20px;
-    margin: 0 5px;
-    padding: 0;
-    position: relative;
-    width: 20px;
+  cursor: pointer;
+  display: inline-block;
+  height: 20px;
+  margin: 0 5px;
+  padding: 0;
+  position: relative;
+  width: 20px;
 }
 .slick-dots li.slick-active button:before {
     color: #000000;
@@ -509,35 +549,6 @@ body.customize-support .fixednav { /* admin bar fix */
     outline: medium none;
     padding: 5px;
     width: 20px;
-}
-
-/* these need to go */
-.multicontent {
-  min-height: 450px;
-}
-.multicontent iframe {
-  width: 640px;
-  height: 450px;
-}
-.multislug {
-  margin-top: 10px;
-  
-}
-
-/* possible bugfix for thumbnail, if the image is smaller than height, the 
-   figure will be larger than the image */
-.thumbnail-min img {
-  width: 100%;
-  height: 100%;
-}
-.hmedia .thumbnail-min {
-  float: left;
-  margin-right: 15px;
-  overflow: hidden;
-}
-.vmedia .thumbnail-min {
-  margin-bottom: 10px;
-  overflow: hidden;
 }
 
 /* Rules for aligning a list of thumbnail horizontally */
@@ -592,37 +603,18 @@ body.customize-support .fixednav { /* admin bar fix */
 .hovertext {
   position: absolute;
   left: 0;
+  right: 0;
   bottom: 0;
   text-align: left;
-  margin: 0 0 0 0;
+  margin: 0;
   padding: 5px;
-  background: rgba(0,0,0,0.8);
+  background-color: rgba(0,0,0,0.8);
   color: #fff;
-  opacity: 0;
   -webkit-transition: 0.5s;
   -moz-transition: 0.5s;
   -o-transition: 0.5s;
   -ms-transition: 0.5s;
 }
-.hovertext>img {
-  margin-left: .25em;
-}
 .hovertext-small {
-  width: 185px;
-}
-.hovertext-medium {
-  width: 204px;
-}
-.hovertext-large {
-  width: 220px;
-}
-.hovertext-sidebar {
-  width: 300px;
-}
-.hovertext > img {
-  width: auto !important;
-  height: auto !important;
-}
-.hovertext-container:hover > .hovertext {
-  opacity: 0.9;
+  right: auto;
 }

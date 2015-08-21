@@ -22,13 +22,6 @@ Join The Statesman Web & Graphics Section: https://www.facebook.com/groups/14814
 		<link rel="apple-touch-icon" sizes="180x180" href="<?php bloginfo( 'template_url' ); ?>/apple-touch-icon.png" />
 		<meta name="viewport" content="width=device-width">
 		<meta charset="<?php bloginfo( 'charset' ); ?>">
-		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-		<script src="<?php echo get_template_directory_uri(); ?>/js/slick.min.js"></script>
-		<script src="<?php echo get_template_directory_uri(); ?>/js/web-and-graphics.js"></script>
-		
-		
-		
-		
 		
 		<title>
 		<?php
@@ -50,6 +43,7 @@ Join The Statesman Web & Graphics Section: https://www.facebook.com/groups/14814
 					echo ' | ' . sprintf( 'Page %s', max( $paged, $page ) );
 		?>
 		</title>
+		
 		<link rel="profile" href="http://gmpg.org/xfn/11">
 		<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 		<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/slick.css"/>

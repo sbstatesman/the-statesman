@@ -59,7 +59,16 @@ function slick_shortcode($attr) {
 	
 	/* insert images into a template */
 	//Initial boilerplate
-	$output = '<div class="gallery-container"><div class="arrows-container"><div id="prev" class="arrow-left"><img src="'.get_template_directory_uri().'/images/thin_left_arrow_333.png" /></div><div id="next" class="arrow-right"><img src="'.get_template_directory_uri().'/images/thin_right_arrow_333.png" /></div></div><div class="slicktarget">';
+	$output = '<div class="gallery-container">' .
+		'<div class="arrows-container">' .
+			'<div id="prev" class="arrow-left">' .
+				'<img src="'.get_template_directory_uri().'/images/thin_left_arrow_333.png" />' .
+			'</div>' . 
+			'<div id="next" class="arrow-right">' . 
+				'<img src="'.get_template_directory_uri().'/images/thin_right_arrow_333.png" />' .
+			'</div>' . 
+		'</div>' . 
+		'<div class="slicktarget gallery">';
 	
 	foreach($attachments as $id => $attachment) {
 		
@@ -74,7 +83,7 @@ function slick_shortcode($attr) {
 		// If image has an excerpt make room for it
 		if($attachment->post_excerpt !== '') {
 			$output .= '<div class="slick-item"><div class="imagearea">'.$image_output.'</div>';
-			$output .= '<div class="textarea excerpt">'.$attachment->post_excerpt.'</div></div>';
+			$output .= '<div class="textarea wp-caption">'.$attachment->post_excerpt.'</div></div>';
 		//If it doesn't don't
 		} else {
 			$output .= '<div class="slick-item">'.$image_output.'</div>';

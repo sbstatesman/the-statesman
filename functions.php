@@ -17,21 +17,11 @@ if ( ! function_exists( 'thestatesman_setup' ) ):
  * @since The Statesman 1.0
  */
 function thestatesman_setup() {
-
 	// Add default posts and comments RSS feed links to <head>.
 	add_theme_support( 'automatic-feed-links' );
-
 	// This theme uses Featured Images (also known as post thumbnails) for per-post/per-page Custom Header images
 	add_theme_support( 'post-thumbnails' );
-
-	// Add custom image sizes.
-	// Used for large feature (header) images.
-	add_image_size( 'large-feature', $custom_header_support['width'], $custom_header_support['height'], true );
-	// Used for featured posts if a large-feature doesn't exist.
-	add_image_size( 'small-feature', 500, 300 );
-
 	add_theme_support( 'html5' );
-
 	add_theme_support('post-formats', array('video','gallery','audio'));
 }
 endif;
@@ -73,12 +63,14 @@ function get_ogimg() {
      return $ogimage;
 }
 
-/**
- * Returns the featured multimedia content of post by id.
- * Parameters: ID number of a post
- * Returns: String containing an iframe of the first multimedia object of the
- * posts format.
- */
+function enqueue_and_register_scripts() {
+  wp_register_script( 'slick', get_template_directory_uri() . '/js/slick.min.js', array('jquery'), null, true);
+  wp_enqueue_script( 'match-height', get_template_directory_uri() . '/js/jquery.matchHeight.min.js', array('jquery'), null, true);
+  wp_enqueue_script( 'footer-scripts', get_template_directory_uri() . '/js/footer.js', array('slick'), null, true);
+}
+add_action( 'wp_enqueue_scripts', 'enqueue_and_register_scripts' );
+
+/* Returns the featured multimedia content of post by id. */
 function embed_mm_content($id) {
 	$content = get_post($id)->post_content;  //Content of post
 	$format  = get_post_format($id);         //Post format
@@ -87,49 +79,48 @@ function embed_mm_content($id) {
 	$embed;                                   //Generic embedding function
 	
 	/* Video links are URLs, use the Wordpress function: "wp_oembed_get" */
-	if($format == "video") {
-		$pattern = "/http(s*):\/\/.*(\s?)/";
-		$embed    = "wp_oembed_get";
-	/*Galleries are shortcodes, use the Wordpress function: "do_shortcode" */
-	} else if($format == "gallery") {
-		$pattern = "/\[(gallery)(.*)\]/";
-		$embed    = "do_shortcode";
+	if($format == 'video') {
+		$pattern = '/http(s*):\/\/.*(\s?)/';
+		$embed = 'wp_oembed_get';
+	/* Galleries are shortcodes, use the Wordpress function: "do_shortcode" */
+	} else if($format == 'gallery') {
+		$pattern = '/\[(gallery)(.*)\]/';
+		$embed = 'do_shortcode';
 	/* TODO: Need to show more for audio, also need to handle soundcloud */
-	} else if($format == "audio") {
-		$pattern = "/https?:\/\/soundcloud.com(.*)(\s?)/";
-		$embed    = "wp_oembed_get";
+	} else if($format == 'audio') {
+		$pattern = '/https?:\/\/soundcloud.com(.*)(\s?)/';
+		$embed = 'wp_oembed_get';
 	/* Default case, just show featured image */
 	} else {
 		if(has_post_thumbnail($id)) {
-			return get_the_post_thumbnail($id, "large");
+			return get_the_post_thumbnail($id, 'large');
 		} else {
-			return "No content found";
+			return 'No content found';
 		}
 	}
-	/* Iterate through regex matches, if the embed function works, return.
-	 * It is important to note that the first matched multimedia will be
-	 * returned.
-	 */
+
 	$numMatches = preg_match_all($pattern, $content, $matches);
 	for($i=0;$i<$numMatches;++$i) {
 		$embedded = $embed($matches[0][$i], array('height'=>450));
-		if($embedded!=false) {
-			return $embedded;
-		}
+		if($embedded != false && $format == 'video') {
+			return '<div class="videowrapper">' . $embedded . '</div>';
+		} else if ($embedded != false) {
+      return $embedded;
+    }
 	}
 }
 
-/**
- * Filters post display, a post in a category is displayed with the template:
- * single-{category-name}.php
- */
-add_filter('single_template', create_function(
-	'$the_template',
-	'foreach( (array) get_the_category() as $cat ) {
-		if ( file_exists(TEMPLATEPATH . "/single-{$cat->slug}.php") )
-		return TEMPLATEPATH . "/single-{$cat->slug}.php"; }
-	return $the_template;' )
-);
+/* Selects the template based on the post format. */
+function use_post_format_templates( $template ) {
+  if (is_single() && (get_post_format() == 'video' || get_post_format() == 'gallery' || get_post_format() == 'audio')) {
+    $post_format_template = locate_template( 'single-multimedia.php' );
+    if ( $post_format_template ) {
+      $template = $post_format_template;
+    }
+  }
+  return $template;
+}   
+add_filter( 'template_include', 'use_post_format_templates' );
 
 /* Adds Facebook XML namespaces to header */
 function add_og_xml_ns($content) {

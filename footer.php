@@ -3,6 +3,6 @@
 				<span class="metatext right"><a href="mailto:editors@sbstatesman.com">Contact Us</a> | <a href="mailto:advertise@sbstatesman.com">Advertise</a> | <a href="mailto:web@sbstatesman.com">Site Feedback</a></span>
 			</footer>
 		</div>
-	<?php wp_footer(); ?>
+    <?php wp_footer(); ?>
 	</body>
 </html>

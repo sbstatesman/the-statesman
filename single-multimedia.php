@@ -1,5 +1,6 @@
 <?php get_header(); ?>
 <div class="hline hline-medium"></div>
+
 <main class="row">
 	<?php while ( have_posts() ) : the_post(); ?>
 	<main class="main">
@@ -19,39 +20,44 @@
 <div class="hline hline-medium"></div>
 <section class="row">
 	<main class="main vline-medium">
-		
 		<?php $displays = array('video' => 'videos','gallery' => 'galleries','audio' => 'audio');?>
 		<?php $format  = get_post_format(get_the_ID());?>
-		<?php $args = array( 'posts_per_page' => 12, 'cat' => $multimedia, 'tax_query' => array(array(
+		<?php $args = array( 'posts_per_page' => 12, 'tax_query' => array(array(
 				'taxonomy' => 'post_format',
 				'field' => 'slug',
 				'terms' => array('post-format-'.$format)
 			))); ?>
 		<?php $myposts = new WP_Query( $args ); ?>
-		
-		<h6>more <?php echo $displays[$format];?></h6>
+		<h6><a href="<?php echo esc_url(get_post_format_link($format)); ?>">More <?php echo $displays[$format];?></a></h6>
 		<?php while( $myposts->have_posts() ): ?>
 		<?php $myposts->the_post();?>
-		<div class="vmedia col-1-3" data-mh="thumbnails">
-			<figure class="thumbnail thumbnail-small hovertext-container">
-					<?php if ( has_post_thumbnail()) {the_post_thumbnail('medium');} ?>
-					<div class="hovertext hovertext-small">
-						<img src="<?php echo get_template_directory_uri(); ?>	/images/playsmall.png"/>
+		<div class="col-1-3">
+			<div class="vmedia" data-mh="thumbnails">
+				<a href="<?php the_permalink(); ?>">
+					<figure class="thumbnail hovertext-container">
+							<?php if ( has_post_thumbnail()) {the_post_thumbnail('medium');} ?>
+							<div class="hovertext hovertext-small">
+								<img src="<?php echo get_template_directory_uri(); ?>	/images/playsmall.png"/>
+							</div>
+					</figure>
+					<div class="block">
+						<h5 id="post-<?php the_ID(); ?>">
+							<?php the_title(); ?>
+						</h5>
+					</div>
 				</a>
-			</figure>
-			<div class="block">
-				<h5 id="post-<?php the_ID(); ?>" class="slideTitle">
-					<a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
-				</h5>
 			</div>
 		</div>
 		<?php endwhile;?>
-		
 	</main>
 	
 	<sidebar class="sidebar">
-		<h6>play next</h6>
-		<?php $args = array( 'posts_per_page' => 6, 'cat' => $multimedia ) ?>
+		<h6>Play next</h6>
+		<?php $args = array( 'posts_per_page' => 6, 'tax_query' => array(array(
+			'taxonomy' => 'post_format',
+			'field' => 'slug',
+			'terms' => array('post-format-video', 'post-format-gallery', 'post-format-audio')
+		))) ?>
 		<?php $myposts = new WP_Query( $args ); ?>
 		<?php while ( $myposts->have_posts() ) : ?>
 		<?php $myposts->the_post(); ?>
@@ -60,7 +66,6 @@
 			<figure class="thumbnail thumbnail-xsmall">
 				<?php if ( has_post_thumbnail()) {the_post_thumbnail('thumbnail');} ?>
 			</figure>
-			
 			<div class="block">
 				<div class="articletype small-text"><?php echo $format ?></div>
 				<h5 id="post-<?php the_ID(); ?>">

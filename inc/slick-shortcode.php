@@ -61,10 +61,10 @@ function slick_shortcode($attr) {
 	//Initial boilerplate
 	$output = '<div class="gallery-container">' .
 		'<div class="arrows-container">' .
-			'<div id="prev" class="arrow-left">' .
+			'<div class="arrow-left">' .
 				'<img src="'.get_template_directory_uri().'/images/thin_left_arrow_333.png" />' .
 			'</div>' . 
-			'<div id="next" class="arrow-right">' . 
+			'<div class="arrow-right">' . 
 				'<img src="'.get_template_directory_uri().'/images/thin_right_arrow_333.png" />' .
 			'</div>' . 
 		'</div>' . 
@@ -83,7 +83,7 @@ function slick_shortcode($attr) {
 		// If image has an excerpt make room for it
 		if($attachment->post_excerpt !== '') {
 			$output .= '<div class="slick-item"><div class="imagearea">'.$image_output.'</div>';
-			$output .= '<div class="textarea wp-caption">'.$attachment->post_excerpt.'</div></div>';
+			$output .= '<div class="textarea wp-caption"><span class="slick-counter"></span> — '.$attachment->post_excerpt.'</div></div>';
 		//If it doesn't don't
 		} else {
 			$output .= '<div class="slick-item">'.$image_output.'</div>';

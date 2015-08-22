@@ -66,17 +66,19 @@
 		<?php if (!empty($myposts[1])) : ?>
 		<?php $post = $myposts[1]; ?>
 		<?php setup_postdata( $post ); ?>
-		<article class="sidebar vmedia">
-			<figure class="thumbnail thumbnail-sidebar">
-				<?php if ( has_post_thumbnail()) {the_post_thumbnail('medium');} ?>
-			</figure>
-			<div class="block">
-				<p class="articletype small-text"><?php the_excluded_category(array($featured, $top_story)); ?></p>
-				<h1 id="post-<?php the_ID(); ?>">
-					<a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
-				</h1>
-				<p class="metatext metatext-byline small-text">By <?php the_author_posts_link(); ?> / <a href="<?php the_archive_date(); ?>"><?php the_time('F j, Y'); ?></a></p>
-				<p class="excerpt"><?php get_excerpt(); ?></p>
+		<article class="sidebar">
+			<div class="vmedia">
+				<figure class="thumbnail">
+					<?php if ( has_post_thumbnail()) {the_post_thumbnail('medium');} ?>
+				</figure>
+				<div class="block">
+					<p class="articletype small-text"><?php the_excluded_category(array($featured, $top_story)); ?></p>
+					<h1 id="post-<?php the_ID(); ?>">
+						<a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
+					</h1>
+					<p class="metatext metatext-byline small-text">By <?php the_author_posts_link(); ?> / <a href="<?php the_archive_date(); ?>"><?php the_time('F j, Y'); ?></a></p>
+					<p class="excerpt"><?php get_excerpt(); ?></p>
+				</div>
 			</div>
 		</article>
 		<?php endif; ?>
@@ -114,7 +116,7 @@
 			<?php $myposts->the_post(); ?>
 			<h6><a href="<?php echo esc_url(get_category_link($multimedia)); ?>">Multimedia</a></h6>
 			<article class="vmedia">
-				<figure class="thumbnail thumbnail-sidebar">
+				<figure class="thumbnail">
 					<?php if ( has_post_thumbnail()) {the_post_thumbnail('medium');} ?>
 				</figure>
 				<div class="block">
@@ -132,7 +134,7 @@
 			<?php $myposts->the_post(); ?>
 			<h6><a href="<?php echo esc_url(get_category_link($opinions)); ?>">Opinions</a></h6>
 			<article class="vmedia">
-				<figure class="thumbnail thumbnail-sidebar">
+				<figure class="thumbnail">
 					<?php if ( has_post_thumbnail()) {the_post_thumbnail('medium');} ?>
 				</figure>
 				<div class="block">
@@ -150,72 +152,80 @@
 		<?php $args = array( 'posts_per_page' => 3, 'cat' => $news); ?>
 		<?php $myposts = new WP_Query( $args ); ?>
 		<?php if ( $myposts->have_posts() ) : ?>
-		<div class="fourcolumn vspace vmedia">
-			<h6><a href="<?php echo esc_url(get_category_link($news)); ?>">News</a></h6>
-			<?php $myposts->the_post(); ?>
-			<figure class="thumbnail thumbnail-medium">
-				<?php if ( has_post_thumbnail()) {the_post_thumbnail('medium');} ?>
-			</figure>
-			<div class="block">
-				<p id="post-<?php the_ID(); ?>" class="metatext metatext-dark"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></p>
-				<?php while ( $myposts->have_posts() ) : ?>
+		<div class="fourcolumn vspace">
+			<div class="vmedia">
+				<h6><a href="<?php echo esc_url(get_category_link($news)); ?>">News</a></h6>
 				<?php $myposts->the_post(); ?>
-				<p id="post-<?php the_ID(); ?>" class="metatext metatext-dark"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></p>
-				<?php endwhile; ?>
+				<figure class="thumbnail">
+					<?php if ( has_post_thumbnail()) {the_post_thumbnail('medium');} ?>
+				</figure>
+				<div class="block">
+					<p id="post-<?php the_ID(); ?>" class="metatext metatext-dark"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></p>
+					<?php while ( $myposts->have_posts() ) : ?>
+					<?php $myposts->the_post(); ?>
+					<p id="post-<?php the_ID(); ?>" class="metatext metatext-dark"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></p>
+					<?php endwhile; ?>
+				</div>
 			</div>
 		</div>
 		<?php endif; ?>
 		<?php $args = array( 'posts_per_page' => 3, 'cat' => $arts_and_entertainment ); ?>
 		<?php $myposts = new WP_Query( $args ); ?>
 		<?php if ( $myposts->have_posts() ) : ?>
-		<div class="fourcolumn vspace vmedia">
-			<h6><a href="<?php echo esc_url(get_category_link($arts_and_entertainment)); ?>">Arts</a></h6>
-			<?php $myposts->the_post(); ?>
-			<figure class="thumbnail thumbnail-medium">
-				<?php if ( has_post_thumbnail()) {the_post_thumbnail('medium');} ?>
-			</figure>
-			<div class="block">
-				<p id="post-<?php the_ID(); ?>" class="metatext metatext-dark"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></p>
-				<?php while ( $myposts->have_posts() ) : ?>
+		<div class="fourcolumn vspace">
+			<div class="vmedia">
+				<h6><a href="<?php echo esc_url(get_category_link($arts_and_entertainment)); ?>">Arts</a></h6>
 				<?php $myposts->the_post(); ?>
-				<p id="post-<?php the_ID(); ?>" class="metatext metatext-dark"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></p>
-				<?php endwhile; ?>
+				<figure class="thumbnail">
+					<?php if ( has_post_thumbnail()) {the_post_thumbnail('medium');} ?>
+				</figure>
+				<div class="block">
+					<p id="post-<?php the_ID(); ?>" class="metatext metatext-dark"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></p>
+					<?php while ( $myposts->have_posts() ) : ?>
+					<?php $myposts->the_post(); ?>
+					<p id="post-<?php the_ID(); ?>" class="metatext metatext-dark"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></p>
+					<?php endwhile; ?>
+				</div>
 			</div>
 		</div>
 		<?php endif; ?>
 		<?php $args = array( 'posts_per_page' => 3, 'cat' => $opinions ); ?>
 		<?php $myposts = new WP_Query( $args ); ?>
 		<?php if ( $myposts->have_posts() ) : ?>
-		<div class="fourcolumn vspace vmedia">
-			<h6><a href="<?php echo esc_url(get_category_link($opinions)); ?>">Opinions</a></h6>
-			<?php $myposts->the_post(); ?>
-			<figure class="thumbnail thumbnail-medium">
-				<?php if ( has_post_thumbnail()) {the_post_thumbnail('medium');} ?>
-			</figure>
-			<div class="block">
-				<p id="post-<?php the_ID(); ?>" class="metatext metatext-dark"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></p>
-				<?php while ( $myposts->have_posts() ) : ?>
+		<div class="fourcolumn vspace">
+			<div class="vmedia">
+				<h6><a href="<?php echo esc_url(get_category_link($opinions)); ?>">Opinions</a></h6>
 				<?php $myposts->the_post(); ?>
-				<p id="post-<?php the_ID(); ?>" class="metatext metatext-dark"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></p>
-				<?php endwhile; ?>
+				<figure class="thumbnail">
+					<?php if ( has_post_thumbnail()) {the_post_thumbnail('medium');} ?>
+				</figure>
+				<div class="block">
+					<p id="post-<?php the_ID(); ?>" class="metatext metatext-dark"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></p>
+					<?php while ( $myposts->have_posts() ) : ?>
+					<?php $myposts->the_post(); ?>
+					<p id="post-<?php the_ID(); ?>" class="metatext metatext-dark"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></p>
+					<?php endwhile; ?>
+				</div>
 			</div>
 		</div>
 		<?php endif; ?>
 		<?php $args = array( 'posts_per_page' => 3, 'cat' => $sports ); ?>
 		<?php $myposts = new WP_Query( $args ); ?>
 		<?php if ( $myposts->have_posts() ) : ?>
-		<div class="fourcolumn vmedia">
-			<h6><a href="<?php echo esc_url(get_category_link($sports)); ?>">Sports</a></h6>
-			<?php $myposts->the_post(); ?>
-			<figure class="thumbnail thumbnail-medium">
-				<?php if ( has_post_thumbnail()) {the_post_thumbnail('medium');} ?>
-			</figure>
-			<div class="block">
-				<p id="post-<?php the_ID(); ?>" class="metatext metatext-dark"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></p>
-				<?php while ( $myposts->have_posts() ) : ?>
+		<div class="fourcolumn">
+			<div class="vmedia">
+				<h6><a href="<?php echo esc_url(get_category_link($sports)); ?>">Sports</a></h6>
 				<?php $myposts->the_post(); ?>
-				<p id="post-<?php the_ID(); ?>" class="metatext metatext-dark"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></p>
-				<?php endwhile; ?>
+				<figure class="thumbnail">
+					<?php if ( has_post_thumbnail()) {the_post_thumbnail('medium');} ?>
+				</figure>
+				<div class="block">
+					<p id="post-<?php the_ID(); ?>" class="metatext metatext-dark"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></p>
+					<?php while ( $myposts->have_posts() ) : ?>
+					<?php $myposts->the_post(); ?>
+					<p id="post-<?php the_ID(); ?>" class="metatext metatext-dark"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></p>
+					<?php endwhile; ?>
+				</div>
 			</div>
 		</div>
 		<?php endif; ?>

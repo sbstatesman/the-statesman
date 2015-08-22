@@ -15,7 +15,7 @@
 			<?php $myposts->the_post(); ?>
 			<h6><a href="<?php echo get_tag_link(get_tag_id('letter-to-the-editor')); ?>">Letter to the Editor</a></h6>
 			<article class="vmedia">
-				<figure class="thumbnail thumbnail-sidebar">
+				<figure class="thumbnail">
 					<?php if ( has_post_thumbnail()) {the_post_thumbnail('medium');} ?>
 				</figure>
 				<div class="block">
@@ -42,7 +42,7 @@
 				<?php while ( $myposts->have_posts() ) : ?>
 				<?php $myposts->the_post(); ?>
 				<article class="vmedia">
-					<figure class="thumbnail thumbnail-large">
+					<figure class="thumbnail">
 						<?php if ( has_post_thumbnail()) {the_post_thumbnail('medium');} ?>
 					</figure>
 					<div class="block">
@@ -62,7 +62,7 @@
 				<?php if ( $myposts->have_posts() ) : ?>
 				<?php $myposts->the_post(); ?>
 				<article class="vmedia">
-					<figure class="thumbnail thumbnail-lede">
+					<figure class="thumbnail">
 						<?php if ( has_post_thumbnail()) {the_post_thumbnail('medium');} ?>
 					</figure>
 					<div class="block">

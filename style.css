@@ -14,6 +14,7 @@ body {
 }
 
 /* reset */
+
 body, figure {
 	margin: 0;
 }
@@ -25,6 +26,7 @@ a:hover, a:active {
 	text-decoration: underline;
 	color: inherit;
 }
+
 /* typography and branding */
 
 h1 {
@@ -202,7 +204,7 @@ text-transform: uppercase;
 	background-color: #fff;
 }
 
-/* grid and lines */
+/* layout and lines */
 
 .container {
 	width: 960px;
@@ -275,6 +277,8 @@ text-transform: uppercase;
 	border-top: 1px solid #c8c8c8;
 }
 
+/* columns */
+
 [class*='col-'] {
   float: left;
   box-sizing: border-box;
@@ -298,14 +302,15 @@ text-transform: uppercase;
 .col-3-4 {
   width: 75%;
 }
+
 /* media objects */
 
 .hmedia, .hmedia .block, .vmedia, .vmedia .block {
 	overflow: auto;
 }
 .vmedia {
+  width: 100%;
 	margin-bottom: 10px;
-  display: inline-block;
 }
 .hmedia-list {
 	margin-bottom: 25px;
@@ -317,11 +322,11 @@ text-transform: uppercase;
 }
 .vmedia .thumbnail {
 	margin-bottom: 10px;
-	overflow: hidden;
 }
 .thumbnail > img {
 	width: 100%;
 	height: auto;
+  display: block;
 }
 .thumbnail-lede {
 	width: 390px;
@@ -375,6 +380,7 @@ text-transform: uppercase;
 }
 
 /* image styles */
+
 .photo {
 	margin-bottom: 5px;
 }
@@ -387,7 +393,6 @@ text-transform: uppercase;
 .photo-half {
 	width: 240px;
 }
-
 .videowrapper {
   position: relative;
   padding-bottom: 56.25%; /* 16:9 */
@@ -400,7 +405,6 @@ text-transform: uppercase;
   width: 100%;
   height: 100%;
 }
-
 
 /* Wordpress styles */
 
@@ -441,7 +445,8 @@ body.customize-support .fixednav { /* admin bar fix */
 	color: #005a9c;
 }
 
-/* Gallery-specific slick carousel styles */
+/* gallery-specific slick carousel styles */
+
 .gallery-container {
   width: 100%;
   position: relative;
@@ -458,7 +463,7 @@ body.customize-support .fixednav { /* admin bar fix */
   margin-top: 5px;
   width: 100%;
 }
-.slick-item img {
+.gallery .slick-item img {
   max-height: 100%;
   max-width: 100%;
   width: auto;
@@ -466,7 +471,31 @@ body.customize-support .fixednav { /* admin bar fix */
   margin: auto;
 }
 
-/* Style arrow buttons for slick carousels */
+/* slider-specific slick carousel styles */
+
+.slidecontainer {
+  position: relative;
+  width: 100%;
+}
+.slidecontainer .slick-item {
+  padding: 0 1em;
+}
+
+/* site-wide style for slick carousel */
+
+.slick-list, .slick-track {
+  height: 100%;
+}
+.slick-item img {
+  max-height: 100%;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  margin: auto;
+}
+
+/* arrow button styles for slick carousels */
+
 .arrows-container {
   width: 100%;
   position: absolute;
@@ -496,109 +525,10 @@ body.customize-support .fixednav { /* admin bar fix */
   right: 0;
 }
 
-/* site-wide style for slick carousel */
-.slick-list, .slick-track {
-  height: 100%;
-}
+/* hovertext */
 
-.slick-dots {
-  bottom: -45px;
-  display: block;
-  list-style: none outside none;
-  padding: 0;
-  position: absolute;
-  text-align: center;
-  width: 100%;
-}
-.slick-dots li {
-  cursor: pointer;
-  display: inline-block;
-  height: 20px;
-  margin: 0 5px;
-  padding: 0;
-  position: relative;
-  width: 20px;
-}
-.slick-dots li.slick-active button:before {
-    color: #000000;
-    opacity: 0.75;
-}
-.slick-dots li button:before {
-    background-color: #808080;
-    color: #000000;
-    content: ".";
-    font-size: 6px;
-    height: 20px;
-    left: 0;
-    line-height: 20px;
-    opacity: 0.25;
-    position: absolute;
-    text-align: center;
-    top: 0;
-    width: 20px;
-}
-.slick-dots li button {
-    background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
-    border: 0 none;
-    color: rgba(0, 0, 0, 0);
-    cursor: pointer;
-    display: block;
-    font-size: 0;
-    height: 20px;
-    line-height: 0;
-    outline: medium none;
-    padding: 5px;
-    width: 20px;
-}
-
-/* Rules for aligning a list of thumbnail horizontally */
-.slidelist {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-.slideTitle {
-  margin-top: 8px;
-}
-.slidecontainer {
-  position: relative;
-  width: 100%;
-}
-.slidecontainer .slick-item {
-  padding: 0px 13px;
-}
-.slideprev {
-  margin-right: 13px;
-}
-.slidenext {
-  margin-left: 9px;
-}
-.slideprev, .slidenext {
-  height: 195px;
-  line-height: 195px;
-  width: 15px;
-  float: left;
-}
-.slideprev img, .slidenext img {
-  vertical-align: middle;
-  max-height: 87px;
-  max-width: 15px;
-}
-.slideitem-medium {
-  width: 214px;
-  margin-right:13px;
-  float: left;
-}
-.slideitem-small {
-  width: 195px;
-  margin-right: 13px;
-  float: left;
-}
-
-/* Style text to hover over an image and fade in on mouse-over */
 .hovertext-container {
   position: relative;
-  width: 100%;
 }
 .hovertext {
   position: absolute;
@@ -607,13 +537,17 @@ body.customize-support .fixednav { /* admin bar fix */
   bottom: 0;
   text-align: left;
   margin: 0;
-  padding: 5px;
-  background-color: rgba(0,0,0,0.8);
+  padding: .5em 1em;
+  opacity: 0.8;
+  background-color: #000;
   color: #fff;
-  -webkit-transition: 0.5s;
-  -moz-transition: 0.5s;
-  -o-transition: 0.5s;
-  -ms-transition: 0.5s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -o-transition: 0.3s;
+  -ms-transition: 0.3s;
+}
+.hovertext-container:hover .hovertext {
+  background-color: #005a9c;
 }
 .hovertext-small {
   right: auto;

@@ -67,17 +67,18 @@
 .candidate-selection {
 	height: 1em;
 	margin-top: 1em;
-	cursor: pointer;
 }
 
 .bgcolor-blue {
 	background-color: #005a9c;
+	cursor: pointer;
 }
 .bgcolor-blue:hover {
 	background-color: #199c00;
 }
 .bgcolor-green {
 	background-color: #199c00;
+	cursor: pointer;
 }
 .bgcolor-gray {
 	background-color: #aaa;

@@ -352,6 +352,25 @@ text-transform: uppercase;
 	width: 90px;
 	height: calc(90px * 2/3);
 }
+.button {
+	display: inline-block;
+  padding: 1em;
+  text-decoration: none !important;
+  background-color: #06B;
+  border-radius: 5px;
+  text-align: center;
+  color: #FFF !important;
+}
+.button:hover {
+  text-decoration: underline !important;
+}
+.button-wide {
+	width: 100%;
+	padding: 1em 0;
+}
+.sidebar .hline:last-child {
+	display: none;
+} 
 
 /* icon objects */
 

@@ -108,43 +108,9 @@
 			<?php endif; ?>
 		</main>
 		<sidebar class="sidebar">
-			<a href="http://sbstatesman.com/wp-content/themes/the-statesman/interactive/elections2015/"><img src="<?php bloginfo( 'template_url' ); ?>/images/2015-elections-banner.png" alt="2015 USG Elections Guide" width="300" /></a>
-			<div class="hline hline-medium"></div>
-			<?php $args = array( 'posts_per_page' => 1, 'cat' => $multimedia); ?>
-			<?php $myposts = new WP_Query( $args ); ?>
-			<?php if ( $myposts->have_posts() ) : ?>
-			<?php $myposts->the_post(); ?>
-			<h6><a href="<?php echo esc_url(get_category_link($multimedia)); ?>">Multimedia</a></h6>
-			<article class="vmedia">
-				<figure class="thumbnail">
-					<?php if ( has_post_thumbnail()) {the_post_thumbnail('medium');} ?>
-				</figure>
-				<div class="block">
-					<h2 id="post-<?php the_ID(); ?>">
-						<a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
-					</h2>
-					<p class="excerpt"><?php get_excerpt(); ?></p>
-				</div>
-			</article>
-			<div class="hline hline-medium"></div>
-			<?php endif; ?>
-			<?php $args = array( 'posts_per_page' => 1, 'cat' => $opinions ); ?>
-			<?php $myposts = new WP_Query( $args ); ?>
-			<?php if ( $myposts->have_posts() ) : ?>
-			<?php $myposts->the_post(); ?>
-			<h6><a href="<?php echo esc_url(get_category_link($opinions)); ?>">Opinions</a></h6>
-			<article class="vmedia">
-				<figure class="thumbnail">
-					<?php if ( has_post_thumbnail()) {the_post_thumbnail('medium');} ?>
-				</figure>
-				<div class="block">
-					<h2 id="post-<?php the_ID(); ?>">
-						<a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
-					</h2>
-					<p class="excerpt"><?php get_excerpt(); ?></p>
-				</div>
-			</article>
-			<?php endif; ?>
+			<?php if ( is_active_sidebar( 'home-sidebar' ) ) : ?>
+      	<?php dynamic_sidebar( 'home-sidebar' ); ?>
+  		<?php endif; ?>
 		</sidebar>
 	</section>
 	<div class="hline hline-medium"></div>

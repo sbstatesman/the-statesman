@@ -323,7 +323,7 @@ text-transform: uppercase;
 .vmedia .thumbnail {
 	margin-bottom: 10px;
 }
-.thumbnail > img {
+.thumbnail img {
 	width: 100%;
 	height: auto;
   display: block;
@@ -570,4 +570,8 @@ body.customize-support .fixednav { /* admin bar fix */
 }
 .hovertext-small {
   right: auto;
+}
+.hovertext img {
+  width: auto;
+  display: inline-block;
 }

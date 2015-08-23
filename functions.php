@@ -103,9 +103,11 @@ function embed_mm_content($id) {
 	$numMatches = preg_match_all($pattern, $content, $matches);
 	for($i=0;$i<$numMatches;++$i) {
 		$embedded = $embed($matches[0][$i], array('height'=>450));
-		if($embedded != false && $format == 'video') {
+		if($embedded && $format == 'video') {
 			return '<div class="videowrapper">' . $embedded . '</div>';
-		} else if ($embedded != false) {
+		} else if($embedded && $format == 'audio') {
+      return '<div class="videowrapper">' . $embedded . '</div>';
+    } else if ($embedded) {
       return $embedded;
     }
 	}

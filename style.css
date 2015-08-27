@@ -427,14 +427,20 @@ text-transform: uppercase;
 
 /* Wordpress styles */
 
-body.customize-support .fixednav { /* admin bar fix */
-  width: 100%;
-	padding: 10px 0;
-	position: fixed;
+.admin-bar .fixednav {
 	top: 28px;
-	left: 0;
-	z-index: 5;
 }
+@media screen and (max-width: 782px) {
+  .admin-bar .fixednav {
+    top: 46px;
+  }
+}
+@media screen and (max-width: 600px) {
+  #wpadminbar {
+    position: fixed !important;
+  }
+}
+
 .alignright { float: right; margin: 0 0 1em 1em;}
 .alignleft { float: left; margin: 0 1em 1em 0;}
 .aligncenter { display: block; margin-left: auto; margin-right: auto; }

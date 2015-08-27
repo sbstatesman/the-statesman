@@ -75,7 +75,7 @@ Join The Statesman Web & Graphics Section: https://www.facebook.com/groups/14814
 
 		<?php wp_head(); ?>
 	</head>
-	<body>
+	<body <?php body_class( $class ); ?>>
 		<nav class="fixednav fixednav-main">
 			<div class="container">
 				<a href="<?php echo site_url(); ?>"><img src="<?php bloginfo( 'template_url' ); ?>/images/nav-logo.png" class="logo" alt="The Statesman" width="162" height="20" /></a>

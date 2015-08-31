@@ -333,7 +333,7 @@ class statesman_latest_post extends WP_Widget {
     if ( $myposts->have_posts() ) {
       $myposts->the_post();
       echo '<article class="vmedia">';
-      echo '<figure class="thumbnail thumbnail-sidebar">';
+      echo '<figure class="thumbnail">';
       if ( has_post_thumbnail()) {
         the_post_thumbnail('medium');
       }

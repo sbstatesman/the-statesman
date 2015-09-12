@@ -440,6 +440,88 @@ text-transform: uppercase;
     position: fixed !important;
   }
 }
+@media screen and (max-width: 959px) and (min-width: 640px){
+	.container {
+		width: 100%;
+		margin: 0 auto;
+		padding: 0 2px;
+		position: relative;
+		overflow: auto;
+	}
+	.row {
+		overflow: hidden;
+		margin: 2px 0;
+	}
+	.main {
+		width: 100%;
+		float: left;
+	}
+	.main-half {
+		width: 48.59%;
+		float: left;
+	}
+	.main-threeeigth {
+		width: 36.09%;
+		float: left;
+	}
+	.main-fiveeigth {
+		width: 61.09%;
+		float: left;
+	}
+	.sidebar {
+		width: 100%;
+		float: right;
+	}
+	.threecolumn {
+		width: 48.12%;
+		float: left;
+	}
+	.fourcolumn {
+		width: 35.47%;
+		float: left;
+	}
+	.twocolumn {
+		width: 48%;
+		padding: 0 1%;
+		float: left;
+	}
+	.vline-medium {
+		border-right: 1px solid #c8c8c8;
+		padding-right: 6px;
+		margin-right: 6px;
+	}
+	.vspace {
+		padding-right: 6px;
+		margin-right: 6px;
+	}
+	.hline {
+		margin: 12px 0;
+		clear: both;
+		width: 100%;
+	}
+	.hline-background {
+		position: absolute;
+		top: 4px;
+		z-index: -1;
+		border-top: 1px solid #c8c8c8;
+	}
+	.hline-strong {
+		border-top: 1px solid #000;
+	}
+	.hline-medium {
+		border-top: 1px solid #c8c8c8;
+	}
+
+	.row img{
+		width: 90%
+	}
+  	.iconbar-social img {
+	  	margin-right: 7px;
+		width: 20%;
+		height: 20%;
+	}
+
+}
 
 .alignright { float: right; margin: 0 0 1em 1em;}
 .alignleft { float: left; margin: 0 1em 1em 0;}

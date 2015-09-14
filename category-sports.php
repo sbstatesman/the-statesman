@@ -13,7 +13,7 @@
 			<?php $myposts = new WP_Query( $args ); ?>
 			<?php if ( $myposts->have_posts() ) : ?>
 			<?php $myposts->the_post(); ?>
-			<h6><a href="<?php echo get_tag_link(get_tag_id('4th-and-goal')); ?>">F and Goal</a></h6>
+			<h6><a href="<?php echo get_tag_link(get_tag_id('4th-and-goal')); ?>">4th and Goal</a></h6>
 			<article class="vmedia">
 				<figure class="thumbnail">
 					<?php if ( has_post_thumbnail()) {the_post_thumbnail('medium');} ?>

@@ -9,11 +9,11 @@
 	<div class="hline hline-strong"></div>
 	<section class="row">
 		<sidebar class="sidebar">
-			<?php $args = array( 'posts_per_page' => 1, 'tag' => 'points-in-the-paint' ); ?>
+			<?php $args = array( 'posts_per_page' => 1, 'tag' => 'fourth-and-goal' ); ?>
 			<?php $myposts = new WP_Query( $args ); ?>
 			<?php if ( $myposts->have_posts() ) : ?>
 			<?php $myposts->the_post(); ?>
-			<h6><a href="<?php echo get_tag_link(get_tag_id('points-in-the-paint')); ?>">Points in the Paint</a></h6>
+			<h6><a href="<?php echo get_tag_link(get_tag_id('fourth-and-goal')); ?>">Fourth and Goal</a></h6>
 			<article class="vmedia">
 				<figure class="thumbnail">
 					<?php if ( has_post_thumbnail()) {the_post_thumbnail('medium');} ?>
@@ -40,6 +40,7 @@
 			<div class="twocolumn">
 				<h5><a href="<?php echo get_tag_link(get_tag_id('mens-soccer')); ?>">Men's Soccer</a></h5>
 				<h5><a href="<?php echo get_tag_link(get_tag_id('womens-soccer')); ?>">Women's Soccer</a></h5>
+				<h5><a href="<?php echo get_tag_link(get_tag_id('volleyball')); ?>">Volleyball</a></h5>
 				<h5><a href="<?php echo site_url('/tag/cross-country,track-and-field/'); ?>">XC / Track</a></h5>
 				<h5><a href="<?php echo get_tag_link(get_tag_id('football')); ?>">Football</a></h5>
 				<h5><a href="<?php echo get_tag_link(get_tag_id('club-sports')); ?>">Club Sports</a></h5>
@@ -47,7 +48,7 @@
 		</sidebar>
 		<main class="main vline-medium">
 			<div class="main-threeeigth vline-medium">
-				<?php $args = array( 'posts_per_page' => 3, 'offset' => 1, 'category__and' => array($top_story, $sports), 'tag__not_in' => array(get_tag_id('points-in-the-paint'))); ?>
+				<?php $args = array( 'posts_per_page' => 3, 'offset' => 1, 'category__and' => array($top_story, $sports), 'tag__not_in' => array(get_tag_id('fourth-and-goal'))); ?>
 				<?php $myposts = new WP_Query( $args ); ?>
 				<?php if ( $myposts->have_posts() ) : ?>
 				<?php while ( $myposts->have_posts() ) : ?>
@@ -68,7 +69,7 @@
 				<?php endif; ?>
 			</div>
 			<div class="main-fiveeigth">
-				<?php $args = array( 'posts_per_page' => 1, 'category__and' => array($top_story, $sports), 'tag__not_in' => array(get_tag_id('points-in-the-paint'))); ?>
+				<?php $args = array( 'posts_per_page' => 1, 'category__and' => array($top_story, $sports), 'tag__not_in' => array(get_tag_id('fourth-and-goal'))); ?>
 				<?php $myposts = new WP_Query( $args ); ?>
 				<?php if ( $myposts->have_posts() ) : ?>
 				<?php $myposts->the_post(); ?>
@@ -86,7 +87,7 @@
 				</article>
 				<div class="hline hline-medium"></div>
 				<?php endif; ?>
-				<?php $args = array( 'posts_per_page' => 5, 'cat' => $sports, 'category__not_in' => $top_story, 'tag__not_in' => array(get_tag_id('points-in-the-paint')));?>
+				<?php $args = array( 'posts_per_page' => 5, 'cat' => $sports, 'category__not_in' => $top_story, 'tag__not_in' => array(get_tag_id('fourth-and-goal')));?>
 				<?php $myposts = new WP_Query( $args ); ?>
 				<?php if ( $myposts->have_posts() ) : ?>
 				<?php while ( $myposts->have_posts() ) : ?>

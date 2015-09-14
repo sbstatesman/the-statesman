@@ -462,7 +462,6 @@ text-transform: uppercase;
 	}
 	.sidebar {
 		width: 100%;
-		border-top: 2px solid #000;
 	}
 	.threecolumn {
 		width: 32%;
@@ -506,6 +505,18 @@ text-transform: uppercase;
 	}
 	.metatext {
 		margin-right: 3px;
+	}
+	#sidebar1 {
+		border-top: 1px solid #c8c8c8;
+	}
+	#sidebar2 {
+		width: 32%;
+	}
+	.categoriesContainer {
+		width: 66%;
+	}
+	.hmedia-list .thumbnail {
+		width: 40%;
 	}
 }
 

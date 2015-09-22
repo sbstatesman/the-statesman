@@ -462,6 +462,8 @@ text-transform: uppercase;
 	}
 	.sidebar {
 		width: 100%;
+		border-top: 1px solid #c8c8c8;   /*this replaces the bottom border that was removed from the posts widgets */
+		padding-top: 5px;    
 	}
 	.threecolumn {
 		width: 32%;
@@ -495,26 +497,49 @@ text-transform: uppercase;
 		border-top: 1px solid #c8c8c8;
 	}
 	
-	.row img{
-		width: 90%
+	.currentissue {
+		margin-top: 1%;
 	}
-  	.iconbar-social img {
+	.row img{
+		width: 90%;
+	}
+	.sidebar1 img {   /*for sidebar1 img */
+		height: 30%;
+		width: 30%;
+		margin-left: 34%;
+	}
+  	.iconbar-social img {   /*for social media icons */
 	  	margin-right: 7px;
 		width: 20%;
 		height: 20%;
 	}
 	.metatext {
-		margin-right: 3px;
+		margin-right: 3px;    /* for footer */
 	}
-	#sidebar1 {
+	
+	.widget_text {        /*for featured article */
+		width: 30%;
+		float: left;
+		margin-left: 3px;
+	}
+	.widget_statesman_latest_post {   /* for other sidebar articles */
+		width: 30%;
+		float: left;
+		margin-left: 3px;
+	}
+
+	/*
+	.sidebar1 {
 		border-top: 1px solid #c8c8c8;
+		padding-top: 2%;
 	}
-	#sidebar2 {
+	.sidebar2 {
 		width: 32%;
 	}
 	.categoriesContainer {
 		width: 66%;
 	}
+	*/
 	.hmedia-list .thumbnail {
 		width: 40%;
 	}

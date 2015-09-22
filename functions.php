@@ -208,7 +208,7 @@ function statesman_sidebars() {
     'name' => __('Home Sidebar'),
     'description' => __('Displayed on the home page.'),
     'before_widget' => '<div id="%1$s" class="%2$s">',
-    'after_widget' => '</div><div class="hline hline-medium"></div>',
+    'after_widget' => '</div><div></div>',          //removed hline hline-medium class after widget
     'before_title' => '<h6>',
     'after_title' => '</h6>',
   ));

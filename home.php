@@ -66,7 +66,7 @@
 		<?php if (!empty($myposts[1])) : ?>
 		<?php $post = $myposts[1]; ?>
 		<?php setup_postdata( $post ); ?>
-		<article class="sidebar" id="sidebar1">
+		<article class="sidebar sidebar1">
 			<div class="vmedia">
 				<figure class="thumbnail">
 					<?php if ( has_post_thumbnail()) {the_post_thumbnail('medium');} ?>
@@ -87,7 +87,7 @@
 	<section class="row">
 		<?php $args = array( 'posts_per_page' => 8, 'category__not_in' => array($opinions, $multimedia, $featured) ); ?>
 		<?php $myposts = new WP_Query( $args ); ?>
-		<main class="main vline-medium categoriesContainer">
+		<main class="main vline-medium">
 			<?php if ( $myposts->have_posts() ) : ?>
 			<?php while ( $myposts->have_posts() ) : ?>
 			<?php $myposts->the_post(); ?>
@@ -107,7 +107,7 @@
 			<?php endwhile; ?>
 			<?php endif; ?>
 		</main>
-		<sidebar class="sidebar" id="sidebar2">
+		<sidebar class="sidebar">
 			<?php if ( is_active_sidebar( 'home-sidebar' ) ) : ?>
       	<?php dynamic_sidebar( 'home-sidebar' ); ?>
   		<?php endif; ?>

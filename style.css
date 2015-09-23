@@ -688,3 +688,122 @@ text-transform: uppercase;
   width: auto;
   display: inline-block;
 }
+
+
+/* Did not have chance to conform to new CSS style guidelines.
+ * Also, the new navbar is buggy right now, have not integrated properly.
+ */
+/* Prettifiers */
+.nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  float: left;
+}
+
+.fixednav {
+  color: #ffffff;
+  width: 100%;
+  padding: 10px 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 22px;
+  z-index: 5;
+  background-color: #005A9C;
+  
+  font-family: 'Droid Sans',sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+.nav-link {
+  color: #ffffff;
+  display: block;
+  /*height: 100%;*/
+  text-align: center;
+  text-decoration: none;
+}
+.nav-list {
+    background-color: #005A9C;
+    height: 100%;
+    color: #ffffff;
+}
+.nav-item:hover {
+  
+}
+
+
+.help {
+  height: 100%;
+  text-decoration: none;
+  display: none;
+}
+
+.nav-item {
+    float: left;
+    /*height: 100%;*/
+    /*width: 16%;*/
+    display: inline-block;
+    margin: 4px 0 0 26px;
+}
+
+
+/* purpose unknown */
+.nav-link {
+    position: relative;
+}
+
+
+
+
+/* placeholders for other screen widths (tablet especially)
+@media only screen and (min-width: 960px) {
+  
+}
+@media only screen and (max-width: 959px) and (min-width: 640px) {
+  
+}*/
+
+@media only screen and (max-width: 639px) {
+  .help {
+    font-family: 'Droid Sans',sans-serif;
+    font-weight: 400;
+    font-size: 2em;
+    color: #ffffff;
+    
+    
+    float: right;
+    
+    background-color: #005A9C;
+    position: relative;
+    /*text-align: left;
+    text-indent: -9999px;*/
+    /*width: 100%;*/
+  }
+  #nav:not(:target) > .container > .show, #nav:target > .container > .hide {
+    display: block;
+  }
+  .nav-list {
+    display: none;
+    height: auto;
+    left: 0;
+    right: 0;
+    padding: 8px 0;
+  }
+  #nav:target > .container > .nav-list {
+    display: block;
+  }
+  .nav-item {
+    float: none;
+    width: 100%;
+    margin: 8px 0 0 0;
+  }
+  .logo {
+    padding: 0 0.833em;
+  }
+  .nav-link {
+    height: auto;
+    padding: 0 0.833em;
+    text-align: left;
+  }
+}

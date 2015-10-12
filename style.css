@@ -425,6 +425,97 @@ text-transform: uppercase;
   height: 100%;
 }
 
+/* fundraiser */
+.progressbarcontainer {
+  width: 90%;
+  height: 20px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    background-color: #f5f5f5;
+    border-radius: 25px;
+}
+.fundraisertext {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 19px;
+  line-height: 170%;
+  color: #333;
+}
+.thermometeroutercontainer {
+  text-align: center;
+  margin: 0 auto;
+}
+.thermometercontainer {
+  position:relative;
+  margin-top: 15px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.thermometercontainer img{  /*background img for thermometer*/
+  float: right;
+  height: 100%;
+  margin-top: -10px;
+}
+.thermometer-outer {
+  border-radius: 23px;
+}
+.thermometer-outer-h {
+  height: 20px;
+  width: 100%;
+}
+.thermometer-outer-v { /*vertical outer box*/
+  height: 457px;
+  width: 40px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.thermometer-inner {
+  background: #cc3333;
+  border-radius: 23px;
+}
+.thermometer-inner-h {
+  height: 20px;
+  background-image: linear-gradient(45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent);
+  -webkit-background-size: 40px 40px;
+}
+.thermometer-inner-v {
+  width: 100%;
+    }
+
+button {
+  width: 40%;
+  height: 40px;
+  display: block;
+    background: #f77700;
+    text-align: center;
+    color: #FFF;
+    font: 600 100% proxima-nova-condensed, Helvetica Neue, Arial, Helvetica, sans-serif;
+    padding: 1%;
+    border-radius: 20px;
+  cursor: pointer;
+    float: left; 
+    margin-right: 1%;
+    background-color: #2288ee;
+    margin-bottom: 50px;
+}
+button:hover {
+  background-color: #2299ee;
+}
+.title {
+  font: 500 30px/100% jubilat,Georgia,Times,Times New Roman,serif;
+  margin-bottom: 1.5%;
+}
+.goal {
+    width: 200px;
+    margin: 0 15px;
+    margin-bottom: 1%;
+    display: block;
+    font-weight: bold;
+    font-size: 24px;
+}
+.sidebar .goal {
+  margin: 0 auto;
+}
+
 /* Wordpress styles */
 
 .admin-bar .fixednav {

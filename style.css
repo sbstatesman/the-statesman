@@ -421,17 +421,15 @@ text-transform: uppercase;
 .thermometeroutercontainer {
   text-align: center;
   margin: 0 auto;
+  height: 85vh;
 }
 .thermometercontainer {
   position:relative;
   margin-top: 15px;
   margin-left: auto;
   margin-right: auto;
-}
-.thermometercontainer img{  /*background img for thermometer*/
-  float: right;
-  height: 100%;
-  margin-top: -10px;
+  width: 30%;
+  height: 75vh;
 }
 .thermometer-outer {
   border-radius: 23px;
@@ -441,22 +439,26 @@ text-transform: uppercase;
   width: 100%;
 }
 .thermometer-outer-v { /*vertical outer box*/
-  height: 457px;
+  height: 75vh;
   width: 40px;
   margin-left: auto;
   margin-right: auto;
+  float: left;
 }
 .thermometer-inner {
-  background: #cc3333;
+  background: #9C0000;
   border-radius: 23px;
 }
 .thermometer-inner-h {
   height: 20px;
-  background-image: linear-gradient(45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent);
-  -webkit-background-size: 40px 40px;
+ 
 }
 .thermometer-inner-v {
   width: 100%;
+}
+.thermometer-percent {
+	position: absolute;
+	top: 98%;
 }
 
 /* forms */

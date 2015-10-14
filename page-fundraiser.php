@@ -4,7 +4,11 @@ Template Name: fundraiser
 */
 
 $donationsComputers = 100;
-
+$donationsTotal = 50;
+$goalTotal = 100;
+$donationsTotalPercent = 0;
+if($donationsTotal>=0)
+	$donationsTotalPercent = $donationsTotal / $goalTotal;
 ?>
 
 <?php get_header();?>
@@ -58,15 +62,18 @@ $donationsComputers = 100;
 
 	<article class="sidebar">
 		<div class="thermometeroutercontainer">
-				<div class="hline"></div>	  
-				<div class="goal">
-					Goal: $999
-				</div>	
+				<h3>
+					Goal: $<?php echo(""+$goalTotal);?>
+				</h3>	
 				<div class="thermometercontainer">
-					<img src="<?php bloginfo(template_url); ?>/images/thermometer-percent.png">
-			    	<div class="thermometer thermometer-config" data-percent="<?php echo($donationsTotal);?>" data-orientation="vertical"></div>
+
+			    	<div class="thermometer thermometer-config" data-percent="<?php echo($donationsTotal);?>" data-orientation="vertical"></div>    	
+			   		<div class="thermometer-percent">
+			   			-- 55%
+			   		</div>
 			    </div>  
-			    Amount received: $<?php echo("$"+999);?>
+			    <br>
+			    <h3> Amount received: $<?php echo("$"+999);?> </h3>
 		</div>
 	</article>
 
@@ -83,7 +90,15 @@ $donationsComputers = 100;
       $('.thermometer-config').thermometer({
         percent: 0, 
         speed: 'slow'
-      })
+      });
+
+      if($('.thermometer-percent')!=null)
+      	alert("thermopercent not null");
+   		var t = $('.thermometer-percent').attr("top");
+      alert("top attr is "+t);
+    
+      $('.thermometer-percent').attr("top", ""+<?php echo($donationsTotalPercent*100);?>+"%");
+      $('.thermometer-percent').top = "55%";
     });
   })(jQuery);
 </script>

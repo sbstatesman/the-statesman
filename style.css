@@ -429,7 +429,7 @@ text-transform: uppercase;
   margin-left: auto;
   margin-right: auto;
   width: 30%;
-  height: 75vh;
+  height: 73vh;
 }
 .thermometer-outer {
   border-radius: 23px;
@@ -443,8 +443,7 @@ text-transform: uppercase;
   width: 40px;
   margin-left: auto;
   margin-right: auto;
-  float: left;
-}
+display: inline-block;}
 .thermometer-inner {
   background: #9C0000;
   border-radius: 23px;
@@ -458,7 +457,8 @@ text-transform: uppercase;
 }
 .thermometer-percent {
 	position: absolute;
-	top: 98%;
+	left: 5%;
+    font: 30px 'Tangerine', serif;
 }
 
 /* forms */

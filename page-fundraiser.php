@@ -3,12 +3,13 @@
 Template Name: fundraiser
 */
 
-$donationsComputers = 100;
-$donationsTotal = 50;
-$goalTotal = 100;
+$donationsComputers = 10; /* donations received */
+$donationsTotal = 100;
+$goalComputers = 100;   /* donation goal */
+$goalTotal = 100;           
 $donationsTotalPercent = 0;
 if($donationsTotal>=0)
-	$donationsTotalPercent = $donationsTotal / $goalTotal;
+	$donationsTotalPercent = number_format($donationsTotal / $goalTotal * 100, 2, '.', ',');
 ?>
 
 <?php get_header();?>
@@ -37,7 +38,7 @@ if($donationsTotal>=0)
 				<p>All of our current computers have existed since 1995, and are prone to natural disasters. They will always shut down or show a blank screen, and all our keyboards are known to stop working. We need these computers to create fancy paper. When our staff has to try and bring a nonexistant computer back to life they lose valuable time that should be spent watching cat videos on YouTube. New computers would allow us to save time and work with unprecedented technology. We would like to raise $9 to buy thirty MacBook Airs.</p>
 			</div>
 			<div class="row">
-				<h3>Goal: $100</h3>	
+				<h3>Goal: <?php echo($goalComputers)?></h3>	
 				<div class="progressbarcontainer">
 			    <div class="thermometer thermometer-config" data-percent="<?php echo($donationsComputers+"");?>"></div>
 			  </div>
@@ -65,15 +66,16 @@ if($donationsTotal>=0)
 				<h3>
 					Goal: $<?php echo(""+$goalTotal);?>
 				</h3>	
+				<br>
 				<div class="thermometercontainer">
 
 			    	<div class="thermometer thermometer-config" data-percent="<?php echo($donationsTotal);?>" data-orientation="vertical"></div>    	
 			   		<div class="thermometer-percent">
-			   			-- 55%
+			   			<?php echo($donationsTotalPercent)?>%
 			   		</div>
 			    </div>  
 			    <br>
-			    <h3> Amount received: $<?php echo("$"+999);?> </h3>
+			    <h3> Amount received: $<?php echo($donationsTotal);?> </h3>
 		</div>
 	</article>
 
@@ -92,13 +94,7 @@ if($donationsTotal>=0)
         speed: 'slow'
       });
 
-      if($('.thermometer-percent')!=null)
-      	alert("thermopercent not null");
-   		var t = $('.thermometer-percent').attr("top");
-      alert("top attr is "+t);
-    
-      $('.thermometer-percent').attr("top", ""+<?php echo($donationsTotalPercent*100);?>+"%");
-      $('.thermometer-percent').top = "55%";
+      $('.thermometer-percent').css("bottom", ""+<?php echo($donationsTotalPercent);?>+"%");
     });
   })(jQuery);
 </script>

@@ -6,7 +6,7 @@ Template Name: post
 
 <?php get_header(); ?>
 <main class="row">
-  <main class="main vline-medium">
+  <main class="main vline-medium content-width">
 
     <header class="row">
       <p class="headline"><?php the_title(); ?></p>

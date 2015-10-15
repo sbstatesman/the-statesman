@@ -64,7 +64,7 @@ if($donationsTotal>=0)
 				<div class="row">
 					<h3>Goal: $<?php echo($goalComputers)?></h3>	
 					<div class="progressbarcontainer">
-				    <div class="thermometer thermometer-config" data-percent="<?php echo($donationsComputers+"");?>"></div>
+				    <div class="thermometer thermometer-config" data-percent="<?php echo($donationsComputers);?>"></div>
 				  </div>
 			  </div>
 				<div class="row">
@@ -88,11 +88,11 @@ if($donationsTotal>=0)
 	<article class="sidebar">
 		<div class="thermometeroutercontainer">
 				<h3>
-					Goal: $<?php echo(""+$goalTotal);?>
+					Goal: $<?php echo($goalTotal);?>
 				</h3>	
 				<br>
 				<div class="thermometercontainer">
-			    	<div class="thermometer thermometer-config" data-percent="<?php echo($donationsTotal);?>" data-orientation="vertical"></div>    	
+			    	<div class="thermometer thermometer-config" data-percent="<?php echo($donationsTotal);?>" data-orientation="vertical"></div>
 			   		<div class="thermometer-percent metatext large-text">
 			   			$<?php echo($donationsTotal);?>
 			   		</div>
@@ -115,8 +115,9 @@ if($donationsTotal>=0)
       $('.thermometer-config').thermometer({
         percent: 0,
       });
-
+      $('.thermometer-percent').fadeOut(0);
       $('.thermometer-percent').css("bottom", <?php echo($donationsTotalPercent - 5);?>+"%");
+      $('.thermometer-percent').fadeIn(1000);
     });
   })(jQuery);
 </script>

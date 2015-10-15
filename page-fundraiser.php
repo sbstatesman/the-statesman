@@ -4,7 +4,7 @@ Template Name: fundraiser
 */
 
 $donationsComputers = 10; /* donations received */
-$donationsTotal = 100;
+$donationsTotal = 80;
 $goalComputers = 100;   /* donation goal */
 $goalTotal = 100;           
 $donationsTotalPercent = 0;
@@ -40,8 +40,8 @@ if($donationsTotal>=0)
 			<div class="row">
 				<h3>Goal: <?php echo($goalComputers)?></h3>	
 				<div class="progressbarcontainer">
-			    <div class="thermometer thermometer-config" data-percent="<?php echo($donationsComputers+"");?>"></div>
-			  </div>
+			    	<div class="thermometer thermometer-config" data-percent="<?php echo($donationsComputers+"");?>"></div>
+			  	</div>
 		  </div>
 			<div class="row">
 			  <!-- Secure method to pay with PayPal 
@@ -64,14 +64,14 @@ if($donationsTotal>=0)
 	<article class="sidebar">
 		<div class="thermometeroutercontainer">
 				<h3>
-					Goal: $<?php echo(""+$goalTotal);?>
+					Goal: $<?php echo($goalTotal);?>
 				</h3>	
 				<br>
 				<div class="thermometercontainer">
 
 			    	<div class="thermometer thermometer-config" data-percent="<?php echo($donationsTotal);?>" data-orientation="vertical"></div>    	
 			   		<div class="thermometer-percent">
-			   			<?php echo($donationsTotalPercent)?>%
+			   			<h3><?php echo($donationsTotalPercent)?>% </h3>
 			   		</div>
 			    </div>  
 			    <br>
@@ -93,8 +93,9 @@ if($donationsTotal>=0)
         percent: 0, 
         speed: 'slow'
       });
-
+      $('.thermometer-percent').fadeOut(0);
       $('.thermometer-percent').css("bottom", ""+<?php echo($donationsTotalPercent);?>+"%");
+      $('.thermometer-percent').fadeIn(3000);
     });
   })(jQuery);
 </script>

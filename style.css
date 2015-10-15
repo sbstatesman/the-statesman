@@ -443,7 +443,8 @@ text-transform: uppercase;
   width: 40px;
   margin-left: auto;
   margin-right: auto;
-display: inline-block;}
+  display: inline-block;
+}
 .thermometer-inner {
   background: #9C0000;
   border-radius: 23px;
@@ -457,8 +458,8 @@ display: inline-block;}
 }
 .thermometer-percent {
 	position: absolute;
-	left: 5%;
-    font: 30px 'Tangerine', serif;
+	left: 18%;
+	bottom: 0;
 }
 
 /* forms */

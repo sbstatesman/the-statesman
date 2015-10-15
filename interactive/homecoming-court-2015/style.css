@@ -1,0 +1,66 @@
+.red {
+	background-color: #E54545;
+}
+.red-pattern {
+	background-color: #E54545;
+	background-image: url(images/background.png);
+}
+.adbox {
+	background-color: #eee;
+	padding: 1em;
+}
+.container-mobile {
+	width: 96%;
+	padding: 2%;
+	position: relative;
+	overflow: hidden;
+}
+@media (min-width: 680px) {
+	.container-mobile-text {
+		width: 680px;
+		margin: 0 auto;
+		background-color: #fff;
+	}
+}
+.third {
+	width: 33%;
+	padding: 15px;
+	box-sizing: border-box;
+	display: inline-block;
+	vertical-align: top;
+}
+@media (max-width: 1200px) {
+	.third {
+		width: 49%;
+	}
+}
+@media (max-width: 800px) {
+	.third {
+		width: 100%;
+	}
+}
+.center {
+	text-align: center;
+}
+.xlarge-text {
+	font-size: 20px;
+}
+
+.candidate {
+	padding: 3%;
+	overflow: auto;
+	background-color: #eee;
+	position: relative;
+}
+.candidate:hover {
+	cursor: pointer;
+}
+
+.candidate-details {
+	margin-bottom: 1em;
+	padding: 3%;
+	border: 1px solid #eee;
+	border-top: 0px;
+	display: none;
+	background-color: #fff;
+}

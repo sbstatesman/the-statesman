@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: fundraiser
+Template Name: donate
 */
 
 $goalComputers = 200;   /* donation goal */

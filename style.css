@@ -13,6 +13,11 @@ body {
 	font-size: 14px;
 }
 
+/* Eliminate whitespace between fixednav and main content */
+body.page-template-page-featured {
+  padding: 28px 0 10px 0; /* push for fixednav */
+}
+
 /* reset */
 
 body, figure {
@@ -156,7 +161,43 @@ text-transform: uppercase;
 	font-weight: 400;
 	font-family: 'Droid Sans', sans-serif;
 	background-color: #005a9c;
+  color: #fff;
 }
+
+
+
+.fixednav-alt {
+  text-align: center;
+}
+.fixednavs-alt > form, .fixednavs-alt > form {
+  white-space: nowrap;
+  display: inline-block;
+}
+a.nav-menu {
+  float: left;
+  text-decoration: none;
+}
+.side-menu {
+  height: 100%;
+  display: none;
+  position: fixed;
+  top: 28px;
+  width: 200px;
+  z-index: 99999;
+  background-color: rgba(80,80,80,.7);
+  color: #fff;
+}
+.side-menu-list {
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+.side-menu-item {
+  
+}
+
+
+
 .horizontallist {
 	margin: 0;
 	padding: 0;
@@ -166,6 +207,8 @@ text-transform: uppercase;
 	display: inline-block;
 	margin: 4px 0 0 26px;
 }
+/* I don't think these styles are generic to "horizontal lists" they are
+   coupled to the use of horizontal lists in the navbar. */
 .horizontallist li a {
 	text-decoration: none;
 	color: #fff;
@@ -502,8 +545,12 @@ text-transform: uppercase;
   position: relative;
   width: 100%;
 }
-.slidecontainer .slick-item {
+.slick-item {
   padding: 0 1em;
+}
+
+.slick-item.featured {
+  padding: 0;
 }
 
 /* site-wide style for slick carousel */

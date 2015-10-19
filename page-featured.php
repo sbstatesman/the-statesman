@@ -9,58 +9,71 @@ Template Name: featured
 <!-- /ALTERNATE NAV -->
 
 <main>
-	<?php $args = array( 'posts_per_page' => 4, 'category__in' => array($featured), 'category__not_in' => array($opinions, $multimedia) ); ?>
-	<?php $myposts = get_posts( $args ); ?>
+	<?php $args = array( 'posts_per_page' => 10, 'tag' => 'campus-briefing'); ?>
+	<?php $myposts = new WP_Query( $args ); ?>
 	<section class="row">
-			<?php if (!empty($myposts[0])) : ?>
-			<?php $post = $myposts[0]; ?>
-			<?php setup_postdata( $post ); ?>
 			<div class="slidecontainer">
-				<?php $myposts = new WP_Query( $args ); ?>
-				<div class="slider">
-					<div class="slick-item featured">
-						<img src="https://s-media-cache-ak0.pinimg.com/originals/5f/61/2e/5f612ecd10d27cda787488136df3640e.jpg">
-						<div class="textcontainer">
-								Hi there
-								By you
-						</div>
-						<div class="excerpt">
-							Content
-						</div>
+				<div class="arrows-container">
+					<div class="arrow-left">
+						<img src="<?php echo get_template_directory_uri(); ?>/images/thin_left_arrow_333.png" />
 					</div>
-					<div class="slick-item featured">
-						<img src="https://s-media-cache-ak0.pinimg.com/originals/5f/61/2e/5f612ecd10d27cda787488136df3640e.jpg">
-						<div class="textcontainer">
-								Hi there
-								By me
-						</div>
-						<div class="excerpt">
-							Content2
-						</div>
+					<div class="arrow-right">
+						<img src="<?php echo get_template_directory_uri(); ?>/images/thin_right_arrow_333.png" />
 					</div>
-<!--have div, set img as background, add textbox pos absolute, have it fade in out 
--->
 				</div>
-			</div>
-			<?php endif; ?>	
+				<div class="slicktarget slidelist">
+					<?php if ( $myposts->have_posts() ) : ?>
+						<?php while ( $myposts->have_posts() ) : ?>
+							<?php $myposts->the_post(); ?>
+							<div class="slick-item featured">
+								<?php if ( has_post_thumbnail()) {the_post_thumbnail('medium');} ?>
+								<div class="textcontainer">						
+									<div class="block">
+										<h3 id="post-<?php the_ID(); ?>">
+											<a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
+										</h3>
+										<p class="metatext metatext-byline small-text"><?php the_author_posts_link(); ?> / <a href="<?php the_archive_date(); ?>"><?php the_time('F j, Y'); ?></a></p>
+									</div>
+								</div>
+								</a>
+								<div class="excerpt">
+									<?php get_excerpt(); ?>
+								</div>
+							</div>
+						<?php endwhile; ?>
+					<?php endif; ?>							
+				</div>
+			</div>						
 
 	</section>
 		
 </main>
-  <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-  <script type="text/javascript" src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-  <script type="text/javascript" src="http://cdn.jsdelivr.net/jquery.slick/1.5.7/slick.min.js"></script>
-  <script type="text/javascript" src="<?php bloginfo( 'template_url' ); ?>/js/navmenu.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript" src="http://cdn.jsdelivr.net/jquery.slick/1.5.7/slick.min.js"></script>
+<script type="text/javascript" src="<?php bloginfo( 'template_url' ); ?>/js/navmenu.js"></script>
 
-	<script type="text/javascript">
-	    $(document).ready(function(){
-	      	$('.slider').slick({
-	      		dots: true,
-	  			infinite: true,
-	  			slidesToShow: 1,
-	  			slidesToScroll: 1
+<script type="text/javascript">
+		jQuery(document).ready(function() {
+		jQuery('.slidecontainer').each(function (i, element) {
+			jQuery('.arrow-left', element).attr('id', 'prev-' + i);
+			jQuery('.arrow-right', element).attr('id', 'next-' + i);
+			jQuery('.slicktarget', element).attr('id', 'slidelist-' + i);
+		});
+		jQuery('.slidelist').each(function (i, element) {
+			jQuery('.slidelist').slick({
+				infinite: false,
+				slidesToShow: 1,
+				slidesToScroll: 1,
+				prevArrow: '#prev-' + i,
+				nextArrow: '#next-' + i,
+				dots: false
 			});
-	    });
-
+		});
+		/* to cancel link redirects */
+		$('.slicktarget').click(function() { 
+        return false;
+   	    });
+	});
 </script>
 <?php get_footer(); ?>

@@ -39,9 +39,9 @@ Template Name: featured
 								<div class="excerpt">
 									<?php get_excerpt(); ?>
 								</div>
-                <section class="main">
-                  <?php the_content(); ?>
-                </section>
+				                <section class="main">
+				                  <?php the_content(); ?>
+				                </section>
 							</div>
 						<?php endwhile; ?>
 					<?php endif; ?>

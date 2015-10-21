@@ -45,7 +45,7 @@ Join The Statesman Web & Graphics Section: https://www.facebook.com/groups/14814
 		<link rel="profile" href="http://gmpg.org/xfn/11">
 		<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 		<link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>" type="text/css" />
-    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/style-featured.css" />
+    	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/style-featured.css" />
 		<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/slick.css"/>
 		<link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
 		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -77,18 +77,17 @@ Join The Statesman Web & Graphics Section: https://www.facebook.com/groups/14814
 		<?php wp_head(); ?>
 	</head>
 	<body <?php body_class($class); ?>>
-    <div class="side-menu" id="nav">
-      <h1 class="side-heading" ><?php the_title(); ?></h1>
-      <ul class="side-menu-list">
-        <li class="side-menu-item"><a href="#">Link 1</a></li>
-        <li class="side-menu-item"><a href="#">Link 2</a></li>
-        <li class="side-menu-item"><a href="#">Link 3</a></li>
-      </ul>
-    </div>
+	    <div class="side-menu" id="nav">
+	      <h1 class="side-heading" ><?php the_title(); ?></h1>
+	      <ul class="side-menu-list">
+	        <li class="side-menu-item"><a href="#">Link 1</a></li>
+	        <li class="side-menu-item"><a href="#">Link 2</a></li>
+	        <li class="side-menu-item"><a href="#">Link 3</a></li>
+	      </ul>
+	    </div>
 		<nav class="fixednav fixednav-main fixednav-alt">
 			<div class="container">
-        <a id="nav-menu" class="nav-menu" href="#nav">=</a>
-        <a href="<?php echo site_url(); ?>"><img src="<?php bloginfo( 'template_url' ); ?>/images/nav-logo.png" class="" alt="The Statesman" width="162" height="20" /></a>
-				
+	    		<a id="nav-menu" class="nav-menu" href="#nav">=</a>
+	    		<a href="<?php echo site_url(); ?>"><img src="<?php bloginfo( 'template_url' ); ?>/images/nav-logo.png" class="" alt="The Statesman" width="162" height="20" /></a>		
 			</div>
 		</nav>

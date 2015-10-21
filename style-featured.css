@@ -23,16 +23,18 @@
   background-color: #ffffff;
   opacity: 0.5;
   padding: 2em 1em;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+.arrows-container {
+	top: 50vh;
 }
 /* override wordpress classes */
 .customize-support { 
     margin: 0px;
 }
-.slidecontainer a:-webkit-any-link { 
+.slidecontainer a:-webkit-any-link { /*override link coloring */
     color: white;
     text-decoration: none;
     cursor: auto;
-}
-.customize-support {
-	margin: 0px;
 }

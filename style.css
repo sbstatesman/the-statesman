@@ -173,29 +173,43 @@ text-transform: uppercase;
   white-space: nowrap;
   display: inline-block;
 }
-a.nav-menu {
+.nav-menu {
   float: left;
-  text-decoration: none;
+  text-decoration: none !important;
 }
 .side-menu {
   height: 100%;
   display: none;
   position: fixed;
-  top: 28px;
-  width: 200px;
+  padding-top: 1em;
+  width: 180px;
   z-index: 99999;
-  background-color: rgba(80,80,80,.7);
+  background-color: #005a9c;
   color: #fff;
+}
+.side-heading {
+  margin-bottom: 1em;
+  padding: .25em;
 }
 .side-menu-list {
   display: block;
   margin: 0;
   padding: 0;
+  list-style: none;
 }
 .side-menu-item {
-  
+  padding: .5em;
+  font-family: 'Droid Sans',sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.25em;
+  line-height: 1.25em;
+  text-decoration: none !important;
 }
-
+.side-menu-item:hover {
+  background-color: #2299ee;
+  transition: background-color 0.15s cubic-bezier(0.33, 0.66, 0.66, 1) 0s;
+}
 
 
 .horizontallist {

@@ -78,6 +78,7 @@ Join The Statesman Web & Graphics Section: https://www.facebook.com/groups/14814
 	</head>
 	<body <?php body_class($class); ?>>
     <div class="side-menu" id="nav">
+      <h1 class="side-heading" ><?php the_title(); ?></h1>
       <ul class="side-menu-list">
         <li class="side-menu-item"><a href="#">Link 1</a></li>
         <li class="side-menu-item"><a href="#">Link 2</a></li>
@@ -88,6 +89,6 @@ Join The Statesman Web & Graphics Section: https://www.facebook.com/groups/14814
 			<div class="container">
         <a id="nav-menu" class="nav-menu" href="#nav">=</a>
         <a href="<?php echo site_url(); ?>"><img src="<?php bloginfo( 'template_url' ); ?>/images/nav-logo.png" class="" alt="The Statesman" width="162" height="20" /></a>
-				<?php get_search_form(); ?>
+				
 			</div>
 		</nav>

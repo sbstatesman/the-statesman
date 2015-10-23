@@ -30,7 +30,7 @@
 	top: 50vh;
 }
 .slick-slider {
-	-webkit-user-select: none; 
+	-webkit-user-select: text; 
 }
 .slick-slide {
 	height: auto;

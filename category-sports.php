@@ -8,6 +8,7 @@
 <main>
 	<div class="hline hline-strong"></div>
 	<section class="row">
+		<?php if(!is_paged()) : ?>
 		<sidebar class="sidebar">
 			<?php $args = array( 'posts_per_page' => 1, 'tag' => '4th-and-goal' ); ?>
 			<?php $myposts = new WP_Query( $args ); ?>
@@ -100,9 +101,17 @@
 					<p class="excerpt"><?php get_excerpt(); ?></p>
 				</article>
 				<?php endwhile; ?>
+				<div class="hline hline-medium"></div>
 				<?php endif; ?>
+				<span class="metatext metatext-colored"><?php next_posts_link( 'MORE SPORTS >' ); ?></span>
 			</div>
 		</main>
+		<?php else : ?>
+		<main class="main vline-medium">
+			<?php get_template_part('archive-list'); ?>
+		</main>
+		<?php get_sidebar(); ?>
+		<?php endif ?>
 	</section>
 	<div class="hline hline-medium"></div>
 </main>

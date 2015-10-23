@@ -303,6 +303,37 @@ function my_add_excerpts_to_pages() {
 }
 add_action( 'init', 'my_add_excerpts_to_pages' );
 
+add_action( 'pre_get_posts', function ( $q ) {
+  if (!is_admin() && $q->is_main_query() && $q->is_category()) {
+    // Get the current page number
+    $paged = $q->get('paged');
+    // Get the name of the category
+    $slug = $q->get_queried_object()->slug;
+
+    // We will only need to run this from page 2 onwards
+    if (is_paged() && locate_template('category-' . $slug . '.php')) {
+      // Get the number of posts per page
+      $posts_per_page = get_option('posts_per_page');
+      // Recalculate our offset
+      $offset = (($paged - 1) * $posts_per_page) - $posts_per_page;
+      // Set our offset
+      $q->set('offset', $offset);
+    }
+  }
+});
+
+add_filter( 'found_posts', function ( $found_posts, $q ) {
+  if (!is_admin() && $q->is_main_query() && $q->is_category()) {
+    // Get the name of the category
+    $slug = $q->get_queried_object()->slug;
+
+    if (is_paged() && locate_template('category-' . $slug . '.php')) {
+      $found_posts = $found_posts + get_option('posts_per_page');
+    }
+  }
+  return $found_posts;
+}, 10, 2 );
+
 /* WIDGETS */
 
 class statesman_latest_post extends WP_Widget {

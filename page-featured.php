@@ -70,7 +70,9 @@ Template Name: featured
 				slidesToScroll: 1,
 				prevArrow: '#prev-' + i,
 				nextArrow: '#next-' + i,
-				dots: false
+				dots: false,
+				draggable: false,
+				adaptiveHeight: true   /* this plus height change of .slick-slide in slick.css needed to change slicktarget heights*/
 			});
 		});
 		/* to cancel link redirects */

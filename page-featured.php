@@ -36,7 +36,8 @@ Template Name: featured
 									<p class="metatext metatext-byline small-text"><?php the_author_posts_link(); ?> / <a href="<?php the_archive_date(); ?>"><?php the_time('F j, Y'); ?></a></p>
 								</div>
 							</div>
-			                <section class="main">
+							<br>
+			                <section class="container aligncenter articletext large-text content-width wp-content">
 			          	        <?php the_content(); ?>
 			                </section>
 						</div>

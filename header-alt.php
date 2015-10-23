@@ -80,9 +80,16 @@ Join The Statesman Web & Graphics Section: https://www.facebook.com/groups/14814
 	    <div class="side-menu" id="nav">
 	      <h1 class="side-heading" ><?php the_title(); ?></h1>
 	      <ul class="side-menu-list">
-	        <li class="side-menu-item"><a href="#">Link 1</a></li>
-	        <li class="side-menu-item"><a href="#">Link 2</a></li>
-	        <li class="side-menu-item"><a href="#">Link 3</a></li>
+          <?php $featured_tag = get_post_meta(get_the_ID(), 'featured-tag', true); ?>
+          <?php $args = array( 'posts_per_page' => 10, 'tag' => $featured_tag); ?>
+          <?php $myposts = new WP_Query( $args ); ?>
+          <?php if ( $myposts->have_posts() ) : ?>
+          <?php while ( $myposts->have_posts() ) : ?>
+          <?php $myposts->the_post(); ?>
+	        <li class="side-menu-item"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></li>
+	        <?php endwhile; ?>
+          <?php endif; ?>
+          <?php wp_reset_query(); ?>
 	      </ul>
 	    </div>
 		<nav class="fixednav fixednav-main fixednav-alt">

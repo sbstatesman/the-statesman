@@ -9,7 +9,8 @@ Template Name: featured
 <!-- /ALTERNATE NAV -->
 
 <main>
-	<?php $args = array( 'posts_per_page' => 10, 'tag' => 'campus-briefing'); ?>
+  <?php $featured_tag = get_post_meta(get_the_ID(), 'featured-tag', true); ?>
+	<?php $args = array( 'posts_per_page' => 10, 'tag' => $featured_tag); ?>
 	<?php $myposts = new WP_Query( $args ); ?>
 	<section class="row">
 			<div class="slidecontainer">
@@ -36,12 +37,9 @@ Template Name: featured
 									</div>
 								</div>
 								</a>
-								<div class="excerpt">
-									<?php get_excerpt(); ?>
-								</div>
-				                <section class="main">
-				                  <?php the_content(); ?>
-				                </section>
+                  <section class="main">
+                    <?php the_content(); ?>
+                  </section>
 							</div>
 						<?php endwhile; ?>
 					<?php endif; ?>

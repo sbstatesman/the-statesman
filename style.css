@@ -181,24 +181,26 @@ text-transform: uppercase;
   height: 100%;
   display: none;
   position: fixed;
-  padding-top: 1em;
   width: 180px;
-  z-index: 99999;
+  z-index: 1;
   background-color: #005a9c;
   color: #fff;
 }
 .side-heading {
-  margin-bottom: 1em;
-  padding: .25em;
+  padding: 5% 0;
+  height: 5%;
 }
 .side-menu-list {
   display: block;
   margin: 0;
   padding: 0;
   list-style: none;
+  height: 85%;
+  overflow-y: scroll;
+  z-index: 2;
 }
 .side-menu-item {
-  padding: .5em;
+  padding: .75em .5em;
   font-family: 'Droid Sans',sans-serif;
   font-size: 18px;
   font-weight: 700;

@@ -13,39 +13,37 @@ Template Name: featured
 	<?php $args = array( 'posts_per_page' => 10, 'tag' => $featured_tag); ?>
 	<?php $myposts = new WP_Query( $args ); ?>
 	<section class="row">
-			<div class="slidecontainer">
-				<div class="arrows-container">
-					<div class="arrow-left">
-						<img src="<?php echo get_template_directory_uri(); ?>/images/thin_left_arrow_333.png" />
-					</div>
-					<div class="arrow-right">
-						<img src="<?php echo get_template_directory_uri(); ?>/images/thin_right_arrow_333.png" />
-					</div>
+		<div class="slidecontainer">
+			<div class="arrows-container">
+				<div class="arrow-left">
+					<img src="<?php echo get_template_directory_uri(); ?>/images/thin_left_arrow_333.png" />
 				</div>
-				<div class="slicktarget slidelist">
-					<?php if ( $myposts->have_posts() ) : ?>
-						<?php while ( $myposts->have_posts() ) : ?>
-							<?php $myposts->the_post(); ?>
-							<div class="slick-item featured">
-								<?php if ( has_post_thumbnail()) {the_post_thumbnail('medium');} ?>
-								<div class="textcontainer">						
-									<div class="block">
-										<h3 id="post-<?php the_ID(); ?>">
-											<a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
-										</h3>
-										<p class="metatext metatext-byline small-text"><?php the_author_posts_link(); ?> / <a href="<?php the_archive_date(); ?>"><?php the_time('F j, Y'); ?></a></p>
-									</div>
-								</div>
-								</a>
-                  <section class="main">
-                    <?php the_content(); ?>
-                  </section>
-							</div>
-						<?php endwhile; ?>
-					<?php endif; ?>
+				<div class="arrow-right">
+					<img src="<?php echo get_template_directory_uri(); ?>/images/thin_right_arrow_333.png" />
 				</div>
 			</div>
-
+			<div class="slicktarget slidelist">
+				<?php if ( $myposts->have_posts() ) : ?>
+					<?php while ( $myposts->have_posts() ) : ?>
+						<?php $myposts->the_post(); ?>
+						<div class="slick-item featured">
+							<?php if ( has_post_thumbnail()) {the_post_thumbnail('medium');} ?>
+							<div class="textcontainer">						
+								<div class="block">
+									<h3 id="post-<?php the_ID(); ?>">
+										<a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
+									</h3>
+									<p class="metatext metatext-byline small-text"><?php the_author_posts_link(); ?> / <a href="<?php the_archive_date(); ?>"><?php the_time('F j, Y'); ?></a></p>
+								</div>
+							</div>
+			                <section class="main">
+			          	        <?php the_content(); ?>
+			                </section>
+						</div>
+					<?php endwhile; ?>
+				<?php endif; ?>
+			</div>
+		</div>
 	</section>
 		
 </main>

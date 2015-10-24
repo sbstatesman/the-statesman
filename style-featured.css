@@ -15,7 +15,7 @@
 	height: 20vh;
 	width: 100vw;
 }
-/* arrow button styles for slick carousels */
+/* for slick carousels */
 .arrow-left, .arrow-right {
   z-index: 1;
   transition: opacity 0.15s cubic-bezier(0.33, 0.66, 0.66, 1) 0s;
@@ -28,6 +28,12 @@
 }
 .arrows-container {
 	top: 50vh;
+}
+.slick-slider {
+	-webkit-user-select: text; 
+}
+.slick-slide {
+	height: auto;
 }
 /* override wordpress classes */
 .customize-support { 

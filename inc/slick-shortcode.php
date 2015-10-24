@@ -70,8 +70,9 @@ function slick_shortcode($attr) {
 		'</div>' . 
 		'<div class="slicktarget gallery">';
 	
-	foreach($attachments as $id => $attachment) {
-		
+	//Iterate through images
+	foreach(explode(',',$atts['ids']) as $id) {
+	  $attachment = $attachments[$id];
 		if ( ! empty( $atts['link'] ) && $atts['link'] === 'file' ) {
 			$image_output = wp_get_attachment_link( $id, $atts['size'], false, false, false);
 		} elseif ( ! empty( $atts['link'] ) && $atts['link'] === 'none' ) {

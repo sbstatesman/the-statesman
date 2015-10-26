@@ -46,7 +46,6 @@ Template Name: featured
 			</div>
 		</div>
 	</section>
-		
 </main>
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 <script type="text/javascript" src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
@@ -72,8 +71,11 @@ Template Name: featured
 			jQuery('.arrow-right', element).attr('id', 'next-' + i);
 			jQuery('.slicktarget', element).attr('id', 'slidelist-' + i);
 		});
+
 		jQuery('.slidelist').each(function (i, element) {
-			jQuery('.slidelist').slick({
+			jQuery('.slidelist').on('beforeChange', function(event, slick){ 
+				$('body').animate({ scrollTop: 0 }, 'slow');             //to scroll to top when sliding
+			}).slick({
 				infinite: false,
 				slidesToShow: 1,
 				slidesToScroll: 1,

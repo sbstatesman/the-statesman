@@ -55,6 +55,18 @@ Template Name: featured
 
 <script type="text/javascript">
 		jQuery(document).ready(function() {
+		$('img').each(function () {              // add data-lazy attribute for slick's lazy-loading
+            $(this).attr('data-lazy', $(this).data('src'));
+        });	
+		//$('img').attr("data-lazy","https://i.stack.imgur.com/DkUaU.jpg?s=32&g=1"); 
+		/*$(function () {
+		    setTimeout(function () {   
+		        $('img[data-src]').each(function () {
+		            $(this).attr('src', $(this).data('src'));
+		        });
+		    }, 2000);
+		});
+		*/
 		jQuery('.slidecontainer').each(function (i, element) {
 			jQuery('.arrow-left', element).attr('id', 'prev-' + i);
 			jQuery('.arrow-right', element).attr('id', 'next-' + i);
@@ -69,7 +81,9 @@ Template Name: featured
 				nextArrow: '#next-' + i,
 				dots: false,
 				draggable: false,
-				adaptiveHeight: true   /* this plus height change of .slick-slide in slick.css needed to change slicktarget heights*/
+ 			    lazyLoad: 'ondemand', // To use lazy loading, set a data-lazy attribute on your img tags and leave off the src
+  				cssEase: 'linear',
+				adaptiveHeight: true   // this plus height change of .slick-slide in slick.css needed to change slicktarget heights
 			});
 		});
 		/* to cancel link redirects */

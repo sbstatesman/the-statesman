@@ -39,7 +39,7 @@
 .customize-support { 
     margin: 0px;
 }
-.slidecontainer a:-webkit-any-link { /*override link coloring */
+.textcontainer a{ /*override link coloring */
     color: white;
     text-decoration: none;
     cursor: auto;

@@ -37,7 +37,7 @@ Template Name: featured
 								</div>
 							</div>
 							<br>
-			                <section class="container aligncenter articletext large-text content-width wp-content">
+			                <section class="container articletext large-text content-width wp-content">
 			          	        <?php the_content(); ?>
 			                </section>
 						</div>

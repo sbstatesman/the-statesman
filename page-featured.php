@@ -27,7 +27,9 @@ Template Name: featured
 					<?php while ( $myposts->have_posts() ) : ?>
 						<?php $myposts->the_post(); ?>
 						<div class="slick-item featured">
-							<?php if ( has_post_thumbnail()) {the_post_thumbnail('medium');} ?>
+							<div class="featured-image">
+								<?php if ( has_post_thumbnail()) {the_post_thumbnail('medium');} ?>
+							</div>
 							<div class="textcontainer">						
 								<div class="block">
 									<h3 id="post-<?php the_ID(); ?>">
@@ -57,15 +59,6 @@ Template Name: featured
 		$('img').each(function () {              // add data-lazy attribute for slick's lazy-loading
             $(this).attr('data-lazy', $(this).data('src'));
         });	
-		//$('img').attr("data-lazy","https://i.stack.imgur.com/DkUaU.jpg?s=32&g=1"); 
-		/*$(function () {
-		    setTimeout(function () {   
-		        $('img[data-src]').each(function () {
-		            $(this).attr('src', $(this).data('src'));
-		        });
-		    }, 2000);
-		});
-		*/
 		jQuery('.slidecontainer').each(function (i, element) {
 			jQuery('.arrow-left', element).attr('id', 'prev-' + i);
 			jQuery('.arrow-right', element).attr('id', 'next-' + i);
@@ -74,7 +67,7 @@ Template Name: featured
 
 		jQuery('.slidelist').each(function (i, element) {
 			jQuery('.slidelist').on('beforeChange', function(event, slick){ 
-				$('body').animate({ scrollTop: 0 }, 'slow');             //to scroll to top when sliding
+				$('html, body').scrollTop(0);            //jump to top when sliding
 			}).slick({
 				infinite: false,
 				slidesToShow: 1,

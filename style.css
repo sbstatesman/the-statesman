@@ -178,7 +178,7 @@ text-transform: uppercase;
 .search-field {
 	width: 117px;
 	height: 20px;
-	margin: 0 10px;
+	margin: 3px;
 	float: right;
 	border: none;
 	outline: none;
@@ -395,9 +395,14 @@ button {
 .iconbar img {
 	margin-right: 10px;
 }
-.iconbar-social img {
+/*
+.iconbar-social i {
 	width: 60px;
 	height: 60px;
+}
+*/
+.iconbar-social i {
+	margin: 0 .1em 0 .1em;
 }
 .iconbar-tool {
 	margin-left: 16px;
@@ -407,8 +412,11 @@ button {
 	height: 16px;
 }
 .iconbar-search {
-	width: 20px;
-	height: 20px;
+	color: white;
+	background-color: transparent;
+	font-size: .7em;
+	/*width: 20px;
+	height: 20px;*/
 	float: right;
 }
 

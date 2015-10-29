@@ -209,10 +209,10 @@
 		<div class="threecolumn center">
 			<h6>Social Media</h6>
 			<div class="iconbar iconbar-social">
-				<a href="http://facebook.com/sbstatesman"><img src="<?php bloginfo( 'template_url' ); ?>/images/facebook.png" alt="Facebook" /></a>
-				<a href="http://twitter.com/sbstatesman"><img src="<?php bloginfo( 'template_url' ); ?>/images/twitter.png" alt="Twitter" /></a>
-				<a href="http://instagram.com/sbstatesman"><img src="<?php bloginfo( 'template_url' ); ?>/images/instagram.png" alt="Instagram" /></a>
-				<a href="http://vimeo.com/sbstatesman"><img src="<?php bloginfo( 'template_url' ); ?>/images/vimeo.png" alt="Vimeo" /></a>
+				<a href="http://facebook.com/sbstatesman"><i class="fa fa-facebook-official fa-4x"></i></a>
+				<a href="http://twitter.com/sbstatesman"><i class="fa fa-twitter-square fa-4x"></i></a>
+				<a href="http://instagram.com/sbstatesman"><i class="fa fa-instagram fa-4x"></i></a>
+				<a href="http://vimeo.com/sbstatesman"><i class="fa fa-vimeo-square fa-4x"></i></a>
 			</div>
 		</div>
 	</section>

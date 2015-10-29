@@ -4,6 +4,11 @@
 	background-color: gray;
 	overflow: hidden; 
 }
+.featured-image img{
+	width: 100%;
+	height: auto;
+	max-height: none;
+}
 .textcontainer {
 	background-color: transparent;
 	font-size: 15px;
@@ -37,7 +42,7 @@
 .slick-slide {
 	height: auto;
 }
-/* override wordpress classes */
+/* override wordpress */
 .customize-support { 
     margin: 0px;
 }
@@ -45,4 +50,7 @@
     color: white;
     text-decoration: none;
     cursor: auto;
+}
+.container {
+	min-width: 660px;
 }

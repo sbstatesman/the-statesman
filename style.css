@@ -182,7 +182,7 @@ text-transform: uppercase;
   display: none;
   position: fixed;
   width: 180px;
-  z-index: 1;
+  z-index: 5;
   background-color: #005a9c;
   color: #fff;
 }
@@ -190,16 +190,23 @@ text-transform: uppercase;
   padding: 5% 0;
   height: 5%;
 }
+/* need to figure out a way to avoid !important */
 .side-menu-list {
+  display: none !important;
+}
+.side-menu-item {
+  display: none !important;
+}
+.side-menu > ul {
   display: block;
   margin: 0;
   padding: 0;
   list-style: none;
   height: 85%;
   overflow-y: scroll;
-  z-index: 2;
+  z-index: 6;
 }
-.side-menu-item {
+.side-menu > ul > li {
   padding: .75em .5em;
   font-family: 'Droid Sans',sans-serif;
   font-size: 18px;
@@ -208,7 +215,12 @@ text-transform: uppercase;
   line-height: 1.25em;
   text-decoration: none !important;
 }
-.side-menu-item:hover {
+.side-menu > ul > li:hover {
+  background-color: #2299ee;
+  transition: background-color 0.15s cubic-bezier(0.33, 0.66, 0.66, 1) 0s;
+}
+/* highlight the active slide */
+.side-menu > ul > li.slick-active {
   background-color: #2299ee;
   transition: background-color 0.15s cubic-bezier(0.33, 0.66, 0.66, 1) 0s;
 }

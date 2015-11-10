@@ -198,21 +198,21 @@
 	</section>
 	<div class="hline hline-medium"></div>
 	<section class="row">
-		<div class="threecolumn vline-medium">
+		<div class="threecolumn vline-medium center">
 			<h6>Issue Archive</h6>
 			<a href="http://issuu.com/sbstatesman"><img src="<?php bloginfo( 'template_url' ); ?>/images/footer-logo.png" alt="The Statesman" width="268" /></a>
 		</div>
-		<div class="threecolumn vline-medium">
+		<div class="threecolumn vline-medium center">
 			<h6>Podcast</h6>
-			<a href="<?php echo get_tag_link(get_tag_id('deadline')); ?>"><img src="<?php bloginfo( 'template_url' ); ?>/images/deadline.png" alt="Deadline" width="268" /></a>
+			<a href="https://itunes.apple.com/us/podcast/the-statesman/id1033005149"><img src="<?php bloginfo( 'template_url' ); ?>/images/itunes.png" alt="Download on iTunes" width="200" /></a>
 		</div>
-		<div class="threecolumn">
+		<div class="threecolumn center">
 			<h6>Social Media</h6>
 			<div class="iconbar iconbar-social">
-				<a href="http://facebook.com/sbstatesman"><img src="<?php bloginfo( 'template_url' ); ?>/images/facebook.png" alt="Facebook" /></a>
-				<a href="http://twitter.com/sbstatesman"><img src="<?php bloginfo( 'template_url' ); ?>/images/twitter.png" alt="Twitter" /></a>
-				<a href="http://instagram.com/sbstatesman"><img src="<?php bloginfo( 'template_url' ); ?>/images/instagram.png" alt="Instagram" /></a>
-				<a href="http://vimeo.com/sbstatesman"><img src="<?php bloginfo( 'template_url' ); ?>/images/vimeo.png" alt="Vimeo" /></a>
+				<a href="http://facebook.com/sbstatesman"><i class="fa fa-facebook-official fa-4x"></i></a>
+				<a href="http://twitter.com/sbstatesman"><i class="fa fa-twitter-square fa-4x"></i></a>
+				<a href="http://instagram.com/sbstatesman"><i class="fa fa-instagram fa-4x"></i></a>
+				<a href="http://vimeo.com/sbstatesman"><i class="fa fa-vimeo-square fa-4x"></i></a>
 			</div>
 		</div>
 	</section>

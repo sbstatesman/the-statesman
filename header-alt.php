@@ -44,10 +44,11 @@ Join The Statesman Web & Graphics Section: https://www.facebook.com/groups/14814
 		</title>
 		<link rel="profile" href="http://gmpg.org/xfn/11">
 		<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
-		<link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>" type="text/css" />
+		<link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/slick.css"/>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-		<link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>" type="text/css" />		
+    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/style-featured.css" />
 		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 		<!--[if lt IE 9]>
 		<script src="<?php echo get_template_directory_uri(); ?>/js/html5shiv.js"></script>
@@ -76,19 +77,27 @@ Join The Statesman Web & Graphics Section: https://www.facebook.com/groups/14814
 
 		<?php wp_head(); ?>
 	</head>
-	<body <?php body_class( $class ); ?>>
-		<nav class="fixednav fixednav-main">
-			<div class="container">
-				<a href="<?php echo site_url(); ?>"><img src="<?php bloginfo( 'template_url' ); ?>/images/nav-logo.png" class="logo" alt="The Statesman" width="162" height="20" /></a>
-				<ul class="horizontallist">
-					<li><a href="<?php echo get_category_link( $news ); ?>">News</a></li>
-					<li><a href="<?php echo get_category_link( $arts_and_entertainment ); ?>">Arts &amp; Entertainment</a></li>
-					<li><a href="<?php echo get_category_link( $opinions ); ?>">Opinions</a></li>
-					<li><a href="<?php echo get_category_link( $sports ); ?>">Sports</a></li>
-					<li><a href="<?php echo get_category_link( $multimedia ); ?>">Multimedia</a></li>
-					<li><a href="<?php echo get_permalink( get_page_by_title( 'About' ) ); ?>">About</a></li>
-				</ul>
-				<?php get_search_form(); ?>
-			</div>
+	<body <?php body_class($class); ?>>
+	    <div class="side-menu" id="nav">
+	      <h1 class="side-heading" ><?php the_title(); ?></h1>
+	      <ul class="side-menu-list">
+          <?php $i = 0;?>
+          <?php $featured_tag = get_post_meta(get_the_ID(), 'featured-tag', true); ?>
+          <?php $args = array( 'posts_per_page' => 10, 'tag' => $featured_tag); ?>
+          <?php $myposts = new WP_Query( $args ); ?>
+          <?php if ( $myposts->have_posts() ) : ?>
+          <?php while ( $myposts->have_posts() ) : ?>
+          <?php $myposts->the_post(); ?>
+	        <li id="side-menu-item-<?php echo $i?>" class="side-menu-item">
+	        	<a href="<?php the_permalink() ?>" class="metatext"><?php the_title(); ?></a>
+	        </li>
+          <?php $i++; ?>
+	        <?php endwhile; ?>
+          <?php endif; ?>
+          <?php wp_reset_query(); ?>
+	      </ul>
+	    </div>
+		<nav class="fixednav fixednav-main fixednav-alt center">
+	    <a id="nav-menu" class="left" href="#nav"><i class="fa fa-bars fa-lg side-menu-icon"></i></a>
+	    <a href="<?php echo site_url(); ?>"><img src="<?php bloginfo( 'template_url' ); ?>/images/nav-logo.png" class="" alt="The Statesman" width="162" height="20" /></a>
 		</nav>
-		<div class="container">

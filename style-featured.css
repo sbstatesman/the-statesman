@@ -1,0 +1,52 @@
+.featured-image {
+	max-height: calc(100vh - 28px);
+	width: 100%;
+	overflow: hidden;
+	position: relative;
+}
+.featured-image img{
+	width: 100%;
+	height: auto;
+	max-height: none;
+}
+.textcontainer {
+	color: white;
+	margin: 0 auto;
+	position: absolute;
+	bottom: 15vh;
+	left: 0;
+	right: 0;
+	max-width: 50em;
+}
+.textcontainer .metatext{ /*override link coloring */
+  color: white;
+}
+.featured-article {
+	max-width: 600px;
+	margin: 0 auto;
+}
+/* for slick carousels */
+.arrow-left, .arrow-right {
+	z-index: 1;
+	transition: opacity 0.15s cubic-bezier(0.33, 0.66, 0.66, 1) 0s;
+	position: fixed;
+	background-color: #fff;
+	opacity: 0.5;
+	padding: 2em 1em;
+	margin-top: auto;
+	margin-bottom: auto;
+}
+.arrows-container {
+	top: 50vh;
+}
+.slick-slider {
+	-webkit-touch-callout: text;
+	-webkit-user-select: text;
+	-khtml-user-select: text;
+	-moz-user-select: text;
+	-ms-user-select: text;
+	user-select: text;
+}
+.slick-slide {
+	height: auto;
+}

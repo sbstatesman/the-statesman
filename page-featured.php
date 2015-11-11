@@ -16,34 +16,33 @@ Template Name: featured
 		<div class="slidecontainer">
 			<div class="arrows-container">
 				<div class="arrow-left">
-					<img src="<?php echo get_template_directory_uri(); ?>/images/thin_left_arrow_333.png" />
+					<i class="fa fa-arrow-left fa-2x"></i>
 				</div>
 				<div class="arrow-right">
-					<img src="<?php echo get_template_directory_uri(); ?>/images/thin_right_arrow_333.png" />
+					<i class="fa fa-arrow-right fa-2x"></i>
 				</div>
 			</div>
 			<div class="slicktarget slidelist">
 				<?php if ( $myposts->have_posts() ) : ?>
-					<?php while ( $myposts->have_posts() ) : ?>
-						<?php $myposts->the_post(); ?>
-						<div class="slick-item featured">
-							<div class="featured-image">
-								<?php if ( has_post_thumbnail()) {the_post_thumbnail('medium');} ?>
-							</div>
-							<div class="textcontainer">						
-								<div class="block">
-									<h3 id="post-<?php the_ID(); ?>">
-										<a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
-									</h3>
-									<p class="metatext metatext-byline small-text"><?php the_author_posts_link(); ?> / <a href="<?php the_archive_date(); ?>"><?php the_time('F j, Y'); ?></a></p>
-								</div>
-							</div>
-							<br>
-			                <section class="container articletext large-text content-width wp-content">
-			          	        <?php the_content(); ?>
-			                </section>
+				<?php while ( $myposts->have_posts() ) : ?>
+				<?php $myposts->the_post(); ?>
+				<div class="slick-item featured">
+					<div class="featured-image">
+						<?php if ( has_post_thumbnail()) {the_post_thumbnail('medium');} ?>
+						<div class="textcontainer">						
+							<h1 id="post-<?php the_ID(); ?>"><?php the_title(); ?></h1>
+							<p class="metatext metatext-byline">
+								<?php the_author_posts_link(); ?> / 
+								<a href="<?php the_archive_date(); ?>"><?php the_time('F j, Y'); ?></a>
+							</p>
 						</div>
-					<?php endwhile; ?>
+					</div>
+					<br>
+					<section class="articletext large-text featured-article">
+						<?php the_content(); ?>
+					</section>
+				</div>
+				<?php endwhile; ?>
 				<?php endif; ?>
 			</div>
 		</div>

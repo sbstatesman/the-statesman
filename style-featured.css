@@ -1,8 +1,8 @@
 .featured-image {
-	height: 100vh;
+	max-height: calc(100vh - 28px);
 	width: 100%;
-	background-color: gray;
-	overflow: hidden; 
+	overflow: hidden;
+	position: relative;
 }
 .featured-image img{
 	width: 100%;
@@ -10,24 +10,27 @@
 	max-height: none;
 }
 .textcontainer {
-	background-color: transparent;
-	font-size: 15px;
 	color: white;
-	margin-left: 20vw;
-	background-color: transparent;
-	font-size: 15px;
-	color: white;
+	margin: 0 auto;
 	position: absolute;
-	top: 80vh;
-	height: 20vh;
-	width: 100vw;
+	bottom: 15vh;
+	left: 0;
+	right: 0;
+	max-width: 50em;
+}
+.textcontainer .metatext{ /*override link coloring */
+  color: white;
+}
+.featured-article {
+	max-width: 600px;
+	margin: 0 auto;
 }
 /* for slick carousels */
 .arrow-left, .arrow-right {
 	z-index: 1;
 	transition: opacity 0.15s cubic-bezier(0.33, 0.66, 0.66, 1) 0s;
 	position: fixed;
-	background-color: #ffffff;
+	background-color: #fff;
 	opacity: 0.5;
 	padding: 2em 1em;
 	margin-top: auto;
@@ -46,16 +49,4 @@
 }
 .slick-slide {
 	height: auto;
-}
-/* override wordpress */
-.customize-support { 
-    margin: 0px;
-}
-.textcontainer a{ /*override link coloring */
-    color: white;
-    text-decoration: none;
-    cursor: auto;
-}
-.container {
-	min-width: 660px;
 }

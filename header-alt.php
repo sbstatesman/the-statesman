@@ -46,8 +46,9 @@ Join The Statesman Web & Graphics Section: https://www.facebook.com/groups/14814
 		<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 		<link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/slick.css"/>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 		<link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>" type="text/css" />		
-    	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/style-featured.css" />
+    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/style-featured.css" />
 		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 		<!--[if lt IE 9]>
 		<script src="<?php echo get_template_directory_uri(); ?>/js/html5shiv.js"></script>
@@ -95,8 +96,6 @@ Join The Statesman Web & Graphics Section: https://www.facebook.com/groups/14814
 	      </ul>
 	    </div>
 		<nav class="fixednav fixednav-main fixednav-alt">
-			<div class="container">
-	    		<a id="nav-menu" class="nav-menu" href="#nav">=</a>
-	    		<a href="<?php echo site_url(); ?>"><img src="<?php bloginfo( 'template_url' ); ?>/images/nav-logo.png" class="" alt="The Statesman" width="162" height="20" /></a>		
-			</div>
+	    <a id="nav-menu" class="nav-menu" href="#nav"><i class="fa fa-bars"></i></a>
+	    <a href="<?php echo site_url(); ?>"><img src="<?php bloginfo( 'template_url' ); ?>/images/nav-logo.png" class="" alt="The Statesman" width="162" height="20" /></a>
 		</nav>

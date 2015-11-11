@@ -9,16 +9,13 @@
         body = $('body'),
         speed = 200,
         menuWidth = menu.outerWidth(true);
-    console.log(menu);
     if(menu.is(':visible')) {
-      console.log('hiding');
       menu.css({'display': 'none', 'left': 0});
       body.css({
         width: body.width(),
         position: 'absolute'
       }).animate({left: 0 + 'px'}, speed);
     } else {
-      console.log('displayed');
       menu.css({'display': 'block', 'left': 0});
       body.css({
         width: body.width(),

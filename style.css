@@ -165,20 +165,11 @@ text-transform: uppercase;
 	background-color: #005a9c;
   color: #fff;
 }
-
-
-
-.fixednav-alt {
-  text-align: center;
-}
 .fixednavs-alt > form, .fixednavs-alt > form {
   white-space: nowrap;
   display: inline-block;
 }
-.nav-menu {
-  float: left;
-  text-decoration: none !important;
-}
+
 .side-menu {
   height: 100%;
   display: none;
@@ -191,15 +182,14 @@ text-transform: uppercase;
 .side-heading {
   padding: 1em;
 }
-/* need to figure out a way to avoid !important */
 .side-menu-icon {
   margin-left: 1em;
 }
 .side-menu-list {
-  display: none !important;
+  display: none !important; /* need to figure out a way to avoid !important */
 }
-.side-menu-item {
-  display: none !important;
+.side-menu a {
+  text-decoration: none;
 }
 .side-menu > ul {
   display: block;
@@ -213,20 +203,15 @@ text-transform: uppercase;
 .side-menu > ul > li {
   padding: 1.5em 1em;
 }
-.side-menu a {
-  text-decoration: none;
-}
 .side-menu > ul > li:hover {
   background-color: #666;
   cursor: pointer;
   transition: background-color 0.15s cubic-bezier(0.33, 0.66, 0.66, 1) 0s;
 }
-/* highlight the active slide */
 .side-menu > ul > li.slick-active {
   background-color: #666;
   transition: background-color 0.15s cubic-bezier(0.33, 0.66, 0.66, 1) 0s;
 }
-
 
 .horizontallist {
 	margin: 0;

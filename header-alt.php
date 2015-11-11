@@ -88,7 +88,9 @@ Join The Statesman Web & Graphics Section: https://www.facebook.com/groups/14814
           <?php if ( $myposts->have_posts() ) : ?>
           <?php while ( $myposts->have_posts() ) : ?>
           <?php $myposts->the_post(); ?>
-	        <li id="side-menu-item-<?php echo $i?>" class="side-menu-item"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></li>
+	        <li id="side-menu-item-<?php echo $i?>" class="side-menu-item">
+	        	<a href="<?php the_permalink() ?>" class="metatext"><?php the_title(); ?></a>
+	        </li>
           <?php $i++; ?>
 	        <?php endwhile; ?>
           <?php endif; ?>
@@ -96,6 +98,6 @@ Join The Statesman Web & Graphics Section: https://www.facebook.com/groups/14814
 	      </ul>
 	    </div>
 		<nav class="fixednav fixednav-main fixednav-alt">
-	    <a id="nav-menu" class="nav-menu" href="#nav"><i class="fa fa-bars"></i></a>
+	    <a id="nav-menu" class="nav-menu" href="#nav"><i class="fa fa-bars fa-lg side-menu-icon"></i></a>
 	    <a href="<?php echo site_url(); ?>"><img src="<?php bloginfo( 'template_url' ); ?>/images/nav-logo.png" class="" alt="The Statesman" width="162" height="20" /></a>
 		</nav>

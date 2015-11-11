@@ -30,9 +30,7 @@
     }, options);
     
     //sideMenu = $('#'+settings.name);
-    console.log(this);
     this.click(function(e) {
-      console.log('clicked');
       e.preventDefault();
       toggle(settings.name);
     });
@@ -40,6 +38,5 @@
 }(jQuery));
 
 $(document).ready(function() {
-  console.log('loaded');
   $('#nav-menu').sidemenu();
 });

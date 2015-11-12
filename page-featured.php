@@ -75,6 +75,7 @@ Template Name: featured
 				nextArrow: '#next-' + i,
 				dots: true,
 				draggable: false,
+				touchMove: false,
  			  lazyLoad: 'ondemand', // To use lazy loading, set a data-lazy attribute on your img tags and leave off the src
   			cssEase: 'linear',
 				adaptiveHeight: true,   // this plus height change of .slick-slide in slick.css needed to change slicktarget heights

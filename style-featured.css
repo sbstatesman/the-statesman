@@ -4,6 +4,9 @@
 	overflow: hidden;
 	position: relative;
 }
+iframe, object, embed { /* fix video overextending */
+    max-width: 100%;
+}
 .featured-image img{
 	width: 100%;
 	height: auto;
@@ -24,6 +27,7 @@
 .featured-article {
 	max-width: 600px;
 	margin: 0 auto;
+	padding: .5% 3%;
 }
 /* for slick carousels */
 .arrow-left, .arrow-right {

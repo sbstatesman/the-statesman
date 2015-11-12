@@ -28,7 +28,7 @@ Template Name: featured
 				<?php $myposts->the_post(); ?>
 				<div class="slick-item featured">
 					<div class="featured-image">
-						<?php if ( has_post_thumbnail()) {the_post_thumbnail('medium');} ?>
+						<?php if ( has_post_thumbnail()) {the_post_thumbnail('large');} ?>
 						<div class="textcontainer">						
 							<h1 id="post-<?php the_ID(); ?>"><?php the_title(); ?></h1>
 							<p class="metatext metatext-byline">
@@ -86,10 +86,7 @@ Template Name: featured
         }
 			});
 		});
-		/* to cancel link redirects */
-		$('.slicktarget').click(function() { 
-      return false;
-    });
+	
 	});
 </script>
 <?php get_footer(); ?>

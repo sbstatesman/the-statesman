@@ -28,6 +28,7 @@ Template Name: featured
 				<?php $myposts->the_post(); ?>
 				<div class="slick-item featured">
 					<div class="featured-image">
+						<div class="opacity-screen"></div>
 						<?php if ( has_post_thumbnail()) {the_post_thumbnail('large');} ?>
 						<div class="textcontainer">						
 							<h1 id="post-<?php the_ID(); ?>"><?php the_title(); ?></h1>

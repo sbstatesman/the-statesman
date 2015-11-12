@@ -684,7 +684,7 @@ button {
 .arrow-left img, .arrow-right img {
   vertical-align: middle;
 }
-.arrow-left:hover, .arrow-right:hover {
+.arrow-left:active, .arrow-right:active {
   cursor: pointer;
   opacity: 1;
 }

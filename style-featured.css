@@ -15,6 +15,7 @@ iframe, object, embed { /* fix video overextending */
 .textcontainer {
 	color: white;
 	margin: 0 auto;
+	padding: 0 1em;
 	position: absolute;
 	bottom: 15vh;
 	left: 0;

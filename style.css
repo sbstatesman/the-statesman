@@ -7,8 +7,8 @@ Author URI: http://sbstatesman.com/
 */
 
 body {
-	padding: 40px 0 10px 0; /* push for fixednav */
-	width: 100%;
+	padding: 40px 0 1% 0; /* push for fixednav */
+	width: 97%;
 	-webkit-font-smoothing: subpixel-antialiased; /* fix webkit font rendering */
 	font-family: Georgia, serif;
 	font-size: 14px;
@@ -224,7 +224,7 @@ text-transform: uppercase;
 	float: left;
 }
 .main-half {
-	width: 32.396%;
+	width: 45.396%;
 	float: left;
 }
 .main-threeeigth {
@@ -254,12 +254,12 @@ text-transform: uppercase;
 }
 .vline-medium {
 	border-right: 1px solid #c8c8c8;
-	padding-right: 8px;
-	margin-right: 8px;
+	padding-right: .78%;
+	margin-right: .78%;
 }
 .vspace {
-	padding-right: 9px;
-	margin-right: 8px;
+	padding-right: .78%;
+	margin-right: .88%;
 }
 .hline {
 	margin: 15px 0;
@@ -311,7 +311,7 @@ text-transform: uppercase;
 	overflow: auto;
 }
 .vmedia {
-  width: 100%;
+  width: 98%;
 	margin-bottom: 10px;
 }
 .hmedia-list {
@@ -444,7 +444,7 @@ text-transform: uppercase;
 }
 @media screen and (max-width: 959px) and (min-width: 640px){
 	.container {
-		width: 100%;
+		width: 98%;
 		padding: 0 3px;
 	}
 	.row {
@@ -529,21 +529,8 @@ text-transform: uppercase;
 		float: left;
 		margin-left: 3px;
 	}
-
-	/*
-	.sidebar1 {
-		border-top: 1px solid #c8c8c8;
-		padding-top: 2%;
-	}
-	.sidebar2 {
-		width: 32%;
-	}
-	.categoriesContainer {
-		width: 66%;
-	}
-	*/
-	.hmedia-list .thumbnail {
-		width: 40%;
+	.thumbnail img {
+		width: 1%;
 	}
 }
 
@@ -805,5 +792,60 @@ text-transform: uppercase;
     height: auto;
     padding: 0 0.833em;
     text-align: left;
+  }
+  .main {
+  	width: 97%;
+  }
+  .main .thumbnail {
+  	width: 100vw;
+  	height: auto;
+  	float: none;
+  }
+  .main-half {
+    width: 47.396%;
+  }
+  .sidebar {
+  	width: 100%;
+  	float: none;
+  }	
+  .thumbnail img {
+  	width: 50%;
+  	height: auto;
+  	margin-right: auto;
+  	margin-left: auto;
+  }
+  .fourcolumn {
+  	width: 99%;
+  	float: none;
+  }
+  .threecolumn img {
+  	width: 99%;
+  }
+  .iconbar-social img {   /*for social media icons */
+	margin-right: 1%;
+	width: 20%;
+	height: auto;
+  } 
+  .content-width {
+  	width: 97%;
+  } 
+  ul {
+  	-webkit-margin-end: 3%;
+  }
+  textarea {
+  	width: 97%;
+  }
+  .logo {
+  	width: 87%;
+  }
+  .threecolumn {
+	width: 30.083%;
+  }
+  .hmedia {
+  	overflow: hidden;
+  	margin-right: 3%;
+  }
+  .metatext {		
+  	margin-right: 5%;    /* for footer */
   }
 }

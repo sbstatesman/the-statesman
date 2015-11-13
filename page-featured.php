@@ -34,7 +34,7 @@ Template Name: featured
 					</section>
 				</div>
 				<?php $featured_tag = get_post_meta(get_the_ID(), 'featured-tag', true); ?>
-				<?php $args = array( 'posts_per_page' => 10, 'tag' => $featured_tag); ?>
+				<?php $args = array( 'posts_per_page' => 20, 'tag' => $featured_tag); ?>
 				<?php $myposts = new WP_Query( $args ); ?>
 				<?php if ( $myposts->have_posts() ) : ?>
 				<?php while ( $myposts->have_posts() ) : ?>

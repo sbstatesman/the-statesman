@@ -75,6 +75,9 @@ h6 {
 	text-transform: uppercase;
 	margin: 0 0 15px 0;
 }
+.xlarge-text {
+  font-size: 42px;
+}
 .large-text {
 	font-size: 16px;
 }

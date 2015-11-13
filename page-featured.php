@@ -9,9 +9,6 @@ Template Name: featured
 <!-- /ALTERNATE NAV -->
 
 <main>
-  <?php $featured_tag = get_post_meta(get_the_ID(), 'featured-tag', true); ?>
-	<?php $args = array( 'posts_per_page' => 10, 'tag' => $featured_tag); ?>
-	<?php $myposts = new WP_Query( $args ); ?>
 	<section class="row">
 		<div class="slidecontainer">
 			<div class="arrows-container">
@@ -23,6 +20,22 @@ Template Name: featured
 				</div>
 			</div>
 			<div class="slicktarget slidelist">
+				<div class="slick-item featured">
+					<div class="featured-image">
+						<div class="opacity-screen"></div>
+						<?php if ( has_post_thumbnail()) {the_post_thumbnail('large');} ?>
+						<div class="textcontainer">						
+							<h1 id="post-<?php the_ID(); ?>" class="xlarge-text"><?php the_title(); ?></h1>
+						</div>
+					</div>
+					<br>
+					<section class="articletext large-text featured-article wp-content">
+						<?php the_content(); ?>
+					</section>
+				</div>
+				<?php $featured_tag = get_post_meta(get_the_ID(), 'featured-tag', true); ?>
+				<?php $args = array( 'posts_per_page' => 10, 'tag' => $featured_tag); ?>
+				<?php $myposts = new WP_Query( $args ); ?>
 				<?php if ( $myposts->have_posts() ) : ?>
 				<?php while ( $myposts->have_posts() ) : ?>
 				<?php $myposts->the_post(); ?>

@@ -79,7 +79,9 @@ Join The Statesman Web & Graphics Section: https://www.facebook.com/groups/14814
 	</head>
 	<body <?php body_class($class); ?>>
 	    <div class="side-menu" id="nav">
-	      <h1 class="side-heading" ><?php the_title(); ?></h1>
+	      <h1 class="side-heading" >
+	      <a href="<?php the_permalink() ?>"><?php the_title(); ?>
+	      </h1>
 	      <ul class="side-menu-list">
           <?php $i = 0;?>
           <?php $featured_tag = get_post_meta(get_the_ID(), 'featured-tag', true); ?>

@@ -416,6 +416,10 @@ text-transform: uppercase;
 	width: 90px;
 	height: calc(90px * 2/3);
 }
+.adbox {
+  background-color: #eee;
+  padding: 1em;
+}
 
 /* forms */
 

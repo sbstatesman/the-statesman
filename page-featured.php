@@ -59,6 +59,17 @@ Template Name: featured
 				<?php endwhile; ?>
 				<?php endif; ?>
 			</div>
+			<div class="adbox">
+				<!-- featured page -->
+				<ins class="adsbygoogle"
+				     style="display:block"
+				     data-ad-client="ca-pub-8107316404981446"
+				     data-ad-slot="6601435210"
+				     data-ad-format="auto"></ins>
+				<script>
+					(adsbygoogle = window.adsbygoogle || []).push({});
+				</script>
+			</div>
 		</div>
 	</section>
 </main>

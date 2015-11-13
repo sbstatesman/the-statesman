@@ -79,11 +79,11 @@ Join The Statesman Web & Graphics Section: https://www.facebook.com/groups/14814
 	</head>
 	<body <?php body_class($class); ?>>
 	    <div class="side-menu" id="nav">
-	      <h1 class="side-heading" >
-	      <a href="<?php the_permalink() ?>"><?php the_title(); ?>
-	      </h1>
 	      <ul class="side-menu-list">
-          <?php $i = 0;?>
+	      	<li id="side-menu-item-0" class="side-heading side-menu-item">
+	        	<h1><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h1>
+	        </li>
+          <?php $i = 1;?>
           <?php $featured_tag = get_post_meta(get_the_ID(), 'featured-tag', true); ?>
           <?php $args = array( 'posts_per_page' => 10, 'tag' => $featured_tag); ?>
           <?php $myposts = new WP_Query( $args ); ?>

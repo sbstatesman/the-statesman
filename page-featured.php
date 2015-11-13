@@ -25,7 +25,7 @@ Template Name: featured
 						<div class="opacity-screen"></div>
 						<?php if ( has_post_thumbnail()) {the_post_thumbnail('large');} ?>
 						<div class="textcontainer">						
-							<h1 id="post-<?php the_ID(); ?>" class="xlarge-text"><?php the_title(); ?></h1>
+							<h1 id="post-<?php the_ID(); ?>" class="xlarge-text center"><?php the_title(); ?></h1>
 						</div>
 					</div>
 					<br>

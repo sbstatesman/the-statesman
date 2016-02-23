@@ -477,7 +477,7 @@ text-transform: uppercase;
 		width: 48%;
 	}
 	.vline-medium {
-		border-right: 1px solid #c8c8c8;
+		border-right: none;
 		padding-right: 4px;
 		margin-right: 4px;
 		margin-bottom: 4px;
@@ -846,5 +846,8 @@ text-transform: uppercase;
   }
   .metatext {		
   	margin-right: 5%;    /* for footer */
+  }
+  .vline-medium {
+  	border-right: none;
   }
 }

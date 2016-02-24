@@ -64,3 +64,748 @@
 	display: none;
 	background-color: #fff;
 }
+
+/***************************************************
+Theme Name: The Statesman
+Description: A Wordpress theme for The Statesman — Stony Brook University's oldest student newspaper.
+Version: 1.0
+Author: The Statesman
+Author URI: http://sbstatesman.com/
+*/
+
+body {
+	padding: 40px 0 10px 0; /* push for fixednav */
+	-webkit-font-smoothing: subpixel-antialiased; /* fix webkit font rendering */
+	font-family: Georgia, serif;
+	font-size: 14px;
+}
+
+/* Eliminate whitespace between fixednav and main content */
+body.page-template-page-featured {
+  padding: 28px 0 10px 0; /* push for fixednav */
+}
+
+/* reset */
+
+body, figure {
+	margin: 0;
+}
+a:link, a:visited {
+	text-decoration: none;
+	color: inherit;
+}
+a:hover, a:active {
+	text-decoration: underline;
+	color: inherit;
+}
+
+/* typography and branding */
+
+h1 {
+	font-size: 24px;
+	font-family: 'Droid Sans', sans-serif;
+	font-weight: 700;
+	margin: 0;
+	line-height: 1.25em;
+}
+h2 {
+	font-size: 20px;
+	font-family: 'Droid Sans', sans-serif;
+	font-weight: 700;
+	margin: 0;
+	line-height: 1.25em;
+}
+h3 {
+	font-size: 18px;
+	font-family: 'Droid Sans', sans-serif;
+	font-weight: 700;
+	margin: 0;
+	line-height: 1.25em;
+}
+h4 {
+	font-size: 16px;
+	font-family: 'Droid Sans', sans-serif;
+	font-weight: 700;
+	margin: 0;
+	line-height: 1.25em;
+}
+h5 {
+	font-size: 14px;
+	font-family: 'Droid Sans', sans-serif;
+	font-weight: 700;
+	margin: 0 0 10px 0;
+	line-height: 1.25em;
+}
+h6 {
+	font-size: 16px;
+	color: #005a9c;
+	text-transform: uppercase;
+	margin: 0 0 15px 0;
+}
+.xlarge-text {
+  font-size: 42px;
+}
+.large-text {
+	font-size: 16px;
+}
+.small-text {
+	font-size: 12px;
+}
+.coloredtext {
+	color: #005a9c;
+}
+.uppercasetext {
+text-transform: uppercase;
+}
+.articletype {
+	text-transform: uppercase;
+	color: #005a9c;
+	font-family: 'Droid Sans', sans-serif;
+	font-weight: 700;
+	margin: 0 0 4px 0;
+}
+.excerpt {
+	font-size: 13px;
+	color:#4b4b4b;
+	line-height: 1.6em;
+	margin: 5px 0;
+}
+.headline {
+	font-size: 34px;
+	font-family: 'Droid Sans', sans-serif;
+	font-weight: 700;
+	margin: 0;
+	line-height: 1.2em;
+}
+.articletext {
+	line-height: 1.6em;
+}
+.articletext p {
+	margin-bottom: 1.3em;
+	margin-top: 0;
+	min-width: 100px;
+}
+.articletext p:before { /* to prevent text wrap for narrow column */
+  content: "";
+  width: 10em;
+  display: block;
+  overflow: hidden;
+}
+.metatext {
+	font-family: 'Droid Sans', sans-serif;
+	font-weight: 400;
+	line-height: 1.3em;
+	margin-bottom: 2px;
+	color: #4b4b4b;
+}
+.metatext-dark {
+	color: #000;
+}
+.metatext-colored {
+	color: #005a9c;
+}
+.metatext-byline {
+	margin: 8px 0;
+	text-transform: uppercase;
+}
+.left {
+	float: left;
+}
+.right {
+	float: right;
+}
+.center {
+  text-align: center;
+}
+
+/* navigation */
+
+.fixednav {
+	width: 100%;
+	padding: 10px 0;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 5;
+}
+.fixednav-main {
+	text-transform: uppercase;
+	font-weight: 400;
+	font-family: 'Droid Sans', sans-serif;
+	background-color: #005a9c;
+  color: #fff;
+}
+.fixednavs-alt > form, .fixednavs-alt > form {
+  white-space: nowrap;
+  display: inline-block;
+}
+
+.side-menu {
+  height: 100%;
+  display: none;
+  position: fixed;
+  width: 20em;
+  z-index: 5;
+  background-color: #444;
+  color: #fff;
+}
+.side-heading {
+  padding: 1em;
+}
+.side-menu-icon {
+  margin-left: 1em;
+}
+.side-menu-list {
+  display: none !important; /* need to figure out a way to avoid !important */
+}
+.side-menu a {
+  text-decoration: none;
+}
+.side-menu > ul {
+  display: block;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  height: 85%;
+  overflow-y: scroll;
+  z-index: 6;
+}
+.side-menu > ul > li {
+  padding: 1.5em 1em;
+}
+.side-menu > ul > li:hover {
+  background-color: #666;
+  cursor: pointer;
+  transition: background-color 0.15s cubic-bezier(0.33, 0.66, 0.66, 1) 0s;
+}
+.side-menu > ul > li.slick-active {
+  background-color: #666;
+  transition: background-color 0.15s cubic-bezier(0.33, 0.66, 0.66, 1) 0s;
+}
+
+.horizontallist {
+	margin: 0;
+	padding: 0;
+	float: left;
+}
+.horizontallist li {
+	display: inline-block;
+	margin: 4px 0 0 26px;
+}
+/* I don't think these styles are generic to "horizontal lists" they are
+   coupled to the use of horizontal lists in the navbar. */
+.horizontallist li a {
+	text-decoration: none;
+	color: #fff;
+}
+.logo {
+	float: left;
+}
+.search-field {
+	width: 117px;
+	height: 20px;
+	margin: 3px;
+	float: right;
+	border: none;
+	outline: none;
+}
+.currentissue {
+	width: 200px;
+	margin: 45px 0 0 40px;
+	padding: 3px 0 3px 10px;
+	float: left;
+	border-left: 3px solid #005a9c;
+	line-height: 1.3em;
+}
+.sectionhead {
+	text-align: center;
+	position: relative;
+}
+.sectionhead-text {
+	font-size: 36px;
+	font-family: 'Droid Sans', sans-serif;
+	font-weight: 700;
+	text-transform: uppercase;
+}
+.sectionhead-text-centered {
+	padding: 0 20px;
+	background-color: #fff;
+}
+
+/* layout and lines */
+
+.container {
+	width: 960px;
+	margin: 0 auto;
+	padding: 0 10px;
+	position: relative;
+	overflow: auto;
+}
+.row {
+	overflow: hidden;
+	margin: 10px 0;
+}
+.main {
+	width: 640px;
+	float: left;
+}
+.main-half {
+	width: 311px;
+	float: left;
+}
+.main-threeeigth {
+	width: 231px;
+	float: left;
+}
+.main-fiveeigth {
+	width: 391px;
+	float: left;
+}
+.sidebar {
+	width: 300px;
+	float: right;
+}
+.threecolumn {
+	width: 308px;
+	float: left;
+}
+.fourcolumn {
+	width: 227px;
+	float: left;
+}
+.twocolumn {
+	width: 48%;
+	padding: 0 1%;
+	float: left;
+}
+.vline-medium {
+	border-right: 1px solid #c8c8c8;
+	padding-right: 8px;
+	margin-right: 8px;
+}
+.vspace {
+	padding-right: 9px;
+	margin-right: 8px;
+}
+.hline {
+	margin: 15px 0;
+	clear: both;
+	width: 100%;
+}
+.hline-background {
+	position: absolute;
+	top: 6px;
+	z-index: -1;
+	border-top: 1px solid #c8c8c8;
+}
+.hline-strong {
+	border-top: 1px solid #000;
+}
+.hline-medium {
+	border-top: 1px solid #c8c8c8;
+}
+.sidebar .hline:last-child {
+  display: none;
+} 
+
+/* columns */
+
+[class*='col-'] {
+  float: left;
+  box-sizing: border-box;
+  padding: 8px;
+}
+.col-1 {
+  width: 100%;
+}
+.col-1-2 {
+  width: 50%;
+}
+.col-1-3 {
+  width: 33.33%;
+}
+.col-2-3 {
+  width: 66.66%;
+}
+.col-1-4 {
+  width: 25%;
+}
+.col-3-4 {
+  width: 75%;
+}
+
+/* media objects */
+
+.hmedia, .hmedia .block, .vmedia, .vmedia .block {
+	overflow: auto;
+}
+.vmedia {
+  width: 100%;
+	margin-bottom: 10px;
+}
+.hmedia-list {
+	margin-bottom: 25px;
+}
+.hmedia .thumbnail {
+	float: left;
+	margin-right: 15px;
+	overflow: hidden;
+}
+.vmedia .thumbnail {
+	margin-bottom: 10px;
+}
+.thumbnail img {
+	width: 100%;
+	height: auto;
+  display: block;
+}
+.thumbnail-lede {
+	width: 390px;
+	height: calc(390px * 2/3);
+}
+.thumbnail-sidebar {
+	width: 300px;
+	height: calc(300px * 2/3);
+}
+.thumbnail-large { /* news featured, main latest */
+	width: 230px;
+	height: calc(230px * 2/3);
+}
+.thumbnail-medium { /* main sections */
+	width: 214px;
+	height: calc(214px * 2/3);
+}
+.thumbnail-small {
+	width: 195px;
+	height: calc(195px * 2/3);
+}
+.thumbnail-xsmall {
+	width: 90px;
+	height: calc(90px * 2/3);
+}
+.adbox {
+  background-color: #eee;
+  padding: 1em;
+}
+
+/* forms */
+
+.button {
+  display: inline-block;
+  padding: 1em;
+  text-decoration: none !important;
+  background-color: #06B;
+  border-radius: 5px;
+  text-align: center;
+  color: #FFF !important;
+  margin: 0 .5em 0 0;
+}
+.button:hover {
+  background-color: #29e;
+}
+.button-wide {
+  width: 100%;
+  padding: 1em 0;
+}
+.inline-form {
+  display: inline-block;
+}
+button {
+  border: none;
+  cursor: pointer;
+  font: inherit;
+}
+
+/* icon objects */
+
+.iconbar {
+	display: inline-block;
+	vertical-align: middle;
+}
+.iconbar-social i {
+	margin: 0 .2em;
+}
+.iconbar-search {
+	color: white;
+	background-color: transparent;
+	font-size: .7em;
+	float: right;
+}
+
+/* image styles */
+
+.photo {
+	margin-bottom: 5px;
+}
+.photo img {
+	width: 100%;
+}
+.photo-feature {
+	width: 550px;
+}
+.photo-half {
+	width: 240px;
+}
+.videowrapper {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 */
+  height: 0;
+}
+.videowrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* fundraiser */
+
+.progressbarcontainer {
+  width: 90%;
+  height: 20px;
+  margin-bottom: 20px;
+  overflow: hidden;
+  background-color: #f5f5f5;
+  border-radius: 25px;
+}
+.thermometeroutercontainer {
+  text-align: center;
+  margin: 0 auto;
+  height: 85vh;
+}
+.thermometercontainer {
+  position:relative;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1em;
+  width: 30%;
+  height: 73vh;
+}
+.thermometer-outer {
+  border-radius: 23px;
+  background-color: #f5f5f5;
+}
+.thermometer-outer-h {
+  height: 20px;
+  width: 100%;
+}
+.thermometer-outer-v { /*vertical outer box*/
+  height: 75vh;
+  width: 40px;
+  margin-left: auto;
+  margin-right: auto;
+  display: inline-block;
+}
+.thermometer-inner {
+  background: #9C0000;
+  border-radius: 23px;
+}
+.thermometer-inner-h {
+  height: 20px;
+}
+.thermometer-inner-v {
+  width: 100%;
+}
+.thermometer-percent {
+	position: absolute;
+  left: 100%;
+}
+
+/* forms */
+
+.button {
+  display: inline-block;
+  padding: 1em;
+  text-decoration: none !important;
+  background-color: #06B;
+  border-radius: 5px;
+  text-align: center;
+  color: #FFF !important;
+  margin: 0 .5em 0 0;
+}
+.button:hover {
+  background-color: #29e;
+}
+.button-wide {
+  width: 100%;
+  padding: 1em 0;
+}
+.inline-form {
+  display: inline-block;
+}
+button {
+  border: none;
+  cursor: pointer;
+  font: inherit;
+}
+
+/* Wordpress styles */
+
+.admin-bar .fixednav {
+	top: 28px;
+}
+@media screen and (max-width: 782px) {
+  .admin-bar .fixednav {
+    top: 46px;
+  }
+}
+@media screen and (max-width: 600px) {
+  #wpadminbar {
+    position: fixed !important;
+  }
+}
+
+.alignright { float: right; margin: 0 0 1em 1em;}
+.alignleft { float: left; margin: 0 1em 1em 0;}
+.aligncenter { display: block; margin-left: auto; margin-right: auto; }
+
+.wp-caption {
+	font-family: 'Droid Sans', sans-serif;
+	font-weight: 400;
+	line-height: 1.4em;
+	margin-bottom: 16px;
+	color: #4b4b4b;
+	font-size: 12px;
+	max-width: 100%;
+}
+.content-width img {
+	max-width: 100%;
+	height: auto;
+	margin-bottom: 5px;
+}
+.content-width iframe {
+	max-width: 100%;
+}
+.content-width {
+	width: 600px;
+}
+.wp-content a {
+	text-decoration: underline;
+	color: #005a9c;
+}
+
+/* gallery-specific slick carousel styles */
+
+.gallery-container {
+  width: 100%;
+  position: relative;
+}
+.slicktarget {
+  height: 100%;
+}
+.imagearea {
+  height: 400px;
+  width: 100%;
+  background-color: #000;
+}
+.textarea {
+  margin-top: 5px;
+  width: 100%;
+}
+.gallery .slick-item img {
+  max-height: 100%;
+  max-width: 100%;
+  width: auto;
+  height: 100%;
+  margin: auto;
+}
+
+/* slider-specific slick carousel styles */
+
+.slidecontainer {
+  position: relative;
+  width: 100%;
+}
+.slick-item {
+  padding: 0 1em;
+}
+
+.slick-item.featured {
+  padding: 0;
+}
+
+/* site-wide style for slick carousel */
+
+.slick-list, .slick-track {
+  height: 100%;
+}
+.slick-item img {
+  max-height: 100%;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  margin: auto;
+}
+
+/* arrow button styles for slick carousels */
+
+.arrows-container {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  top: calc(45% - 35px);
+}
+.arrow-left, .arrow-right {
+  z-index: 1;
+  transition: opacity 0.15s cubic-bezier(0.33, 0.66, 0.66, 1) 0s;
+  position: absolute;
+  background-color: #ffffff;
+  opacity: 0.5;
+  padding: 2em 1em;
+}
+.arrow-left img, .arrow-right img {
+  vertical-align: middle;
+}
+.arrow-left:active, .arrow-right:active {
+  cursor: pointer;
+  opacity: 1;
+}
+.arrow-left {
+  left: 0;
+}
+.arrow-right {
+  right: 0;
+}
+
+/* hovertext */
+
+.hovertext-container {
+  position: relative;
+}
+.hovertext {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  text-align: left;
+  margin: 0;
+  padding: .5em 1em;
+  opacity: 0.8;
+  background-color: #000;
+  color: #fff;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -o-transition: 0.3s;
+  -ms-transition: 0.3s;
+}
+.hovertext-container:hover .hovertext {
+  background-color: #005a9c;
+}
+.hovertext-small {
+  right: auto;
+}
+.hovertext img {
+  width: auto;
+  display: inline-block;
+}
+.opacity-screen {
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #000;
+  opacity: .5;
+}

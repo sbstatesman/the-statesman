@@ -63,10 +63,10 @@ function slick_shortcode($attr) {
 	$output = '<div class="gallery-container">' .
 		'<div class="arrows-container">' .
 			'<div class="arrow-left">' .
-				'<img src="'.get_template_directory_uri().'/images/thin_left_arrow_333.png" />' .
+				'<i class="fa fa-arrow-left fa-2x"></i>' .
 			'</div>' . 
 			'<div class="arrow-right">' . 
-				'<img src="'.get_template_directory_uri().'/images/thin_right_arrow_333.png" />' .
+				'<i class="fa fa-arrow-right fa-2x"></i>' .
 			'</div>' . 
 		'</div>' . 
 		'<div class="slicktarget gallery">';

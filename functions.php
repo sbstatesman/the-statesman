@@ -59,7 +59,7 @@ function get_ogimg() {
 	   $ogimage = $matches [1] [0];
 	}
 	if(empty($ogimage)) { /* if there's no image after all that, just take a default */
-		$ogimage = bloginfo('template_url') . '/images/og-logo.png';
+		$ogimage = bloginfo('template_url') . '/images/default-feature-image.png';
 	}
      return $ogimage;
 }

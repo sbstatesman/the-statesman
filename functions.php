@@ -64,6 +64,14 @@ function get_ogimg() {
      return $ogimage;
 }
 
+function enqueue_and_register_styles() {
+  wp_enqueue_style( 'statesman-style', get_stylesheet_uri() );
+  wp_enqueue_style( 'slick', get_template_directory_uri() . '/slick.css' );
+  wp_enqueue_style( 'font-awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css' );
+  wp_enqueue_style( 'google-fonts', '//fonts.googleapis.com/css?family=Droid+Sans:400,700' );
+}
+add_action( 'wp_enqueue_scripts', 'enqueue_and_register_styles' );
+
 function enqueue_and_register_scripts() {
   wp_register_script( 'slick', get_template_directory_uri() . '/js/slick.min.js', array('jquery'), null, true);
   wp_enqueue_script( 'match-height', get_template_directory_uri() . '/js/jquery.matchHeight.min.js', array('jquery'), null, true);

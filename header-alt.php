@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <!--
-Join The Statesman Web & Graphics Section: https://www.facebook.com/groups/1481474198792246/
+Join The Statesman Web & Graphics Section: https://www.facebook.com/groups/statesmanweb
 -->
 
 <?php
@@ -44,11 +44,6 @@ Join The Statesman Web & Graphics Section: https://www.facebook.com/groups/14814
 		</title>
 		<link rel="profile" href="http://gmpg.org/xfn/11">
 		<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
-		<link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/slick.css"/>
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-		<link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>" type="text/css" />		
-    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/style-featured.css" />
 		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 		<!--[if lt IE 9]>
 		<script src="<?php echo get_template_directory_uri(); ?>/js/html5shiv.js"></script>
@@ -76,6 +71,8 @@ Join The Statesman Web & Graphics Section: https://www.facebook.com/groups/14814
 		<meta name="author" content="<?php the_author_meta('display_name',$post->post_author); ?>"/>
 
 		<?php wp_head(); ?>
+		<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/style-featured.css" />
+
 	</head>
 	<body <?php body_class($class); ?>>
 	    <div class="side-menu" id="nav">

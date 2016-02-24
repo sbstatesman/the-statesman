@@ -18,8 +18,6 @@ Join The Statesman Web & Graphics Section: https://www.facebook.com/groups/state
 
 <html <?php language_attributes(); ?>>
 	<head>
-		<link rel="shortcut icon" href="<?php bloginfo( 'template_url' ); ?>/favicon.ico" />
-		<link rel="apple-touch-icon" sizes="180x180" href="<?php bloginfo( 'template_url' ); ?>/apple-touch-icon.png" />
 		<meta name="viewport" content="width=device-width">
 		<meta charset="<?php bloginfo( 'charset' ); ?>">
 		<title>

@@ -4,11 +4,11 @@
 	<head>
 		<link rel="stylesheet" href="<?php bloginfo( 'template_url' ); ?>/interactive/policeblotter/style.css"/>
 		<link rel="stylesheet" href="<?php bloginfo( 'template_url' ); ?>/interactive/policeblotter/classic-min.css"/>
-		<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
-		<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
+		<script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+		<script src="//code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
 		<script src="<?php bloginfo( 'template_url' ); ?>/interactive/policeblotter/jQDateRangeSlider-min.js"></script>
-		<script type="text/javascript" src="http://www.google.com/jsapi"></script>
-		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+		<script type="text/javascript" src="//www.google.com/jsapi"></script>
+		<script type="text/javascript" src="//maps.googleapis.com/maps/api/js?sensor=false"></script>
 	</head>
 	<header class="row">
 		<p class="headline"><?php the_title(); ?></p>

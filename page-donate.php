@@ -1,7 +1,4 @@
 <?php
-/*
-Template Name: donate
-*/
 
 $goalComputers = 200;   /* donation goal */
 $donationsComputers = 10; /* donations received */

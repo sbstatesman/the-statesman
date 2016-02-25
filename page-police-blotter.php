@@ -1,7 +1,3 @@
-<?php
-/*
-Template Name: blotter
-*/ ?>
 <?php get_header(); ?>
 <main class="row">
 	<main class="main vline-medium">

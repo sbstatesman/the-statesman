@@ -4,9 +4,7 @@ Template Name: featured
 */
 ?>
 
-<!-- ALTERNATE NAV -->
-<?php get_header('alt'); ?>
-<!-- /ALTERNATE NAV -->
+<?php get_header('featured'); ?>
 
 <main>
 	<section class="row">
@@ -73,47 +71,5 @@ Template Name: featured
 		</div>
 	</section>
 </main>
-<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-<script type="text/javascript" src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-<script type="text/javascript" src="http://cdn.jsdelivr.net/jquery.slick/1.5.7/slick.min.js"></script>
-<script type="text/javascript" src="<?php bloginfo( 'template_url' ); ?>/js/navmenu.js"></script>
 
-<script type="text/javascript">
-		$(document).ready(function() {
-		$('img').each(function () {              // add data-lazy attribute for slick's lazy-loading
-            $(this).attr('data-lazy', $(this).data('src'));
-        });	
-		$('.slidecontainer').each(function (i, element) {
-			$('.arrow-left', element).attr('id', 'prev-' + i);
-			$('.arrow-right', element).attr('id', 'next-' + i);
-			$('.slicktarget', element).attr('id', 'slidelist-' + i);
-		});
-
-		$('.slidelist').each(function (i, element) {
-			$('.slidelist').on('beforeChange', function(event, slick){ 
-				$('html, body').scrollTop(0);            //jump to top when sliding
-			}).slick({
-				infinite: false,
-				slidesToShow: 1,
-				slidesToScroll: 1,
-				prevArrow: '#prev-' + i,
-				nextArrow: '#next-' + i,
-				dots: true,
-				draggable: false,
-				touchMove: false,
-				swipe: false,
- 			  lazyLoad: 'ondemand', // To use lazy loading, set a data-lazy attribute on your img tags and leave off the src
-  			cssEase: 'linear',
-				adaptiveHeight: true,   // this plus height change of .slick-slide in slick.css needed to change slicktarget heights
-        appendDots: $('#nav'),
-        customPaging: function(slider, i) {
-          var title = $('#side-menu-item-'+i).html();
-          //return '<li class="side-menu-item">'+title+'</li>';
-          return title;
-        }
-			});
-		});
-	
-	});
-</script>
 <?php get_footer(); ?>

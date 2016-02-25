@@ -69,7 +69,6 @@ Join The Statesman Web & Graphics Section: https://www.facebook.com/groups/state
 		<meta name="author" content="<?php the_author_meta('display_name',$post->post_author); ?>"/>
 
 		<?php wp_head(); ?>
-		<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/style-featured.css" />
 
 	</head>
 	<body <?php body_class($class); ?>>

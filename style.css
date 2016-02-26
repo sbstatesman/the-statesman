@@ -443,6 +443,15 @@ text-transform: uppercase;
   }
 }
 @media screen and (max-width: 959px) and (min-width: 640px){
+	.logo{
+		display: block;
+    	margin-left: auto;
+    	margin-right: auto;
+    	float: inherit;
+	}
+	.nav-list {
+  		visibility: hidden;
+	}
 	.container {
 		width: 98%;
 		padding: 0 3px;
@@ -678,7 +687,6 @@ text-transform: uppercase;
  */
 /* Prettifiers */
 .nav-list {
-  visibility: hidden;
   list-style: none;
   margin: 0;
   padding: 0;

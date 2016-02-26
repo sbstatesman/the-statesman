@@ -526,7 +526,7 @@ text-transform: uppercase;
 		margin-left: 3px;
 	}
 	.thumbnail img {
-		width: 1%;
+		width: 100%;
 	}
 }
 

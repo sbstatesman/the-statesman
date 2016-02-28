@@ -802,9 +802,9 @@ text-transform: uppercase;
   	width: 97%;
   }
   .main .thumbnail {
-  	width: 100vw;
+  	width: 30%;
   	height: auto;
-  	float: none;
+  	float: left;
   }
   .main-half {
     width: 47.396%;
@@ -817,10 +817,9 @@ text-transform: uppercase;
   	float: none;
   }	
   .thumbnail img {
-  	width: 50%;
+  	width: 100%;
   	height: auto;
-  	margin-right: auto;
-  	margin-left: auto;
+
   }
   .fourcolumn {
   	width: 99%;

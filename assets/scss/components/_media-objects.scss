@@ -1,0 +1,51 @@
+.hmedia, .hmedia .block, .vmedia, .vmedia .block {
+  overflow: auto;
+}
+.vmedia {
+  width: 100%;
+  margin-bottom: 10px;
+}
+.hmedia-list {
+  margin-bottom: 25px;
+}
+.hmedia .thumbnail {
+  float: left;
+  margin-right: 15px;
+  overflow: hidden;
+}
+.vmedia .thumbnail {
+  margin-bottom: 10px;
+}
+.thumbnail img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.thumbnail-lede {
+  width: 390px;
+  height: calc(390px * 2/3);
+}
+.thumbnail-sidebar {
+  width: 300px;
+  height: calc(300px * 2/3);
+}
+.thumbnail-large { /* news featured, main latest */
+  width: 230px;
+  height: calc(230px * 2/3);
+}
+.thumbnail-medium { /* main sections */
+  width: 214px;
+  height: calc(214px * 2/3);
+}
+.thumbnail-small {
+  width: 195px;
+  height: calc(195px * 2/3);
+}
+.thumbnail-xsmall {
+  width: 90px;
+  height: calc(90px * 2/3);
+}
+.adbox {
+  background-color: #eee;
+  padding: 1em;
+}

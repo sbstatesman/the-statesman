@@ -1,0 +1,39 @@
+
+.hovertext-container {
+  position: relative;
+}
+.hovertext {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  text-align: left;
+  margin: 0;
+  padding: .5em 1em;
+  opacity: 0.8;
+  background-color: #000;
+  color: #fff;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -o-transition: 0.3s;
+  -ms-transition: 0.3s;
+}
+.hovertext-container:hover .hovertext {
+  background-color: #005a9c;
+}
+.hovertext-small {
+  right: auto;
+}
+.hovertext img {
+  width: auto;
+  display: inline-block;
+}
+.opacity-screen {
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #000;
+  opacity: .5;
+}

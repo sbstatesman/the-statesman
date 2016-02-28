@@ -1,0 +1,77 @@
+/*
+Theme Name: The Statesman
+Theme URI: http://www.sbstatesman.com/
+Author: The Statesman
+Author URI: http://www.sbstatesman.com/
+Description: A Wordpress theme for The Statesman — Stony Brook University's campus newspaper.
+Version: 1.0.0
+License: GNU General Public License v3 or later
+License URI: http://www.gnu.org/licenses/gpl.html
+Text Domain: statesman
+*/
+
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+
+# Base
+  ## reset
+  ## wordpress
+# Typography
+# Layout
+  ## layout
+  ## lines
+  ## columns
+  ## navigation
+# components
+  ## media objects
+  ## icons
+  ## thermometer
+# Forms
+  ## butons
+# Media
+  ## images
+  ## slick gallery
+  ## slick slider
+  ## slick
+  ## slick arrows
+  ## hover-text
+
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+# Base
+--------------------------------------------------------------*/
+
+@import "base/base";
+
+/*--------------------------------------------------------------
+# Typography
+--------------------------------------------------------------*/
+
+@import "typography/typography";
+
+/*--------------------------------------------------------------
+# Layout
+--------------------------------------------------------------*/
+
+@import "layout/layout";
+
+/*--------------------------------------------------------------
+# Components
+--------------------------------------------------------------*/
+
+@import "components/components";
+
+/*--------------------------------------------------------------
+# Forms
+--------------------------------------------------------------*/
+
+@import "forms/forms";
+
+/*--------------------------------------------------------------
+# Media
+--------------------------------------------------------------*/
+
+@import "media/media";
+

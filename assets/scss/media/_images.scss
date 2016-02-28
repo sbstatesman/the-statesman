@@ -1,0 +1,24 @@
+.photo {
+  margin-bottom: 5px;
+}
+.photo img {
+  width: 100%;
+}
+.photo-feature {
+  width: 550px;
+}
+.photo-half {
+  width: 240px;
+}
+.videowrapper {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 */
+  height: 0;
+}
+.videowrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}

@@ -66,11 +66,11 @@ function get_ogimg() {
 
 function enqueue_and_register_styles() {
   wp_enqueue_style( 'statesman-style', get_stylesheet_uri() );
-  wp_enqueue_style( 'slick', get_template_directory_uri() . '/slick.css' );
+  wp_enqueue_style( 'slick', get_template_directory_uri() . '/css/slick.css' );
   wp_enqueue_style( 'font-awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css' );
   wp_enqueue_style( 'google-fonts', '//fonts.googleapis.com/css?family=Droid+Sans:400,700' );
   if (is_page_template( 'page-templates/featured.php' ) ) {
-    wp_enqueue_style( 'featured', get_template_directory_uri() . '/style-featured.css' );
+    wp_enqueue_style( 'featured', get_template_directory_uri() . '/css/style-featured.css' );
   }
 }
 add_action( 'wp_enqueue_scripts', 'enqueue_and_register_styles' );

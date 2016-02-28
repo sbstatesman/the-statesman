@@ -1,11 +1,14 @@
 var gulp = require('gulp'),
     sass = require('gulp-sass');
 
-gulp.task('copy', function() {
-  gulp.src('./**/*')
-  .pipe(gulp.dest('../newtheme'));
+gulp.task('sass', function() {
+  return gulp.src('./assets/scss/style.scss')
+  .pipe(sass({outputStyle: 'expanded'}).on('error', sass.logError))
+  .pipe(gulp.dest('./'));
 });
 
-gulp.task('default', function() {
-  // place code for your default task here
+gulp.task('default', ['watch', 'sass']);
+
+gulp.task('watch', function () {
+  gulp.watch('./assets/scss/**/*.scss', ['sass']);
 });

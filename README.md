@@ -6,7 +6,7 @@ A WordPress theme for The Statesman — Stony Brook University's campus newspape
 
 2. After [installing WordPress](http://codex.wordpress.org/Installing_WordPress), download the theme to `wp-content/themes`.
 
-3. Run `npm install` in the project root to download dependancies. Remember to run `gulp` before making any changes.
+3. Run `npm install` in the project root to download dependancies. Remember to run `gulp` after making any changes.
 
 4. In the WordPress dashboard under "tools", use the [import](http://codex.wordpress.org/Importing_Content) plugin to upload the xml file in the `assets` directory. This file contains sample posts from www.sbstatesman.com with the categories and tags used by the theme.
 

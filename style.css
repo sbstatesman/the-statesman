@@ -537,6 +537,12 @@ text-transform: uppercase;
 	.thumbnail img {
 		width: 100%;
 	}
+	.sidebar .hmedia {
+    width: 50%;
+    float: left;
+	}
+
+
 }
 
 .alignright { float: right; margin: 0 0 1em 1em;}

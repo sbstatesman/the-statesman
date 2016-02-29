@@ -819,7 +819,9 @@ text-transform: uppercase;
   .thumbnail img {
   	width: 100%;
   	height: auto;
-
+  }
+  .textwidget img {
+  	width: 98%;
   }
   .fourcolumn {
   	width: 99%;

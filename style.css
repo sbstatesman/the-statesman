@@ -11,7 +11,7 @@ body {
 	width: 99%;
 	-webkit-font-smoothing: subpixel-antialiased; /* fix webkit font rendering */
 	font-family: Georgia, serif;
-	font-size: 14px;
+	font-size: 0.875em;
 }
 
 /* reset */
@@ -31,52 +31,52 @@ a:hover, a:active {
 /* typography and branding */
 
 h1 {
-	font-size: 24px;
+	font-size: 1.5em;
 	font-family: 'Droid Sans', sans-serif;
 	font-weight: 700;
 	margin: 0;
 	line-height: 1.25em;
 }
 h2 {
-	font-size: 20px;
+	font-size: 1.25em;
 	font-family: 'Droid Sans', sans-serif;
 	font-weight: 700;
 	margin: 0;
 	line-height: 1.25em;
 }
 h3 {
-	font-size: 18px;
+	font-size: 1.125em;
 	font-family: 'Droid Sans', sans-serif;
 	font-weight: 700;
 	margin: 0;
 	line-height: 1.25em;
 }
 h4 {
-	font-size: 16px;
+	font-size: 1em;
 	font-family: 'Droid Sans', sans-serif;
 	font-weight: 700;
 	margin: 0;
 	line-height: 1.25em;
 }
 h5 {
-	font-size: 14px;
+	font-size: 0.875em;
 	font-family: 'Droid Sans', sans-serif;
 	font-weight: 700;
 	margin: 0 0 10px 0;
 	line-height: 1.25em;
 }
 h6 {
-	font-size: 16px;
+	font-size: 1em;
 	color: #005a9c;
 	text-transform: uppercase;
 	margin: 0 0 15px 0;
 }
 .large-text {
-	font-size: 16px;
+	font-size: 1em;
 	margin: 5px;
 }
 .small-text {
-	font-size: 12px;
+	font-size: 0.75em;
 }
 .coloredtext {
 	color: #005a9c;
@@ -92,13 +92,13 @@ text-transform: uppercase;
 	margin: 0 0 4px 0;
 }
 .excerpt {
-	font-size: 13px;
+	font-size: 0.8125em;
 	color:#4b4b4b;
 	line-height: 1.6em;
 	margin: 5px 0;
 }
 .headline {
-	font-size: 34px;
+	font-size: 2.125;
 	font-family: 'Droid Sans', sans-serif;
 	font-weight: 700;
 	margin: 0;
@@ -195,7 +195,7 @@ text-transform: uppercase;
 	position: relative;
 }
 .sectionhead-text {
-	font-size: 36px;
+	font-size: 2.25em;
 	font-family: 'Droid Sans', sans-serif;
 	font-weight: 700;
 	text-transform: uppercase;
@@ -540,7 +540,7 @@ text-transform: uppercase;
 	line-height: 1.4em;
 	margin-bottom: 16px;
 	color: #4b4b4b;
-	font-size: 12px;
+	font-size: 0.75em;
 	max-width: 100%;
 }
 .content-width img {

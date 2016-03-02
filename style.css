@@ -443,12 +443,6 @@ text-transform: uppercase;
   }
 }
 @media screen and (max-width: 959px) and (min-width: 640px){
-	.logo{
-		display: block;
-    	margin-left: auto;
-    	margin-right: auto;
-    	float: inherit;
-	}
 	.container {
 		width: 98%;
 		padding: 0 3px;
@@ -483,7 +477,7 @@ text-transform: uppercase;
 		width: 48%;
 	}
 	.vline-medium {
-		border-right: none;
+		border-right: 1px solid #c8c8c8;
 		padding-right: 4px;
 		margin-right: 4px;
 		margin-bottom: 4px;
@@ -532,42 +526,9 @@ text-transform: uppercase;
 		margin-left: 3px;
 	}
 	.thumbnail img {
-		width: 100%;
+		width: 1%;
 	}
-	.sidebar .hmedia {
-    width: 50%;
-    float: left;
-	}
-	#nav:not(:target) > .container > .show, #nav:target > .container > .hide {
-    display: block;
-	}
-	.help {
-    font-family: 'Droid Sans',sans-serif;
-    font-weight: 400;
-    font-size: 2em;
-    color: #ffffff;
-    float: left;
-    background-color: #005A9C;
-    position: relative;
-    margin-top: -9px;
-	}
-	li.nav-item {
-    float: left;
-    display: inline-block;
-    width: 100%;
-    margin: 10px 0 0 0;
-	}
-
-	a.nav-link{
-	display: block;
-	padding: 0 0.833em;
-	text-align: left;
-	}
-
-	ul.nav-list{
-	padding: 8px 0;
-	visibility: hidden;
-	}
+	
 }
 
 .alignright { float: right; margin: 0 0 1em 1em;}
@@ -833,9 +794,9 @@ text-transform: uppercase;
   	width: 97%;
   }
   .main .thumbnail {
-  	width: 30%;
+  	width: 100vw;
   	height: auto;
-  	float: left;
+  	float: none;
   }
   .main-half {
     width: 47.396%;
@@ -848,11 +809,10 @@ text-transform: uppercase;
   	float: none;
   }	
   .thumbnail img {
-  	width: 100%;
+  	width: 50%;
   	height: auto;
-  }
-  .textwidget img {
-  	width: 98%;
+  	margin-right: auto;
+  	margin-left: auto;
   }
   .fourcolumn {
   	width: 99%;
@@ -887,8 +847,5 @@ text-transform: uppercase;
   }
   .metatext {		
   	margin-right: 5%;    /* for footer */
-  }
-  .vline-medium {
-  	border-right: none;
   }
 }

@@ -443,6 +443,12 @@ text-transform: uppercase;
   }
 }
 @media screen and (max-width: 959px) and (min-width: 640px){
+	.logo{
+		display: block;
+    	margin-left: auto;
+    	margin-right: auto;
+    	float: inherit;
+	}
 	.container {
 		width: 98%;
 		padding: 0 3px;
@@ -477,7 +483,7 @@ text-transform: uppercase;
 		width: 48%;
 	}
 	.vline-medium {
-		border-right: 1px solid #c8c8c8;
+		border-right: none;
 		padding-right: 4px;
 		margin-right: 4px;
 		margin-bottom: 4px;
@@ -526,7 +532,41 @@ text-transform: uppercase;
 		margin-left: 3px;
 	}
 	.thumbnail img {
-		width: 1%;
+		width: 100%;
+	}
+	.sidebar .hmedia {
+    width: 50%;
+    float: left;
+	}
+	#nav:not(:target) > .container > .show, #nav:target > .container > .hide {
+    display: block;
+	}
+	.help {
+    font-family: 'Droid Sans',sans-serif;
+    font-weight: 400;
+    font-size: 2em;
+    color: #ffffff;
+    float: left;
+    background-color: #005A9C;
+    position: relative;
+    margin-top: -9px;
+	}
+	li.nav-item {
+    float: left;
+    display: inline-block;
+    width: 100%;
+    margin: 10px 0 0 0;
+	}
+
+	a.nav-link{
+	display: block;
+	padding: 0 0.833em;
+	text-align: left;
+	}
+
+	ul.nav-list{
+	padding: 8px 0;
+	visibility: hidden;
 	}
 }
 
@@ -793,9 +833,9 @@ text-transform: uppercase;
   	width: 97%;
   }
   .main .thumbnail {
-  	width: 100vw;
+  	width: 30%;
   	height: auto;
-  	float: none;
+  	float: left;
   }
   .main-half {
     width: 47.396%;
@@ -808,10 +848,11 @@ text-transform: uppercase;
   	float: none;
   }	
   .thumbnail img {
-  	width: 50%;
+  	width: 100%;
   	height: auto;
-  	margin-right: auto;
-  	margin-left: auto;
+  }
+  .textwidget img {
+  	width: 98%;
   }
   .fourcolumn {
   	width: 99%;
@@ -846,5 +887,8 @@ text-transform: uppercase;
   }
   .metatext {		
   	margin-right: 5%;    /* for footer */
+  }
+  .vline-medium {
+  	border-right: none;
   }
 }

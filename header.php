@@ -78,8 +78,8 @@ Join The Statesman Web & Graphics Section: https://www.facebook.com/groups/14814
 	<body <?php body_class( $class ); ?>>
 		<nav id="nav" class="fixednav">
       <div class="container">
-        <a class="help show" href="#nav" title="Show navigation">=&nbsp;</a>
-        <a class="help hide" href="#" title="Hide navigation">=&nbsp;</a>
+        <a class="help show" href="#nav" title="Show navigation">&#9776;</a>
+        <a class="help hide" href="#" title="Hide navigation">&#9776;</a>
         <a class="logo" href="#"><img class="logo" width="162" height="20" alt="The Statesman" src="<?php bloginfo( 'template_url' ); ?>/images/nav-logo.png"></a>
         <ul class="nav-list">
           <li class="nav-item"><a class="nav-link" href="#">News</a></li>

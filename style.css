@@ -566,6 +566,7 @@ text-transform: uppercase;
 
 	ul.nav-list{
 	padding: 8px 0;
+	visibility: hidden;
 	}
 }
 

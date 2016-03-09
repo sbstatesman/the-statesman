@@ -522,7 +522,6 @@ text-transform: uppercase;
 	}
 	
 	.widget_text {        /*for featured article */
-		width: 30%;
 		float: left;
 		margin-left: 3px;
 	}
@@ -567,6 +566,9 @@ text-transform: uppercase;
 	ul.nav-list{
 	padding: 8px 0;
 	visibility: hidden;
+	}
+	.textwidget {
+    text-align: center;
 	}
 }
 

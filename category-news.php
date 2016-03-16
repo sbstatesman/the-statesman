@@ -55,7 +55,7 @@
 			</article>
 		</sidebar>
 		<main class="main vline-medium">
-			<div class="main-fiveeigth">
+			<div class="main-fiveeigth vline-medium">
 				<?php $args = array( 'posts_per_page' => 3, 'category__and' => array($top_story, $news), 'tag__not_in' => array(get_tag_id('campus-briefing'), get_tag_id('under-the-microscope'))); ?>
 				<?php $myposts = new WP_Query( $args ); ?>
 				<?php if ( $myposts->have_posts() ) : ?>
@@ -89,7 +89,7 @@
 				<?php endwhile; ?>
 				<?php endif; ?>
 			</div>
-			<div class="main-threeeigth vline-medium">
+			<div class="main-threeeigth">
 				<?php $args = array( 'posts_per_page' => 3, 'offset' => 1, 'category__and' => array($top_story, $news), 'tag__not_in' => array(get_tag_id('campus-briefing'), get_tag_id('under-the-microscope'))); ?>
 				<?php $myposts = new WP_Query( $args ); ?>
 				<?php if ( $myposts->have_posts() ) : ?>

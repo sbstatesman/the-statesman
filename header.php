@@ -78,12 +78,12 @@ Join The Statesman Web & Graphics Section: https://www.facebook.com/groups/state
         <a class="help hide" href="#" title="Hide navigation">&#9776;</a>
         <a class="logo" href="#"><img class="logo" width="162" height="20" alt="The Statesman" src="<?php bloginfo( 'template_url' ); ?>/images/nav-logo.png"></a>
         <ul class="nav-list">
-          <li class="nav-item"><a class="nav-link" href="#">News</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Arts & Entertainment</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Opinions</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Sports</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Multimedia</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="<?php echo get_category_link( $news ); ?>">News</a></li>
+          <li class="nav-item"><a class="nav-link" href="<?php echo get_category_link( $arts_and_entertainment ); ?>">Arts & Entertainment</a></li>
+          <li class="nav-item"><a class="nav-link" href="<?php echo get_category_link( $opinions ); ?>">Opinions</a></li>
+          <li class="nav-item"><a class="nav-link" href="<?php echo get_category_link( $sports ); ?>">Sports</a></li>
+          <li class="nav-item"><a class="nav-link" href="<?php echo get_category_link( $multimedia ); ?>">Multimedia</a></li>
+          <li class="nav-item"><a class="nav-link" href="<?php echo get_permalink( get_page_by_title( 'About' ) ); ?>">About</a></li>
         </ul>
       </div>
     </nav>

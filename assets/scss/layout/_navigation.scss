@@ -1,0 +1,111 @@
+.fixednav {
+  width: 100%;
+  padding: 10px 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 5;
+}
+.fixednav-main {
+  text-transform: uppercase;
+  font-weight: 400;
+  font-family: 'Droid Sans', sans-serif;
+  background-color: #005a9c;
+  color: #fff;
+}
+.fixednavs-alt > form, .fixednavs-alt > form {
+  white-space: nowrap;
+  display: inline-block;
+}
+
+.side-menu {
+  height: 100%;
+  display: none;
+  position: fixed;
+  width: 20em;
+  z-index: 5;
+  background-color: #444;
+  color: #fff;
+}
+.side-heading {
+  padding: 1em;
+}
+.side-menu-icon {
+  margin-left: 1em;
+}
+.side-menu-list {
+  display: none !important; /* need to figure out a way to avoid !important */
+}
+.side-menu a {
+  text-decoration: none;
+}
+.side-menu > ul {
+  display: block;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  height: 85%;
+  overflow-y: scroll;
+  z-index: 6;
+}
+.side-menu > ul > li {
+  padding: 1.5em 1em;
+}
+.side-menu > ul > li:hover {
+  background-color: #666;
+  cursor: pointer;
+  transition: background-color 0.15s cubic-bezier(0.33, 0.66, 0.66, 1) 0s;
+}
+.side-menu > ul > li.slick-active {
+  background-color: #666;
+  transition: background-color 0.15s cubic-bezier(0.33, 0.66, 0.66, 1) 0s;
+}
+
+.horizontallist {
+  margin: 0;
+  padding: 0;
+  float: left;
+}
+.horizontallist li {
+  display: inline-block;
+  margin: 4px 0 0 26px;
+}
+/* I don't think these styles are generic to "horizontal lists" they are
+   coupled to the use of horizontal lists in the navbar. */
+.horizontallist li a {
+  text-decoration: none;
+  color: #fff;
+}
+.logo {
+  float: left;
+}
+.search-field {
+  width: 117px;
+  height: 20px;
+  margin: 3px;
+  float: right;
+  border: none;
+  outline: none;
+}
+.currentissue {
+  width: 200px;
+  margin: 45px 0 0 40px;
+  padding: 3px 0 3px 10px;
+  float: left;
+  border-left: 3px solid #005a9c;
+  line-height: 1.3em;
+}
+.sectionhead {
+  text-align: center;
+  position: relative;
+}
+.sectionhead-text {
+  font-size: 36px;
+  font-family: 'Droid Sans', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.sectionhead-text-centered {
+  padding: 0 20px;
+  background-color: #fff;
+}

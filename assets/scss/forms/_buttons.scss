@@ -1,0 +1,25 @@
+.button {
+  display: inline-block;
+  padding: 1em;
+  text-decoration: none !important;
+  background-color: #06B;
+  border-radius: 5px;
+  text-align: center;
+  color: #FFF !important;
+  margin: 0 .5em 0 0;
+}
+.button:hover {
+  background-color: #29e;
+}
+.button-wide {
+  width: 100%;
+  padding: 1em 0;
+}
+.inline-form {
+  display: inline-block;
+}
+button {
+  border: none;
+  cursor: pointer;
+  font: inherit;
+}

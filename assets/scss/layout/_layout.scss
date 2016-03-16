@@ -1,0 +1,59 @@
+/* layout */
+
+.container {
+  width: 960px;
+  margin: 0 auto;
+  padding: 0 10px;
+  position: relative;
+  overflow: auto;
+}
+.row {
+  overflow: hidden;
+  margin: 10px 0;
+}
+.main {
+  width: 640px;
+  float: left;
+}
+.main-half {
+  width: 311px;
+  float: left;
+}
+.main-threeeigth {
+  width: 231px;
+  float: left;
+}
+.main-fiveeigth {
+  width: 391px;
+  float: left;
+}
+.sidebar {
+  width: 300px;
+  float: right;
+}
+.threecolumn {
+  width: 308px;
+  float: left;
+}
+.fourcolumn {
+  width: 227px;
+  float: left;
+}
+.twocolumn {
+  width: 48%;
+  padding: 0 1%;
+  float: left;
+}
+
+/* lines */
+
+@import "lines";
+
+/* columns */
+
+@import "columns";
+
+/* navigation */
+
+@import "navigation";
+

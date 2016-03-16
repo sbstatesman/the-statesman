@@ -1,0 +1,20 @@
+{
+  "name": "the-statesman",
+  "version": "1.0.0",
+  "description": "A Wordpress theme for The Statesman — Stony Brook University's oldest student newspaper.",
+  "dependencies": {},
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-sass": "^2.1.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sbstatesman/the-statesman.git"
+  },
+  "author": "The Statesman",
+  "license": "GPLv3",
+  "bugs": {
+    "url": "https://github.com/sbstatesman/the-statesman/issues"
+  },
+  "homepage": "https://github.com/sbstatesman/the-statesman"
+}

@@ -1,0 +1,42 @@
+.admin-bar .fixednav {
+  top: 28px;
+}
+@media screen and (max-width: 782px) {
+  .admin-bar .fixednav {
+    top: 46px;
+  }
+}
+@media screen and (max-width: 600px) {
+  #wpadminbar {
+    position: fixed !important;
+  }
+}
+
+.alignright { float: right; margin: 0 0 1em 1em;}
+.alignleft { float: left; margin: 0 1em 1em 0;}
+.aligncenter { display: block; margin-left: auto; margin-right: auto; }
+
+.wp-caption {
+  font-family: 'Droid Sans', sans-serif;
+  font-weight: 400;
+  line-height: 1.4em;
+  margin-bottom: 16px;
+  color: #4b4b4b;
+  font-size: 12px;
+  max-width: 100%;
+}
+.content-width img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 5px;
+}
+.content-width iframe {
+  max-width: 100%;
+}
+.content-width {
+  width: 600px;
+}
+.wp-content a {
+  text-decoration: underline;
+  color: #005a9c;
+}

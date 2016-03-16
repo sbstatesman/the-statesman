@@ -8,6 +8,7 @@
 <main>
 	<div class="hline hline-strong"></div>
 	<section class="row">
+		<?php if(!is_paged()) : ?>
 		<sidebar class="sidebar">
 			<?php $args = array( 'posts_per_page' => 1, 'tag' => 'letter-to-the-editor'); ?>
 			<?php $myposts = new WP_Query( $args ); ?>
@@ -28,11 +29,26 @@
 			</article>
 			<div class="hline hline-medium"></div>
 			<?php endif; ?>
-			<h6><a href="<?php echo get_tag_link(get_tag_id('column')); ?>">Columns</a></h6>
-			<a href="<?php echo get_tag_link(get_tag_id('the-know')); ?>"><img src="<?php bloginfo( 'template_url' ); ?>/images/know-banner.png" alt="The Know" width="300" /></a>
-			<a href="<?php echo get_tag_link(get_tag_id('the-sexwolf')); ?>"><img src="<?php bloginfo( 'template_url' ); ?>/images/sexwolf-banner.png" alt="The Sexwolf" width="300" /></a>
-			<a href="<?php echo get_tag_link(get_tag_id('the-konig-kolumn')); ?>"><img src="<?php bloginfo( 'template_url' ); ?>/images/konig-kolumn-banner.png" alt="The Konig Kolumn" width="300" /></a>
-			<a href="<?php echo get_tag_link(get_tag_id('an-unpopular-opinion')); ?>"><img src="<?php bloginfo( 'template_url' ); ?>/images/unpopular-banner.png" alt="An Unpopular Opinion" width="300" /></a>
+
+			<?php $args = array( 'posts_per_page' => 1, 'tag' => 'the-sexwolf'); ?>
+			<?php $myposts = new WP_Query( $args ); ?>
+			<?php if ( $myposts->have_posts() ) : ?>
+			<?php $myposts->the_post(); ?>
+			<h6><a href="<?php echo get_tag_link(get_tag_id('the-sexwolf')); ?>">The Sexwolf</a></h6>
+			<article class="vmedia">
+				<figure class="thumbnail">
+					<?php if ( has_post_thumbnail()) {the_post_thumbnail('medium');} ?>
+				</figure>
+				<div class="block">
+					<h2 id="post-<?php the_ID(); ?>">
+						<a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
+					</h2>
+					<p class="metatext metatext-byline small-text">By <?php the_author_posts_link(); ?> / <a href="<?php the_archive_date(); ?>"><?php the_time('F j, Y'); ?></a></p>
+					<p class="excerpt"><?php get_excerpt(); ?></p>
+				</div>
+			</article>
+			<?php endif; ?>
+
 		</sidebar>
 		<main class="main vline-medium">
 			<div class="main-threeeigth vline-medium">
@@ -88,9 +104,17 @@
 					<p class="excerpt"><?php get_excerpt(); ?></p>
 				</article>
 				<?php endwhile; ?>
+				<div class="hline hline-medium"></div>
 				<?php endif; ?>
+				<span class="metatext metatext-colored"><?php next_posts_link( 'MORE OPINIONS >' ); ?></span>
 			</div>
 		</main>
+		<?php else : ?>
+		<main class="main vline-medium">
+			<?php get_template_part('archive-list'); ?>
+		</main>
+		<?php get_sidebar(); ?>
+		<?php endif ?>
 	</section>
 	<div class="hline hline-medium"></div>
 </main>

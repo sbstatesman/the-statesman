@@ -37,7 +37,7 @@
 					<figure class="thumbnail hovertext-container">
 							<?php if ( has_post_thumbnail()) {the_post_thumbnail('medium');} ?>
 							<div class="hovertext hovertext-small">
-								<img src="<?php echo get_template_directory_uri(); ?>	/images/playsmall.png"/>
+								<i class="fa fa-play"></i>
 							</div>
 					</figure>
 					<div class="block">

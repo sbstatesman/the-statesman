@@ -59,15 +59,29 @@ function get_ogimg() {
 	   $ogimage = $matches [1] [0];
 	}
 	if(empty($ogimage)) { /* if there's no image after all that, just take a default */
-		$ogimage = bloginfo('template_url') . '/images/og-logo.png';
+		$ogimage = bloginfo('template_url') . '/images/default-feature-image.png';
 	}
      return $ogimage;
 }
+
+function enqueue_and_register_styles() {
+  wp_enqueue_style( 'statesman-style', get_stylesheet_uri() );
+  wp_enqueue_style( 'slick', get_template_directory_uri() . '/css/slick.css' );
+  wp_enqueue_style( 'font-awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css' );
+  wp_enqueue_style( 'google-fonts', '//fonts.googleapis.com/css?family=Droid+Sans:400,700' );
+  if (is_page_template( 'page-templates/featured.php' ) ) {
+    wp_enqueue_style( 'featured', get_template_directory_uri() . '/css/style-featured.css' );
+  }
+}
+add_action( 'wp_enqueue_scripts', 'enqueue_and_register_styles' );
 
 function enqueue_and_register_scripts() {
   wp_register_script( 'slick', get_template_directory_uri() . '/js/slick.min.js', array('jquery'), null, true);
   wp_enqueue_script( 'match-height', get_template_directory_uri() . '/js/jquery.matchHeight.min.js', array('jquery'), null, true);
   wp_enqueue_script( 'footer-scripts', get_template_directory_uri() . '/js/footer.js', array('slick'), null, true);
+  if (is_page_template( 'page-templates/featured.php' ) ) {
+    wp_enqueue_script( 'featured', get_template_directory_uri() . '/js/featured.js', array('slick'), null, true);
+  }
 }
 add_action( 'wp_enqueue_scripts', 'enqueue_and_register_scripts' );
 
@@ -302,6 +316,37 @@ function my_add_excerpts_to_pages() {
 	add_post_type_support( 'page', 'excerpt' );
 }
 add_action( 'init', 'my_add_excerpts_to_pages' );
+
+add_action( 'pre_get_posts', function ( $q ) {
+  if (!is_admin() && $q->is_main_query() && $q->is_category()) {
+    // Get the current page number
+    $paged = $q->get('paged');
+    // Get the name of the category
+    $slug = $q->get_queried_object()->slug;
+
+    // We will only need to run this from page 2 onwards
+    if (is_paged() && locate_template('category-' . $slug . '.php')) {
+      // Get the number of posts per page
+      $posts_per_page = get_option('posts_per_page');
+      // Recalculate our offset
+      $offset = (($paged - 1) * $posts_per_page) - $posts_per_page;
+      // Set our offset
+      $q->set('offset', $offset);
+    }
+  }
+});
+
+add_filter( 'found_posts', function ( $found_posts, $q ) {
+  if (!is_admin() && $q->is_main_query() && $q->is_category()) {
+    // Get the name of the category
+    $slug = $q->get_queried_object()->slug;
+
+    if (is_paged() && locate_template('category-' . $slug . '.php')) {
+      $found_posts = $found_posts + get_option('posts_per_page');
+    }
+  }
+  return $found_posts;
+}, 10, 2 );
 
 /* WIDGETS */
 

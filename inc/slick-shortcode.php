@@ -43,6 +43,7 @@ function slick_shortcode($attr) {
 	} else {
 		$attachments = get_children( array( 'post_parent' => $id, 'post_status' => 'inherit', 'post_type' => 'attachment', 'post_mime_type' => 'image') );
 	}
+  
 	//If those steps failed, return nothing now
 	if ( empty( $attachments ) ) {
 		return '';
@@ -62,16 +63,18 @@ function slick_shortcode($attr) {
 	$output = '<div class="gallery-container">' .
 		'<div class="arrows-container">' .
 			'<div class="arrow-left">' .
-				'<img src="'.get_template_directory_uri().'/images/thin_left_arrow_333.png" />' .
+				'<i class="fa fa-arrow-left fa-2x"></i>' .
 			'</div>' . 
 			'<div class="arrow-right">' . 
-				'<img src="'.get_template_directory_uri().'/images/thin_right_arrow_333.png" />' .
+				'<i class="fa fa-arrow-right fa-2x"></i>' .
 			'</div>' . 
 		'</div>' . 
 		'<div class="slicktarget gallery">';
 	
-	foreach($attachments as $id => $attachment) {
-		
+	//Iterate through images
+	foreach(explode(',',$atts['ids']) as $id) {
+	  $attachment = $attachments[$id];
+
 		if ( ! empty( $atts['link'] ) && $atts['link'] === 'file' ) {
 			$image_output = wp_get_attachment_link( $id, $atts['size'], false, false, false);
 		} elseif ( ! empty( $atts['link'] ) && $atts['link'] === 'none' ) {

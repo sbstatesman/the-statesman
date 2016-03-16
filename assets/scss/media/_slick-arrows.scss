@@ -1,0 +1,28 @@
+.arrows-container {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  top: calc(45% - 35px);
+}
+.arrow-left, .arrow-right {
+  z-index: 1;
+  transition: opacity 0.15s cubic-bezier(0.33, 0.66, 0.66, 1) 0s;
+  position: absolute;
+  background-color: #ffffff;
+  opacity: 0.5;
+  padding: 2em 1em;
+}
+.arrow-left img, .arrow-right img {
+  vertical-align: middle;
+}
+.arrow-left:active, .arrow-right:active {
+  cursor: pointer;
+  opacity: 1;
+}
+.arrow-left {
+  left: 0;
+}
+.arrow-right {
+  right: 0;
+}

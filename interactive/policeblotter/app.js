@@ -36,7 +36,7 @@ function initTable() {
 function queryFusion(query, callback) {
   var queryText = encodeURIComponent(query);
   var gvizQuery = new google.visualization.Query(
-      'http://www.google.com/fusiontables/gvizdata?tq=' + queryText);
+      '//www.google.com/fusiontables/gvizdata?tq=' + queryText);
   gvizQuery.send(callback);
 }
 

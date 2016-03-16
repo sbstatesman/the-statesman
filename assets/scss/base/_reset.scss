@@ -1,0 +1,23 @@
+body {
+  padding: 40px 0 10px 0; /* push for fixednav */
+  -webkit-font-smoothing: subpixel-antialiased; /* fix webkit font rendering */
+  font-family: Georgia, serif;
+  font-size: 14px;
+}
+
+/* Eliminate whitespace between fixednav and main content */
+body.page-template-page-featured {
+  padding: 28px 0 10px 0; /* push for fixednav */
+}
+
+body, figure {
+  margin: 0;
+}
+a:link, a:visited {
+  text-decoration: none;
+  color: inherit;
+}
+a:hover, a:active {
+  text-decoration: underline;
+  color: inherit;
+}

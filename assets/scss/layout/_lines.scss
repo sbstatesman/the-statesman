@@ -52,3 +52,9 @@
     border-top: 1px solid #c8c8c8;
   }
 }
+
+@media only screen and (max-width: 639px) {
+  .vline-medium {
+    border-right: none;
+  }
+}

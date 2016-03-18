@@ -122,3 +122,9 @@ h6 {
     margin-right: 3px;    /* for footer */
   }
 }
+
+@media only screen and (max-width: 639px) {
+  .metatext {   
+    margin-right: 5%;    /* for footer */
+  }
+}

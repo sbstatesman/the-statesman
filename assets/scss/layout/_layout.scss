@@ -90,6 +90,30 @@
   }
 }
 
+@media only screen and (max-width: 639px) {
+  .main {
+    width: 97%;
+  }
+  .main-half {
+    width: 47.396%;
+  }
+  .fourcolumn {
+    display: none;
+    width: 99%;
+    float: none;
+  }
+  .threecolumn {
+    width: 30.083%;
+  }
+  .threecolumn img {
+    width: 99%;
+  }
+  .sidebar {
+    width: 100%;
+    float: none;
+  } 
+}
+
 /* lines */
 
 @import "lines";

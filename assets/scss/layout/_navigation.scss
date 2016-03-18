@@ -202,3 +202,45 @@
     visibility: hidden;
   }
 }
+
+@media only screen and (max-width: 639px) {
+  .logo {
+    padding: 0 0.833em;
+    width: 87%;
+  }
+  .help {
+    font-family: 'Droid Sans',sans-serif;
+    font-weight: 400;
+    font-size: 2em;
+    color: #ffffff;
+    float: right;
+    background-color: #005A9C;
+    position: relative;
+    /*text-align: left;
+    text-indent: -9999px;*/
+    /*width: 100%;*/
+  }
+  #nav:not(:target) > .container > .show, #nav:target > .container > .hide {
+    display: block;
+  }
+  .nav-list {
+    display: none;
+    height: auto;
+    left: 0;
+    right: 0;
+    padding: 8px 0;
+  }
+  #nav:target > .container > .nav-list {
+    display: block;
+  }
+  .nav-item {
+    float: none;
+    width: 100%;
+    margin: 8px 0 0 0;
+  }
+  .nav-link {
+    height: auto;
+    padding: 0 0.833em;
+    text-align: left;
+  }
+}

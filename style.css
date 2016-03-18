@@ -72,6 +72,15 @@ a:hover, a:active {
   color: inherit;
 }
 
+@media only screen and (max-width: 639px) {
+  ul {
+    -webkit-margin-end: 3%;
+  }
+  textarea {
+    width: 97%;
+  }
+}
+
 /* Wordpress styles */
 .admin-bar .fixednav {
   top: 28px;
@@ -132,6 +141,12 @@ a:hover, a:active {
 .wp-content a {
   text-decoration: underline;
   color: #005a9c;
+}
+
+@media only screen and (max-width: 639px) {
+  .content-width {
+    width: 97%;
+  }
 }
 
 /*--------------------------------------------------------------
@@ -286,6 +301,13 @@ h6 {
   }
 }
 
+@media only screen and (max-width: 639px) {
+  .metatext {
+    margin-right: 5%;
+    /* for footer */
+  }
+}
+
 /*--------------------------------------------------------------
 # Layout
 --------------------------------------------------------------*/
@@ -391,6 +413,30 @@ h6 {
   }
 }
 
+@media only screen and (max-width: 639px) {
+  .main {
+    width: 97%;
+  }
+  .main-half {
+    width: 47.396%;
+  }
+  .fourcolumn {
+    display: none;
+    width: 99%;
+    float: none;
+  }
+  .threecolumn {
+    width: 30.083%;
+  }
+  .threecolumn img {
+    width: 99%;
+  }
+  .sidebar {
+    width: 100%;
+    float: none;
+  }
+}
+
 /* lines */
 .vline-medium {
   border-right: 1px solid #c8c8c8;
@@ -450,6 +496,12 @@ h6 {
   }
   .hline-medium {
     border-top: 1px solid #c8c8c8;
+  }
+}
+
+@media only screen and (max-width: 639px) {
+  .vline-medium {
+    border-right: none;
   }
 }
 
@@ -712,6 +764,48 @@ h6 {
   }
 }
 
+@media only screen and (max-width: 639px) {
+  .logo {
+    padding: 0 0.833em;
+    width: 87%;
+  }
+  .help {
+    font-family: 'Droid Sans',sans-serif;
+    font-weight: 400;
+    font-size: 2em;
+    color: #ffffff;
+    float: right;
+    background-color: #005A9C;
+    position: relative;
+    /*text-align: left;
+    text-indent: -9999px;*/
+    /*width: 100%;*/
+  }
+  #nav:not(:target) > .container > .show, #nav:target > .container > .hide {
+    display: block;
+  }
+  .nav-list {
+    display: none;
+    height: auto;
+    left: 0;
+    right: 0;
+    padding: 8px 0;
+  }
+  #nav:target > .container > .nav-list {
+    display: block;
+  }
+  .nav-item {
+    float: none;
+    width: 100%;
+    margin: 8px 0 0 0;
+  }
+  .nav-link {
+    height: auto;
+    padding: 0 0.833em;
+    text-align: left;
+  }
+}
+
 /*--------------------------------------------------------------
 # Components
 --------------------------------------------------------------*/
@@ -789,6 +883,22 @@ h6 {
   .sidebar .hmedia {
     width: 50%;
     float: left;
+  }
+}
+
+@media only screen and (max-width: 639px) {
+  .main .thumbnail {
+    width: 30%;
+    height: auto;
+    float: left;
+  }
+  .thumbnail img {
+    width: 100%;
+    height: auto;
+  }
+  .hmedia {
+    overflow: hidden;
+    margin-right: 3%;
   }
 }
 

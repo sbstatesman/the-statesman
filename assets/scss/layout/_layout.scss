@@ -46,6 +46,50 @@
   float: left;
 }
 
+@media screen and (max-width: 959px) and (min-width: 640px) {
+  .container {
+    width: 98%;
+    padding: 0 3px;
+  }
+  .row {
+    margin: 4px 0;
+  }
+  .main {
+    width: 99%;
+  }
+  .main-half {
+    width: 48.59%;
+  }
+  .main-threeeigth {
+    width: 36.09%;
+  }
+  .main-fiveeigth {
+    width: 61.09%;
+  }
+  .sidebar {
+    width: 100%;
+    border-top: 1px solid #c8c8c8;   /*this replaces the bottom border that was removed from the posts widgets */
+    padding-top: 5px;    
+  }
+  .threecolumn {
+    width: 32%;
+  }
+  .fourcolumn {
+    width: 23%;
+  }
+  .twocolumn {
+    width: 48%;
+  }
+  .row img {
+    width: 90%;
+  }
+  .sidebar1 img {   /*for sidebar1 img */
+    height: 30%;
+    width: 30%;
+    margin-left: 34%;
+  }
+}
+
 /* lines */
 
 @import "lines";

@@ -279,6 +279,13 @@ h6 {
   text-align: center;
 }
 
+@media screen and (max-width: 959px) and (min-width: 640px) {
+  .metatext {
+    margin-right: 3px;
+    /* for footer */
+  }
+}
+
 /*--------------------------------------------------------------
 # Layout
 --------------------------------------------------------------*/
@@ -338,6 +345,52 @@ h6 {
   float: left;
 }
 
+@media screen and (max-width: 959px) and (min-width: 640px) {
+  .container {
+    width: 98%;
+    padding: 0 3px;
+  }
+  .row {
+    margin: 4px 0;
+  }
+  .main {
+    width: 99%;
+  }
+  .main-half {
+    width: 48.59%;
+  }
+  .main-threeeigth {
+    width: 36.09%;
+  }
+  .main-fiveeigth {
+    width: 61.09%;
+  }
+  .sidebar {
+    width: 100%;
+    border-top: 1px solid #c8c8c8;
+    /*this replaces the bottom border that was removed from the posts widgets */
+    padding-top: 5px;
+  }
+  .threecolumn {
+    width: 32%;
+  }
+  .fourcolumn {
+    width: 23%;
+  }
+  .twocolumn {
+    width: 48%;
+  }
+  .row img {
+    width: 90%;
+  }
+  .sidebar1 img {
+    /*for sidebar1 img */
+    height: 30%;
+    width: 30%;
+    margin-left: 34%;
+  }
+}
+
 /* lines */
 .vline-medium {
   border-right: 1px solid #c8c8c8;
@@ -373,6 +426,31 @@ h6 {
 
 .sidebar .hline:last-child {
   display: none;
+}
+
+@media screen and (max-width: 959px) and (min-width: 640px) {
+  .vline-medium {
+    border-right: none;
+    padding-right: 4px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+  }
+  .vspace {
+    padding-right: 6px;
+    margin-right: 6px;
+  }
+  .hline {
+    margin: 12px 0;
+  }
+  .hline-background {
+    top: 4px;
+  }
+  .hline-strong {
+    border-top: 1px solid #000;
+  }
+  .hline-medium {
+    border-top: 1px solid #c8c8c8;
+  }
 }
 
 /* columns */
@@ -597,6 +675,43 @@ h6 {
   position: relative;
 }
 
+@media screen and (max-width: 959px) and (min-width: 640px) {
+  .logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    float: inherit;
+  }
+  .help {
+    font-family: 'Droid Sans',sans-serif;
+    font-weight: 400;
+    font-size: 2em;
+    color: #ffffff;
+    float: left;
+    background-color: #005A9C;
+    position: relative;
+    margin-top: -9px;
+  }
+  #nav:not(:target) > .container > .show, #nav:target > .container > .hide {
+    display: block;
+  }
+  li.nav-item {
+    float: left;
+    display: inline-block;
+    width: 100%;
+    margin: 10px 0 0 0;
+  }
+  a.nav-link {
+    display: block;
+    padding: 0 0.833em;
+    text-align: left;
+  }
+  ul.nav-list {
+    padding: 8px 0;
+    visibility: hidden;
+  }
+}
+
 /*--------------------------------------------------------------
 # Components
 --------------------------------------------------------------*/
@@ -665,6 +780,16 @@ h6 {
 .adbox {
   background-color: #eee;
   padding: 1em;
+}
+
+@media screen and (max-width: 959px) and (min-width: 640px) {
+  .thumbnail img {
+    width: 100%;
+  }
+  .sidebar .hmedia {
+    width: 50%;
+    float: left;
+  }
 }
 
 /* icons */

@@ -49,3 +49,12 @@
   background-color: #eee;
   padding: 1em;
 }
+@media screen and (max-width: 959px) and (min-width: 640px) {
+  .thumbnail img {
+    width: 100%;
+  }
+  .sidebar .hmedia {
+    width: 50%;
+    float: left;
+  }
+}

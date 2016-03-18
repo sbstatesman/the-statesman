@@ -116,3 +116,9 @@ h6 {
 .center {
   text-align: center;
 }
+
+@media screen and (max-width: 959px) and (min-width: 640px) {
+  .metatext {
+    margin-right: 3px;    /* for footer */
+  }
+}

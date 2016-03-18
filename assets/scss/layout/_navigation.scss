@@ -165,3 +165,40 @@
 .nav-link {
     position: relative;
 }
+
+@media screen and (max-width: 959px) and (min-width: 640px){
+  .logo{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    float: inherit;
+  }
+  .help {
+    font-family: 'Droid Sans',sans-serif;
+    font-weight: 400;
+    font-size: 2em;
+    color: #ffffff;
+    float: left;
+    background-color: #005A9C;
+    position: relative;
+    margin-top: -9px;
+  }
+    #nav:not(:target) > .container > .show, #nav:target > .container > .hide {
+    display: block;
+  }
+  li.nav-item {
+    float: left;
+    display: inline-block;
+    width: 100%;
+    margin: 10px 0 0 0;
+  }
+  a.nav-link {
+    display: block;
+    padding: 0 0.833em;
+    text-align: left;
+  }
+  ul.nav-list {
+    padding: 8px 0;
+    visibility: hidden;
+  }
+}

@@ -49,7 +49,7 @@ body {
   -webkit-font-smoothing: subpixel-antialiased;
   /* fix webkit font rendering */
   font-family: Georgia, serif;
-  font-size: 0.875em;
+  font-size: 0.875rem;
 }
 
 /* Eliminate whitespace between fixednav and main content */
@@ -120,7 +120,7 @@ a:hover, a:active {
   line-height: 1.4em;
   margin-bottom: 16px;
   color: #4b4b4b;
-  font-size: 0.75em;
+  font-size: 0.75rem;
   max-width: 100%;
 }
 
@@ -154,7 +154,7 @@ a:hover, a:active {
 --------------------------------------------------------------*/
 /* typography */
 h1 {
-  font-size: 1.5em;
+  font-size: 1.5rem;
   font-family: 'Droid Sans', sans-serif;
   font-weight: 700;
   margin: 0;
@@ -162,7 +162,7 @@ h1 {
 }
 
 h2 {
-  font-size: 1.25em;
+  font-size: 1.25rem;
   font-family: 'Droid Sans', sans-serif;
   font-weight: 700;
   margin: 0;
@@ -170,7 +170,7 @@ h2 {
 }
 
 h3 {
-  font-size: 1.125em;
+  font-size: 1.125rem;
   font-family: 'Droid Sans', sans-serif;
   font-weight: 700;
   margin: 0;
@@ -178,7 +178,7 @@ h3 {
 }
 
 h4 {
-  font-size: 1em;
+  font-size: 1rem;
   font-family: 'Droid Sans', sans-serif;
   font-weight: 700;
   margin: 0;
@@ -186,7 +186,7 @@ h4 {
 }
 
 h5 {
-  font-size: 0.875em;
+  font-size: 0.875rem;
   font-family: 'Droid Sans', sans-serif;
   font-weight: 700;
   margin: 0 0 10px 0;
@@ -194,22 +194,22 @@ h5 {
 }
 
 h6 {
-  font-size: 1em;
+  font-size: 1rem;
   color: #005a9c;
   text-transform: uppercase;
   margin: 0 0 15px 0;
 }
 
 .xlarge-text {
-  font-size: 2.625em;
+  font-size: 2.625rem;
 }
 
 .large-text {
-  font-size: 1em;
+  font-size: 1rem;
 }
 
 .small-text {
-  font-size: 0.75em;
+  font-size: 0.75rem;
 }
 
 .coloredtext {
@@ -229,14 +229,14 @@ h6 {
 }
 
 .excerpt {
-  font-size: 0.8125em;
+  font-size: 0.8125rem;
   color: #4b4b4b;
   line-height: 1.6em;
   margin: 5px 0;
 }
 
 .headline {
-  font-size: 2.125em;
+  font-size: 2.125rem;
   font-family: 'Droid Sans', sans-serif;
   font-weight: 700;
   margin: 0;
@@ -657,7 +657,7 @@ h6 {
 }
 
 .sectionhead-text {
-  font-size: 2.25em;
+  font-size: 2.25rem;
   font-family: 'Droid Sans', sans-serif;
   font-weight: 700;
   text-transform: uppercase;
@@ -737,7 +737,7 @@ h6 {
   .help {
     font-family: 'Droid Sans',sans-serif;
     font-weight: 400;
-    font-size: 2em;
+    font-size: 2rem;
     color: #ffffff;
     float: left;
     background-color: #005A9C;
@@ -772,7 +772,7 @@ h6 {
   .help {
     font-family: 'Droid Sans',sans-serif;
     font-weight: 400;
-    font-size: 2em;
+    font-size: 2rem;
     color: #ffffff;
     float: right;
     background-color: #005A9C;

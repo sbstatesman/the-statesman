@@ -43,12 +43,13 @@ Text Domain: statesman
 --------------------------------------------------------------*/
 /* reset */
 body {
-  padding: 40px 0 10px 0;
+  padding: 40px 0 1% 0;
   /* push for fixednav */
+  width: 99%;
   -webkit-font-smoothing: subpixel-antialiased;
   /* fix webkit font rendering */
   font-family: Georgia, serif;
-  font-size: 14px;
+  font-size: 0.875em;
 }
 
 /* Eliminate whitespace between fixednav and main content */
@@ -110,7 +111,7 @@ a:hover, a:active {
   line-height: 1.4em;
   margin-bottom: 16px;
   color: #4b4b4b;
-  font-size: 12px;
+  font-size: 0.75em;
   max-width: 100%;
 }
 
@@ -138,7 +139,7 @@ a:hover, a:active {
 --------------------------------------------------------------*/
 /* typography */
 h1 {
-  font-size: 24px;
+  font-size: 1.5em;
   font-family: 'Droid Sans', sans-serif;
   font-weight: 700;
   margin: 0;
@@ -146,7 +147,7 @@ h1 {
 }
 
 h2 {
-  font-size: 20px;
+  font-size: 1.25em;
   font-family: 'Droid Sans', sans-serif;
   font-weight: 700;
   margin: 0;
@@ -154,7 +155,7 @@ h2 {
 }
 
 h3 {
-  font-size: 18px;
+  font-size: 1.125em;
   font-family: 'Droid Sans', sans-serif;
   font-weight: 700;
   margin: 0;
@@ -162,7 +163,7 @@ h3 {
 }
 
 h4 {
-  font-size: 16px;
+  font-size: 1em;
   font-family: 'Droid Sans', sans-serif;
   font-weight: 700;
   margin: 0;
@@ -170,7 +171,7 @@ h4 {
 }
 
 h5 {
-  font-size: 14px;
+  font-size: 0.875em;
   font-family: 'Droid Sans', sans-serif;
   font-weight: 700;
   margin: 0 0 10px 0;
@@ -178,22 +179,22 @@ h5 {
 }
 
 h6 {
-  font-size: 16px;
+  font-size: 1em;
   color: #005a9c;
   text-transform: uppercase;
   margin: 0 0 15px 0;
 }
 
 .xlarge-text {
-  font-size: 42px;
+  font-size: 2.625em;
 }
 
 .large-text {
-  font-size: 16px;
+  font-size: 1em;
 }
 
 .small-text {
-  font-size: 12px;
+  font-size: 0.75em;
 }
 
 .coloredtext {
@@ -213,14 +214,14 @@ h6 {
 }
 
 .excerpt {
-  font-size: 13px;
+  font-size: 0.8125em;
   color: #4b4b4b;
   line-height: 1.6em;
   margin: 5px 0;
 }
 
 .headline {
-  font-size: 34px;
+  font-size: 2.125em;
   font-family: 'Droid Sans', sans-serif;
   font-weight: 700;
   margin: 0;
@@ -284,8 +285,9 @@ h6 {
 /* layout */
 .container {
   width: 960px;
+  max-width: 95%;
   margin: 0 auto;
-  padding: 0 10px;
+  padding: 0 2.5%;
   position: relative;
   overflow: auto;
 }
@@ -296,37 +298,37 @@ h6 {
 }
 
 .main {
-  width: 640px;
+  width: 66.666%;
   float: left;
 }
 
 .main-half {
-  width: 311px;
+  width: 45.396%;
   float: left;
 }
 
 .main-threeeigth {
-  width: 231px;
+  width: 35.0625%;
   float: left;
 }
 
 .main-fiveeigth {
-  width: 391px;
+  width: 61.7292%;
   float: left;
 }
 
 .sidebar {
-  width: 300px;
+  width: 31.25%;
   float: right;
 }
 
 .threecolumn {
-  width: 308px;
+  width: 32.083%;
   float: left;
 }
 
 .fourcolumn {
-  width: 227px;
+  width: 23.646%;
   float: left;
 }
 
@@ -339,13 +341,13 @@ h6 {
 /* lines */
 .vline-medium {
   border-right: 1px solid #c8c8c8;
-  padding-right: 8px;
-  margin-right: 8px;
+  padding-right: .78%;
+  margin-right: .78%;
 }
 
 .vspace {
-  padding-right: 9px;
-  margin-right: 8px;
+  padding-right: .78%;
+  margin-right: .88%;
 }
 
 .hline {
@@ -504,7 +506,7 @@ h6 {
 .search-field {
   width: 117px;
   height: 20px;
-  margin: 3px;
+  margin: 0 10px;
   float: right;
   border: none;
   outline: none;
@@ -512,7 +514,7 @@ h6 {
 
 .currentissue {
   width: 200px;
-  margin: 45px 0 0 40px;
+  margin: 4% 0 0 4%;
   padding: 3px 0 3px 10px;
   float: left;
   border-left: 3px solid #005a9c;
@@ -525,7 +527,7 @@ h6 {
 }
 
 .sectionhead-text {
-  font-size: 36px;
+  font-size: 2.25em;
   font-family: 'Droid Sans', sans-serif;
   font-weight: 700;
   text-transform: uppercase;
@@ -534,6 +536,65 @@ h6 {
 .sectionhead-text-centered {
   padding: 0 20px;
   background-color: #fff;
+}
+
+/* Did not have chance to conform to new CSS style guidelines.
+ * Also, the new navbar is buggy right now, have not integrated properly.
+ */
+/* Prettifiers */
+.nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  float: left;
+}
+
+.fixednav {
+  color: #ffffff;
+  width: 100%;
+  padding: 10px 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 22px;
+  z-index: 5;
+  background-color: #005A9C;
+  font-family: 'Droid Sans',sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.nav-link {
+  color: #ffffff;
+  display: block;
+  /*height: 100%;*/
+  text-align: center;
+  text-decoration: none;
+}
+
+.nav-list {
+  background-color: #005A9C;
+  height: 100%;
+  color: #ffffff;
+}
+
+.help {
+  height: 100%;
+  text-decoration: none;
+  display: none;
+}
+
+.nav-item {
+  float: left;
+  /*height: 100%;*/
+  /*width: 16%;*/
+  display: inline-block;
+  margin: 4px 0 0 26px;
+}
+
+/* purpose unknown */
+.nav-link {
+  position: relative;
 }
 
 /*--------------------------------------------------------------
@@ -545,7 +606,7 @@ h6 {
 }
 
 .vmedia {
-  width: 100%;
+  width: 98%;
   margin-bottom: 10px;
 }
 

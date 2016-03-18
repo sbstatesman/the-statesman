@@ -82,14 +82,14 @@
 .search-field {
   width: 117px;
   height: 20px;
-  margin: 3px;
+  margin: 0 10px;
   float: right;
   border: none;
   outline: none;
 }
 .currentissue {
   width: 200px;
-  margin: 45px 0 0 40px;
+  margin: 4% 0 0 4%;
   padding: 3px 0 3px 10px;
   float: left;
   border-left: 3px solid #005a9c;
@@ -100,7 +100,7 @@
   position: relative;
 }
 .sectionhead-text {
-  font-size: 36px;
+  font-size: 2.25em;
   font-family: 'Droid Sans', sans-serif;
   font-weight: 700;
   text-transform: uppercase;
@@ -108,4 +108,60 @@
 .sectionhead-text-centered {
   padding: 0 20px;
   background-color: #fff;
+}
+
+/* Did not have chance to conform to new CSS style guidelines.
+ * Also, the new navbar is buggy right now, have not integrated properly.
+ */
+/* Prettifiers */
+.nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  float: left;
+}
+.fixednav {
+  color: #ffffff;
+  width: 100%;
+  padding: 10px 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 22px;
+  z-index: 5;
+  background-color: #005A9C;
+  
+  font-family: 'Droid Sans',sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+.nav-link {
+  color: #ffffff;
+  display: block;
+  /*height: 100%;*/
+  text-align: center;
+  text-decoration: none;
+}
+.nav-list {
+    background-color: #005A9C;
+    height: 100%;
+    color: #ffffff;
+}
+.nav-item:hover {
+}
+.help {
+  height: 100%;
+  text-decoration: none;
+  display: none;
+}
+.nav-item {
+    float: left;
+    /*height: 100%;*/
+    /*width: 16%;*/
+    display: inline-block;
+    margin: 4px 0 0 26px;
+}
+/* purpose unknown */
+.nav-link {
+    position: relative;
 }

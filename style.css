@@ -311,11 +311,21 @@ h6 {
 # Layout
 --------------------------------------------------------------*/
 /* layout */
+.main,
+.main-half,
+.main-threeeigth,
+.main-fiveeigth,
+.sidebar,
+.twocolumn,
+.threecolumn,
+.fourcolumn {
+  box-sizing: border-box;
+  padding: 0 .8em;
+}
+
 .container {
-  width: 960px;
-  max-width: 95%;
+  max-width: 960px;
   margin: 0 auto;
-  padding: 0 2.5%;
   position: relative;
   overflow: auto;
 }
@@ -331,38 +341,37 @@ h6 {
 }
 
 .main-half {
-  width: 45.396%;
+  width: 50%;
   float: left;
 }
 
 .main-threeeigth {
-  width: 35.0625%;
+  width: 37.5%;
   float: left;
 }
 
 .main-fiveeigth {
-  width: 61.7292%;
+  width: 62.5%;
   float: left;
 }
 
 .sidebar {
-  width: 31.25%;
+  width: 33.333%;
   float: right;
 }
 
 .threecolumn {
-  width: 32.083%;
+  width: 33.333%;
   float: left;
 }
 
 .fourcolumn {
-  width: 23.646%;
+  width: 25%;
   float: left;
 }
 
 .twocolumn {
-  width: 48%;
-  padding: 0 1%;
+  width: 50%;
   float: left;
 }
 
@@ -439,13 +448,6 @@ h6 {
 /* lines */
 .vline-medium {
   border-right: 1px solid #c8c8c8;
-  padding-right: .78%;
-  margin-right: .78%;
-}
-
-.vspace {
-  padding-right: .78%;
-  margin-right: .88%;
 }
 
 .hline {

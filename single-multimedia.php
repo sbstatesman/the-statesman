@@ -31,7 +31,7 @@
 		<h6><a href="<?php echo esc_url(get_post_format_link($format)); ?>">More <?php echo $displays[$format];?></a></h6>
 		<?php while( $myposts->have_posts() ): ?>
 		<?php $myposts->the_post();?>
-		<div class="col-1-3">
+		<div class="threecolumn">
 			<div class="vmedia" data-mh="thumbnails">
 				<a href="<?php the_permalink(); ?>">
 					<figure class="thumbnail hovertext-container">

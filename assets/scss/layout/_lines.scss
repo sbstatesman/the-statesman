@@ -1,6 +1,3 @@
-.vline-medium {
-  border-right: 1px solid #c8c8c8;
-}
 .hline {
   margin: 15px 0;
   clear: both;
@@ -23,16 +20,6 @@
 }
 
 @media screen and (max-width: 959px) and (min-width: 640px){
-  .vline-medium {
-    border-right: none;
-    padding-right: 4px;
-    margin-right: 4px;
-    margin-bottom: 4px;
-  }
-  .vspace {
-    padding-right: 6px;
-    margin-right: 6px;
-  }
   .hline {
     margin: 12px 0;
   }
@@ -44,11 +31,5 @@
   }
   .hline-medium {
     border-top: 1px solid #c8c8c8;
-  }
-}
-
-@media only screen and (max-width: 639px) {
-  .vline-medium {
-    border-right: none;
   }
 }

@@ -311,18 +311,6 @@ h6 {
 # Layout
 --------------------------------------------------------------*/
 /* layout */
-.main,
-.main-half,
-.main-threeeigth,
-.main-fiveeigth,
-.sidebar,
-.twocolumn,
-.threecolumn,
-.fourcolumn {
-  box-sizing: border-box;
-  padding: 0 .8em;
-}
-
 .container {
   max-width: 960px;
   margin: 0 auto;
@@ -335,44 +323,66 @@ h6 {
   margin: 10px 0;
 }
 
+.main,
+.sidebar,
+.twocolumn,
+.threecolumn,
+.fourcolumn {
+  box-sizing: border-box;
+  padding: 0 .8em;
+  float: left;
+}
+
+.main-half,
+.main-threeeigth,
+.main-fiveeigth {
+  float: left;
+  box-sizing: border-box;
+}
+
 .main {
   width: 66.666%;
-  float: left;
+  border-right: 1px solid #c8c8c8;
 }
 
 .main-half {
   width: 50%;
-  float: left;
+  border-right: 1px solid #c8c8c8;
+  padding-right: 0.8em;
+}
+
+.main-half:last-child {
+  border-right: 0;
+  padding-right: 0;
+  border-left: 1px solid #c8c8c8;
+  margin-left: -1px;
+  padding-left: 0.8em;
 }
 
 .main-threeeigth {
   width: 37.5%;
-  float: left;
 }
 
 .main-fiveeigth {
   width: 62.5%;
-  float: left;
 }
 
 .sidebar {
   width: 33.333%;
-  float: right;
+  border-left: 1px solid #c8c8c8;
+  margin-left: -1px;
 }
 
 .threecolumn {
   width: 33.333%;
-  float: left;
 }
 
 .fourcolumn {
   width: 25%;
-  float: left;
 }
 
 .twocolumn {
   width: 50%;
-  float: left;
 }
 
 @media screen and (max-width: 959px) and (min-width: 640px) {
@@ -446,10 +456,6 @@ h6 {
 }
 
 /* lines */
-.vline-medium {
-  border-right: 1px solid #c8c8c8;
-}
-
 .hline {
   margin: 15px 0;
   clear: both;
@@ -476,16 +482,6 @@ h6 {
 }
 
 @media screen and (max-width: 959px) and (min-width: 640px) {
-  .vline-medium {
-    border-right: none;
-    padding-right: 4px;
-    margin-right: 4px;
-    margin-bottom: 4px;
-  }
-  .vspace {
-    padding-right: 6px;
-    margin-right: 6px;
-  }
   .hline {
     margin: 12px 0;
   }
@@ -497,12 +493,6 @@ h6 {
   }
   .hline-medium {
     border-top: 1px solid #c8c8c8;
-  }
-}
-
-@media only screen and (max-width: 639px) {
-  .vline-medium {
-    border-right: none;
   }
 }
 

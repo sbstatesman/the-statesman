@@ -18,7 +18,7 @@
 			<?php 
 				$args = array(
 					'posts_per_page' => 1,
-					'category__and'  => array( $top_story, get_query_var( 'cat' ) )
+					'category__and'  => array( get_category_by_slug( 'top-story' )->term_id, get_query_var( 'cat' ) )
 				);
 				$myposts = new WP_Query( $args );
 				if ( $myposts->have_posts() ) :

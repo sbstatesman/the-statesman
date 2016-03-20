@@ -319,27 +319,40 @@ add_action( 'pre_get_posts', function ( $q ) {
     $paged = $q->get('paged');
     // Get the name of the category
     $slug = $q->get_queried_object()->slug;
+    $cat_ID = get_category_by_slug( $slug )->term_id;
+    $top_story = get_category_by_slug( 'top-story' )->term_id;
 
-    // We will only need to run this from page 2 onwards
-    if (is_paged() && locate_template('category-' . $slug . '.php')) {
-      // Get the number of posts per page
+    // Query the first post in the category that is also in the top-story category.
+    $args = array(
+      'posts_per_page' => 1,
+      'category__and'  => array( $top_story, $cat_ID )
+    );
+    $myposts = new WP_Query( $args );
+    if ( $myposts->have_posts() ) {
+      $myposts->the_post();
+      $top_story_ID = array( get_the_ID() );
+      // Exclude the found post from the query.
+      $q->set('post__not_in', $top_story_ID);
+      wp_reset_postdata();
+    }
+
+    if ( is_paged() ) {
+      // Get the number of posts per page.
       $posts_per_page = get_option('posts_per_page');
-      // Recalculate our offset
-      $offset = (($paged - 1) * $posts_per_page) - $posts_per_page;
-      // Set our offset
+      // Recalculate the offset.
+      $offset = (($paged - 1) * $posts_per_page) - $posts_per_page + 8;
       $q->set('offset', $offset);
+    } else {
+      // Set posts per page to 8 on the first page.
+      $q->set('posts_per_page', 8);
     }
   }
 });
 
 add_filter( 'found_posts', function ( $found_posts, $q ) {
-  if (!is_admin() && $q->is_main_query() && $q->is_category()) {
-    // Get the name of the category
-    $slug = $q->get_queried_object()->slug;
-
-    if (is_paged() && locate_template('category-' . $slug . '.php')) {
-      $found_posts = $found_posts + get_option('posts_per_page');
-    }
+  if ( ! is_admin() && $q->is_main_query() && $q->is_category() && is_paged() ) {
+    // Adds posts not shown on front page of category
+    $found_posts = $found_posts + get_option('posts_per_page') - 8;
   }
   return $found_posts;
 }, 10, 2 );

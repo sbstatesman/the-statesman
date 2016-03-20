@@ -293,6 +293,10 @@ h6 {
   text-align: center;
 }
 
+.uppercase {
+  text-transform: uppercase;
+}
+
 @media screen and (max-width: 959px) and (min-width: 640px) {
   .metatext {
     margin-right: 3px;

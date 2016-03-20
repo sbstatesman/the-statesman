@@ -363,14 +363,24 @@ class statesman_latest_post extends WP_Widget {
   // This is where the action happens
   public function widget( $args, $instance ) {
     $title = apply_filters( 'widget_title', $instance['title'] );
-    $cat_slug = apply_filters( 'widget_cat_slug', $instance['cat_slug'] );
-    $cat_id = get_category_by_slug($cat_slug)->term_id;
+    $slug = apply_filters( 'widget_slug', $instance['slug'] );
+    $slug_type = apply_filters( 'widget_slug_type', $instance['slug_type'] );
+
+    $cat_id = ( $slug_type == 'category' ) ? get_category_by_slug($slug)->term_id : '';
+    $tag_id = ( $slug_type == 'tag' ) ? get_tag_id( $slug ) : '';
+
     // before and after widget arguments are defined by themes
     echo $args['before_widget'];
     if ( ! empty( $title ) )
-      echo $args['before_title'] . '<a href="' . esc_url(get_category_link($cat_id)) . '">' . $title . '</a>' . $args['after_title'];
+      echo $args['before_title'] . '<a href="';
+      if ( $slug_type == 'category' ) {
+        echo esc_url( get_category_link( $cat_id ) );
+      } elseif ( $slug_type == 'tag' ) {
+        echo esc_url( get_tag_link( $tag_id ) );
+      }
+      echo '">' . $title . '</a>' . $args['after_title'];
 
-    $myposts = new WP_Query( array( 'posts_per_page' => 1, 'cat' => $cat_id) );
+    $myposts = new WP_Query( array( 'posts_per_page' => 1, 'cat' => $cat_id, 'tag_id' => $tag_id ) );
     if ( $myposts->have_posts() ) {
       $myposts->the_post();
       echo '<article class="vmedia">';
@@ -389,6 +399,13 @@ class statesman_latest_post extends WP_Widget {
         the_title();
       echo '</a>';
       echo '</h2>';
+      echo '<p class="metatext metatext-byline small-text">By ';
+        the_author_posts_link();
+      echo ' / <a href="';
+        the_archive_date();
+      echo '">';
+        the_time( 'F j, Y' );
+      echo '</a></p>';
       echo '<p class="excerpt">';
         get_excerpt();
       echo '</p>';
@@ -403,15 +420,18 @@ class statesman_latest_post extends WP_Widget {
   public function form( $instance ) {
     if ( isset( $instance[ 'title' ] ) ) {
       $title = $instance[ 'title' ];
-    }
-    else {
+    } else {
       $title = __('New title');
     }
-    if ( isset( $instance[ 'cat_slug' ] ) ) {
-      $cat_slug = $instance[ 'cat_slug' ];
+    if ( isset( $instance[ 'slug' ] ) ) {
+      $slug = $instance[ 'slug' ];
+    } else {
+      $slug = __('');
     }
-    else {
-      $cat_slug = __('');
+    if ( isset( $instance[ 'slug_type' ] ) ) {
+      $slug_type = $instance[ 'slug_type' ];
+    } else {
+      $slug_type = 'category';
     }
     // Widget admin form
     ?>
@@ -420,8 +440,14 @@ class statesman_latest_post extends WP_Widget {
         <input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" />
       </p>
       <p>
-        <label for="<?php echo $this->get_field_id( 'cat_slug' ); ?>"><?php _e( 'Category slug:' ); ?></label>
-        <input class="widefat" id="<?php echo $this->get_field_id( 'cat_slug' ); ?>" name="<?php echo $this->get_field_name( 'cat_slug' ); ?>" type="text" value="<?php echo esc_attr( $cat_slug ); ?>" />
+        <label for="<?php echo $this->get_field_id( 'slug_type' ) . '-category'; ?>"><?php _e( 'Category: ' ); ?></label>
+        <input id="<?php echo $this->get_field_id( 'slug_type' ) . '-category'; ?>" name="<?php echo $this->get_field_name( 'slug_type' ); ?>" type="radio" value="category" <?php checked( esc_attr( $slug_type ), 'category'); ?> />
+        <label for="<?php echo $this->get_field_id( 'slug_type' ) . '-tag'; ?>"><?php _e( 'Tag: ' ); ?></label>
+        <input id="<?php echo $this->get_field_id( 'slug_type' ) . '-tag'; ?>" name="<?php echo $this->get_field_name( 'slug_type' ); ?>" type="radio" value="tag" <?php checked( esc_attr( $slug_type ), 'tag'); ?> />
+      </p>
+      <p>
+        <label for="<?php echo $this->get_field_id( 'slug' ); ?>"><?php _e( 'Slug:' ); ?></label>
+        <input class="widefat" id="<?php echo $this->get_field_id( 'slug' ); ?>" name="<?php echo $this->get_field_name( 'slug' ); ?>" type="text" value="<?php echo esc_attr( $slug ); ?>" />
       </p>
     <?php
   }
@@ -430,7 +456,8 @@ class statesman_latest_post extends WP_Widget {
   public function update( $new_instance, $old_instance ) {
     $instance = array();
     $instance['title'] = ( ! empty( $new_instance['title'] ) ) ? strip_tags( $new_instance['title'] ) : '';
-    $instance['cat_slug'] = ( ! empty( $new_instance['cat_slug'] ) ) ? strip_tags( $new_instance['cat_slug'] ) : '';
+    $instance['slug_type'] = ( isset( $new_instance['slug_type'] ) && ( $new_instance['slug_type'] == 'category' || $new_instance['slug_type'] == 'tag' ) ) ? $new_instance['slug_type'] : 'category';
+    $instance['slug'] = ( ! empty( $new_instance['slug'] ) ) ? strip_tags( $new_instance['slug'] ) : '';
     return $instance;
   }
 } // Class wpb_widget ends here

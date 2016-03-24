@@ -426,6 +426,9 @@ h6 {
   }
   .row img {
     width: 90%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
   }
   .sidebar1 img {
     /*for sidebar1 img */

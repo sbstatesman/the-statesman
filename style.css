@@ -436,6 +436,9 @@ h6 {
     width: 30%;
     margin-left: 34%;
   }
+  main.main.vline-medium {
+    border-right: none;
+  }
 }
 
 @media only screen and (max-width: 639px) {

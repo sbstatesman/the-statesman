@@ -709,28 +709,37 @@ h6 {
     font-weight: 400;
     font-size: 2rem;
     color: #ffffff;
-    float: left;
+    float: right;
     background-color: #005A9C;
     position: relative;
-    margin-top: -9px;
+    /*text-align: left;
+    text-indent: -9999px;*/
+    /*width: 100%;*/
   }
   #nav:not(:target) > .container > .show, #nav:target > .container > .hide {
     display: block;
+    margin-top: -10px;
   }
-  li.nav-item {
-    float: left;
-    display: inline-block;
+  .nav-list {
+    display: none;
+    height: auto;
     width: 100%;
-    margin: 10px 0 0 0;
+    left: 0;
+    right: 0;
+    padding: 8px 0;
   }
-  a.nav-link {
+  #nav:target > .container > .nav-list {
     display: block;
+  }
+  .nav-item {
+    float: none;
+    width: 100%;
+    margin: 8px 0 0 0;
+  }
+  .nav-link {
+    height: auto;
     padding: 0 0.833em;
     text-align: left;
-  }
-  ul.nav-list {
-    padding: 8px 0;
-    visibility: hidden;
   }
 }
 

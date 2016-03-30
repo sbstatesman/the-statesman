@@ -745,8 +745,10 @@ h6 {
 
 @media only screen and (max-width: 639px) {
   .logo {
-    padding: 0 0.833em;
-    width: 87%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    float: inherit;
   }
   .help {
     font-family: 'Droid Sans',sans-serif;
@@ -762,10 +764,12 @@ h6 {
   }
   #nav:not(:target) > .container > .show, #nav:target > .container > .hide {
     display: block;
+    margin-top: -10px;
   }
   .nav-list {
     display: none;
     height: auto;
+    width: 100%;
     left: 0;
     right: 0;
     padding: 8px 0;

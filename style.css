@@ -766,6 +766,7 @@ h6 {
   #nav:not(:target) > .container > .show, #nav:target > .container > .hide {
     display: block;
     margin-top: -10px;
+    float: left;
   }
   .nav-list {
     display: none;

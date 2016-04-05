@@ -66,7 +66,7 @@
 		<?php if (!empty($myposts[1])) : ?>
 		<?php $post = $myposts[1]; ?>
 		<?php setup_postdata( $post ); ?>
-		<article class="sidebar sidebar1">
+		<article class="sidebar">
 			<div class="vmedia">
 				<figure class="thumbnail">
 					<?php if ( has_post_thumbnail()) {the_post_thumbnail('medium');} ?>

@@ -337,6 +337,10 @@ h6 {
   float: left;
 }
 
+.full-width-three-column {
+  border-right: 1px solid #c8c8c8;
+}
+
 .main-half,
 .main-threeeigth,
 .main-fiveeigth {
@@ -452,6 +456,10 @@ h6 {
   }
   .threecolumn img {
     width: 99%;
+  }
+  .full-width-three-column {
+    width: 100%;
+    border: none;
   }
   .sidebar {
     width: 100%;

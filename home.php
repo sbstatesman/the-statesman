@@ -198,11 +198,11 @@
 	</section>
 	<div class="hline hline-medium"></div>
 	<section class="row">
-		<div class="threecolumn vline-medium center">
+		<div class="threecolumn full-width-three-column vline-medium center">
 			<h6>Issue Archive</h6>
 			<a href="http://issuu.com/sbstatesman"><img src="<?php bloginfo( 'template_url' ); ?>/images/footer-logo.png" alt="The Statesman" width="268" /></a>
 		</div>
-		<div class="threecolumn vline-medium center">
+		<div class="threecolumn full-width-three-column vline-medium center">
 			<h6>Podcast</h6>
 			<a href="https://itunes.apple.com/us/podcast/the-statesman/id1033005149"><img src="<?php bloginfo( 'template_url' ); ?>/images/itunes.png" alt="Download on iTunes" width="200" /></a>
 		</div>

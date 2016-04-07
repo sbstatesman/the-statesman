@@ -747,6 +747,9 @@ h6 {
     padding: 0 0.833em;
     text-align: left;
   }
+  .main {
+    border-right: none;
+  }
 }
 
 @media only screen and (max-width: 639px) {
@@ -793,6 +796,9 @@ h6 {
     height: auto;
     padding: 0 0.833em;
     text-align: left;
+  }
+  .main {
+    border-right: none;
   }
 }
 

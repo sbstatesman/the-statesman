@@ -87,4 +87,19 @@ Join The Statesman Web & Graphics Section: https://www.facebook.com/groups/state
         </ul>
       </div>
     </nav>
+    	<div class="container" id="search">
+    		<div class="container">
+	    		<a class="help show" href="#search" title="Show search">&#9776;</a>
+	        	<a class="help hide" href="#" title="Hide search">&#9776;</a>
+	        	<form role="search" method="get" class="search-form" action="http://www.sbstatesman.com/">
+	        		<button type="submit" class="iconbar iconbar-search search-submit" value="Search">
+	        			<i class="fa fa-search fa-2x">
+	        			</i>
+	        		</button>
+	        		<label>
+	        			<input type="search" class="search-field" placeholder="Search ..." value name="s" title="search">
+	        		</label>
+	        	</form>
+    		</div>
+    	</div>
 		<div class="container">

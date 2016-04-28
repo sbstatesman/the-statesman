@@ -58,6 +58,11 @@
     width: 50%;
     float: left;
   }
+  .vmedia .thumbnail {
+    float: left;
+    margin-right: 15px;
+    overflow: hidden;
+  }
 }
 
 @media only screen and (max-width: 639px) {

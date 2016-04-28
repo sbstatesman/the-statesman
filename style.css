@@ -721,7 +721,7 @@ h6 {
     text-indent: -9999px;*/
     /*width: 100%;*/
   }
-  #nav:not(:target) > .container > .show, #nav:target > .container > .hide {
+  #nav_burger:not(:target) > .container > .show, #nav_burger:target > .container > .hide {
     display: block;
     margin-top: -10px;
     float: left;
@@ -734,7 +734,7 @@ h6 {
     right: 0;
     padding: 8px 0;
   }
-  #nav:target > .container > .nav-list {
+  #nav_burger:target > .container > .nav-list {
     display: block;
   }
   .nav-item {
@@ -751,12 +751,16 @@ h6 {
     border-right: none;
   }
   #nav {
-    width: 80%;
+    width: 100%;
+  }
+  #nav_burger {
+    width: 100%;
+    float: left;
   }
   #search {
-    width: 20%;
+    width: 30%;
     float: right;
-    margin-top: -35px;
+    margin-top: -36px;
     background-color: #005a9c;
   }
   #search:not(:target) > .container > .show, #search:target > .container > .hide {
@@ -801,7 +805,7 @@ h6 {
     text-indent: -9999px;*/
     /*width: 100%;*/
   }
-  #nav:not(:target) > .container > .show, #nav:target > .container > .hide {
+  #nav_burger:not(:target) > .container > .show, #nav_burger:target > .container > .hide {
     display: block;
     margin-top: -10px;
     float: left;
@@ -814,7 +818,7 @@ h6 {
     right: 0;
     padding: 8px 0;
   }
-  #nav:target > .container > .nav-list {
+  #nav_burger:target > .container > .nav-list {
     display: block;
   }
   .nav-item {
@@ -831,12 +835,16 @@ h6 {
     border-right: none;
   }
   #nav {
-    width: 80%;
+    width: 100%;
+  }
+  #nav_burger {
+    width: 100%;
+    float: left;
   }
   #search {
-    width: 20%;
+    width: 30%;
     float: right;
-    margin-top: -35px;
+    margin-top: -36px;
     background-color: #005a9c;
   }
   #search:not(:target) > .container > .show, #search:target > .container > .hide {
@@ -939,6 +947,11 @@ h6 {
   .sidebar .hmedia {
     width: 50%;
     float: left;
+  }
+  .vmedia .thumbnail {
+    float: left;
+    margin-right: 15px;
+    overflow: hidden;
   }
 }
 

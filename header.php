@@ -73,33 +73,37 @@ Join The Statesman Web & Graphics Section: https://www.facebook.com/groups/state
 	</head>
 	<body <?php body_class( $class ); ?>>
 		<nav id="nav" class="fixednav">
-      <div class="container">
-        <a class="help show" href="#nav" title="Show navigation">&#9776;</a>
-        <a class="help hide" href="#" title="Hide navigation">&#9776;</a>
-        <a class="logo" href="<?php echo site_url(); ?>"><img class="logo" width="162" height="20" alt="The Statesman" src="<?php bloginfo( 'template_url' ); ?>/images/nav-logo.png"></a>
-        <ul class="nav-list">
-          <li class="nav-item"><a class="nav-link" href="<?php echo get_category_link( $news ); ?>">News</a></li>
-          <li class="nav-item"><a class="nav-link" href="<?php echo get_category_link( $arts_and_entertainment ); ?>">Arts & Entertainment</a></li>
-          <li class="nav-item"><a class="nav-link" href="<?php echo get_category_link( $opinions ); ?>">Opinions</a></li>
-          <li class="nav-item"><a class="nav-link" href="<?php echo get_category_link( $sports ); ?>">Sports</a></li>
-          <li class="nav-item"><a class="nav-link" href="<?php echo get_category_link( $multimedia ); ?>">Multimedia</a></li>
-          <li class="nav-item"><a class="nav-link" href="<?php echo get_permalink( get_page_by_title( 'About' ) ); ?>">About</a></li>
-        </ul>
+      <div class="container" id="nav_burger">
+        <div class="container transp">
+        	<a class="help show" href="#nav_burger" title="Show navigation">&#9776;</a>
+	        <a class="help hide" href="#" title="Hide navigation">&#9776;</a>
+	        <a class="logo" href="<?php echo site_url(); ?>"><img class="logo" width="162" height="20" alt="The Statesman" src="<?php bloginfo( 'template_url' ); ?>/images/nav-logo.png"></a>
+	        <ul class="nav-list">
+	          <li class="nav-item"><a class="nav-link" href="<?php echo get_category_link( $news ); ?>">News</a></li>
+	          <li class="nav-item"><a class="nav-link" href="<?php echo get_category_link( $arts_and_entertainment ); ?>">Arts & Entertainment</a></li>
+	          <li class="nav-item"><a class="nav-link" href="<?php echo get_category_link( $opinions ); ?>">Opinions</a></li>
+	          <li class="nav-item"><a class="nav-link" href="<?php echo get_category_link( $sports ); ?>">Sports</a></li>
+	          <li class="nav-item"><a class="nav-link" href="<?php echo get_category_link( $multimedia ); ?>">Multimedia</a></li>
+	          <li class="nav-item"><a class="nav-link" href="<?php echo get_permalink( get_page_by_title( 'About' ) ); ?>">About</a></li>
+	        </ul>
+        </div>
       </div>
+
+      <div class="container" id="search">
+		<div class="container">
+    		<a class="help show" href="#search" title="Show search">&#9776;</a>
+        	<a class="help hide" href="#" title="Hide search">&#9776;</a>
+        	<form role="search" method="get" class="search-form" action="http://www.sbstatesman.com/">
+        		<button type="submit" class="iconbar iconbar-search search-submit" value="Search">
+        			<i class="fa fa-search fa-2x">
+        			</i>
+        		</button>
+        		<label>
+        			<input type="search" class="search-field" placeholder="Search ..." value name="s" title="search">
+        		</label>
+        	</form>
+		</div>
+	</div>
     </nav>
-    	<div class="container" id="search">
-    		<div class="container">
-	    		<a class="help show" href="#search" title="Show search">&#9776;</a>
-	        	<a class="help hide" href="#" title="Hide search">&#9776;</a>
-	        	<form role="search" method="get" class="search-form" action="http://www.sbstatesman.com/">
-	        		<button type="submit" class="iconbar iconbar-search search-submit" value="Search">
-	        			<i class="fa fa-search fa-2x">
-	        			</i>
-	        		</button>
-	        		<label>
-	        			<input type="search" class="search-field" placeholder="Search ..." value name="s" title="search">
-	        		</label>
-	        	</form>
-    		</div>
-    	</div>
+    	
 		<div class="container">

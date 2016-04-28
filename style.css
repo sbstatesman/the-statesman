@@ -407,6 +407,13 @@ h6 {
   padding-right: 0;
 }
 
+.full-width {
+  box-sizing: border-box;
+  width: 100%;
+  padding-left: 0.8em;
+  padding-right: 0.8em;
+}
+
 @media screen and (max-width: 959px) and (min-width: 640px) {
   .container {
     width: 98%;

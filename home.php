@@ -15,7 +15,9 @@
 	</div>
 </header>
 <main>
-	<div class="hline hline-strong"></div>
+	<div class="full-width">
+		<div class="hline hline-strong"></div>
+	</div>
 	<?php $args = array( 'posts_per_page' => 4, 'category__in' => array($breaking, $featured), 'category__not_in' => array($opinions, $multimedia) ); ?>
 	<?php $myposts = get_posts( $args ); ?>
 	<section class="row">
@@ -83,7 +85,9 @@
 		</article>
 		<?php endif; ?>
 	</section>
-	<div class="hline hline-strong"></div>
+	<div class="full-width">
+		<div class="hline hline-strong"></div>
+	</div>
 	<section class="row">
 		<?php $args = array( 'posts_per_page' => 8, 'category__not_in' => array($opinions, $multimedia, $featured) ); ?>
 		<?php $myposts = new WP_Query( $args ); ?>
@@ -113,7 +117,9 @@
   		<?php endif; ?>
 		</sidebar>
 	</section>
-	<div class="hline hline-medium"></div>
+	<div class="full-width">
+		<div class="hline hline-medium"></div>
+	</div>
 	<section class="row">
 		<?php $args = array( 'posts_per_page' => 3, 'cat' => $news); ?>
 		<?php $myposts = new WP_Query( $args ); ?>
@@ -196,7 +202,9 @@
 		</div>
 		<?php endif; ?>
 	</section>
-	<div class="hline hline-medium"></div>
+	<div class="full-width">
+		<div class="hline hline-medium"></div>
+	</div>
 	<section class="row">
 		<div class="threecolumn full-width-third vline-medium center">
 			<h6>Issue Archive</h6>
@@ -216,6 +224,8 @@
 			</div>
 		</div>
 	</section>
-	<div class="hline hline-medium"></div>
+	<div class="full-width">
+		<div class="hline hline-medium"></div>
+	</div>
 </main>
 <?php get_footer(); ?>

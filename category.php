@@ -1,14 +1,18 @@
 <?php get_header(); ?>
 
 <header class="row">
+	<div class="full-width">
 	<div class="sectionhead">
 		<div class="hline hline-background"></div>
 		<span class="sectionhead-text sectionhead-text-centered"><?php single_cat_title(); ?></span>
 	</div>
+	</div>
 </header>
 
 <main>
-	<div class="hline hline-strong"></div>
+	<div class="full-width">
+		<div class="hline hline-strong"></div>
+	</div>
 	<section class="row">
 
 		<?php if ( ! is_paged() ) : ?>
@@ -80,7 +84,9 @@
 		<?php get_sidebar(); ?>
 
 	</section>
-	<div class="hline hline-medium"></div>
+	<div class="full-width">
+		<div class="hline hline-medium"></div>
+	</div>
 </main>
 
 <?php get_footer(); ?>

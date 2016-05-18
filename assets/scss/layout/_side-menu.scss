@@ -1,0 +1,44 @@
+/* this is currently only used in the featured template */
+
+.side-menu {
+  height: 100%;
+  display: none;
+  position: fixed;
+  width: 20em;
+  z-index: 5;
+  background-color: #444;
+  color: #fff;
+}
+.side-heading {
+  padding: 1em;
+}
+.side-menu-icon {
+  margin-left: 1em;
+}
+.side-menu-list {
+  display: none !important; /* need to figure out a way to avoid !important */
+}
+.side-menu a {
+  text-decoration: none;
+}
+.side-menu > ul {
+  display: block;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  height: 85%;
+  overflow-y: scroll;
+  z-index: 6;
+}
+.side-menu > ul > li {
+  padding: 1.5em 1em;
+}
+.side-menu > ul > li:hover {
+  background-color: #666;
+  cursor: pointer;
+  transition: background-color 0.15s cubic-bezier(0.33, 0.66, 0.66, 1) 0s;
+}
+.side-menu > ul > li.slick-active {
+  background-color: #666;
+  transition: background-color 0.15s cubic-bezier(0.33, 0.66, 0.66, 1) 0s;
+}

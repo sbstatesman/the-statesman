@@ -543,24 +543,6 @@ h6 {
   z-index: 5;
 }
 
-.horizontallist {
-  margin: 0;
-  padding: 0;
-  float: left;
-}
-
-.horizontallist li {
-  display: inline-block;
-  margin: 4px 0 0 26px;
-}
-
-/* I don't think these styles are generic to "horizontal lists" they are
-   coupled to the use of horizontal lists in the navbar. */
-.horizontallist li a {
-  text-decoration: none;
-  color: #fff;
-}
-
 /* page header */
 .logo {
   float: left;
@@ -631,9 +613,7 @@ h6 {
 }
 
 .nav-link {
-  color: #ffffff;
   display: block;
-  /*height: 100%;*/
   text-align: center;
   text-decoration: none;
   position: relative;
@@ -641,8 +621,6 @@ h6 {
 
 .nav-item {
   float: left;
-  /*height: 100%;*/
-  /*width: 16%;*/
   display: inline-block;
   margin: 4px 0 0 26px;
 }

@@ -68,38 +68,23 @@
 .nav-link {
   display: block;
   text-align: center;
-  text-decoration: none;
   position: relative;
 }
 
 .help {
-  height: 100%;
-  text-decoration: none;
   display: none;
+  font-size: 2em;
 }
 
 @media screen and (max-width: 959px) {
   .logo{
     display: block;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto;
     float: inherit;
   }
-  .help {
-    font-family: 'Droid Sans',sans-serif;
-    font-weight: 400;
-    font-size: 2rem;
-    color: #ffffff;
-    float: right;
-    background-color: #005A9C;
-    position: relative;
-    /*text-align: left;
-    text-indent: -9999px;*/
-    /*width: 100%;*/
-  }
+
   #nav_burger:not(:target) > .container > .show, #nav_burger:target > .container > .hide {
     display: block;
-    margin-top: -10px;
     float: left;
   }
   #nav_burger:target > .container > .nav-list {
@@ -109,6 +94,7 @@
     width: 100%;
     float: left;
   }
+
   .nav-list {
     display: none;
     height: auto;
@@ -118,12 +104,10 @@
     padding: 8px 0;
   }
   .nav-item {
-    float: none;
-    width: 100%;
+    display: block;
     margin: 8px 0 0 0;
   }
   .nav-link {
-    height: auto;
     padding: 0 0.833em;
     text-align: left;
   }

@@ -75,8 +75,8 @@ Join The Statesman Web & Graphics Section: https://www.facebook.com/groups/state
 		<nav class="fixednav">
       <div class="container" id="nav_burger">
         <div class="container transp">
-        	<a class="help show" href="#nav_burger" title="Show navigation">&#9776;</a>
-	        <a class="help hide" href="#" title="Hide navigation">&#9776;</a>
+        	<a class="help show" href="#nav_burger" title="Show navigation"><i class="fa fa-bars" aria-hidden="true"></i></a>
+	        <a class="help hide" href="#" title="Hide navigation"><i class="fa fa-bars" aria-hidden="true"></i></a>
 	        <a class="logo" href="<?php echo site_url(); ?>"><img class="logo" width="162" height="20" alt="The Statesman" src="<?php bloginfo( 'template_url' ); ?>/images/nav-logo.png"></a>
 	        <ul class="nav-list">
 	          <li class="nav-item"><a class="nav-link" href="<?php echo get_category_link( $news ); ?>">News</a></li>
@@ -91,8 +91,8 @@ Join The Statesman Web & Graphics Section: https://www.facebook.com/groups/state
 
       <div class="container" id="search">
 		<div class="container">
-    		<a class="help show" href="#search" title="Show search">&#9776;</a>
-        	<a class="help hide" href="#" title="Hide search">&#9776;</a>
+    		<a class="help show" href="#search" title="Show search"><i class="fa fa-bars" aria-hidden="true"></i></a>
+        	<a class="help hide" href="#" title="Hide search"><i class="fa fa-bars" aria-hidden="true"></i></a>
         	<form role="search" method="get" class="search-form" action="http://www.sbstatesman.com/">
         		<button type="submit" class="iconbar iconbar-search search-submit" value="Search">
         			<i class="fa fa-search fa-2x">

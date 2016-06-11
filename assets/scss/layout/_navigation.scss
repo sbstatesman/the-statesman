@@ -6,17 +6,6 @@
   left: 0;
   z-index: 5;
 }
-.fixednav-main {
-  text-transform: uppercase;
-  font-weight: 400;
-  font-family: 'Droid Sans', sans-serif;
-  background-color: #005a9c;
-  color: #fff;
-}
-.fixednavs-alt > form, .fixednavs-alt > form {
-  white-space: nowrap;
-  display: inline-block;
-}
 
 .horizontallist {
   margin: 0;
@@ -33,6 +22,9 @@
   text-decoration: none;
   color: #fff;
 }
+
+/* page header */
+
 .logo {
   float: left;
 }
@@ -71,12 +63,6 @@
  * Also, the new navbar is buggy right now, have not integrated properly.
  */
 /* Prettifiers */
-.nav-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  float: left;
-}
 .fixednav {
   color: #ffffff;
   width: 100%;
@@ -87,10 +73,18 @@
   height: 25px;
   z-index: 5;
   background-color: #005A9C;
-  
   font-family: 'Droid Sans',sans-serif;
   font-weight: 400;
   text-transform: uppercase;
+}
+.nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  float: left;
+  background-color: #005A9C;
+  height: 100%;
+  color: #ffffff;
 }
 .nav-link {
   color: #ffffff;
@@ -98,29 +92,19 @@
   /*height: 100%;*/
   text-align: center;
   text-decoration: none;
+  position: relative;
 }
-.nav-list {
-    background-color: #005A9C;
-    height: 100%;
-    color: #ffffff;
-}
-.nav-item:hover {
+.nav-item {
+  float: left;
+  /*height: 100%;*/
+  /*width: 16%;*/
+  display: inline-block;
+  margin: 4px 0 0 26px;
 }
 .help {
   height: 100%;
   text-decoration: none;
   display: none;
-}
-.nav-item {
-    float: left;
-    /*height: 100%;*/
-    /*width: 16%;*/
-    display: inline-block;
-    margin: 4px 0 0 26px;
-}
-/* purpose unknown */
-.nav-link {
-    position: relative;
 }
 
 @media screen and (max-width: 959px) and (min-width: 640px){
@@ -147,6 +131,13 @@
     margin-top: -10px;
     float: left;
   }
+  #nav_burger:target > .container > .nav-list {
+    display: block;
+  }
+  #nav_burger {
+    width: 100%;
+    float: left;
+  }
   .nav-list {
     display: none;
     height: auto;
@@ -154,9 +145,6 @@
     left: 0;
     right: 0;
     padding: 8px 0;
-  }
-  #nav_burger:target > .container > .nav-list {
-    display: block;
   }
   .nav-item {
     float: none;
@@ -173,13 +161,6 @@
     border-right: none;
   }
 
-  #nav {
-    width: 100%;
-  }
-  #nav_burger {
-    width: 100%;
-    float: left;
-  }
   #search {
     width: 30%;
     float: right;
@@ -191,6 +172,9 @@
     margin-top: -5px;
     float: right;
   }
+  #search:target > .container > .search-form {
+    display: block;
+  }
   .search-form {
     display: none;
     height: auto;
@@ -199,9 +183,6 @@
     right: 0;
     padding: 8px 0;
     margin-top: 35px;
-  }
-  #search:target > .container > .search-form {
-    display: block;
   }
   .search-field {
     float: left;
@@ -234,6 +215,13 @@
     margin-top: -10px;
     float: left;
   }
+  #nav_burger:target > .container > .nav-list {
+    display: block;
+  }
+  #nav_burger {
+    width: 100%;
+    float: left;
+  }
   .nav-list {
     display: none;
     height: auto;
@@ -241,9 +229,6 @@
     left: 0;
     right: 0;
     padding: 8px 0;
-  }
-  #nav_burger:target > .container > .nav-list {
-    display: block;
   }
   .nav-item {
     float: none;
@@ -259,13 +244,6 @@
     border-right: none;
   }
 
-  #nav {
-    width: 100%;
-  }
-  #nav_burger {
-    width: 100%;
-    float: left;
-  }
   #search {
     width: 30%;
     float: right;
@@ -278,6 +256,9 @@
     margin-top: -5px;
     float: right;
   }
+  #search:target > .container > .search-form {
+    display: block;
+  }
   .search-form {
     display: none;
     height: auto;
@@ -286,9 +267,6 @@
     right: 0;
     padding: 8px 0;
     margin-top: 35px;
-  }
-  #search:target > .container > .search-form {
-    display: block;
   }
   .search-field {
     float: left;

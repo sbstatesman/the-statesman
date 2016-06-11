@@ -72,7 +72,7 @@ Join The Statesman Web & Graphics Section: https://www.facebook.com/groups/state
 		<?php wp_head(); ?>
 	</head>
 	<body <?php body_class( $class ); ?>>
-		<nav id="nav" class="fixednav">
+		<nav class="fixednav">
       <div class="container" id="nav_burger">
         <div class="container transp">
         	<a class="help show" href="#nav_burger" title="Show navigation">&#9776;</a>

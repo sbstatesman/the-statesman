@@ -74,6 +74,8 @@
 .help {
   display: none;
   font-size: 2em;
+  margin: 0 1em;
+  float: left;
 }
 
 @media screen and (max-width: 959px) {
@@ -82,19 +84,16 @@
     margin: 0 auto;
     float: inherit;
   }
-
-  #nav_burger:not(:target) > .container > .show, #nav_burger:target > .container > .hide {
-    display: block;
-    float: left;
-  }
-  #nav_burger:target > .container > .nav-list {
-    display: block;
-  }
-  #nav_burger {
-    width: 100%;
-    float: left;
+  .main {
+    border-right: none;
   }
 
+  #nav_burger:not(:target) > .show, #nav_burger:target > .hide {
+    display: block;
+  }
+  #nav_burger:target > .nav-list {
+    display: block;
+  }
   .nav-list {
     display: none;
     height: auto;
@@ -112,35 +111,14 @@
     text-align: left;
   }
 
-  .main {
-    border-right: none;
-  }
-
-  #search {
-    width: 30%;
-    float: right;
-    margin-top: -36px;
-    background-color: #005a9c;
-  }
-  #search:not(:target) > .container > .show, #search:target > .container > .hide {
+  #search:not(:target) > .show, #search:target > .hide {
     display: block;
-    margin-top: -5px;
     float: right;
   }
-  #search:target > .container > .search-form {
+  #search:target > .search-form {
     display: block;
   }
   .search-form {
     display: none;
-    height: auto;
-    width: 100%;
-    left: 0;
-    right: 0;
-    padding: 8px 0;
-    margin-top: 35px;
-  }
-  .search-field {
-    float: left;
-    width: 70%;
   }
 }

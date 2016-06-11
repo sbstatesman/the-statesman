@@ -220,7 +220,7 @@
 				<a href="http://facebook.com/sbstatesman"><i class="fa fa-facebook fa-4x"></i></a>
 				<a href="http://twitter.com/sbstatesman"><i class="fa fa-twitter fa-4x"></i></a>
 				<a href="http://instagram.com/sbstatesman"><i class="fa fa-instagram fa-4x"></i></a>
-				<a href="http://vimeo.com/sbstatesman"><i class="fa fa-vimeo fa-4x"></i></a>
+				<a href="https://www.youtube.com/channel/UC7a6mu0c7V-QB7ITbDTd1GQ"><i class="fa fa-youtube fa-4x"></i></a>
 			</div>
 		</div>
 	</section>

@@ -48,14 +48,7 @@
  */
 /* Prettifiers */
 .fixednav {
-  color: #ffffff;
-  width: 100%;
-  padding: 10px 0;
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 25px;
-  z-index: 5;
+  color: #fff;
   background-color: #005A9C;
   font-family: 'Droid Sans',sans-serif;
   font-weight: 400;
@@ -66,9 +59,11 @@
   margin: 0;
   padding: 0;
   float: left;
-  background-color: #005A9C;
-  height: 100%;
-  color: #ffffff;
+  background-color: #005a9c;
+}
+.nav-item {
+  display: inline-block;
+  margin: 4px 0 0 26px;
 }
 .nav-link {
   display: block;
@@ -76,18 +71,14 @@
   text-decoration: none;
   position: relative;
 }
-.nav-item {
-  float: left;
-  display: inline-block;
-  margin: 4px 0 0 26px;
-}
+
 .help {
   height: 100%;
   text-decoration: none;
   display: none;
 }
 
-@media screen and (max-width: 959px) and (min-width: 640px){
+@media screen and (max-width: 959px) {
   .logo{
     display: block;
     margin-left: auto;
@@ -168,89 +159,4 @@
     float: left;
     width: 70%;
   }
-
-}
-
-@media only screen and (max-width: 639px) {
-  .logo{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    float: inherit;
-  }
-  .help {
-    font-family: 'Droid Sans',sans-serif;
-    font-weight: 400;
-    font-size: 2rem;
-    color: #ffffff;
-    float: right;
-    background-color: #005A9C;
-    position: relative;
-    /*text-align: left;
-    text-indent: -9999px;*/
-    /*width: 100%;*/
-  }
-  #nav_burger:not(:target) > .container > .show, #nav_burger:target > .container > .hide {
-    display: block;
-    margin-top: -10px;
-    float: left;
-  }
-  #nav_burger:target > .container > .nav-list {
-    display: block;
-  }
-  #nav_burger {
-    width: 100%;
-    float: left;
-  }
-  .nav-list {
-    display: none;
-    height: auto;
-    width: 100%;
-    left: 0;
-    right: 0;
-    padding: 8px 0;
-  }
-  .nav-item {
-    float: none;
-    width: 100%;
-    margin: 8px 0 0 0;
-  }
-  .nav-link {
-    height: auto;
-    padding: 0 0.833em;
-    text-align: left;
-  }
-  .main {
-    border-right: none;
-  }
-
-  #search {
-    width: 30%;
-    float: right;
-    margin-top: -36px;
-    background-color: #005a9c;
-  }
-
-  #search:not(:target) > .container > .show, #search:target > .container > .hide {
-    display: block;
-    margin-top: -5px;
-    float: right;
-  }
-  #search:target > .container > .search-form {
-    display: block;
-  }
-  .search-form {
-    display: none;
-    height: auto;
-    width: 100%;
-    left: 0;
-    right: 0;
-    padding: 8px 0;
-    margin-top: 35px;
-  }
-  .search-field {
-    float: left;
-    width: 70%;
-  }
-
 }

@@ -34,7 +34,7 @@
 					<h1 id="post-<?php the_ID(); ?>">
 						<a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
 					</h1>
-					<p class="metatext metatext-byline small-text">By <?php the_author_posts_link(); ?> / <a href="<?php the_archive_date(); ?>"><?php the_time('F j, Y'); ?></a></p>
+					<p class="metatext metatext-byline small-text">By <?php if ( function_exists( 'coauthors_posts_links' ) ) { coauthors_posts_links(); } else { the_author_posts_link(); } ?> / <a href="<?php the_archive_date(); ?>"><?php the_time('F j, Y'); ?></a></p>
 					<p class="excerpt"><?php get_excerpt(); ?></p>
 				</div>
 			</article>
@@ -48,7 +48,7 @@
 				<h3 id="post-<?php the_ID(); ?>">
 					<a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
 				</h3>
-				<p class="metatext metatext-byline small-text">By <?php the_author_posts_link(); ?> / <a href="<?php the_archive_date(); ?>"><?php the_time('F j, Y'); ?></a></p>
+				<p class="metatext metatext-byline small-text">By <?php if ( function_exists( 'coauthors_posts_links' ) ) { coauthors_posts_links(); } else { the_author_posts_link(); } ?> / <a href="<?php the_archive_date(); ?>"><?php the_time('F j, Y'); ?></a></p>
 				<p class="excerpt"><?php get_excerpt(); ?></p>
 			</article>
 			<?php endif; ?>
@@ -60,7 +60,7 @@
 				<h3 id="post-<?php the_ID(); ?>">
 					<a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
 				</h3>
-				<p class="metatext metatext-byline small-text">By <?php the_author_posts_link(); ?> / <a href="<?php the_archive_date(); ?>"><?php the_time('F j, Y'); ?></a></p>
+				<p class="metatext metatext-byline small-text">By <?php if ( function_exists( 'coauthors_posts_links' ) ) { coauthors_posts_links(); } else { the_author_posts_link(); } ?> / <a href="<?php the_archive_date(); ?>"><?php the_time('F j, Y'); ?></a></p>
 				<p class="excerpt"><?php get_excerpt(); ?></p>
 			</article>
 		<?php endif; ?>
@@ -78,7 +78,7 @@
 					<h1 id="post-<?php the_ID(); ?>">
 						<a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
 					</h1>
-					<p class="metatext metatext-byline small-text">By <?php the_author_posts_link(); ?> / <a href="<?php the_archive_date(); ?>"><?php the_time('F j, Y'); ?></a></p>
+					<p class="metatext metatext-byline small-text">By <?php if ( function_exists( 'coauthors_posts_links' ) ) { coauthors_posts_links(); } else { the_author_posts_link(); } ?> / <a href="<?php the_archive_date(); ?>"><?php the_time('F j, Y'); ?></a></p>
 					<p class="excerpt"><?php get_excerpt(); ?></p>
 				</div>
 			</div>
@@ -104,7 +104,7 @@
 					<h2 id="post-<?php the_ID(); ?>">
 						<a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
 					</h2>
-					<p class="metatext metatext-byline small-text">By <?php the_author_posts_link(); ?> / <a href="<?php the_archive_date(); ?>"><?php the_time('F j, Y'); ?></a></p>
+					<p class="metatext metatext-byline small-text">By <?php if ( function_exists( 'coauthors_posts_links' ) ) { coauthors_posts_links(); } else { the_author_posts_link(); } ?> / <a href="<?php the_archive_date(); ?>"><?php the_time('F j, Y'); ?></a></p>
 					<p class="excerpt"><?php get_excerpt(); ?></p>
 				</div>
 			</article>
@@ -220,7 +220,7 @@
 				<a href="http://facebook.com/sbstatesman"><i class="fa fa-facebook fa-4x"></i></a>
 				<a href="http://twitter.com/sbstatesman"><i class="fa fa-twitter fa-4x"></i></a>
 				<a href="http://instagram.com/sbstatesman"><i class="fa fa-instagram fa-4x"></i></a>
-				<a href="http://vimeo.com/sbstatesman"><i class="fa fa-vimeo fa-4x"></i></a>
+				<a href="https://www.youtube.com/channel/UC7a6mu0c7V-QB7ITbDTd1GQ"><i class="fa fa-youtube fa-4x"></i></a>
 			</div>
 		</div>
 	</section>

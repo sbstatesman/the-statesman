@@ -10,7 +10,7 @@
 	<sidebar class="sidebar">
 		<h1><?php the_title(); ?></h1>
 		<p class="metatext metatext-byline">
-			By <?php the_author_posts_link(); ?> / <a href="<?php the_archive_date(); ?>"><?php the_time('F j, Y'); ?></a>
+			By <?php if ( function_exists( 'coauthors_posts_links' ) ) { coauthors_posts_links(); } else { the_author_posts_link(); } ?> / <a href="<?php the_archive_date(); ?>"><?php the_time('F j, Y'); ?></a>
 		</p>
 		<p class="excerpt"><?php get_excerpt(500); ?></p>
 	</sidebar>

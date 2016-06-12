@@ -73,10 +73,11 @@ Join The Statesman Web & Graphics Section: https://www.facebook.com/groups/state
   </head>
   <body <?php body_class( $class ); ?>>
     <nav class="fixednav">
-      <div class="container" id="nav_burger">
-        <a class="help show" href="#nav_burger" title="Show navigation"><i class="fa fa-bars" aria-hidden="true"></i></a>
-        <a class="help hide" href="#" title="Hide navigation"><i class="fa fa-bars" aria-hidden="true"></i></a>
+      <div class="container">
+        <div class="nav-button" id="show-nav"><i class="fa fa-bars" aria-hidden="true"></i></div>
         <a href="<?php echo site_url(); ?>"><img class="logo" width="162" height="20" alt="The Statesman" src="<?php bloginfo( 'template_url' ); ?>/images/nav-logo.png"></a>
+        <div class="search-button" id="show-search"><i class="fa fa-search" aria-hidden="true"></i></div>
+        
         <ul class="nav-list">
           <li class="nav-item"><a class="nav-link" href="<?php echo get_category_link( $news ); ?>">News</a></li>
           <li class="nav-item"><a class="nav-link" href="<?php echo get_category_link( $arts_and_entertainment ); ?>">Arts & Entertainment</a></li>
@@ -87,9 +88,7 @@ Join The Statesman Web & Graphics Section: https://www.facebook.com/groups/state
         </ul>
       </div>
 
-      <div class="container" id="search">
-        <a class="help show" href="#search" title="Show search"><i class="fa fa-bars" aria-hidden="true"></i></a>
-        <a class="help hide" href="#" title="Hide search"><i class="fa fa-bars" aria-hidden="true"></i></a>
+      <div class="container search">
         <?php get_search_form(); ?>
       </div>
     </nav>

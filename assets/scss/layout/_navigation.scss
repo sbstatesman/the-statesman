@@ -5,20 +5,19 @@
   top: 0;
   left: 0;
   z-index: 5;
+  text-align: center;
+  color: #fff;
+  background-color: #005A9C;
+  font-family: 'Droid Sans',sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
 }
 
 /* page header */
 
 .logo {
+  display: inline-block;
   float: left;
-}
-.search-field {
-  width: 117px;
-  height: 20px;
-  margin: 0 10px;
-  float: right;
-  border: none;
-  outline: none;
 }
 .currentissue {
   width: 200px;
@@ -43,23 +42,11 @@
   background-color: #fff;
 }
 
-/* Did not have chance to conform to new CSS style guidelines.
- * Also, the new navbar is buggy right now, have not integrated properly.
- */
-/* Prettifiers */
-.fixednav {
-  color: #fff;
-  background-color: #005A9C;
-  font-family: 'Droid Sans',sans-serif;
-  font-weight: 400;
-  text-transform: uppercase;
-}
 .nav-list {
   list-style: none;
   margin: 0;
   padding: 0;
   float: left;
-  background-color: #005a9c;
 }
 .nav-item {
   display: inline-block;
@@ -70,30 +57,40 @@
   text-align: center;
   position: relative;
 }
-
-.help {
+.search {
   display: none;
-  font-size: 2em;
-  margin: 0 1em;
+}
+.search-field {
+  width: 117px;
+  height: 20px;
+  margin: 0 10px;
+  border: none;
+  outline: none;
+}
+
+.nav-button {
+  display: none;
+  font-size: 1.5em;
   float: left;
+}
+.search-button {
+  font-size: 1.5em;
+  float: right;
 }
 
 @media screen and (max-width: 959px) {
-  .logo{
-    display: block;
-    margin: 0 auto;
-    float: inherit;
+  .logo {
+    float: none;
+    text-align: text-align;
   }
   .main {
     border-right: none;
   }
 
-  #nav_burger:not(:target) > .show, #nav_burger:target > .hide {
+  .nav-button {
     display: block;
   }
-  #nav_burger:target > .nav-list {
-    display: block;
-  }
+
   .nav-list {
     display: none;
     height: auto;
@@ -109,16 +106,5 @@
   .nav-link {
     padding: 0 0.833em;
     text-align: left;
-  }
-
-  #search:not(:target) > .show, #search:target > .hide {
-    display: block;
-    float: right;
-  }
-  #search:target > .search-form {
-    display: block;
-  }
-  .search-form {
-    display: none;
   }
 }

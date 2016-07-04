@@ -1,6 +1,5 @@
 body {
   padding: 45px 0 1% 0; /* push for fixednav */
-  width: 99%;
   -webkit-font-smoothing: subpixel-antialiased; /* fix webkit font rendering */
   font-family: Georgia, serif;
   font-size: 0.875rem;
@@ -21,13 +20,4 @@ a:link, a:visited {
 a:hover, a:active {
   text-decoration: underline;
   color: inherit;
-}
-
-@media only screen and (max-width: 639px) {
-  ul {
-    -webkit-margin-end: 3%;
-  }
-  textarea {
-    width: 97%;
-  }
 }

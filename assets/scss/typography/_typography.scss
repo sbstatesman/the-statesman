@@ -119,15 +119,3 @@ h6 {
 .uppercase {
   text-transform: uppercase;
 }
-
-@media screen and (max-width: 959px) and (min-width: 640px) {
-  .metatext {
-    margin-right: 3px;    /* for footer */
-  }
-}
-
-@media only screen and (max-width: 639px) {
-  .metatext {   
-    margin-right: 5%;    /* for footer */
-  }
-}

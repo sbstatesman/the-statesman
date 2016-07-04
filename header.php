@@ -74,22 +74,26 @@ Join The Statesman Web & Graphics Section: https://www.facebook.com/groups/state
   <body <?php body_class( $class ); ?>>
     <nav class="fixednav">
       <div class="container">
-        <div class="nav-button" id="show-nav"><i class="fa fa-bars" aria-hidden="true"></i></div>
-        <a href="<?php echo site_url(); ?>"><img class="logo" width="162" height="20" alt="The Statesman" src="<?php bloginfo( 'template_url' ); ?>/images/nav-logo.png"></a>
-        <div class="search-button" id="show-search"><i class="fa fa-search" aria-hidden="true"></i></div>
+				<div class="full-width">
+	        <div class="nav-button" id="show-nav"><i class="fa fa-bars" aria-hidden="true"></i></div>
+	        <a href="<?php echo site_url(); ?>"><img class="logo" width="162" height="20" alt="The Statesman" src="<?php bloginfo( 'template_url' ); ?>/images/nav-logo.png"></a>
+	        <div class="search-button" id="show-search"><i class="fa fa-search" aria-hidden="true"></i></div>
 
-        <ul class="nav-list">
-          <li><a href="<?php echo get_category_link( $news ); ?>">News</a></li>
-          <li><a href="<?php echo get_category_link( $arts_and_entertainment ); ?>">Arts & Entertainment</a></li>
-          <li><a href="<?php echo get_category_link( $opinions ); ?>">Opinions</a></li>
-          <li><a href="<?php echo get_category_link( $sports ); ?>">Sports</a></li>
-          <li><a href="<?php echo get_category_link( $multimedia ); ?>">Multimedia</a></li>
-          <li><a href="<?php echo get_permalink( get_page_by_title( 'About' ) ); ?>">About</a></li>
-        </ul>
-      </div>
+	        <ul class="nav-list">
+	          <li><a href="<?php echo get_category_link( $news ); ?>">News</a></li>
+	          <li><a href="<?php echo get_category_link( $arts_and_entertainment ); ?>">Arts & Entertainment</a></li>
+	          <li><a href="<?php echo get_category_link( $opinions ); ?>">Opinions</a></li>
+	          <li><a href="<?php echo get_category_link( $sports ); ?>">Sports</a></li>
+	          <li><a href="<?php echo get_category_link( $multimedia ); ?>">Multimedia</a></li>
+	          <li><a href="<?php echo get_permalink( get_page_by_title( 'About' ) ); ?>">About</a></li>
+	        </ul>
+				</div>
+    	</div>
 
       <div class="container search">
-        <?php get_search_form(); ?>
+				<div class="full-width">
+        	<?php get_search_form(); ?>
+			</div>
       </div>
     </nav>
 

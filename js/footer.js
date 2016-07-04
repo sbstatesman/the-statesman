@@ -17,6 +17,9 @@ jQuery(document).ready(function() {
     if (jQuery('#show-nav').css('display') !== 'none' ){
       jQuery('.nav-list').hide();
     }
+    if (jQuery('.search').css('display') !== 'none'){
+      jQuery('.search input').focus();
+    }
   });
 
   /* Slick gallary initialization */

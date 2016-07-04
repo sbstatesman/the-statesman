@@ -7,7 +7,7 @@
   z-index: 5;
   text-align: center;
   color: #fff;
-  background-color: #005A9C;
+  background-color: #005a9c;
   font-family: 'Droid Sans',sans-serif;
   font-weight: 400;
   text-transform: uppercase;
@@ -48,34 +48,49 @@
   padding: 0;
   float: left;
 }
-.nav-item {
+.nav-list > li {
   display: inline-block;
   margin: 4px 0 0 26px;
 }
-.nav-link {
+.nav-list > li > a {
   display: block;
   text-align: center;
-  position: relative;
 }
+
 .search {
   display: none;
+  border-top: 2px solid #006BBA;
+  padding: 10px 0 5px 0;
+  margin-top: 10px;
 }
 .search-field {
-  width: 117px;
-  height: 20px;
-  margin: 0 10px;
+  width: 100%;
+  height: 30px;
   border: none;
   outline: none;
+  background-color: rgba(255, 255, 255, .2);
+  color: #FFF;
+  text-align: center;
+  font-size: 1rem;
+}
+input[type="search"],
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  -webkit-appearance:none;
 }
 
 .nav-button {
   display: none;
   font-size: 1.5em;
   float: left;
+  cursor: pointer;
 }
 .search-button {
   font-size: 1.5em;
   float: right;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 959px) {
@@ -93,18 +108,20 @@
 
   .nav-list {
     display: none;
-    height: auto;
     width: 100%;
-    left: 0;
-    right: 0;
-    padding: 8px 0;
+    border-top: 2px solid #006BBA;
+    padding: 10px 0 5px 0;
+    margin-top: 10px;
   }
-  .nav-item {
+  .nav-list > li {
     display: block;
-    margin: 8px 0 0 0;
+    margin: 0;
   }
-  .nav-link {
-    padding: 0 0.833em;
-    text-align: left;
+  .nav-list > li > a {
+    padding: 10px 0;
+  }
+  .nav-list > li > a:hover {
+    background-color: #006BBA;
+    text-decoration: none;
   }
 }

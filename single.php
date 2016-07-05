@@ -21,13 +21,17 @@
 	</main>
 	<?php get_sidebar(); ?>
 </main>
-<div class="hline hline-medium"></div>
+<div class="full-width">
+	<div class="hline hline-medium"></div>
+</div>
 <section class="row">
-	<section class="main">
+	<section class="full-width">
 		<?php while ( have_posts() ) : the_post(); ?>
 		<?php comments_template(); ?>
 		<?php endwhile; ?>
 	</section>
 </section>
-<div class="hline hline-medium"></div>
+<div class="full-width">
+	<div class="hline hline-medium"></div>
+</div>
 <?php get_footer(); ?>

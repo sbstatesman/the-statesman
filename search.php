@@ -34,5 +34,7 @@
 	</main>
 	<?php get_sidebar(); ?>
 </main>
-<div class="hline hline-medium"></div>
+<div class="full-width">
+	<div class="hline hline-medium"></div>
+</div>
 <?php get_footer(); ?>

@@ -1,12 +1,14 @@
 <?php get_header(); ?>
-<div class="hline hline-medium"></div>
+<div class="full-width">
+	<div class="hline hline-medium"></div>
+</div>
 
 <main class="row">
 	<?php while ( have_posts() ) : the_post(); ?>
 	<main class="main">
 			<?php echo embed_mm_content(get_the_ID()); ?>
 	</main>
-	
+
 	<sidebar class="sidebar">
 		<h1><?php the_title(); ?></h1>
 		<p class="metatext metatext-byline">
@@ -17,7 +19,9 @@
 	<?php endwhile; ?>
 </main>
 
-<div class="hline hline-medium"></div>
+<div class="full-width">
+	<div class="hline hline-medium"></div>
+</div>
 <section class="row">
 	<main class="main vline-medium">
 		<?php $displays = array('video' => 'videos','gallery' => 'galleries','audio' => 'audio');?>
@@ -50,9 +54,9 @@
 		</div>
 		<?php endwhile;?>
 	</main>
-	
+
 	<sidebar class="sidebar">
-		<h6>Play next</h6>
+		<h6><a href="<?php echo esc_url(get_category_link($multimedia)); ?>">Latest Multimedia</a></h6>
 		<?php $args = array( 'posts_per_page' => 6, 'tax_query' => array(array(
 			'taxonomy' => 'post_format',
 			'field' => 'slug',
@@ -78,12 +82,16 @@
 	</sidebar>
 </section>
 
-<div class="hline hline-medium"></div>
+<div class="full-width">
+	<div class="hline hline-medium"></div>
+</div>
 <section class="row">
-	<section class="main">
+	<section class="full-width">
 		<?php comments_template(); ?>
 	</section>
 </section>
-<div class="hline hline-medium"></div>
+<div class="full-width">
+	<div class="hline hline-medium"></div>
+</div>
 
 <?php get_footer(); ?>

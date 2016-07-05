@@ -1,6 +1,5 @@
 <?php get_header(); ?>
-<main class="row">
-<main class="main vline-medium">
+<main class="main row">
 	<header class="row">
 		<span class="sectionhead-text"><?php bloginfo('name'); ?></span>
 	</header>
@@ -33,5 +32,7 @@
 	<?php endif; ?>
 </main>
 <?php get_sidebar(); ?>
-<div class="hline hline-medium"></div>
+<div class="full-width">
+	<div class="hline hline-medium"></div>
+</div>
 <?php get_footer(); ?>

@@ -2,10 +2,10 @@
 
 <header class="row">
 	<div class="full-width">
-	<div class="sectionhead">
-		<div class="hline hline-background"></div>
-		<span class="sectionhead-text sectionhead-text-centered"><?php single_cat_title(); ?></span>
-	</div>
+		<div class="sectionhead">
+			<div class="hline hline-background"></div>
+			<span class="sectionhead-text sectionhead-text-centered"><?php single_cat_title(); ?></span>
+		</div>
 	</div>
 </header>
 
@@ -19,7 +19,7 @@
 
 		<main class="main">
 
-			<?php 
+			<?php
 				$args = array(
 					'posts_per_page' => 1,
 					'category__and'  => array( get_category_by_slug( 'top-story' )->term_id, get_query_var( 'cat' ) )

@@ -90,10 +90,12 @@ Join The Statesman Web & Graphics Section: https://www.facebook.com/groups/state
 				</div>
     	</div>
 
-      <div class="container search">
+      <div class="container">
 				<div class="full-width">
-        	<?php get_search_form(); ?>
-			</div>
+					<div class="search-bar">
+	        	<?php get_search_form(); ?>
+					</div>
+				</div>
       </div>
     </nav>
 

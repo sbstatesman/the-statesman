@@ -10,15 +10,15 @@ jQuery(document).ready(function() {
   });
   jQuery('#show-nav').click(function(){
     jQuery('.nav-list').toggle();
-    jQuery('.search').hide();
+    jQuery('.search-bar').hide();
   });
   jQuery('#show-search').click(function(){
-    jQuery('.search').toggle();
+    jQuery('.search-bar').toggle();
     if (jQuery('#show-nav').css('display') !== 'none' ){
       jQuery('.nav-list').hide();
     }
-    if (jQuery('.search').css('display') !== 'none'){
-      jQuery('.search input').focus();
+    if (jQuery('.search-bar').css('display') !== 'none'){
+      jQuery('.search-bar input').focus();
     }
   });
 

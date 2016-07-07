@@ -16,10 +16,21 @@
 .vmedia .thumbnail {
   margin-bottom: 10px;
 }
+
+.thumbnail {
+  margin-bottom: .75em;
+}
+.clip {
+  margin-bottom: 1em;
+}
+
 .thumbnail img {
   width: 100%;
   height: auto;
   display: block;
+}
+.thumbnail-secondary {
+  display: none;
 }
 .thumbnail-lede {
   width: 390px;
@@ -45,31 +56,40 @@
   width: 90px;
   height: calc(90px * 2/3);
 }
+
 .adbox {
   background-color: #eee;
   padding: 1em;
 }
 
-@media screen and (max-width: 959px) and (min-width: 640px) {
+@media screen and (max-width: 959px) {
   .thumbnail img {
     width: 100%;
-  }
-  .sidebar .hmedia {
-    width: 50%;
-    float: left;
   }
   .vmedia .thumbnail {
     float: left;
     margin-right: 15px;
+    margin-bottom: 0;
     overflow: hidden;
+    width: 50%;
+  }
+  .thumbnail-secondary {
+    display: block;
   }
 }
 
 @media only screen and (max-width: 639px) {
-  .main .thumbnail {
+  .hmedia .thumbnail {
     width: 30%;
     height: auto;
     float: left;
+  }
+  .vmedia .thumbnail {
+    float: none;
+    margin-right: 0;
+    margin-bottom: 10px;
+    overflow: auto;
+    width: auto;
   }
   .thumbnail img {
     width: 100%;

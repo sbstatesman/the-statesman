@@ -41,8 +41,14 @@
   color: #005a9c;
 }
 
+@media only screen and (max-width: 959px) {
+  .content-width {
+    margin: 0 auto;
+  }
+}
+
 @media only screen and (max-width: 639px) {
   .content-width {
-    width: 97%;
-  } 
+    width: 100%;
+  }
 }

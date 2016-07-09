@@ -32,7 +32,9 @@
 			<article class="hmedia">
 				<figure class="thumbnail thumbnail-lede">
 					<?php if ( has_post_thumbnail() ) : ?>
-						<?php the_post_thumbnail( 'medium' ); ?>
+						<div class="imagewrapper">
+							<?php the_post_thumbnail( 'medium' ); ?>
+						</div>
 					<?php endif; ?>
 				</figure>
 				<div class="block">
@@ -54,7 +56,9 @@
 			<article class="hmedia hmedia-list">
 			  <figure class="thumbnail thumbnail-small">
 			    <?php if ( has_post_thumbnail() ) : ?>
-						<?php the_post_thumbnail( 'medium' ); ?>
+						<div class="imagewrapper">
+							<?php the_post_thumbnail( 'medium' ); ?>
+						</div>
 					<?php endif; ?>
 			  </figure>
 			  <div class="block">

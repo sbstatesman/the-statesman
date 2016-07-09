@@ -11,7 +11,7 @@ Template Name: headline
 	<div class="currentissue large-text">
 		This Week&apos;s Issue<br />
 		<span class="coloredtext">
-		<?php 
+		<?php
 			$issuu = new Issuu_Latest_Issue();
 			if ($issuu->fetch()) {
 		  		echo $issuu->outputLink();
@@ -37,7 +37,9 @@ Template Name: headline
 			<?php $myposts->the_post(); ?>
 			<article class="hmedia hmedia-list">
 				<figure class="thumbnail thumbnail-large">
-					<?php if ( has_post_thumbnail()) {the_post_thumbnail('medium');} ?>
+					<div class="imagewrapper">
+						<?php if ( has_post_thumbnail()) {the_post_thumbnail('medium');} ?>
+					</div>
 				</figure>
 				<div class="block">
 					<p class="articletype small-text"><?php the_excluded_category(array($featured, $top_story)); ?></p>
@@ -67,7 +69,9 @@ Template Name: headline
 				<h6><a href="<?php echo esc_url(get_category_link($news)); ?>">News</a></h6>
 				<?php $myposts->the_post(); ?>
 				<figure class="thumbnail">
-					<?php if ( has_post_thumbnail()) {the_post_thumbnail('medium');} ?>
+					<div class="imagewrapper">
+						<?php if ( has_post_thumbnail()) {the_post_thumbnail('medium');} ?>
+					</div>
 				</figure>
 				<div class="block">
 					<p id="post-<?php the_ID(); ?>" class="metatext metatext-dark"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></p>
@@ -87,7 +91,9 @@ Template Name: headline
 				<h6><a href="<?php echo esc_url(get_category_link($arts_and_entertainment)); ?>">Arts</a></h6>
 				<?php $myposts->the_post(); ?>
 				<figure class="thumbnail">
-					<?php if ( has_post_thumbnail()) {the_post_thumbnail('medium');} ?>
+					<div class="imagewrapper">
+						<?php if ( has_post_thumbnail()) {the_post_thumbnail('medium');} ?>
+					</div>
 				</figure>
 				<div class="block">
 					<p id="post-<?php the_ID(); ?>" class="metatext metatext-dark"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></p>
@@ -107,7 +113,9 @@ Template Name: headline
 				<h6><a href="<?php echo esc_url(get_category_link($opinions)); ?>">Opinions</a></h6>
 				<?php $myposts->the_post(); ?>
 				<figure class="thumbnail">
-					<?php if ( has_post_thumbnail()) {the_post_thumbnail('medium');} ?>
+					<div class="imagewrapper">
+						<?php if ( has_post_thumbnail()) {the_post_thumbnail('medium');} ?>
+					</div>
 				</figure>
 				<div class="block">
 					<p id="post-<?php the_ID(); ?>" class="metatext metatext-dark"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></p>
@@ -127,7 +135,9 @@ Template Name: headline
 				<h6><a href="<?php echo esc_url(get_category_link($sports)); ?>">Sports</a></h6>
 				<?php $myposts->the_post(); ?>
 				<figure class="thumbnail">
-					<?php if ( has_post_thumbnail()) {the_post_thumbnail('medium');} ?>
+					<div class="imagewrapper">
+						<?php if ( has_post_thumbnail()) {the_post_thumbnail('medium');} ?>
+					</div>
 				</figure>
 				<div class="block">
 					<p id="post-<?php the_ID(); ?>" class="metatext metatext-dark"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></p>

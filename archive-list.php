@@ -7,7 +7,9 @@
 <?php while (have_posts()) : the_post(); ?>
 <article class="hmedia hmedia-list">
   <figure class="thumbnail thumbnail-small">
-    <?php if ( has_post_thumbnail()) {the_post_thumbnail('medium');} ?>
+    <div class="imagewrapper">
+      <?php if ( has_post_thumbnail()) {the_post_thumbnail('medium');} ?>
+    </div>
   </figure>
   <div class="block">
     <h3 id="post-<?php the_ID(); ?>">

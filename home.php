@@ -27,7 +27,9 @@
 			<?php setup_postdata( $post ); ?>
 			<article class="vmedia">
 				<figure class="thumbnail">
-					<?php if ( has_post_thumbnail()) {the_post_thumbnail('medium');} ?>
+					<div class="imagewrapper">
+						<?php if ( has_post_thumbnail()) {the_post_thumbnail('medium');} ?>
+					</div>
 				</figure>
 				<div class="block">
 					<p class="articletype small-text"><?php the_excluded_category(array($featured, $top_story)); ?></p>
@@ -46,7 +48,9 @@
 			<?php setup_postdata( $post ); ?>
 			<article class="hmedia">
 				<figure class="thumbnail thumbnail-large thumbnail-secondary">
-					<?php if ( has_post_thumbnail()) {the_post_thumbnail('medium');} ?>
+					<div class="imagewrapper">
+						<?php if ( has_post_thumbnail()) {the_post_thumbnail('medium');} ?>
+					</div>
 				</figure>
 				<div class="block">
 					<p class="articletype small-text"><?php the_excluded_category(array($featured, $top_story)); ?></p>
@@ -64,7 +68,9 @@
 			<?php setup_postdata( $post ); ?>
 			<article class="hmedia">
 				<figure class="thumbnail thumbnail-large thumbnail-secondary">
-					<?php if ( has_post_thumbnail()) {the_post_thumbnail('medium');} ?>
+					<div class="imagewrapper">
+						<?php if ( has_post_thumbnail()) {the_post_thumbnail('medium');} ?>
+					<div>
 				</figure>
 				<div class="block">
 					<p class="articletype small-text"><?php the_excluded_category(array($featured, $top_story)); ?></p>
@@ -82,7 +88,9 @@
 			<?php setup_postdata( $post ); ?>
 			<article class="hmedia">
 				<figure class="thumbnail thumbnail-large thumbnail-secondary">
-					<?php if ( has_post_thumbnail()) {the_post_thumbnail('medium');} ?>
+					<div class="imagewrapper">
+						<?php if ( has_post_thumbnail()) {the_post_thumbnail('medium');} ?>
+					</div>
 				</figure>
 				<div class="block">
 					<p class="articletype small-text"><?php the_excluded_category(array($featured, $top_story)); ?></p>
@@ -108,7 +116,9 @@
 			<?php $myposts->the_post(); ?>
 			<article class="hmedia hmedia-list">
 				<figure class="thumbnail thumbnail-large">
-					<?php if ( has_post_thumbnail()) {the_post_thumbnail('medium');} ?>
+					<div class="imagewrapper">
+						<?php if ( has_post_thumbnail()) {the_post_thumbnail('medium');} ?>
+					</div>
 				</figure>
 				<div class="block">
 					<p class="articletype small-text"><?php the_excluded_category(array($featured, $top_story)); ?></p>
@@ -139,7 +149,9 @@
 			<h6><a href="<?php echo esc_url(get_category_link($news)); ?>">News</a></h6>
 			<?php $myposts->the_post(); ?>
 			<figure class="thumbnail">
-				<?php if ( has_post_thumbnail()) {the_post_thumbnail('medium');} ?>
+				<div class="imagewrapper">
+					<?php if ( has_post_thumbnail()) {the_post_thumbnail('medium');} ?>
+				</div>
 			</figure>
 			<p id="post-<?php the_ID(); ?>" class="metatext metatext-dark"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></p>
 			<?php while ( $myposts->have_posts() ) : ?>
@@ -155,7 +167,9 @@
 			<h6><a href="<?php echo esc_url(get_category_link($arts_and_entertainment)); ?>">Arts</a></h6>
 			<?php $myposts->the_post(); ?>
 			<figure class="thumbnail">
-				<?php if ( has_post_thumbnail()) {the_post_thumbnail('medium');} ?>
+				<div class="imagewrapper">
+					<?php if ( has_post_thumbnail()) {the_post_thumbnail('medium');} ?>
+				</div>
 			</figure>
 			<p id="post-<?php the_ID(); ?>" class="metatext metatext-dark"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></p>
 			<?php while ( $myposts->have_posts() ) : ?>
@@ -171,7 +185,9 @@
 			<h6><a href="<?php echo esc_url(get_category_link($opinions)); ?>">Opinions</a></h6>
 			<?php $myposts->the_post(); ?>
 			<figure class="thumbnail">
-				<?php if ( has_post_thumbnail()) {the_post_thumbnail('medium');} ?>
+				<div class="imagewrapper">
+					<?php if ( has_post_thumbnail()) {the_post_thumbnail('medium');} ?>
+				</div>
 			</figure>
 			<p id="post-<?php the_ID(); ?>" class="metatext metatext-dark"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></p>
 			<?php while ( $myposts->have_posts() ) : ?>
@@ -187,7 +203,9 @@
 			<h6><a href="<?php echo esc_url(get_category_link($sports)); ?>">Sports</a></h6>
 			<?php $myposts->the_post(); ?>
 			<figure class="thumbnail">
-				<?php if ( has_post_thumbnail()) {the_post_thumbnail('medium');} ?>
+				<div class="imagewrapper">
+					<?php if ( has_post_thumbnail()) {the_post_thumbnail('medium');} ?>
+				</div>
 			</figure>
 			<p id="post-<?php the_ID(); ?>" class="metatext metatext-dark"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></p>
 			<?php while ( $myposts->have_posts() ) : ?>

@@ -39,7 +39,9 @@
 			<div class="clip" data-mh="thumbnails">
 				<a href="<?php the_permalink(); ?>">
 					<figure class="thumbnail hovertext-container">
-							<?php if ( has_post_thumbnail()) {the_post_thumbnail('medium');} ?>
+							<div class="imagewrapper">
+								<?php if ( has_post_thumbnail()) {the_post_thumbnail('medium');} ?>
+							</div>
 							<div class="hovertext hovertext-small">
 								<i class="fa fa-play"></i>
 							</div>
@@ -68,7 +70,9 @@
 		<?php $format  = get_post_format(get_the_ID())?>
 		<article class="hmedia hmedia-list">
 			<figure class="thumbnail thumbnail-xsmall">
-				<?php if ( has_post_thumbnail()) {the_post_thumbnail('thumbnail');} ?>
+				<div class="imagewrapper">
+					<?php if ( has_post_thumbnail()) {the_post_thumbnail('thumbnail');} ?>
+				</div>
 			</figure>
 			<div class="block">
 				<div class="articletype small-text"><?php echo $format ?></div>

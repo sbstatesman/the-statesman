@@ -92,7 +92,7 @@ function embed_mm_content($id) {
 	$matches = [];                           //Array to contain matches of regex
 	$numMatches = 0;                         //Number of strings matched by regex
 	$embed;                                   //Generic embedding function
-	
+
 	/* Video links are URLs, use the Wordpress function: "wp_oembed_get" */
 	if($format == 'video') {
 		$pattern = '/http(s*):\/\/.*(\s?)/';
@@ -136,7 +136,7 @@ function use_post_format_templates( $template ) {
     }
   }
   return $template;
-}   
+}
 add_filter( 'template_include', 'use_post_format_templates' );
 
 /* Adds Facebook XML namespaces to header */
@@ -279,10 +279,10 @@ function the_excluded_category($excludedcats = array()){
 }
 
 /* takes post meta and returns a link to the day it was posted */
-function the_archive_date(){ 
-	$archive_year  = get_the_time('Y'); 
-	$archive_month = get_the_time('m'); 
-	$archive_day   = get_the_time('d'); 
+function the_archive_date(){
+	$archive_year  = get_the_time('Y');
+	$archive_month = get_the_time('m');
+	$archive_day   = get_the_time('d');
 	echo get_day_link( $archive_year, $archive_month, $archive_day);
 }
 
@@ -360,7 +360,7 @@ add_filter( 'found_posts', function ( $found_posts, $q ) {
 /* WIDGETS */
 
 class statesman_latest_post extends WP_Widget {
-   
+
   function __construct() {
     parent::__construct(
       // Base ID of your widget
@@ -371,7 +371,7 @@ class statesman_latest_post extends WP_Widget {
       array( 'description' => __('Displays one post from a given category.'), )
     );
   }
-   
+
   // Creating widget front-end
   // This is where the action happens
   public function widget( $args, $instance ) {
@@ -397,11 +397,11 @@ class statesman_latest_post extends WP_Widget {
     if ( $myposts->have_posts() ) {
       $myposts->the_post();
       echo '<article class="vmedia">';
-      echo '<figure class="thumbnail">';
+      echo '<figure class="thumbnail"><div class="imagewrapper">';
       if ( has_post_thumbnail()) {
         the_post_thumbnail('medium');
       }
-      echo '</figure>';
+      echo '</div></figure>';
       echo '<div class="block">';
       echo '<h2 id="post-';
         the_ID();
@@ -428,7 +428,7 @@ class statesman_latest_post extends WP_Widget {
 
     echo $args['after_widget'];
   }
-           
+
   // Widget Backend
   public function form( $instance ) {
     if ( isset( $instance[ 'title' ] ) ) {
@@ -464,7 +464,7 @@ class statesman_latest_post extends WP_Widget {
       </p>
     <?php
   }
-       
+
   // Updating widget replacing old instances with new
   public function update( $new_instance, $old_instance ) {
     $instance = array();
@@ -476,7 +476,7 @@ class statesman_latest_post extends WP_Widget {
 } // Class wpb_widget ends here
 
 class statesman_latest_stories extends WP_Widget {
-   
+
   function __construct() {
     parent::__construct(
       // Base ID of your widget
@@ -487,7 +487,7 @@ class statesman_latest_stories extends WP_Widget {
       array( 'description' => __('Lists the most recent posts.'), )
     );
   }
-   
+
   // Creating widget front-end
   // This is where the action happens
   public function widget( $args, $instance ) {
@@ -503,9 +503,9 @@ class statesman_latest_stories extends WP_Widget {
       while ( $myposts->have_posts() ) {
         $myposts->the_post();
         echo '<article class="hmedia hmedia-list">';
-        echo '<figure class="thumbnail thumbnail-xsmall">';
+        echo '<figure class="thumbnail thumbnail-xsmall"><div class="imagewrapper">';
         if ( has_post_thumbnail()) {the_post_thumbnail('thumbnail');}
-        echo '</figure>';
+        echo '</div></figure>';
         echo '<div class="block">';
         echo '<h5 id="post-';
           the_ID();
@@ -522,7 +522,7 @@ class statesman_latest_stories extends WP_Widget {
 
     echo $args['after_widget'];
   }
-           
+
   // Widget Backend
   public function form( $instance ) {
     if ( isset( $instance[ 'title' ] ) ) {
@@ -549,7 +549,7 @@ class statesman_latest_stories extends WP_Widget {
       </p>
     <?php
   }
-       
+
   // Updating widget replacing old instances with new
   public function update( $new_instance, $old_instance ) {
     $instance = array();

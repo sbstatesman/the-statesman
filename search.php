@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 <main class="row">
-	<main class="main vline-medium">
+	<main class="main">
 		<header class="row">
 			<span class="sectionhead-text">Search: <?php the_search_query(); ?></span>
 		</header>
@@ -32,6 +32,8 @@
 			<span class="metatext metatext-colored left"><?php previous_posts_link( '< NEWER' ); ?></span>
 			<span class="metatext metatext-colored right"><?php next_posts_link( 'OLDER >' ); ?></span>
 		</nav>
+		<?php else: ?>
+		<h4>No results</h4>
 		<?php endif; ?>
 	</main>
 	<?php get_sidebar(); ?>

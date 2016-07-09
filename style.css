@@ -818,7 +818,6 @@ h6 {
 .thermometeroutercontainer {
   text-align: center;
   margin: 0 auto;
-  height: 85vh;
 }
 
 .thermometercontainer {
@@ -827,7 +826,6 @@ h6 {
   margin-right: auto;
   margin-bottom: 1em;
   width: 30%;
-  height: 73vh;
 }
 
 .thermometer-outer {
@@ -842,7 +840,7 @@ h6 {
 
 .thermometer-outer-v {
   /*vertical outer box*/
-  height: 75vh;
+  height: 50vh;
   width: 40px;
   margin-left: auto;
   margin-right: auto;

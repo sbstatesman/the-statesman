@@ -9,7 +9,6 @@
 .thermometeroutercontainer {
   text-align: center;
   margin: 0 auto;
-  height: 85vh;
 }
 .thermometercontainer {
   position:relative;
@@ -17,7 +16,6 @@
   margin-right: auto;
   margin-bottom: 1em;
   width: 30%;
-  height: 73vh;
 }
 .thermometer-outer {
   border-radius: 23px;
@@ -28,7 +26,7 @@
   width: 100%;
 }
 .thermometer-outer-v { /*vertical outer box*/
-  height: 75vh;
+  height: 50vh;
   width: 40px;
   margin-left: auto;
   margin-right: auto;

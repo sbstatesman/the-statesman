@@ -36,9 +36,9 @@
 		<?php while( $myposts->have_posts() ): ?>
 		<?php $myposts->the_post();?>
 		<div class="threecolumn">
-			<div class="clip" data-mh="thumbnails">
+			<div class="clip">
 				<a href="<?php the_permalink(); ?>">
-					<figure class="thumbnail hovertext-container">
+					<figure class="thumbnail hovertext-container clip">
 							<div class="imagewrapper">
 								<?php if ( has_post_thumbnail()) {the_post_thumbnail('medium');} ?>
 							</div>

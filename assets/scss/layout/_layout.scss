@@ -57,6 +57,11 @@
 .fourcolumn {
   width: 25%;
 }
+.twocolumn:nth-of-type(3),
+.threecolumn:nth-of-type(4),
+.fourcolumn:nth-of-type(5) {
+  clear: both;
+}
 
 .full-width {
   box-sizing: border-box;
@@ -114,7 +119,7 @@
     width: 50%;
     margin-bottom: 1em;
   }
-  .fourcolumn:nth-child(3) {
+  .fourcolumn:nth-of-type(3) {
     clear: both;
   }
 

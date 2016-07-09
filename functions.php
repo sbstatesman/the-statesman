@@ -36,7 +36,7 @@ if ( ! isset( $content_width ) ) {
 $featured = get_category_by_slug('featured')->term_id;
 $top_story = get_category_by_slug('top-story')->term_id;
 $news = get_category_by_slug('news')->term_id;
-$arts_and_entertainment = get_category_by_slug('arts-and-entertainment')->term_id;
+$arts = get_category_by_slug('arts')->term_id;
 $opinions = get_category_by_slug('opinions')->term_id;
 $sports = get_category_by_slug('sports')->term_id;
 $multimedia = get_category_by_slug('multimedia')->term_id;

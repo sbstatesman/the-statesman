@@ -7,28 +7,31 @@ Template Name: headline
 <?php get_header(); ?>
 
 <header class="row">
-	<img src="<?php bloginfo( 'template_url' ); ?>/images/logo.png" class="logo" alt="The Statesman" width="700" />
-	<div class="currentissue large-text">
-		This Week&apos;s Issue<br />
-		<span class="coloredtext">
-		<?php
-			$issuu = new Issuu_Latest_Issue();
-			if ($issuu->fetch()) {
-		  		echo $issuu->outputLink();
-			}
-		?>
-		</span>
+	<div class="full-width">
+		<img src="<?php bloginfo( 'template_url' ); ?>/images/logo.png" class="home-logo" alt="The Statesman" width="700" />
+		<div class="tagline">
+			<?php bloginfo('description'); ?>
+		</div>
 	</div>
 </header>
+
 <main>
-	<div class="hline hline-strong"></div>
+	<div class="full-width">
+		<div class="hline hline-strong"></div>
+	</div>
+
 	<section class="row">
 		<?php while ( have_posts() ) : the_post(); ?>
 	    <?php the_content(); ?>
 	  <?php endwhile; ?>
 	</section>
-	<div class="hline hline-strong"></div>
+
+	<div class="full-width">
+		<div class="hline hline-strong"></div>
+	</div>
+
 	<section class="row">
+
 		<?php $args = array( 'posts_per_page' => 8, 'category__not_in' => array($opinions, $multimedia, $featured) ); ?>
 		<?php $myposts = new WP_Query( $args ); ?>
 		<main class="main">
@@ -54,104 +57,55 @@ Template Name: headline
 			<?php endwhile; ?>
 			<?php endif; ?>
 		</main>
+
 		<sidebar class="sidebar">
 			<?php if ( is_active_sidebar( 'home-sidebar' ) ) : ?>
       	<?php dynamic_sidebar( 'home-sidebar' ); ?>
   		<?php endif; ?>
 		</sidebar>
+
 	</section>
-	<div class="hline hline-medium"></div>
+
+	<div class="full-width">
+		<div class="hline hline-medium"></div>
+	</div>
+
+	<?php $sections = array( $news, $arts, $opinions, $sports ); ?>
 	<section class="row">
-		<?php $args = array( 'posts_per_page' => 3, 'cat' => $news); ?>
-		<?php $myposts = new WP_Query( $args ); ?>
-		<?php if ( $myposts->have_posts() ) : ?>
-		<div class="fourcolumn vspace">
-			<div class="vmedia">
-				<h6><a href="<?php echo esc_url(get_category_link($news)); ?>">News</a></h6>
+		<?php foreach ( $sections as $section): ?>
+			<?php $args = array( 'posts_per_page' => 3, 'cat' => $section); ?>
+			<?php $myposts = new WP_Query( $args ); ?>
+			<?php if ( $myposts->have_posts() ) : ?>
+			<div class="fourcolumn vspace">
+				<h6>
+					<a href="<?php echo esc_url(get_category_link($section)); ?>">
+						<?php echo get_cat_name($section); ?>
+					</a>
+				</h6>
 				<?php $myposts->the_post(); ?>
 				<figure class="thumbnail">
 					<div class="imagewrapper">
 						<?php if ( has_post_thumbnail()) {the_post_thumbnail('medium');} ?>
 					</div>
 				</figure>
-				<div class="block">
-					<p id="post-<?php the_ID(); ?>" class="metatext metatext-dark"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></p>
-					<?php while ( $myposts->have_posts() ) : ?>
-					<?php $myposts->the_post(); ?>
-					<p id="post-<?php the_ID(); ?>" class="metatext metatext-dark"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></p>
-					<?php endwhile; ?>
-				</div>
-			</div>
-		</div>
-		<?php endif; ?>
-		<?php $args = array( 'posts_per_page' => 3, 'cat' => $arts_and_entertainment ); ?>
-		<?php $myposts = new WP_Query( $args ); ?>
-		<?php if ( $myposts->have_posts() ) : ?>
-		<div class="fourcolumn vspace">
-			<div class="vmedia">
-				<h6><a href="<?php echo esc_url(get_category_link($arts_and_entertainment)); ?>">Arts</a></h6>
+				<p id="post-<?php the_ID(); ?>" class="metatext metatext-dark">
+					<a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
+				</p>
+				<?php while ( $myposts->have_posts() ) : ?>
 				<?php $myposts->the_post(); ?>
-				<figure class="thumbnail">
-					<div class="imagewrapper">
-						<?php if ( has_post_thumbnail()) {the_post_thumbnail('medium');} ?>
-					</div>
-				</figure>
-				<div class="block">
-					<p id="post-<?php the_ID(); ?>" class="metatext metatext-dark"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></p>
-					<?php while ( $myposts->have_posts() ) : ?>
-					<?php $myposts->the_post(); ?>
-					<p id="post-<?php the_ID(); ?>" class="metatext metatext-dark"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></p>
-					<?php endwhile; ?>
-				</div>
+				<p id="post-<?php the_ID(); ?>" class="metatext metatext-dark">
+					<a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
+				</p>
+				<?php endwhile; ?>
 			</div>
-		</div>
-		<?php endif; ?>
-		<?php $args = array( 'posts_per_page' => 3, 'cat' => $opinions ); ?>
-		<?php $myposts = new WP_Query( $args ); ?>
-		<?php if ( $myposts->have_posts() ) : ?>
-		<div class="fourcolumn vspace">
-			<div class="vmedia">
-				<h6><a href="<?php echo esc_url(get_category_link($opinions)); ?>">Opinions</a></h6>
-				<?php $myposts->the_post(); ?>
-				<figure class="thumbnail">
-					<div class="imagewrapper">
-						<?php if ( has_post_thumbnail()) {the_post_thumbnail('medium');} ?>
-					</div>
-				</figure>
-				<div class="block">
-					<p id="post-<?php the_ID(); ?>" class="metatext metatext-dark"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></p>
-					<?php while ( $myposts->have_posts() ) : ?>
-					<?php $myposts->the_post(); ?>
-					<p id="post-<?php the_ID(); ?>" class="metatext metatext-dark"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></p>
-					<?php endwhile; ?>
-				</div>
-			</div>
-		</div>
-		<?php endif; ?>
-		<?php $args = array( 'posts_per_page' => 3, 'cat' => $sports ); ?>
-		<?php $myposts = new WP_Query( $args ); ?>
-		<?php if ( $myposts->have_posts() ) : ?>
-		<div class="fourcolumn">
-			<div class="vmedia">
-				<h6><a href="<?php echo esc_url(get_category_link($sports)); ?>">Sports</a></h6>
-				<?php $myposts->the_post(); ?>
-				<figure class="thumbnail">
-					<div class="imagewrapper">
-						<?php if ( has_post_thumbnail()) {the_post_thumbnail('medium');} ?>
-					</div>
-				</figure>
-				<div class="block">
-					<p id="post-<?php the_ID(); ?>" class="metatext metatext-dark"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></p>
-					<?php while ( $myposts->have_posts() ) : ?>
-					<?php $myposts->the_post(); ?>
-					<p id="post-<?php the_ID(); ?>" class="metatext metatext-dark"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></p>
-					<?php endwhile; ?>
-				</div>
-			</div>
-		</div>
-		<?php endif; ?>
+			<?php endif; ?>
+		<?php endforeach; ?>
 	</section>
-	<div class="hline hline-medium"></div>
+
+	<div class="full-width">
+		<div class="hline hline-strong"></div>
+	</div>
+
 	<section class="row">
 		<div class="threecolumn vline-medium center">
 			<h6>Issue Archive</h6>
@@ -171,6 +125,10 @@ Template Name: headline
 			</div>
 		</div>
 	</section>
-	<div class="hline hline-medium"></div>
+
+	<div class="full-width">
+		<div class="hline hline-strong"></div>
+	</div>
 </main>
+
 <?php get_footer(); ?>

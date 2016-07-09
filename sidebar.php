@@ -1,8 +1,8 @@
 <sidebar class="sidebar">
-  <?php 
+  <?php
     if ( is_category( 'news' ) && is_active_sidebar( 'news-sidebar' ) ) {
       dynamic_sidebar( 'news-sidebar' );
-    } elseif ( is_category( 'arts-and-entertainment' ) && is_active_sidebar( 'arts-sidebar' ) ) {
+    } elseif ( is_category( 'arts' ) && is_active_sidebar( 'arts-sidebar' ) ) {
       dynamic_sidebar( 'arts-sidebar' );
     } elseif ( is_category( 'opinions' ) && is_active_sidebar( 'opinions-sidebar' ) ) {
       dynamic_sidebar( 'opinions-sidebar' );

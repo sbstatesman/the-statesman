@@ -8,13 +8,16 @@
 		</div>
 	</div>
 </header>
+
 <main>
 	<div class="full-width">
 		<div class="hline hline-strong"></div>
 	</div>
+
 	<?php $args = array( 'posts_per_page' => 1, 'category__in' => array($breaking, $featured), 'category__not_in' => array($opinions, $multimedia) ); ?>
 	<?php $myposts = new WP_Query( $args ); ?>
 	<section class="row">
+
 		<div class="main">
 			<?php if ( $myposts->have_posts() ) : ?>
 			<?php $myposts->the_post(); ?>
@@ -35,6 +38,7 @@
 			</article>
 			<?php endif; ?>
 		</div>
+
 		<?php $args = array( 'posts_per_page' => 3, 'offset' => 1, 'category__in' => array($breaking, $featured), 'category__not_in' => array($opinions, $multimedia) ); ?>
 		<?php $myposts = new WP_Query( $args ); ?>
 		<div class="sidebar">
@@ -60,10 +64,13 @@
 			<?php endwhile; ?>
 			<?php endif; ?>
 		</div>
+
 	</section>
+
 	<div class="full-width">
 		<div class="hline hline-strong"></div>
 	</div>
+
 	<section class="row">
 		<?php $args = array( 'posts_per_page' => 8, 'category__not_in' => array($opinions, $multimedia, $featured) ); ?>
 		<?php $myposts = new WP_Query( $args ); ?>
@@ -99,83 +106,43 @@
 	<div class="full-width">
 		<div class="hline hline-medium"></div>
 	</div>
+
+	<?php $sections = array( $news, $arts, $opinions, $sports ); ?>
 	<section class="row">
-		<?php $args = array( 'posts_per_page' => 3, 'cat' => $news); ?>
-		<?php $myposts = new WP_Query( $args ); ?>
-		<?php if ( $myposts->have_posts() ) : ?>
-		<div class="fourcolumn vspace">
-			<h6><a href="<?php echo esc_url(get_category_link($news)); ?>">News</a></h6>
-			<?php $myposts->the_post(); ?>
-			<figure class="thumbnail">
-				<div class="imagewrapper">
-					<?php if ( has_post_thumbnail()) {the_post_thumbnail('medium');} ?>
-				</div>
-			</figure>
-			<p id="post-<?php the_ID(); ?>" class="metatext metatext-dark"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></p>
-			<?php while ( $myposts->have_posts() ) : ?>
-			<?php $myposts->the_post(); ?>
-			<p id="post-<?php the_ID(); ?>" class="metatext metatext-dark"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></p>
-			<?php endwhile; ?>
-		</div>
-		<?php endif; ?>
-		<?php $args = array( 'posts_per_page' => 3, 'cat' => $arts_and_entertainment ); ?>
-		<?php $myposts = new WP_Query( $args ); ?>
-		<?php if ( $myposts->have_posts() ) : ?>
-		<div class="fourcolumn vspace">
-			<h6><a href="<?php echo esc_url(get_category_link($arts_and_entertainment)); ?>">Arts</a></h6>
-			<?php $myposts->the_post(); ?>
-			<figure class="thumbnail">
-				<div class="imagewrapper">
-					<?php if ( has_post_thumbnail()) {the_post_thumbnail('medium');} ?>
-				</div>
-			</figure>
-			<p id="post-<?php the_ID(); ?>" class="metatext metatext-dark"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></p>
-			<?php while ( $myposts->have_posts() ) : ?>
-			<?php $myposts->the_post(); ?>
-			<p id="post-<?php the_ID(); ?>" class="metatext metatext-dark"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></p>
-			<?php endwhile; ?>
-		</div>
-		<?php endif; ?>
-		<?php $args = array( 'posts_per_page' => 3, 'cat' => $opinions ); ?>
-		<?php $myposts = new WP_Query( $args ); ?>
-		<?php if ( $myposts->have_posts() ) : ?>
-		<div class="fourcolumn vspace">
-			<h6><a href="<?php echo esc_url(get_category_link($opinions)); ?>">Opinions</a></h6>
-			<?php $myposts->the_post(); ?>
-			<figure class="thumbnail">
-				<div class="imagewrapper">
-					<?php if ( has_post_thumbnail()) {the_post_thumbnail('medium');} ?>
-				</div>
-			</figure>
-			<p id="post-<?php the_ID(); ?>" class="metatext metatext-dark"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></p>
-			<?php while ( $myposts->have_posts() ) : ?>
-			<?php $myposts->the_post(); ?>
-			<p id="post-<?php the_ID(); ?>" class="metatext metatext-dark"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></p>
-			<?php endwhile; ?>
-		</div>
-		<?php endif; ?>
-		<?php $args = array( 'posts_per_page' => 3, 'cat' => $sports ); ?>
-		<?php $myposts = new WP_Query( $args ); ?>
-		<?php if ( $myposts->have_posts() ) : ?>
-		<div class="fourcolumn">
-			<h6><a href="<?php echo esc_url(get_category_link($sports)); ?>">Sports</a></h6>
-			<?php $myposts->the_post(); ?>
-			<figure class="thumbnail">
-				<div class="imagewrapper">
-					<?php if ( has_post_thumbnail()) {the_post_thumbnail('medium');} ?>
-				</div>
-			</figure>
-			<p id="post-<?php the_ID(); ?>" class="metatext metatext-dark"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></p>
-			<?php while ( $myposts->have_posts() ) : ?>
-			<?php $myposts->the_post(); ?>
-			<p id="post-<?php the_ID(); ?>" class="metatext metatext-dark"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></p>
-			<?php endwhile; ?>
-		</div>
-		<?php endif; ?>
+		<?php foreach ( $sections as $section): ?>
+			<?php $args = array( 'posts_per_page' => 3, 'cat' => $section); ?>
+			<?php $myposts = new WP_Query( $args ); ?>
+			<?php if ( $myposts->have_posts() ) : ?>
+			<div class="fourcolumn vspace">
+				<h6>
+					<a href="<?php echo esc_url(get_category_link($section)); ?>">
+						<?php echo get_cat_name($section); ?>
+					</a>
+				</h6>
+				<?php $myposts->the_post(); ?>
+				<figure class="thumbnail">
+					<div class="imagewrapper">
+						<?php if ( has_post_thumbnail()) {the_post_thumbnail('medium');} ?>
+					</div>
+				</figure>
+				<p id="post-<?php the_ID(); ?>" class="metatext metatext-dark">
+					<a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
+				</p>
+				<?php while ( $myposts->have_posts() ) : ?>
+				<?php $myposts->the_post(); ?>
+				<p id="post-<?php the_ID(); ?>" class="metatext metatext-dark">
+					<a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
+				</p>
+				<?php endwhile; ?>
+			</div>
+			<?php endif; ?>
+		<?php endforeach; ?>
 	</section>
+
 	<div class="full-width">
 		<div class="hline hline-medium"></div>
 	</div>
+
 	<section class="row">
 		<div class="full-width-third vline-medium center">
 			<h6>Issue Archive</h6>
@@ -195,8 +162,10 @@
 			</div>
 		</div>
 	</section>
+
 	<div class="full-width">
 		<div class="hline hline-medium"></div>
 	</div>
 </main>
+
 <?php get_footer(); ?>

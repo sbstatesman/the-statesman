@@ -9,7 +9,7 @@ Join The Statesman Web & Graphics Section: https://www.facebook.com/groups/state
 	global $featured;
 	global $top_story;
 	global $news;
-	global $arts_and_entertainment;
+	global $arts;
 	global $opinions;
 	global $sports;
 	global $multimedia;

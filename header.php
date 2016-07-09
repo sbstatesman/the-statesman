@@ -9,7 +9,7 @@ Join The Statesman Web & Graphics Section: https://www.facebook.com/groups/state
 	global $featured;
 	global $top_story;
 	global $news;
-	global $arts_and_entertainment;
+	global $arts;
 	global $opinions;
 	global $sports;
 	global $multimedia;
@@ -81,7 +81,7 @@ Join The Statesman Web & Graphics Section: https://www.facebook.com/groups/state
 
 	        <ul class="nav-list">
 	          <li><a href="<?php echo get_category_link( $news ); ?>">News</a></li>
-	          <li><a href="<?php echo get_category_link( $arts_and_entertainment ); ?>">Arts & Entertainment</a></li>
+	          <li><a href="<?php echo get_category_link( $arts ); ?>">Arts</a></li>
 	          <li><a href="<?php echo get_category_link( $opinions ); ?>">Opinions</a></li>
 	          <li><a href="<?php echo get_category_link( $sports ); ?>">Sports</a></li>
 	          <li><a href="<?php echo get_category_link( $multimedia ); ?>">Multimedia</a></li>

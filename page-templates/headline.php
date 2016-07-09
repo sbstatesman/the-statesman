@@ -31,8 +31,9 @@ Template Name: headline
 	<section class="row">
 		<?php $args = array( 'posts_per_page' => 8, 'category__not_in' => array($opinions, $multimedia, $featured) ); ?>
 		<?php $myposts = new WP_Query( $args ); ?>
-		<main class="main vline-medium">
+		<main class="main">
 			<?php if ( $myposts->have_posts() ) : ?>
+			<h6>Latest Stories</h6>
 			<?php while ( $myposts->have_posts() ) : ?>
 			<?php $myposts->the_post(); ?>
 			<article class="hmedia hmedia-list">
@@ -154,7 +155,7 @@ Template Name: headline
 	<section class="row">
 		<div class="threecolumn vline-medium center">
 			<h6>Issue Archive</h6>
-			<a href="http://issuu.com/sbstatesman"><img src="<?php bloginfo( 'template_url' ); ?>/images/footer-logo.png" alt="The Statesman" width="268" /></a>
+			<a href="http://issuu.com/sbstatesman"><img src="<?php bloginfo( 'template_url' ); ?>/images/logo.png" alt="The Statesman" width="268" /></a>
 		</div>
 		<div class="threecolumn vline-medium center">
 			<h6>Podcast</h6>

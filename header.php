@@ -76,7 +76,7 @@ Join The Statesman Web & Graphics Section: https://www.facebook.com/groups/state
       <div class="container">
 				<div class="full-width">
 	        <div class="nav-button" id="show-nav"><i class="fa fa-bars" aria-hidden="true"></i></div>
-	        <a href="<?php echo site_url(); ?>"><img class="logo" width="162" height="20" alt="The Statesman" src="<?php bloginfo( 'template_url' ); ?>/images/nav-logo.png"></a>
+	        <a href="<?php echo site_url(); ?>"><img class="nav-logo" width="162" height="20" alt="The Statesman" src="<?php bloginfo( 'template_url' ); ?>/images/nav-logo.png"></a>
 	        <div class="search-button" id="show-search"><i class="fa fa-search" aria-hidden="true"></i></div>
 
 	        <ul class="nav-list">

@@ -309,6 +309,7 @@ h6 {
 .row {
   overflow: hidden;
   margin: 10px 0;
+  position: relative;
 }
 
 .main,
@@ -397,16 +398,13 @@ h6 {
 }
 
 @media screen and (max-width: 959px) {
-  .row {
-    margin: 4px 0;
-  }
   .main {
     width: 100%;
     border-right: none;
   }
   .sidebar {
     width: 100%;
-    margin-top: .5em;
+    margin-top: 1em;
   }
   .sidebar:before {
     content: '';
@@ -456,7 +454,7 @@ h6 {
 
 .hline-background {
   position: absolute;
-  top: 6px;
+  top: .5em;
   z-index: -1;
   border-top: 1px solid #c8c8c8;
 }
@@ -471,21 +469,6 @@ h6 {
 
 .sidebar .hline:last-child {
   display: none;
-}
-
-@media screen and (max-width: 959px) and (min-width: 640px) {
-  .hline {
-    margin: 12px 0;
-  }
-  .hline-background {
-    top: 4px;
-  }
-  .hline-strong {
-    border-top: 1px solid #000;
-  }
-  .hline-medium {
-    border-top: 1px solid #c8c8c8;
-  }
 }
 
 /* navigation */
@@ -505,18 +488,29 @@ h6 {
 }
 
 /* page header */
-.logo {
+.nav-logo {
   display: inline-block;
   float: left;
 }
 
-.currentissue {
-  width: 200px;
-  margin: 4% 0 0 4%;
-  padding: 3px 0 3px 10px;
+.home-logo {
+  display: block;
   float: left;
+  width: 70%;
+}
+
+.tagline {
+  width: 26%;
+  margin: 0 2% 1.5em 2%;
+  padding: 3px 0 3px 15px;
   border-left: 3px solid #005a9c;
+  box-sizing: border-box;
+  position: absolute;
+  bottom: 0;
+  right: 0;
   line-height: 1.3em;
+  font-family: 'Droid Sans',sans-serif;
+  font-weight: 400;
 }
 
 .sectionhead {
@@ -534,6 +528,7 @@ h6 {
 .sectionhead-text-centered {
   padding: 0 20px;
   background-color: #fff;
+  display: inline-block;
 }
 
 .nav-list {
@@ -593,9 +588,21 @@ h6 {
 }
 
 @media screen and (max-width: 959px) {
-  .logo {
+  .nav-logo {
     float: none;
-    text-align: text-align;
+  }
+  .home-logo {
+    margin: 0 15% .5em 15%;
+  }
+  .tagline {
+    width: 100%;
+    padding: .75em 0 0 0;
+    margin: 0;
+    border-left: 0;
+    border-top: 1px solid #c8c8c8;
+    position: relative;
+    clear: both;
+    text-align: center;
   }
   .nav-button {
     display: block;
@@ -617,6 +624,13 @@ h6 {
   .nav-list > li > a:hover {
     background-color: #006BBA;
     text-decoration: none;
+  }
+}
+
+@media screen and (max-width: 639px) {
+  .home-logo {
+    width: 100%;
+    margin: 0 0 .5em 0;
   }
 }
 
@@ -720,10 +734,6 @@ h6 {
 
 .vmedia .thumbnail {
   margin-bottom: 10px;
-}
-
-.thumbnail {
-  margin-bottom: .75em;
 }
 
 .clip {

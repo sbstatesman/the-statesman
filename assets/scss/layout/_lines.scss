@@ -5,7 +5,7 @@
 }
 .hline-background {
   position: absolute;
-  top: 6px;
+  top: .5em;
   z-index: -1;
   border-top: 1px solid #c8c8c8;
 }
@@ -17,19 +17,4 @@
 }
 .sidebar .hline:last-child {
   display: none;
-}
-
-@media screen and (max-width: 959px) and (min-width: 640px){
-  .hline {
-    margin: 12px 0;
-  }
-  .hline-background {
-    top: 4px;
-  }
-  .hline-strong {
-    border-top: 1px solid #000;
-  }
-  .hline-medium {
-    border-top: 1px solid #c8c8c8;
-  }
 }

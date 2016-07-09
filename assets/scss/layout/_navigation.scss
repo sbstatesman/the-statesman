@@ -15,18 +15,29 @@
 
 /* page header */
 
-.logo {
+.nav-logo {
   display: inline-block;
   float: left;
 }
-.currentissue {
-  width: 200px;
-  margin: 4% 0 0 4%;
-  padding: 3px 0 3px 10px;
+.home-logo {
+  display: block;
   float: left;
-  border-left: 3px solid #005a9c;
-  line-height: 1.3em;
+  width: 70%;
 }
+.tagline {
+  width: 26%;
+  margin: 0 2% 1.5em 2%;
+  padding: 3px 0 3px 15px;
+  border-left: 3px solid #005a9c;
+  box-sizing: border-box;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  line-height: 1.3em;
+  font-family: 'Droid Sans',sans-serif;
+  font-weight: 400;
+}
+
 .sectionhead {
   text-align: center;
   position: relative;
@@ -40,6 +51,7 @@
 .sectionhead-text-centered {
   padding: 0 20px;
   background-color: #fff;
+  display: inline-block;
 }
 
 .nav-list {
@@ -94,9 +106,21 @@
 }
 
 @media screen and (max-width: 959px) {
-  .logo {
+  .nav-logo {
     float: none;
-    text-align: text-align;
+  }
+  .home-logo {
+    margin: 0 15% .5em 15%;
+  }
+  .tagline {
+    width: 100%;
+    padding: .75em 0 0 0;
+    margin: 0;
+    border-left: 0;
+    border-top: 1px solid #c8c8c8;
+    position: relative;
+    clear: both;
+    text-align: center;
   }
 
   .nav-button {
@@ -120,5 +144,11 @@
   .nav-list > li > a:hover {
     background-color: #006BBA;
     text-decoration: none;
+  }
+}
+@media screen and (max-width: 639px) {
+  .home-logo {
+    width: 100%;
+    margin: 0 0 .5em 0;
   }
 }

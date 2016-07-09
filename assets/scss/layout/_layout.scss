@@ -9,6 +9,7 @@
 .row {
   overflow: hidden;
   margin: 10px 0;
+  position: relative;
 }
 
 .main,
@@ -87,16 +88,13 @@
 }
 
 @media screen and (max-width: 959px) {
-  .row {
-    margin: 4px 0;
-  }
   .main {
     width: 100%;
     border-right: none;
   }
   .sidebar {
     width: 100%;
-    margin-top: .5em;
+    margin-top: 1em;
   }
   .sidebar:before {
     content: '';

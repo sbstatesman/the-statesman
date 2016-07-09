@@ -1,17 +1,11 @@
 <?php get_header(); ?>
 
 <header class="row">
-	<img src="<?php bloginfo( 'template_url' ); ?>/images/logo.png" class="logo" alt="The Statesman" width="700" />
-	<div class="currentissue large-text">
-		This Week&apos;s Issue<br />
-		<span class="coloredtext">
-		<?php
-			$issuu = new Issuu_Latest_Issue();
-			if ($issuu->fetch()) {
-		  		echo $issuu->outputLink();
-			}
-		?>
-		</span>
+	<div class="full-width">
+		<img src="<?php bloginfo( 'template_url' ); ?>/images/logo.png" class="home-logo" alt="The Statesman" width="700" />
+		<div class="tagline">
+			<?php bloginfo('description'); ?>
+		</div>
 	</div>
 </header>
 <main>
@@ -110,8 +104,9 @@
 	<section class="row">
 		<?php $args = array( 'posts_per_page' => 8, 'category__not_in' => array($opinions, $multimedia, $featured) ); ?>
 		<?php $myposts = new WP_Query( $args ); ?>
-		<main class="main vline-medium">
+		<main class="main">
 			<?php if ( $myposts->have_posts() ) : ?>
+			<h6>Latest Stories</h6>
 			<?php while ( $myposts->have_posts() ) : ?>
 			<?php $myposts->the_post(); ?>
 			<article class="hmedia hmedia-list">
@@ -221,7 +216,7 @@
 	<section class="row">
 		<div class="full-width-third vline-medium center">
 			<h6>Issue Archive</h6>
-			<a href="http://issuu.com/sbstatesman"><img src="<?php bloginfo( 'template_url' ); ?>/images/footer-logo.png" alt="The Statesman" width="85%" /></a>
+			<a href="http://issuu.com/sbstatesman"><img src="<?php bloginfo( 'template_url' ); ?>/images/logo.png" alt="The Statesman" width="85%" /></a>
 		</div>
 		<div class="full-width-third vline-medium center">
 			<h6>Podcast</h6>

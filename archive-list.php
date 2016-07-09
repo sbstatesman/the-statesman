@@ -1,9 +1,9 @@
+<?php if (have_posts()) : ?>
 <nav class="row">
   <span class="metatext metatext-colored left"><?php previous_posts_link( '< NEWER' ); ?></span>
   <span class="metatext metatext-colored right"><?php next_posts_link( 'OLDER >' ); ?></span>
 </nav>
 <div class="hline hline-medium"></div>
-<?php if (have_posts()) : ?>
 <?php while (have_posts()) : the_post(); ?>
 <article class="hmedia hmedia-list">
   <figure class="thumbnail thumbnail-small">
@@ -20,9 +20,9 @@
   </div>
 </article>
 <?php endwhile; ?>
-<?php endif; ?>
 <div class="hline hline-medium"></div>
 <nav class="row">
   <span class="metatext metatext-colored left"><?php previous_posts_link( '< NEWER' ); ?></span>
   <span class="metatext metatext-colored right"><?php next_posts_link( 'OLDER >' ); ?></span>
 </nav>
+<?php endif; ?>

@@ -50,7 +50,7 @@
 }
 .nav-list > li {
   display: inline-block;
-  margin: 4px 0 0 26px;
+  margin: .35em 0 0 2em;
 }
 .nav-list > li > a {
   display: block;
@@ -62,23 +62,23 @@
   border-top: 2px solid #006BBA;
   padding: 10px 0 5px 0;
   margin-top: 10px;
-}
-.search-field {
-  width: 100%;
-  height: 30px;
-  border: none;
-  outline: none;
-  background-color: rgba(255, 255, 255, .2);
-  color: #FFF;
-  text-align: center;
-  font-size: 1rem;
-}
-input[type="search"],
-input[type="search"]::-webkit-search-decoration,
-input[type="search"]::-webkit-search-cancel-button,
-input[type="search"]::-webkit-search-results-button,
-input[type="search"]::-webkit-search-results-decoration {
-  -webkit-appearance:none;
+  .search-field {
+    width: 100%;
+    height: 30px;
+    border: none;
+    outline: none;
+    background-color: rgba(255, 255, 255, .2);
+    color: #FFF;
+    text-align: center;
+    font-size: 1rem;
+  }
+  input[type="search"],
+  input[type="search"]::-webkit-search-decoration,
+  input[type="search"]::-webkit-search-cancel-button,
+  input[type="search"]::-webkit-search-results-button,
+  input[type="search"]::-webkit-search-results-decoration {
+    -webkit-appearance:none;
+  }
 }
 
 .nav-button {

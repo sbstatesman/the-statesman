@@ -12,13 +12,12 @@
 	<div class="full-width">
 		<div class="hline hline-strong"></div>
 	</div>
-	<?php $args = array( 'posts_per_page' => 4, 'category__in' => array($breaking, $featured), 'category__not_in' => array($opinions, $multimedia) ); ?>
-	<?php $myposts = get_posts( $args ); ?>
+	<?php $args = array( 'posts_per_page' => 1, 'category__in' => array($breaking, $featured), 'category__not_in' => array($opinions, $multimedia) ); ?>
+	<?php $myposts = new WP_Query( $args ); ?>
 	<section class="row">
 		<div class="main">
-			<?php if (!empty($myposts[0])) : ?>
-			<?php $post = $myposts[0]; ?>
-			<?php setup_postdata( $post ); ?>
+			<?php if ( $myposts->have_posts() ) : ?>
+			<?php $myposts->the_post(); ?>
 			<article class="vmedia">
 				<figure class="thumbnail">
 					<div class="imagewrapper">
@@ -36,10 +35,12 @@
 			</article>
 			<?php endif; ?>
 		</div>
+		<?php $args = array( 'posts_per_page' => 3, 'offset' => 1, 'category__in' => array($breaking, $featured), 'category__not_in' => array($opinions, $multimedia) ); ?>
+		<?php $myposts = new WP_Query( $args ); ?>
 		<div class="sidebar">
-			<?php if (!empty($myposts[1])) : ?>
-			<?php $post = $myposts[1]; ?>
-			<?php setup_postdata( $post ); ?>
+			<?php if ( $myposts->have_posts() ) : ?>
+			<?php while ( $myposts->have_posts() ) : ?>
+			<?php $myposts->the_post(); ?>
 			<article class="hmedia">
 				<figure class="thumbnail thumbnail-large thumbnail-secondary">
 					<div class="imagewrapper">
@@ -55,48 +56,10 @@
 					<p class="excerpt"><?php get_excerpt(); ?></p>
 				</div>
 			</article>
-			<?php endif; ?>
 			<div class="hline hline-medium"></div>
-			<?php if (!empty($myposts[2])) : ?>
-			<?php $post = $myposts[2]; ?>
-			<?php setup_postdata( $post ); ?>
-			<article class="hmedia">
-				<figure class="thumbnail thumbnail-large thumbnail-secondary">
-					<div class="imagewrapper">
-						<?php if ( has_post_thumbnail()) {the_post_thumbnail('medium');} ?>
-					<div>
-				</figure>
-				<div class="block">
-					<p class="articletype small-text"><?php the_excluded_category(array($featured, $top_story)); ?></p>
-					<h2 id="post-<?php the_ID(); ?>">
-						<a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
-					</h2>
-					<p class="metatext metatext-byline small-text">By <?php if ( function_exists( 'coauthors_posts_links' ) ) { coauthors_posts_links(); } else { the_author_posts_link(); } ?> / <a href="<?php the_archive_date(); ?>"><?php the_time('F j, Y'); ?></a></p>
-					<p class="excerpt"><?php get_excerpt(); ?></p>
-				</div>
-			</article>
+			<?php endwhile; ?>
 			<?php endif; ?>
-			<div class="hline hline-medium"></div>
-			<?php if (!empty($myposts[3])) : ?>
-			<?php $post = $myposts[3]; ?>
-			<?php setup_postdata( $post ); ?>
-			<article class="hmedia">
-				<figure class="thumbnail thumbnail-large thumbnail-secondary">
-					<div class="imagewrapper">
-						<?php if ( has_post_thumbnail()) {the_post_thumbnail('medium');} ?>
-					</div>
-				</figure>
-				<div class="block">
-					<p class="articletype small-text"><?php the_excluded_category(array($featured, $top_story)); ?></p>
-					<h2 id="post-<?php the_ID(); ?>">
-						<a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
-					</h2>
-					<p class="metatext metatext-byline small-text">By <?php if ( function_exists( 'coauthors_posts_links' ) ) { coauthors_posts_links(); } else { the_author_posts_link(); } ?> / <a href="<?php the_archive_date(); ?>"><?php the_time('F j, Y'); ?></a></p>
-					<p class="excerpt"><?php get_excerpt(); ?></p>
-				</div>
-			</article>
-			<?php endif; ?>
-	</div>
+		</div>
 	</section>
 	<div class="full-width">
 		<div class="hline hline-strong"></div>

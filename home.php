@@ -45,7 +45,7 @@
 			<?php if ( $myposts->have_posts() ) : ?>
 			<?php while ( $myposts->have_posts() ) : ?>
 			<?php $myposts->the_post(); ?>
-			<article class="hmedia">
+			<article class="hmedia sidebar-item">
 				<figure class="thumbnail thumbnail-large thumbnail-secondary">
 					<div class="imagewrapper">
 						<?php if ( has_post_thumbnail()) {the_post_thumbnail('medium');} ?>
@@ -60,7 +60,6 @@
 					<p class="excerpt"><?php get_excerpt(); ?></p>
 				</div>
 			</article>
-			<div class="hline hline-medium"></div>
 			<?php endwhile; ?>
 			<?php endif; ?>
 		</div>

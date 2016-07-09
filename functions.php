@@ -214,8 +214,8 @@ function statesman_sidebars() {
     register_sidebar( array(
       'id'            => sanitize_title( $name ) . '-sidebar',
       'name'          => $name . ' Sidebar',
-      'before_widget' => '<div id="%1$s" class="%2$s">',
-      'after_widget'  => '</div><div class="hline hline-medium"></div>',
+      'before_widget' => '<div id="%1$s" class="%2$s sidebar-item">',
+      'after_widget'  => '</div>',
       'before_title'  => '<h6>',
       'after_title'   => '</h6>'
     ));

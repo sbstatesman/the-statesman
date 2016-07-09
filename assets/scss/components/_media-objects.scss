@@ -3,18 +3,17 @@
 }
 .vmedia {
   width: 100%;
-  margin-bottom: 10px;
 }
 .hmedia-list {
-  margin-bottom: 25px;
+  margin-bottom: 2em;
 }
 .hmedia .thumbnail {
   float: left;
-  margin-right: 15px;
+  margin-right: 1em;
   overflow: hidden;
 }
 .vmedia .thumbnail {
-  margin-bottom: 10px;
+  margin-bottom: .75em;
 }
 
 .clip {
@@ -46,7 +45,7 @@
 
   .vmedia .thumbnail {
     float: left;
-    margin-right: 15px;
+    margin-right: 1em;
     margin-bottom: 0;
     overflow: hidden;
     width: 50%;
@@ -65,16 +64,12 @@
   .vmedia .thumbnail {
     float: none;
     margin-right: 0;
-    margin-bottom: 10px;
+    margin-bottom: .75em;
     overflow: auto;
     width: auto;
   }
   .thumbnail img {
     width: 100%;
     height: auto;
-  }
-  .hmedia {
-    overflow: hidden;
-    margin-right: 3%;
   }
 }

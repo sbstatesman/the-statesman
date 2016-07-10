@@ -1,20 +1,11 @@
-.vline-medium {
-  border-right: 1px solid #c8c8c8;
-  padding-right: 8px;
-  margin-right: 8px;
-}
-.vspace {
-  padding-right: 9px;
-  margin-right: 8px;
-}
 .hline {
-  margin: 15px 0;
+  margin: 1em 0;
   clear: both;
   width: 100%;
 }
 .hline-background {
   position: absolute;
-  top: 6px;
+  top: .5em;
   z-index: -1;
   border-top: 1px solid #c8c8c8;
 }
@@ -24,6 +15,3 @@
 .hline-medium {
   border-top: 1px solid #c8c8c8;
 }
-.sidebar .hline:last-child {
-  display: none;
-} 

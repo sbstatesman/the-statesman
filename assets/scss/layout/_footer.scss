@@ -1,0 +1,19 @@
+.footer-left {
+  float: left;
+}
+
+.footer-right {
+  float: right;
+}
+
+@media screen and (max-width: 959px) {
+  .footer-left, .footer-right {
+    float: none;
+    width: 100%;
+    text-align: center;
+    display: block;
+  }
+  .footer-left {
+    margin-bottom: 1em;
+  }
+}

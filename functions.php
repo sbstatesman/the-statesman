@@ -36,7 +36,7 @@ if ( ! isset( $content_width ) ) {
 $featured = get_category_by_slug('featured')->term_id;
 $top_story = get_category_by_slug('top-story')->term_id;
 $news = get_category_by_slug('news')->term_id;
-$arts_and_entertainment = get_category_by_slug('arts-and-entertainment')->term_id;
+$arts = get_category_by_slug('arts')->term_id;
 $opinions = get_category_by_slug('opinions')->term_id;
 $sports = get_category_by_slug('sports')->term_id;
 $multimedia = get_category_by_slug('multimedia')->term_id;
@@ -77,9 +77,11 @@ add_action( 'wp_enqueue_scripts', 'enqueue_and_register_styles' );
 
 function enqueue_and_register_scripts() {
   wp_register_script( 'slick', get_template_directory_uri() . '/js/slick.min.js', array('jquery'), null, true);
-  wp_enqueue_script( 'match-height', get_template_directory_uri() . '/js/jquery.matchHeight.min.js', array('jquery'), null, true);
-  wp_enqueue_script( 'footer-scripts', get_template_directory_uri() . '/js/footer.js', array('slick'), null, true);
-  if (is_page_template( 'page-templates/featured.php' ) ) {
+  wp_enqueue_script( 'footer-scripts', get_template_directory_uri() . '/js/footer.js', array('jquery'), null, true);
+	if ( is_category( 'multimedia' ) ) {
+		wp_enqueue_script( 'slick' );
+	}
+  if ( is_page_template( 'page-templates/featured.php' ) ) {
     wp_enqueue_script( 'featured', get_template_directory_uri() . '/js/featured.js', array('slick'), null, true);
   }
 }
@@ -92,7 +94,7 @@ function embed_mm_content($id) {
 	$matches = [];                           //Array to contain matches of regex
 	$numMatches = 0;                         //Number of strings matched by regex
 	$embed;                                   //Generic embedding function
-	
+
 	/* Video links are URLs, use the Wordpress function: "wp_oembed_get" */
 	if($format == 'video') {
 		$pattern = '/http(s*):\/\/.*(\s?)/';
@@ -136,7 +138,7 @@ function use_post_format_templates( $template ) {
     }
   }
   return $template;
-}   
+}
 add_filter( 'template_include', 'use_post_format_templates' );
 
 /* Adds Facebook XML namespaces to header */
@@ -208,31 +210,27 @@ add_image_size( 'half-width', 300 );
 add_image_size( 'full-width', 600 );
 
 function statesman_sidebars() {
-  register_sidebar(array(
-    'id' => 'article-sidebar',
-    'name' => __('Article Sidebar'),
-    'description' => __('Displayed next to articles.'),
-    'before_widget' => '<div id="%1$s" class="%2$s">',
-    'after_widget' => '</div><div class="hline hline-medium"></div>',
-    'before_title' => '<h6>',
-    'after_title' => '</h6>',
-  ));
-  register_sidebar(array(
-    'id' => 'home-sidebar',
-    'name' => __('Home Sidebar'),
-    'description' => __('Displayed on the home page.'),
-    'before_widget' => '<div id="%1$s" class="%2$s">',
-    'after_widget' => '</div><div class="hline hline-medium"></div>',
-    'before_title' => '<h6>',
-    'after_title' => '</h6>',
-  ));
+
+  $sidebar_names = array( 'Article', 'Home', 'News', 'Arts', 'Opinions', 'Sports' );
+
+  foreach ( $sidebar_names as $name ) {
+    register_sidebar( array(
+      'id'            => sanitize_title( $name ) . '-sidebar',
+      'name'          => $name . ' Sidebar',
+      'before_widget' => '<div id="%1$s" class="%2$s sidebar-item">',
+      'after_widget'  => '</div>',
+      'before_title'  => '<h6>',
+      'after_title'   => '</h6>'
+    ));
+  }
+
 }
 add_action( 'widgets_init', 'statesman_sidebars' );
 
 function my_custom_sizes( $sizes ) {
     return array_merge( $sizes, array(
         'half-width' => __( 'Half Width' ),
-        'full-width' => __( 'Full Width' ),
+        'full-width' => __( 'Full Width' )
     ) );
 }
 add_filter( 'image_size_names_choose', 'my_custom_sizes' );
@@ -283,10 +281,10 @@ function the_excluded_category($excludedcats = array()){
 }
 
 /* takes post meta and returns a link to the day it was posted */
-function the_archive_date(){ 
-	$archive_year  = get_the_time('Y'); 
-	$archive_month = get_the_time('m'); 
-	$archive_day   = get_the_time('d'); 
+function the_archive_date(){
+	$archive_year  = get_the_time('Y');
+	$archive_month = get_the_time('m');
+	$archive_day   = get_the_time('d');
 	echo get_day_link( $archive_year, $archive_month, $archive_day);
 }
 
@@ -323,27 +321,40 @@ add_action( 'pre_get_posts', function ( $q ) {
     $paged = $q->get('paged');
     // Get the name of the category
     $slug = $q->get_queried_object()->slug;
+    $cat_ID = get_category_by_slug( $slug )->term_id;
+    $top_story = get_category_by_slug( 'top-story' )->term_id;
 
-    // We will only need to run this from page 2 onwards
-    if (is_paged() && locate_template('category-' . $slug . '.php')) {
-      // Get the number of posts per page
+    // Query the first post in the category that is also in the top-story category.
+    $args = array(
+      'posts_per_page' => 1,
+      'category__and'  => array( $top_story, $cat_ID )
+    );
+    $myposts = new WP_Query( $args );
+    if ( $myposts->have_posts() ) {
+      $myposts->the_post();
+      $top_story_ID = array( get_the_ID() );
+      // Exclude the found post from the query.
+      $q->set('post__not_in', $top_story_ID);
+      wp_reset_postdata();
+    }
+
+    if ( is_paged() ) {
+      // Get the number of posts per page.
       $posts_per_page = get_option('posts_per_page');
-      // Recalculate our offset
-      $offset = (($paged - 1) * $posts_per_page) - $posts_per_page;
-      // Set our offset
+      // Recalculate the offset.
+      $offset = (($paged - 1) * $posts_per_page) - $posts_per_page + 8;
       $q->set('offset', $offset);
+    } else {
+      // Set posts per page to 8 on the first page.
+      $q->set('posts_per_page', 8);
     }
   }
 });
 
 add_filter( 'found_posts', function ( $found_posts, $q ) {
-  if (!is_admin() && $q->is_main_query() && $q->is_category()) {
-    // Get the name of the category
-    $slug = $q->get_queried_object()->slug;
-
-    if (is_paged() && locate_template('category-' . $slug . '.php')) {
-      $found_posts = $found_posts + get_option('posts_per_page');
-    }
+  if ( ! is_admin() && $q->is_main_query() && $q->is_category() && is_paged() ) {
+    // Adds posts not shown on front page of category
+    $found_posts = $found_posts + get_option('posts_per_page') - 8;
   }
   return $found_posts;
 }, 10, 2 );
@@ -351,7 +362,7 @@ add_filter( 'found_posts', function ( $found_posts, $q ) {
 /* WIDGETS */
 
 class statesman_latest_post extends WP_Widget {
-   
+
   function __construct() {
     parent::__construct(
       // Base ID of your widget
@@ -362,27 +373,37 @@ class statesman_latest_post extends WP_Widget {
       array( 'description' => __('Displays one post from a given category.'), )
     );
   }
-   
+
   // Creating widget front-end
   // This is where the action happens
   public function widget( $args, $instance ) {
     $title = apply_filters( 'widget_title', $instance['title'] );
-    $cat_slug = apply_filters( 'widget_cat_slug', $instance['cat_slug'] );
-    $cat_id = get_category_by_slug($cat_slug)->term_id;
+    $slug = apply_filters( 'widget_slug', $instance['slug'] );
+    $slug_type = apply_filters( 'widget_slug_type', $instance['slug_type'] );
+
+    $cat_id = ( $slug_type == 'category' ) ? get_category_by_slug($slug)->term_id : '';
+    $tag_id = ( $slug_type == 'tag' ) ? get_tag_id( $slug ) : '';
+
     // before and after widget arguments are defined by themes
     echo $args['before_widget'];
     if ( ! empty( $title ) )
-      echo $args['before_title'] . '<a href="' . esc_url(get_category_link($cat_id)) . '">' . $title . '</a>' . $args['after_title'];
+      echo $args['before_title'] . '<a href="';
+      if ( $slug_type == 'category' ) {
+        echo esc_url( get_category_link( $cat_id ) );
+      } elseif ( $slug_type == 'tag' ) {
+        echo esc_url( get_tag_link( $tag_id ) );
+      }
+      echo '">' . $title . '</a>' . $args['after_title'];
 
-    $myposts = new WP_Query( array( 'posts_per_page' => 1, 'cat' => $cat_id) );
+    $myposts = new WP_Query( array( 'posts_per_page' => 1, 'cat' => $cat_id, 'tag_id' => $tag_id ) );
     if ( $myposts->have_posts() ) {
       $myposts->the_post();
       echo '<article class="vmedia">';
-      echo '<figure class="thumbnail">';
+      echo '<figure class="thumbnail"><div class="imagewrapper">';
       if ( has_post_thumbnail()) {
         the_post_thumbnail('medium');
       }
-      echo '</figure>';
+      echo '</div></figure>';
       echo '<div class="block">';
       echo '<h2 id="post-';
         the_ID();
@@ -393,6 +414,13 @@ class statesman_latest_post extends WP_Widget {
         the_title();
       echo '</a>';
       echo '</h2>';
+      echo '<p class="metatext metatext-byline small-text">By ';
+        the_author_posts_link();
+      echo ' / <a href="';
+        the_archive_date();
+      echo '">';
+        the_time( 'F j, Y' );
+      echo '</a></p>';
       echo '<p class="excerpt">';
         get_excerpt();
       echo '</p>';
@@ -402,20 +430,23 @@ class statesman_latest_post extends WP_Widget {
 
     echo $args['after_widget'];
   }
-           
+
   // Widget Backend
   public function form( $instance ) {
     if ( isset( $instance[ 'title' ] ) ) {
       $title = $instance[ 'title' ];
-    }
-    else {
+    } else {
       $title = __('New title');
     }
-    if ( isset( $instance[ 'cat_slug' ] ) ) {
-      $cat_slug = $instance[ 'cat_slug' ];
+    if ( isset( $instance[ 'slug' ] ) ) {
+      $slug = $instance[ 'slug' ];
+    } else {
+      $slug = __('');
     }
-    else {
-      $cat_slug = __('');
+    if ( isset( $instance[ 'slug_type' ] ) ) {
+      $slug_type = $instance[ 'slug_type' ];
+    } else {
+      $slug_type = 'category';
     }
     // Widget admin form
     ?>
@@ -424,23 +455,30 @@ class statesman_latest_post extends WP_Widget {
         <input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" />
       </p>
       <p>
-        <label for="<?php echo $this->get_field_id( 'cat_slug' ); ?>"><?php _e( 'Category slug:' ); ?></label>
-        <input class="widefat" id="<?php echo $this->get_field_id( 'cat_slug' ); ?>" name="<?php echo $this->get_field_name( 'cat_slug' ); ?>" type="text" value="<?php echo esc_attr( $cat_slug ); ?>" />
+        <label for="<?php echo $this->get_field_id( 'slug_type' ) . '-category'; ?>"><?php _e( 'Category: ' ); ?></label>
+        <input id="<?php echo $this->get_field_id( 'slug_type' ) . '-category'; ?>" name="<?php echo $this->get_field_name( 'slug_type' ); ?>" type="radio" value="category" <?php checked( esc_attr( $slug_type ), 'category'); ?> />
+        <label for="<?php echo $this->get_field_id( 'slug_type' ) . '-tag'; ?>"><?php _e( 'Tag: ' ); ?></label>
+        <input id="<?php echo $this->get_field_id( 'slug_type' ) . '-tag'; ?>" name="<?php echo $this->get_field_name( 'slug_type' ); ?>" type="radio" value="tag" <?php checked( esc_attr( $slug_type ), 'tag'); ?> />
+      </p>
+      <p>
+        <label for="<?php echo $this->get_field_id( 'slug' ); ?>"><?php _e( 'Slug:' ); ?></label>
+        <input class="widefat" id="<?php echo $this->get_field_id( 'slug' ); ?>" name="<?php echo $this->get_field_name( 'slug' ); ?>" type="text" value="<?php echo esc_attr( $slug ); ?>" />
       </p>
     <?php
   }
-       
+
   // Updating widget replacing old instances with new
   public function update( $new_instance, $old_instance ) {
     $instance = array();
     $instance['title'] = ( ! empty( $new_instance['title'] ) ) ? strip_tags( $new_instance['title'] ) : '';
-    $instance['cat_slug'] = ( ! empty( $new_instance['cat_slug'] ) ) ? strip_tags( $new_instance['cat_slug'] ) : '';
+    $instance['slug_type'] = ( isset( $new_instance['slug_type'] ) && ( $new_instance['slug_type'] == 'category' || $new_instance['slug_type'] == 'tag' ) ) ? $new_instance['slug_type'] : 'category';
+    $instance['slug'] = ( ! empty( $new_instance['slug'] ) ) ? strip_tags( $new_instance['slug'] ) : '';
     return $instance;
   }
 } // Class wpb_widget ends here
 
 class statesman_latest_stories extends WP_Widget {
-   
+
   function __construct() {
     parent::__construct(
       // Base ID of your widget
@@ -451,7 +489,7 @@ class statesman_latest_stories extends WP_Widget {
       array( 'description' => __('Lists the most recent posts.'), )
     );
   }
-   
+
   // Creating widget front-end
   // This is where the action happens
   public function widget( $args, $instance ) {
@@ -467,9 +505,9 @@ class statesman_latest_stories extends WP_Widget {
       while ( $myposts->have_posts() ) {
         $myposts->the_post();
         echo '<article class="hmedia hmedia-list">';
-        echo '<figure class="thumbnail thumbnail-xsmall">';
+        echo '<figure class="thumbnail thumbnail-xsmall"><div class="imagewrapper">';
         if ( has_post_thumbnail()) {the_post_thumbnail('thumbnail');}
-        echo '</figure>';
+        echo '</div></figure>';
         echo '<div class="block">';
         echo '<h5 id="post-';
           the_ID();
@@ -486,7 +524,7 @@ class statesman_latest_stories extends WP_Widget {
 
     echo $args['after_widget'];
   }
-           
+
   // Widget Backend
   public function form( $instance ) {
     if ( isset( $instance[ 'title' ] ) ) {
@@ -513,7 +551,7 @@ class statesman_latest_stories extends WP_Widget {
       </p>
     <?php
   }
-       
+
   // Updating widget replacing old instances with new
   public function update( $new_instance, $old_instance ) {
     $instance = array();
@@ -532,7 +570,7 @@ add_action( 'widgets_init', 'statesman_load_widget' );
 
 
 require( get_template_directory() . '/inc/staff-shortcode.php' );
-require( get_template_directory() . '/inc/slick-shortcode.php' );
+require( get_template_directory() . '/inc/gallery-shortcode.php' );
 require( get_template_directory() . '/inc/issuu.php' );
 
 ?>

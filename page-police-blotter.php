@@ -20,7 +20,7 @@
 		<?php the_content(); ?>
 	</article>
 	<?php endwhile; ?>
-	
+
 	<article class="row articletext large-text content-width wp-content">
 	<div class="map-container">
 		<div id="map"></div>
@@ -30,16 +30,20 @@
 		<div id="table"></div>
 	</div>
     	</article>
-   
+
 	</main>
 	<?php get_sidebar(); ?>
 </main>
-<div class="hline hline-medium"></div>
+<div class="full-width">
+	<div class="hline hline-medium"></div>
+</div>
 <section class="row">
-	<section class="main">
+	<section class="full-width">
 		<?php comments_template(); ?>
 	</section>
 </section>
-<div class="hline hline-medium"></div>
+<div class="full-width">
+	<div class="hline hline-medium"></div>
+</div>
 <script type="text/javascript" src="<?php bloginfo( 'template_url' ); ?>/interactive/policeblotter/app.js"></script>
 <?php get_footer(); ?>

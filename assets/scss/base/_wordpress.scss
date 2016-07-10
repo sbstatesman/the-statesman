@@ -22,7 +22,7 @@
   line-height: 1.4em;
   margin-bottom: 16px;
   color: #4b4b4b;
-  font-size: 12px;
+  font-size: 0.75rem;
   max-width: 100%;
 }
 .content-width img {
@@ -39,4 +39,16 @@
 .wp-content a {
   text-decoration: underline;
   color: #005a9c;
+}
+
+@media only screen and (max-width: 959px) {
+  .content-width {
+    margin: 0 auto;
+  }
+}
+
+@media only screen and (max-width: 639px) {
+  .content-width {
+    width: 100%;
+  }
 }

@@ -5,102 +5,45 @@
   top: 0;
   left: 0;
   z-index: 5;
-}
-.fixednav-main {
-  text-transform: uppercase;
-  font-weight: 400;
-  font-family: 'Droid Sans', sans-serif;
+  text-align: center;
+  color: #fff;
   background-color: #005a9c;
-  color: #fff;
-}
-.fixednavs-alt > form, .fixednavs-alt > form {
-  white-space: nowrap;
-  display: inline-block;
+  font-family: 'Droid Sans',sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
 }
 
-.side-menu {
-  height: 100%;
-  display: none;
-  position: fixed;
-  width: 20em;
-  z-index: 5;
-  background-color: #444;
-  color: #fff;
+/* page header */
+
+.nav-logo {
+  display: inline-block;
+  float: left;
 }
-.side-heading {
-  padding: 1em;
-}
-.side-menu-icon {
-  margin-left: 1em;
-}
-.side-menu-list {
-  display: none !important; /* need to figure out a way to avoid !important */
-}
-.side-menu a {
-  text-decoration: none;
-}
-.side-menu > ul {
+.home-logo {
   display: block;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  height: 85%;
-  overflow-y: scroll;
-  z-index: 6;
+  float: left;
+  width: 70%;
 }
-.side-menu > ul > li {
-  padding: 1.5em 1em;
-}
-.side-menu > ul > li:hover {
-  background-color: #666;
-  cursor: pointer;
-  transition: background-color 0.15s cubic-bezier(0.33, 0.66, 0.66, 1) 0s;
-}
-.side-menu > ul > li.slick-active {
-  background-color: #666;
-  transition: background-color 0.15s cubic-bezier(0.33, 0.66, 0.66, 1) 0s;
+.tagline {
+  width: 26%;
+  margin: 0 2% 1.5em 2%;
+  padding: 3px 0 3px 15px;
+  border-left: 3px solid #005a9c;
+  box-sizing: border-box;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  line-height: 1.3em;
+  font-family: 'Droid Sans',sans-serif;
+  font-weight: 400;
 }
 
-.horizontallist {
-  margin: 0;
-  padding: 0;
-  float: left;
-}
-.horizontallist li {
-  display: inline-block;
-  margin: 4px 0 0 26px;
-}
-/* I don't think these styles are generic to "horizontal lists" they are
-   coupled to the use of horizontal lists in the navbar. */
-.horizontallist li a {
-  text-decoration: none;
-  color: #fff;
-}
-.logo {
-  float: left;
-}
-.search-field {
-  width: 117px;
-  height: 20px;
-  margin: 3px;
-  float: right;
-  border: none;
-  outline: none;
-}
-.currentissue {
-  width: 200px;
-  margin: 45px 0 0 40px;
-  padding: 3px 0 3px 10px;
-  float: left;
-  border-left: 3px solid #005a9c;
-  line-height: 1.3em;
-}
 .sectionhead {
   text-align: center;
   position: relative;
 }
 .sectionhead-text {
-  font-size: 36px;
+  font-size: 2.25rem;
   font-family: 'Droid Sans', sans-serif;
   font-weight: 700;
   text-transform: uppercase;
@@ -108,4 +51,104 @@
 .sectionhead-text-centered {
   padding: 0 20px;
   background-color: #fff;
+  display: inline-block;
+}
+
+.nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  float: left;
+}
+.nav-list > li {
+  display: inline-block;
+  margin: .3em 0 .3em 2.5em;
+}
+.nav-list > li > a {
+  display: block;
+  text-align: center;
+}
+
+.search-bar {
+  display: none;
+  border-top: 2px solid #006BBA;
+  padding: 10px 0 5px 0;
+  margin-top: 10px;
+  .search-field {
+    width: 100%;
+    height: 30px;
+    border: none;
+    outline: none;
+    background-color: rgba(255, 255, 255, .2);
+    color: #FFF;
+    text-align: center;
+    font-size: 1rem;
+  }
+  input[type="search"],
+  input[type="search"]::-webkit-search-decoration,
+  input[type="search"]::-webkit-search-cancel-button,
+  input[type="search"]::-webkit-search-results-button,
+  input[type="search"]::-webkit-search-results-decoration {
+    -webkit-appearance:none;
+  }
+}
+
+.nav-button {
+  display: none;
+  font-size: 1.5em;
+  float: left;
+  cursor: pointer;
+}
+.search-button {
+  font-size: 1.5em;
+  float: right;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 959px) {
+  .nav-logo {
+    float: none;
+  }
+  .home-logo {
+    margin: 0 15% .5em 15%;
+  }
+  .tagline {
+    width: 100%;
+    padding: .75em 0 0 0;
+    margin: 0;
+    border-left: 0;
+    border-top: 1px solid #c8c8c8;
+    position: relative;
+    clear: both;
+    text-align: center;
+  }
+
+  .nav-button {
+    display: block;
+  }
+
+  .nav-list {
+    display: none;
+    width: 100%;
+    border-top: 2px solid #006BBA;
+    padding: 10px 0 5px 0;
+    margin-top: 10px;
+  }
+  .nav-list > li {
+    display: block;
+    margin: 0;
+  }
+  .nav-list > li > a {
+    padding: 10px 0;
+  }
+  .nav-list > li > a:hover {
+    background-color: #006BBA;
+    text-decoration: none;
+  }
+}
+@media screen and (max-width: 639px) {
+  .home-logo {
+    width: 100%;
+    margin: 0 0 .5em 0;
+  }
 }

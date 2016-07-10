@@ -1,76 +1,76 @@
 /* typography */
 
 h1 {
-  font-size: 24px;
+  font-size: 1.5rem;
   font-family: 'Droid Sans', sans-serif;
   font-weight: 700;
   margin: 0;
   line-height: 1.25em;
 }
 h2 {
-  font-size: 20px;
+  font-size: 1.25rem;
   font-family: 'Droid Sans', sans-serif;
   font-weight: 700;
   margin: 0;
   line-height: 1.25em;
 }
 h3 {
-  font-size: 18px;
+  font-size: 1.125rem;
   font-family: 'Droid Sans', sans-serif;
   font-weight: 700;
   margin: 0;
   line-height: 1.25em;
 }
 h4 {
-  font-size: 16px;
+  font-size: 1rem;
   font-family: 'Droid Sans', sans-serif;
   font-weight: 700;
   margin: 0;
   line-height: 1.25em;
 }
 h5 {
-  font-size: 14px;
+  font-size: 0.875rem;
   font-family: 'Droid Sans', sans-serif;
   font-weight: 700;
-  margin: 0 0 10px 0;
+  margin: 0 0 .75em 0;
   line-height: 1.25em;
 }
 h6 {
-  font-size: 16px;
+  font-size: 1rem;
   color: #005a9c;
   text-transform: uppercase;
-  margin: 0 0 15px 0;
+  margin: 0 0 1em 0;
 }
 .xlarge-text {
-  font-size: 42px;
+  font-size: 2.625rem;
 }
 .large-text {
-  font-size: 16px;
+  font-size: 1rem;
 }
 .small-text {
-  font-size: 12px;
+  font-size: 0.75rem;
 }
 .coloredtext {
   color: #005a9c;
 }
 .uppercasetext {
-text-transform: uppercase;
+  text-transform: uppercase;
 }
 .articletype {
   text-transform: uppercase;
   color: #005a9c;
   font-family: 'Droid Sans', sans-serif;
   font-weight: 700;
-  margin: 0 0 4px 0;
+  margin: 0 0 .4em 0;
 }
 .excerpt {
-  font-size: 13px;
+  font-size: 0.8125rem;
   color:#4b4b4b;
   line-height: 1.6em;
-  margin: 5px 0;
+  margin: .4em 0;
 }
 .headline {
-  font-size: 34px;
+  font-size: 2.125rem;
   font-family: 'Droid Sans', sans-serif;
   font-weight: 700;
   margin: 0;
@@ -94,7 +94,7 @@ text-transform: uppercase;
   font-family: 'Droid Sans', sans-serif;
   font-weight: 400;
   line-height: 1.3em;
-  margin-bottom: 2px;
+  margin-bottom: .1em;
   color: #4b4b4b;
 }
 .metatext-dark {
@@ -104,7 +104,7 @@ text-transform: uppercase;
   color: #005a9c;
 }
 .metatext-byline {
-  margin: 8px 0;
+  margin: .6em 0;
   text-transform: uppercase;
 }
 .left {
@@ -115,4 +115,7 @@ text-transform: uppercase;
 }
 .center {
   text-align: center;
+}
+.uppercase {
+  text-transform: uppercase;
 }

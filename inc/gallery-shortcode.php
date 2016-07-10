@@ -1,10 +1,10 @@
 <?php
 
-/* 
+/*
  * The slick gallery shortcode.
  *
  * This implements the functionality of the slick sliding gallery shortcode.
- * 
+ *
  * @param array $attr {
  *     Attributes of the slick gallery shortcode.
  *
@@ -19,9 +19,9 @@
  * }
  * @return string HTML content to display gallery.
  */
-function slick_shortcode($attr) {
+function statesman_gallery_shortcode($attr) {
 	$post = get_post();
-	
+
 	//Create list of parameters, with defaults.
 	$atts = shortcode_atts( array(
 		'id'   => $post ? $post->ID : 0,
@@ -29,26 +29,36 @@ function slick_shortcode($attr) {
 		'link' => '',
 		'ids'  => ''
 	), $attr, 'gallery' );
-	
+
 	$id = intval( $atts['id'] );
 	/* retrieve properly sized images */
 	//If the ids field is filled, use the ids there to populate the gallery
 	if ( ! empty( $atts['ids'] ) ) {
-		$_attachments = get_posts( array( 'include' => $atts['ids'], 'post_status' => 'inherit', 'post_type' => 'attachment', 'post_mime_type' => 'image') );
+		$_attachments = get_posts( array(
+			'include' => $atts['ids'],
+			'post_status' => 'inherit',
+			'post_type' => 'attachment',
+			'post_mime_type' => 'image'
+		) );
 		$attachments = array();
 		foreach ( $_attachments as $key => $val ) {
 			$attachments[$val->ID] = $_attachments[$key];
 		}
 	//otherwise, retrieve all children of the current post
 	} else {
-		$attachments = get_children( array( 'post_parent' => $id, 'post_status' => 'inherit', 'post_type' => 'attachment', 'post_mime_type' => 'image') );
+		$attachments = get_children( array(
+			'post_parent' => $id,
+			'post_status' => 'inherit',
+			'post_type' => 'attachment',
+			'post_mime_type' => 'image'
+		) );
 	}
-  
+
 	//If those steps failed, return nothing now
 	if ( empty( $attachments ) ) {
-		return '';
+		return '&nbsp;';
 	}
-	
+
 	//If we are in a feed, return unstyled list of images
 	if ( is_feed() ) {
 		$output = "\n";
@@ -57,47 +67,29 @@ function slick_shortcode($attr) {
 		}
 		return $output;
 	}
-	
+
 	/* insert images into a template */
-	//Initial boilerplate
-	$output = '<div class="gallery-container">' .
-		'<div class="arrows-container">' .
-			'<div class="arrow-left">' .
-				'<i class="fa fa-arrow-left fa-2x"></i>' .
-			'</div>' . 
-			'<div class="arrow-right">' . 
-				'<i class="fa fa-arrow-right fa-2x"></i>' .
-			'</div>' . 
-		'</div>' . 
-		'<div class="slicktarget gallery">';
-	
+	$output = '<div class="gallery">';
+
 	//Iterate through images
 	foreach(explode(',',$atts['ids']) as $id) {
 	  $attachment = $attachments[$id];
-
-		if ( ! empty( $atts['link'] ) && $atts['link'] === 'file' ) {
-			$image_output = wp_get_attachment_link( $id, $atts['size'], false, false, false);
-		} elseif ( ! empty( $atts['link'] ) && $atts['link'] === 'none' ) {
-			$image_output = wp_get_attachment_image( $id, $atts['size'], false);
-		} else {
-			$image_output = wp_get_attachment_link( $id, $atts['size'], true, false, false);
-		}
-		
-		// If image has an excerpt make room for it
-		if($attachment->post_excerpt !== '') {
-			$output .= '<div class="slick-item"><div class="imagearea">'.$image_output.'</div>';
-			$output .= '<div class="textarea wp-caption"><span class="slick-counter"></span> — '.$attachment->post_excerpt.'</div></div>';
-		//If it doesn't don't
-		} else {
-			$output .= '<div class="slick-item">'.$image_output.'</div>';
-		}
+		$output .= '<a href="'. wp_get_attachment_url( $id ) . '" alt="' .
+						get_post( $id )->post_excerpt . '">' . // caption
+				'<div class="imagewrapper hovertext-container">' .
+					wp_get_attachment_image( $id, $atts['size'] ) .
+					'<h2 class="hovertext hovertext-small">' .
+						'<i class="fa fa-expand"></i>&ensp;Gallery — ' . count($attachments) . ' images' .
+					'</h2>' .
+				'</div>' .
+				'</a>';
 	}
-	
-	$output .= "</div></div>\n";
-	
+
+	$output .= '</div>';
+
 	return $output;
 }
 remove_shortcode('gallery');
-add_shortcode('gallery', 'slick_shortcode');
+add_shortcode('gallery', 'statesman_gallery_shortcode');
 
 ?>

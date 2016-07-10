@@ -1,15 +1,18 @@
-.photo {
-  margin-bottom: 5px;
+.imagewrapper {
+  position: relative;
+  padding-bottom: 66.666%;
+  height: 0;
+  overflow: hidden;
 }
-.photo img {
+.imagewrapper img {
   width: 100%;
+  height: auto;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
-.photo-feature {
-  width: 550px;
-}
-.photo-half {
-  width: 240px;
-}
+
 .videowrapper {
   position: relative;
   padding-bottom: 56.25%; /* 16:9 */
@@ -21,4 +24,14 @@
   left: 0;
   width: 100%;
   height: 100%;
+}
+
+.articletext .gallery {
+  margin: 1.5em 0;
+}
+.gallery a {
+  display: none;
+}
+.gallery a:first-child {
+  display: block;
 }

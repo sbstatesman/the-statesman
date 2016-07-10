@@ -46,10 +46,13 @@
 								<i class="fa fa-play"></i>
 							</div>
 					</figure>
+				</a>
 					<div class="block">
-						<h5 id="post-<?php the_ID(); ?>">
-							<?php the_title(); ?>
-						</h5>
+						<a href="<?php the_permalink(); ?>">
+							<h5 id="post-<?php the_ID(); ?>">
+								<?php the_title(); ?>
+							</h5>
+						</a>
 					</div>
 				</a>
 			</div>
@@ -58,31 +61,33 @@
 	</main>
 
 	<sidebar class="sidebar">
-		<h6><a href="<?php echo esc_url(get_category_link($multimedia)); ?>">Latest Multimedia</a></h6>
-		<?php $args = array( 'posts_per_page' => 6, 'tax_query' => array(array(
-			'taxonomy' => 'post_format',
-			'field' => 'slug',
-			'terms' => array('post-format-video', 'post-format-gallery', 'post-format-audio')
-		))) ?>
-		<?php $myposts = new WP_Query( $args ); ?>
-		<?php while ( $myposts->have_posts() ) : ?>
-		<?php $myposts->the_post(); ?>
-		<?php $format  = get_post_format(get_the_ID())?>
-		<article class="hmedia hmedia-list">
-			<figure class="thumbnail thumbnail-xsmall">
-				<div class="imagewrapper">
-					<?php if ( has_post_thumbnail()) {the_post_thumbnail('thumbnail');} ?>
+		<div class="sidebar-item">
+			<h6><a href="<?php echo esc_url(get_category_link($multimedia)); ?>">Latest Multimedia</a></h6>
+			<?php $args = array( 'posts_per_page' => 6, 'tax_query' => array(array(
+				'taxonomy' => 'post_format',
+				'field' => 'slug',
+				'terms' => array('post-format-video', 'post-format-gallery', 'post-format-audio')
+			))) ?>
+			<?php $myposts = new WP_Query( $args ); ?>
+			<?php while ( $myposts->have_posts() ) : ?>
+			<?php $myposts->the_post(); ?>
+			<?php $format  = get_post_format(get_the_ID())?>
+			<article class="hmedia hmedia-list">
+				<figure class="thumbnail thumbnail-xsmall">
+					<div class="imagewrapper">
+						<?php if ( has_post_thumbnail()) {the_post_thumbnail('thumbnail');} ?>
+					</div>
+				</figure>
+				<div class="block">
+					<div class="articletype small-text"><?php echo $format ?></div>
+					<h5 id="post-<?php the_ID(); ?>">
+						<a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
+					</h5>
 				</div>
-			</figure>
-			<div class="block">
-				<div class="articletype small-text"><?php echo $format ?></div>
-				<h5 id="post-<?php the_ID(); ?>">
-					<a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
-				</h5>
-			</div>
-		</article>
-		<?php endwhile; ?>
-		<?php wp_reset_postdata(); ?>
+			</article>
+			<?php endwhile; ?>
+			<?php wp_reset_postdata(); ?>
+		</div>
 	</sidebar>
 </section>
 

@@ -77,8 +77,11 @@ add_action( 'wp_enqueue_scripts', 'enqueue_and_register_styles' );
 
 function enqueue_and_register_scripts() {
   wp_register_script( 'slick', get_template_directory_uri() . '/js/slick.min.js', array('jquery'), null, true);
-  wp_enqueue_script( 'footer-scripts', get_template_directory_uri() . '/js/footer.js', array('slick'), null, true);
-  if (is_page_template( 'page-templates/featured.php' ) ) {
+  wp_enqueue_script( 'footer-scripts', get_template_directory_uri() . '/js/footer.js', array('jquery'), null, true);
+	if ( is_category( 'multimedia' ) ) {
+		wp_enqueue_script( 'slick' );
+	}
+  if ( is_page_template( 'page-templates/featured.php' ) ) {
     wp_enqueue_script( 'featured', get_template_directory_uri() . '/js/featured.js', array('slick'), null, true);
   }
 }
@@ -567,7 +570,7 @@ add_action( 'widgets_init', 'statesman_load_widget' );
 
 
 require( get_template_directory() . '/inc/staff-shortcode.php' );
-require( get_template_directory() . '/inc/slick-shortcode.php' );
+require( get_template_directory() . '/inc/gallery-shortcode.php' );
 require( get_template_directory() . '/inc/issuu.php' );
 
 ?>
